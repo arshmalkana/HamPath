@@ -1,0 +1,49 @@
+{
+  "lab": "LAB-30",
+  "steps": {
+    "explore-absorb": {
+      "title": "Escape the D region",
+      "prompt": "Step up through the bands until a sky wave gets through at midday.",
+      "config": {
+        "f": 1.8,
+        "angle": 20,
+        "hour": 12,
+        "bands": [
+          1.8,
+          3.5,
+          7,
+          14
+        ],
+        "controls": {
+          "f": true,
+          "angle": false,
+          "hour": false
+        }
+      },
+      "goal": "!absorbed && refracted",
+      "goal_text": "Sky wave gets through",
+      "success": "40 m gets past the D region; 160 m and 80 m are soaked up in daylight."
+    },
+    "explore-night": {
+      "title": "Wait for dark",
+      "prompt": "Change the time until 160 m comes back.",
+      "config": {
+        "f": 1.8,
+        "angle": 20,
+        "hour": 12,
+        "controls": {
+          "f": false,
+          "angle": false,
+          "hour": {
+            "min": 0,
+            "max": 23.5,
+            "step": 0.5
+          }
+        }
+      },
+      "goal": "!absorbed && refracted",
+      "goal_text": "160 m open",
+      "success": "After dark the D region disappears, and 160 m reaches far again."
+    }
+  }
+}

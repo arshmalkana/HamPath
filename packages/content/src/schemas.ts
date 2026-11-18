@@ -450,6 +450,51 @@ export const SwrConfigSchema = z.object({
     repair: z.boolean().optional(),
   }),
 });
+const PropRange = z.union([z.object({ min: z.number().min(0), max: z.number().positive(), step: z.number().positive() }), z.literal(false)]);
+export const IonosphereConfigSchema = z.object({
+  f: z.number().positive(),
+  angle: z.number().min(0).max(90),
+  hour: z.number().min(0).max(24),
+  sfi: z.number().min(60).max(300).optional(),
+  rx: z.number().positive().optional(),
+  bands: z.array(z.number().positive()).min(2).optional(),
+  controls: z.object({ f: z.boolean(), angle: PropRange, hour: PropRange }),
+});
+export const SolarCycleConfigSchema = z.object({ year: z.number().min(0).max(11) });
+export const VhfConfigSchema = z.object({
+  band: z.union([z.literal(6), z.literal(2), z.literal(0.7)]),
+  height: z.number().min(0),
+  inversion: z.boolean().optional(),
+  sporadicE: z.boolean().optional(),
+  aurora: z.boolean().optional(),
+  meteors: z.boolean().optional(),
+  heading: z.number().min(0).max(359).optional(),
+  controls: z.object({
+    band: z.boolean(),
+    height: PropRange,
+    inversion: z.boolean(),
+    sporadicE: z.boolean(),
+    aurora: z.boolean(),
+    meteors: z.boolean(),
+    heading: z.boolean(),
+  }),
+});
+const LonLatSchema = z.tuple([z.number().min(-180).max(180), z.number().min(-90).max(90)]);
+export const WorldClockConfigSchema = z.discriminatedUnion("mode", [
+  z.object({
+    mode: z.literal("propagation"),
+    date: z.string(),
+    from: LonLatSchema,
+    to: LonLatSchema,
+    fromLabel: z.string(),
+    toLabel: z.string(),
+    sfi: z.number().min(60).max(300).optional(),
+    utc: z.number().min(0).max(24),
+    f: z.number().positive(),
+    bands: z.array(z.number().positive()).min(2),
+    controls: z.object({ utc: z.boolean(), f: z.boolean() }),
+  }),
+]);
 const PatternAntenna = z.enum(["isotropic", "dipole", "yagi"]);
 export const PatternConfigSchema = z.object({
   antenna: PatternAntenna,
@@ -465,6 +510,10 @@ export const LAB_SCHEMAS: Record<string, { config: z.ZodType; variables: string[
   "LAB-13": { config: DiagramConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-13"]! },
   "LAB-14": { config: SpectrumConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-14"]! },
   "LAB-28": { config: AntennaConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-28"]! },
+  "LAB-30": { config: IonosphereConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-30"]! },
+  "LAB-31": { config: SolarCycleConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-31"]! },
+  "LAB-32": { config: VhfConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-32"]! },
+  "LAB-12": { config: WorldClockConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-12"]! },
   "LAB-26": { config: FeedlineConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-26"]! },
   "LAB-27": { config: SwrConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-27"]! },
   "LAB-29": { config: PatternConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-29"]! },

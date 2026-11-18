@@ -24,7 +24,11 @@
   lessons: ["2.05", "3.14"]
   default_config: { mode: keyer, target: K, keyer: false, controls: { keyer: true } }
 - { id: LAB-11, name: Emergency Net Scenario, component: null, lessons: ["1.11", "2.08"] }
-- { id: LAB-12, name: World Map & Clock, component: null, lessons: ["2.09", "7.06"] }
+- id: LAB-12
+  name: World Map & Clock
+  component: WorldClockLab
+  lessons: ["2.09", "7.06"]
+  default_config: { mode: propagation, date: "2026-03-20T00:00:00Z", from: [-75.7, 45.4], to: [-0.1, 51.5], fromLabel: Ottawa, toLabel: London, sfi: 150, utc: 12, f: 14, bands: [3.5, 7, 14, 21, 28], controls: { utc: true, f: false } }
 - id: LAB-13
   name: Block-Diagram Builder
   component: BlockDiagramLab
@@ -128,9 +132,21 @@
   component: PatternLab
   lessons: ["6.07", "6.09"]
   default_config: { antenna: dipole, orientation: horizontal, parasitic: none, antennas: [isotropic, dipole, yagi], controls: { antenna: true, orientation: true, rx: false, parasitic: false } }
-- { id: LAB-30, name: Ionosphere Simulator, component: null, lessons: ["7.01", "7.02", "7.03", "7.04", "7.06"] }
-- { id: LAB-31, name: Solar Cycle Dial, component: null, lessons: ["7.05"] }
-- { id: LAB-32, name: VHF Propagation Sandbox, component: null, lessons: ["7.07", "7.08"] }
+- id: LAB-30
+  name: Ionosphere Simulator
+  component: IonosphereLab
+  lessons: ["7.01", "7.02", "7.03", "7.04"]
+  default_config: { f: 7, angle: 20, hour: 12, sfi: 120, bands: [1.8, 3.5, 7, 14, 21, 28, 50, 146], controls: { f: false, angle: false, hour: false } }
+- id: LAB-31
+  name: Solar Cycle Dial
+  component: SolarCycleLab
+  lessons: ["7.05"]
+  default_config: { year: 0 }
+- id: LAB-32
+  name: VHF Propagation Sandbox
+  component: VhfLab
+  lessons: ["7.07", "7.08"]
+  default_config: { band: 2, height: 10, heading: 180, controls: { band: false, height: false, inversion: false, sporadicE: false, aurora: false, meteors: false, heading: false } }
 - { id: LAB-33, name: Interference Detective, component: null, lessons: ["1.25", "8.01", "8.02", "8.03", "8.04"] }
 - { id: LAB-34, name: Filter Designer, component: null, lessons: ["3.01", "8.05"] }
 - { id: LAB-35, name: Exam Simulator, component: null, lessons: [] }

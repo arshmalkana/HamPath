@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-007-005-001:
+  The more sunspots there are, the lesser the ionization: More sunspots mean more ionization, not less.
+  Unless there are sunspots, the ionization is zero: There's always some ionization from sunlight.
+  They have no effect: Sunspots have a big effect.
+B-007-005-002:
+  17 years: 17 years is too long.
+  5 years: 5 years is too short.
+  7 years: 7 years is too short.
+B-007-005-003:
+  A measure of the tilt of the Earth's ionosphere on the side toward the sun: Solar flux isn't a tilt.
+  The number of sunspots on the side of the sun facing the Earth: That's the sunspot number.
+  The density of the sun's magnetic field: It isn't the magnetic field density.
+B-007-005-004:
+  Another name for the smoothed sunspot number (SSN): It isn't the smoothed sunspot number.
+  A measure of solar activity that compares daily readings with results from the last six months: It isn't a six-month comparison.
+  A measure of solar activity that is taken annually: It's measured daily, not annually.
+B-007-005-005:
+  The F2 region of the ionosphere: The F2 region is one part; solar radiation drives it all.
+  The F1 region of the ionosphere: The F1 region is one part.
+  Lunar tidal effects: Lunar tides aren't the influence.
+B-007-005-006:
+  Solar wind: Solar wind is part of it, but electromagnetic and particle radiation is the answer.
+  Infrared radiation: Infrared doesn't ionize.
+  Coronal mass ejections (CME): CMEs are occasional, not daily.
+B-007-005-007:
+  High frequency radio signals are absorbed: HF signals aren't absorbed more at high sunspot numbers.
+  Frequencies up to 100 MHz or higher are normally usable for long-distance communication: 100 MHz is too high.
+  High frequency radio signals become weak and distorted: HF gets better, not weak and distorted.
+B-007-005-008:
+  the ionosphere: The ionosphere is affected by the sun; the sun is the cause.
+  auroras: Auroras don't affect all frequencies.
+  meteor showers: Meteors don't affect all frequencies.
+B-007-005-009:
+  3 years: 3 years is too short.
+  6 years: 6 years is too short.
+  1 year: 1 year is far too short.
+B-007-005-010:
+  the power of the transmitted signal: Transmitter power doesn't change the ionosphere.
+  the receiver sensitivity: Receiver sensitivity doesn't change the ionosphere.
+  upper atmosphere weather conditions: Weather is below the ionosphere.
+B-007-005-011:
+  Magnetic pole drift cycle: Magnetic pole drift isn't cyclical like this.
+  Jet stream cycle: The jet stream doesn't affect HF.
+  Auroral cycle: Auroras follow the solar cycle; they don't cause it.

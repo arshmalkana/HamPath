@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-007-007-001:
+  The F2 region: F2 matters more on HF.
+  The F1 region: F1 isn't the main 6 m mode.
+  The D region: The D region absorbs; it doesn't propagate 6 m.
+B-007-007-002:
+  It causes them to travel shorter distances: It extends range, not shortens it.
+  It distorts the signal: It doesn't distort the signal.
+  It interferes with short-range communications: It doesn't interfere with short-range contacts.
+B-007-007-003:
+  Lightning between the transmitting and receiving stations: Lightning doesn't cause ducts.
+  An aurora to the north: Aurora is a different mode.
+  A very low-pressure area: Low pressure isn't the cause; inversions are.
+B-007-007-004:
+  Scattered wave: A scattered wave is redirected in many directions.
+  Ground wave: Ground wave follows the surface.
+  Ionospheric wave: The ionospheric wave goes up to the ionosphere.
+B-007-007-005:
+  Occasional duct formation in the E region: Ducts form in the troposphere, not the E region.
+  Variations in E-region height caused by sunspot variations: It's patches of ionization, not height variations.
+  A brief decrease in VHF signals caused by sunspot variations: It's an enhancement, not a decrease.
+B-007-007-006:
+  160 metres: 160 m isn't where sporadic E stands out.
+  20 metres: 20 m isn't where it stands out.
+  2 metres: 2 m sees it only rarely.
+B-007-007-007:
+  East: East isn't toward the aurora.
+  West: West isn't toward the aurora.
+  South: South points away from the aurora.
+B-007-007-008:
+  At F-region height: Aurora occurs lower, at E-region height.
+  In the equatorial band: Aurora is near the poles, not the equator.
+  At D-region height: D-region height is too low.
+B-007-007-009:
+  CW, because it resists fading: CW does fade in aurora; its advantage is staying readable when distorted.
+  FM, because it is readable even when distorted: FM becomes unreadable when distorted.
+  FM, because it resists fading: FM doesn't resist auroral fading.
+B-007-007-010:
+  2400 km: That's 800 km, not 2400 km.
+  3200 km: 3200 km is far too far.
+  1600 km: 1600 km is too far.
+B-007-007-011:
+  Faraday rotation: Faraday rotation changes polarization.
+  D-region refraction: The D region doesn't refract VHF.
+  Ionospheric refraction: Ionospheric refraction isn't normal on VHF.

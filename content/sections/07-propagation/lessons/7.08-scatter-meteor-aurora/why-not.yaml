@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-007-008-001:
+  Sky-wave with low radiation angle: A low-angle sky wave lands beyond the skip zone.
+  Ducting: Ducting is a VHF mode.
+  Ground wave: Ground wave doesn't reach the skip zone.
+B-007-008-002:
+  Ground wave: Ground wave isn't weak and distorted near the MUF.
+  Line-of-sight: Line of sight isn't involved on HF skip.
+  Ducting: Ducting is VHF.
+B-007-008-003:
+  Tropospheric ducting: Ducting depends on inversions, not small variations.
+  Ionospheric scatter: The troposphere isn't ionized.
+  Sporadic-E: Sporadic E is in the ionosphere.
+B-007-008-004:
+  Auroral activity and changes in the Earth's magnetic field: Aurora is a different mode.
+  Propagation through ground waves that absorb much of the signal: Ground waves aren't involved.
+  The state of the E-region at the point of refraction: The E region's state isn't the reason.
+B-007-008-005:
+  Propagation through ground waves absorbs most of the signal energy: Ground waves aren't involved.
+  The F region of the ionosphere absorbs most of the signal energy: The F region doesn't absorb most of it.
+  Auroral activity absorbs most of the signal energy: Aurora isn't the reason.
+B-007-008-006:
+  Short-path skip: Short-path skip lands beyond the skip zone.
+  Sporadic-E skip: Sporadic E is a different mode.
+  Tropospheric scatter: Tropospheric scatter is VHF/UHF.
+B-007-008-007:
+  When the sunspot cycle is at a minimum and D-region absorption is high: High D absorption isn't the sign.
+  At night when propagation is poor: Poor night conditions aren't the sign.
+  When the F1 and F2 regions are combined: F1 and F2 combining isn't the sign.
+B-007-008-008:
+  Ionized patches in the troposphere: The troposphere isn't ionized.
+  Increased daytime ionization of the D region: The D region doesn't help VHF.
+  Local cloud cover: Clouds aren't the cause.
+B-007-008-009:
+  40 metres: 40 m is too low for meteor scatter.
+  15 metres: 15 m is too low.
+  160 metres: 160 m is far too low.
+B-007-008-010:
+  The wave is gradually bent: Gradual bending is refraction.
+  A portion of the wave abruptly changes direction: An abrupt change of direction is reflection.
+  The wave is absorbed by the medium: Absorption takes energy away.
+B-007-008-011:
+  10 MHz to 30 MHz: 10 to 30 MHz is too low.
+  3 MHz to 10 MHz: 3 to 10 MHz is too low.
+  100 MHz to 150 MHz: 100 to 150 MHz is above the sweet spot.

@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-007-003-001:
+  Shadow zone: Shadow zone isn't the term for this.
+  Scatter zone: Scatter zone isn't the term.
+  Propagation zone: Propagation zone isn't the term.
+B-007-003-002:
+  12 000 km: 12 000 km would take several hops.
+  2 000 km: 2000 km is the E region's limit.
+  300 km: 300 km is about the F2 region's height.
+B-007-003-003:
+  300 km: 300 km is far too short.
+  4000 km: 4000 km is the F2 region.
+  1000 km: 1000 km is too short.
+B-007-003-004:
+  a zone of silence caused by lost sky waves: The skip zone isn't caused by lost sky waves.
+  a zone between any two refracted waves: It's between the ground wave and the first sky wave, not any two.
+  a zone between the antenna and the return of the first refracted wave: Close to the antenna there's ground wave.
+B-007-003-005:
+  Sporadic "E": Sporadic E is mostly a 6 m mode, over shorter distances.
+  Back scatter: Back scatter is weak and short range.
+  Tropospheric scatter: Tropospheric scatter is VHF and short range.
+B-007-003-006:
+  It decreases, due to the decrease in critical frequency: It decreases, but because of geometry, not the critical frequency.
+  It increases, due to the geometry of the signal path: A higher angle makes skip shorter, not longer.
+  It increases, due to the increase in critical frequency: A higher angle makes skip shorter.
+B-007-003-007:
+  Refraction: Refraction happens in the ionosphere, not at the ground.
+  Diffraction: Diffraction bends around obstacles.
+  Scattering: Scattering sends energy many ways.
+B-007-003-008:
+  maximum distance reached by a signal after one reflection by the ionosphere: Skip distance is the minimum, not the maximum.
+  minimum distance reached by a ground-wave signal: Ground wave isn't skip.
+  maximum distance a signal will travel by both a ground wave and reflected wave: That's not the definition.
+B-007-003-009:
+  Selective fading of local signals: Fading isn't what causes skip.
+  High gain antennas are being used: Antenna gain doesn't cause skip.
+  Local cloud cover: Clouds don't cause skip.
+B-007-003-010:
+  polarization is vertical: Polarization doesn't set skip distance.
+  ionosphere is most densely ionized: Denser ionization lets higher frequencies return; it doesn't lengthen the hop.
+  signal given out is strongest: Signal strength doesn't change the geometry.
+B-007-003-011:
+  It increases, due to the increase in critical frequency: It increases, but because of geometry, not critical frequency.
+  It decreases, due to the geometry of the signal path: A higher region makes skip longer.
+  It decreases, due to the increase in critical frequency: A higher region makes skip longer.

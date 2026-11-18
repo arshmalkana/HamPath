@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-007-002-001:
+  Lightning ionizing the outer atmosphere: Lightning doesn't create the ionosphere.
+  Release of fluorocarbons into the atmosphere: Fluorocarbons don't create it.
+  Temperature changes ionizing the outer atmosphere: Temperature doesn't ionize the atmosphere.
+B-007-002-002:
+  Microwave: Microwaves aren't the main cause.
+  Ionized particles: Particles play a part, but ultraviolet does most of it.
+  Infrared: Infrared doesn't ionize.
+B-007-002-003:
+  The E region: E is above D.
+  The F region: F is highest.
+  The A region: There's no A region.
+B-007-002-004:
+  The F2 region: F2 is the most useful.
+  The F1 region: F1 is useful by day.
+  The E region: E is useful, especially for sporadic E.
+B-007-002-005:
+  The E region: E doesn't split.
+  The D region: D doesn't split.
+  The G region: There's no G region.
+B-007-002-006:
+  Dawn: At dawn the sun is only just starting.
+  Midnight: At midnight ionization is falling.
+  Dusk: At dusk the sun is setting.
+B-007-002-007:
+  Just after noon: Just after noon is near the maximum.
+  Just after dusk: After dusk there's still some ionization left.
+  Shortly before midnight: Before midnight there's still more to lose.
+B-007-002-008:
+  Because it exists only at night: F2 exists day and night.
+  Because it is the lowest ionospheric region: F2 is the highest, not the lowest.
+  Because it does not absorb radio waves as much as other ionospheric regions: Absorption isn't why; its height gives the longest hop.
+B-007-002-009:
+  Because of signal scattering: Scattering isn't the reason.
+  Because of E region ionization: E ionization refracts, not absorbs.
+  Because of E region absorption: It's the D region that absorbs.
+B-007-002-010:
+  D1 and D2: There's no D1 and D2.
+  E1 and E2: There's no E1 and E2.
+  B1 and B2: There's no B1 and B2.
+B-007-002-011:
+  Below the D region: The D region is below E.
+  Above the C region: There's no C region.
+  Above the F region: E is below F.

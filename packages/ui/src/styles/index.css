@@ -2426,3 +2426,64 @@ circle.rf-person.rf-safe {
   display: grid;
   justify-items: center;
 }
+
+/* ================================================================ propagation labs */
+.worldmap-path {
+  fill: none;
+  stroke: var(--shack-lamp);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+.iono-layer {
+  fill: var(--shack-readout);
+}
+.iono-d {
+  fill: var(--shack-fault);
+}
+.iono-ground {
+  stroke: var(--shack-part);
+  stroke-width: 3;
+  fill: none;
+}
+.iono-groundwave {
+  fill: var(--shack-ok);
+  fill-opacity: 0.25;
+}
+.iono-ray {
+  fill: none;
+  stroke: var(--shack-lamp);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+.iono-ray-dead {
+  stroke: var(--shack-fault);
+}
+.iono-skip {
+  fill: var(--shack-fault);
+  fill-opacity: 0.12;
+}
+.sun-disc {
+  fill: var(--shack-lamp);
+}
+.sun-spot {
+  fill: var(--shack-panel);
+}
+.vhf-air {
+  fill: var(--shack-well);
+}
+.vhf-duct {
+  fill: var(--shack-readout);
+  fill-opacity: 0.18;
+}
+.vhf-es {
+  fill: var(--shack-readout);
+  fill-opacity: 0.55;
+}
+.vhf-aurora {
+  fill: var(--shack-ok);
+  fill-opacity: 0.35;
+}
+.vhf-meteor {
+  stroke: var(--shack-lamp);
+  stroke-width: 2;
+}

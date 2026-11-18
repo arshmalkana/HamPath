@@ -1,0 +1,71 @@
+{
+  "lab": "LAB-30",
+  "steps": {
+    "explore-noon": {
+      "title": "When is it strongest?",
+      "prompt": "Find the time of day when ionization is highest.",
+      "config": {
+        "f": 7,
+        "angle": 20,
+        "hour": 4,
+        "controls": {
+          "f": false,
+          "angle": false,
+          "hour": {
+            "min": 0,
+            "max": 23.5,
+            "step": 0.5
+          }
+        }
+      },
+      "goal": "ionization >= 0.99",
+      "goal_text": "Peak ionization",
+      "success": "Midday: the sun is highest and ionization peaks."
+    },
+    "explore-dawn": {
+      "title": "When is it weakest?",
+      "prompt": "Find the time of least ionization.",
+      "config": {
+        "f": 7,
+        "angle": 20,
+        "hour": 0,
+        "controls": {
+          "f": false,
+          "angle": false,
+          "hour": {
+            "min": 0,
+            "max": 23.5,
+            "step": 0.5
+          }
+        }
+      },
+      "goal": "ionization <= 0.05",
+      "goal_text": "Least ionization",
+      "hints": [
+        "Keep going through the night."
+      ],
+      "success": "Shortly before dawn: after a whole night without sunlight."
+    },
+    "explore-split": {
+      "title": "Watch the F region split",
+      "prompt": "Move the clock into daytime and watch the F region.",
+      "config": {
+        "f": 7,
+        "angle": 20,
+        "hour": 2,
+        "controls": {
+          "f": false,
+          "angle": false,
+          "hour": {
+            "min": 0,
+            "max": 23.5,
+            "step": 0.5
+          }
+        }
+      },
+      "goal": "split",
+      "goal_text": "F1 and F2 formed",
+      "success": "By day the F region splits into F1 and F2, and the D and E regions appear below."
+    }
+  }
+}

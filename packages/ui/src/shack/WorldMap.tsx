@@ -10,10 +10,19 @@ export interface MapMarker {
   label: string;
 }
 
+export interface MapPath {
+  /** [lon, lat] points along the path. */
+  points: [number, number][];
+  label?: string;
+  /** Draw dashed (e.g. the long path). */
+  dashed?: boolean;
+}
+
 export interface WorldMapProps {
   /** Time shown (sets the day/night shading and grey line). */
   date: Date;
   markers?: MapMarker[];
+  paths?: MapPath[];
   label?: string;
 }
 
@@ -25,7 +34,7 @@ const H = 360;
  * terminator, where HF propagation is often enhanced) drawn as a dashed lamp-coloured line.
  * Markers are labelled on the map and listed in the accessible description.
  */
-export function WorldMap({ date, markers = [], label = "World map" }: WorldMapProps) {
+export function WorldMap({ date, markers = [], paths: routes = [], label = "World map" }: WorldMapProps) {
   const paths = useMemo(() => worldPaths(W, H, date), [date]);
   const utc = date.toISOString().slice(11, 16);
   const desc = `UTC ${utc}. Night side shaded; grey line dashed.${markers.length ? ` Stations: ${markers.map((m) => m.label).join(", ")}.` : ""}`;
@@ -37,6 +46,20 @@ export function WorldMap({ date, markers = [], label = "World map" }: WorldMapPr
         <path className="worldmap-land" d={paths.land} />
         <path className="worldmap-night" d={paths.night} />
         <path className="worldmap-grey" d={paths.night} />
+        {routes.map((r, i) => {
+          // Break the line where it wraps around the map's edge.
+          let d = "";
+          let prevX: number | null = null;
+          for (const [lon, lat] of r.points) {
+            const [x, y] = paths.project(lon, lat);
+            d +=
+              prevX === null || Math.abs(x - prevX) > W / 2
+                ? `M${x.toFixed(1)},${y.toFixed(1)}`
+                : `L${x.toFixed(1)},${y.toFixed(1)}`;
+            prevX = x;
+          }
+          return <path key={i} className="worldmap-path" d={d} strokeDasharray={r.dashed ? "6 5" : undefined} />;
+        })}
         {markers.map((m) => {
           const [x, y] = paths.project(m.lon, m.lat);
           return (

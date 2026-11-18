@@ -1,0 +1,78 @@
+{
+  "lab": "LAB-12",
+  "steps": {
+    "explore-10m": {
+      "title": "10 m to Europe",
+      "prompt": "Find a UTC time when 28 MHz is below the MUF on this path.",
+      "config": {
+        "mode": "propagation",
+        "date": "2026-03-20T00:00:00Z",
+        "from": [
+          -75.7,
+          45.4
+        ],
+        "to": [
+          -0.1,
+          51.5
+        ],
+        "fromLabel": "Ottawa",
+        "toLabel": "London",
+        "sfi": 150,
+        "utc": 2,
+        "f": 28,
+        "bands": [
+          3.5,
+          7,
+          14,
+          21,
+          28
+        ],
+        "controls": {
+          "utc": true,
+          "f": false
+        }
+      },
+      "goal": "open",
+      "goal_text": "10 m open",
+      "hints": [
+        "The MUF peaks when the path's midpoint is near local noon: mid-afternoon UTC."
+      ],
+      "success": "Around 14 to 15 UTC the midpoint is at local noon and the MUF tops 28 MHz."
+    },
+    "explore-80m": {
+      "title": "80 m to Europe",
+      "prompt": "Find a time when 3.5 MHz gets through.",
+      "config": {
+        "mode": "propagation",
+        "date": "2026-03-20T00:00:00Z",
+        "from": [
+          -75.7,
+          45.4
+        ],
+        "to": [
+          -0.1,
+          51.5
+        ],
+        "fromLabel": "Ottawa",
+        "toLabel": "London",
+        "sfi": 150,
+        "utc": 15,
+        "f": 3.5,
+        "bands": [
+          3.5,
+          7,
+          14,
+          21,
+          28
+        ],
+        "controls": {
+          "utc": true,
+          "f": false
+        }
+      },
+      "goal": "open",
+      "goal_text": "80 m open",
+      "success": "Away from midday the D region thins and 80 m opens; at night it's the best band of all."
+    }
+  }
+}

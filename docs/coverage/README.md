@@ -6,9 +6,9 @@
 | --- | --- | --- |
 | Questions in the bank | 984 | |
 | Mapped to a lesson | 984 | 100% |
-| Taught on ≥ 1 card | 544 | 55.3% |
-| 3 Why not? notes | 544 | 55.3% |
-| Lessons authored | 53 / 100 | 53% |
+| Taught on ≥ 1 card | 631 | 64.1% |
+| 3 Why not? notes | 631 | 64.1% |
+| Lessons authored | 61 / 100 | 61% |
 
 Every question maps to exactly one lesson by its ID (B-005-004-001 → lesson 5.04).
 
@@ -20,5 +20,5 @@ Every question maps to exactly one lesson by its ID (B-005-004-001 → lesson 5.
 | [4. Circuit Components](section-4.md) | 6 | 63 | 63 (100%) | 63 (100%) |
 | [5. Basic Electronics & Theory](section-5.md) | 13 | 142 | 142 (100%) | 142 (100%) |
 | [6. Feedlines & Antenna Systems](section-6.md) | 13 | 140 | 140 (100%) | 140 (100%) |
-| [7. Radio Wave Propagation](section-7.md) | 8 | 87 | 0 (0%) | 0 (0%) |
+| [7. Radio Wave Propagation](section-7.md) | 8 | 87 | 87 (100%) | 87 (100%) |
 | [8. Interference & Suppression](section-8.md) | 5 | 55 | 0 (0%) | 0 (0%) |

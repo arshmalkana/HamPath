@@ -8,158 +8,158 @@
 
 Lab: LAB-30
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-007-001-001 | What type of wave propagation usually occurs between two nearby VHF transceivers? | — | 0/3 |  |
-| B-007-001-002 | What does near vertical incidence sky-wave (NVIS) propagation enable? | — | 0/3 |  |
-| B-007-001-003 | When a signal is returned to Earth by the ionosphere, what is this called? | — | 0/3 |  |
-| B-007-001-004 | On VHF and higher frequencies, why does the radio horizon extend beyond the visible horizon? | — | 0/3 |  |
-| B-007-001-005 | What type of wave is commonly known as sky wave? | — | 0/3 |  |
-| B-007-001-006 | What portion of a radio signal is directly affected by the surface of the Earth? | — | 0/3 |  |
-| B-007-001-007 | What makes radiocommunication out to 200 km possible at lower HF frequencies during the daytime? | — | 0/3 |  |
-| B-007-001-008 | Considering the bands from 160 metres to 6 metres, which band offers the greatest ground-wave propagation distance? | — | 0/3 |  |
-| B-007-001-009 | What type of radio wave follows a path from the transmitter to the ionosphere and back to Earth? | — | 0/3 |  |
-| B-007-001-010 | Reception of high frequency (HF) radio waves beyond 4000 km is generally made possible by: | — | 0/3 |  |
+| B-007-001-001 | What type of wave propagation usually occurs between two nearby VHF transceivers? | 06-explore-vhf, 07-los | 3/3 |  |
+| B-007-001-002 | What does near vertical incidence sky-wave (NVIS) propagation enable? | 04-explore-nvis, 05-sky | 3/3 |  |
+| B-007-001-003 | When a signal is returned to Earth by the ionosphere, what is this called? | 05-sky | 3/3 |  |
+| B-007-001-004 | On VHF and higher frequencies, why does the radio horizon extend beyond the visible horizon? | 07-los | 3/3 |  |
+| B-007-001-005 | What type of wave is commonly known as sky wave? | 05-sky | 3/3 |  |
+| B-007-001-006 | What portion of a radio signal is directly affected by the surface of the Earth? | 02-explore-ground, 03-ground | 3/3 |  |
+| B-007-001-007 | What makes radiocommunication out to 200 km possible at lower HF frequencies during the daytime? | 02-explore-ground, 03-ground | 3/3 |  |
+| B-007-001-008 | Considering the bands from 160 metres to 6 metres, which band offers the greatest ground-wave propagation distance? | 02-explore-ground, 03-ground | 3/3 |  |
+| B-007-001-009 | What type of radio wave follows a path from the transmitter to the ionosphere and back to Earth? | 05-sky | 3/3 |  |
+| B-007-001-010 | Reception of high frequency (HF) radio waves beyond 4000 km is generally made possible by: | 05-sky | 3/3 |  |
 
 ## 7.02 The ionosphere and its regions
 
 Lab: LAB-30
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-007-002-001 | What causes the ionosphere to form? | — | 0/3 |  |
-| B-007-002-002 | What type of solar radiation is most responsible for ionization in the outer atmosphere? | — | 0/3 |  |
-| B-007-002-003 | Which ionospheric region is closest to the Earth? | — | 0/3 |  |
-| B-007-002-004 | Which region of the ionosphere is the least useful for long-distance radio-wave propagation? | — | 0/3 |  |
-| B-007-002-005 | Which region of the ionosphere separates into two sub-regions in the daytime? | — | 0/3 |  |
-| B-007-002-006 | When is the ionosphere most ionized? | — | 0/3 |  |
-| B-007-002-007 | When is ionization at a minimum in the ionosphere? | — | 0/3 |  |
-| B-007-002-008 | Why is the F2 region mainly responsible for the longest distance radio-wave propagation? | — | 0/3 |  |
-| B-007-002-009 | What is the main reason the 160-metre and 80-metre bands tend to be useful only for short-distance communications during daylight hours? | — | 0/3 |  |
-| B-007-002-010 | During the day, what two sub-regions appear in the ionosphere? | — | 0/3 |  |
-| B-007-002-011 | What is the position of the E region in the ionosphere? | — | 0/3 |  |
+| B-007-002-001 | What causes the ionosphere to form? | 03-forming | 3/3 |  |
+| B-007-002-002 | What type of solar radiation is most responsible for ionization in the outer atmosphere? | 03-forming | 3/3 |  |
+| B-007-002-003 | Which ionospheric region is closest to the Earth? | 05-regions | 3/3 |  |
+| B-007-002-004 | Which region of the ionosphere is the least useful for long-distance radio-wave propagation? | 05-regions | 3/3 |  |
+| B-007-002-005 | Which region of the ionosphere separates into two sub-regions in the daytime? | 05-regions, 06-explore-split | 3/3 |  |
+| B-007-002-006 | When is the ionosphere most ionized? | 02-explore-noon, 03-forming | 3/3 |  |
+| B-007-002-007 | When is ionization at a minimum in the ionosphere? | 03-forming, 04-explore-dawn | 3/3 |  |
+| B-007-002-008 | Why is the F2 region mainly responsible for the longest distance radio-wave propagation? | 05-regions | 3/3 |  |
+| B-007-002-009 | What is the main reason the 160-metre and 80-metre bands tend to be useful only for short-distance communications during daylight hours? | 05-regions | 3/3 |  |
+| B-007-002-010 | During the day, what two sub-regions appear in the ionosphere? | 05-regions, 06-explore-split | 3/3 |  |
+| B-007-002-011 | What is the position of the E region in the ionosphere? | 05-regions | 3/3 |  |
 
 ## 7.03 Skip zone and hop distance
 
 Lab: LAB-30
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-007-003-001 | What term describes an area that is too distant for reception of ground waves, but too close for reception of ionospheric waves? | — | 0/3 |  |
-| B-007-003-002 | What is the maximum distance along the Earth's surface that is normally covered in one hop using the F2 region? | — | 0/3 |  |
-| B-007-003-003 | What is the maximum distance along the Earth's surface that is normally covered in one hop using the E region? | — | 0/3 |  |
-| B-007-003-004 | Skip zone is: | — | 0/3 |  |
-| B-007-003-005 | The distance to Europe from your location is approximately 5000 km. What type of high frequency (HF) propagation is the most likely to work? | — | 0/3 |  |
-| B-007-003-006 | Assuming constant ionosphere region height, how does a higher radiation angle affect skip distance? | — | 0/3 |  |
-| B-007-003-007 | On a double-hop path involving the surface of the Earth as a middle point, what phenomenon returns the radio wave to the ionosphere? | — | 0/3 |  |
-| B-007-003-008 | Skip distance is the: | — | 0/3 |  |
-| B-007-003-009 | Skip is a term associated with signals from the ionosphere. What causes skip? | — | 0/3 |  |
-| B-007-003-010 | The skip distance of a sky wave will be greatest when the: | — | 0/3 |  |
-| B-007-003-011 | How does an increase in the height of the refracting region affect skip distance? | — | 0/3 |  |
+| B-007-003-001 | What term describes an area that is too distant for reception of ground waves, but too close for reception of ionospheric waves? | 03-skip | 3/3 |  |
+| B-007-003-002 | What is the maximum distance along the Earth's surface that is normally covered in one hop using the F2 region? | 04-explore-europe, 05-hops | 3/3 |  |
+| B-007-003-003 | What is the maximum distance along the Earth's surface that is normally covered in one hop using the E region? | 05-hops | 3/3 |  |
+| B-007-003-004 | Skip zone is: | 03-skip | 3/3 |  |
+| B-007-003-005 | The distance to Europe from your location is approximately 5000 km. What type of high frequency (HF) propagation is the most likely to work? | 04-explore-europe, 05-hops | 3/3 |  |
+| B-007-003-006 | Assuming constant ionosphere region height, how does a higher radiation angle affect skip distance? | 02-explore-angle, 03-skip | 3/3 |  |
+| B-007-003-007 | On a double-hop path involving the surface of the Earth as a middle point, what phenomenon returns the radio wave to the ionosphere? | 05-hops | 3/3 |  |
+| B-007-003-008 | Skip distance is the: | 03-skip | 3/3 |  |
+| B-007-003-009 | Skip is a term associated with signals from the ionosphere. What causes skip? | 03-skip | 3/3 |  |
+| B-007-003-010 | The skip distance of a sky wave will be greatest when the: | 02-explore-angle, 03-skip | 3/3 |  |
+| B-007-003-011 | How does an increase in the height of the refracting region affect skip distance? | 03-skip | 3/3 |  |
 
 ## 7.04 Absorption and fading
 
 Lab: LAB-30
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-007-004-001 | What effect does the D region of the ionosphere have on lower frequency HF waves in the daytime? | — | 0/3 |  |
-| B-007-004-002 | Why can you not hear distant 160-metre and AM broadcast stations during daytime hours? | — | 0/3 |  |
-| B-007-004-003 | A radio transmission may follow two or more different paths during propagation, and this may result in phase differences at the receiver. What is the effect at the receiver? | — | 0/3 |  |
-| B-007-004-004 | While using a 2-metre hand-held transceiver in an urban setting, you notice that moving less than one metre can severely attenuate your received signal. What is the likely cause? | — | 0/3 |  |
-| B-007-004-005 | A transmitted radio signal reaches a receiver by both one-hop and two-hop skip paths. What can small changes in the ionosphere cause? | — | 0/3 |  |
-| B-007-004-006 | What can be done to continue HF communications during a sudden ionospheric disturbance (SID)? | — | 0/3 |  |
-| B-007-004-007 | On the VHF and UHF bands, the polarization of the receiving antenna in relation to the transmitting antenna is very important, yet on HF bands it is relatively unimportant. Why is that so? | — | 0/3 |  |
-| B-007-004-008 | What causes selective fading? | — | 0/3 |  |
-| B-007-004-009 | How does the bandwidth of a transmitted signal affect selective fading? | — | 0/3 |  |
-| B-007-004-010 | What effect do refraction, reflection and Faraday rotation have on a radio wave? | — | 0/3 |  |
-| B-007-004-011 | If a radio transmission follows two or more different paths during propagation, the received signal may degrade due to fading. What other type of degradation can occur? | — | 0/3 |  |
+| B-007-004-001 | What effect does the D region of the ionosphere have on lower frequency HF waves in the daytime? | 02-explore-absorb, 03-absorption | 3/3 |  |
+| B-007-004-002 | Why can you not hear distant 160-metre and AM broadcast stations during daytime hours? | 02-explore-absorb, 03-absorption, 04-explore-night | 3/3 |  |
+| B-007-004-003 | A radio transmission may follow two or more different paths during propagation, and this may result in phase differences at the receiver. What is the effect at the receiver? | 05-fading | 3/3 |  |
+| B-007-004-004 | While using a 2-metre hand-held transceiver in an urban setting, you notice that moving less than one metre can severely attenuate your received signal. What is the likely cause? | 05-fading | 3/3 |  |
+| B-007-004-005 | A transmitted radio signal reaches a receiver by both one-hop and two-hop skip paths. What can small changes in the ionosphere cause? | 05-fading | 3/3 |  |
+| B-007-004-006 | What can be done to continue HF communications during a sudden ionospheric disturbance (SID)? | 03-absorption | 3/3 |  |
+| B-007-004-007 | On the VHF and UHF bands, the polarization of the receiving antenna in relation to the transmitting antenna is very important, yet on HF bands it is relatively unimportant. Why is that so? | 06-polarization | 3/3 |  |
+| B-007-004-008 | What causes selective fading? | 05-fading | 3/3 |  |
+| B-007-004-009 | How does the bandwidth of a transmitted signal affect selective fading? | 05-fading | 3/3 |  |
+| B-007-004-010 | What effect do refraction, reflection and Faraday rotation have on a radio wave? | 06-polarization | 3/3 |  |
+| B-007-004-011 | If a radio transmission follows two or more different paths during propagation, the received signal may degrade due to fading. What other type of degradation can occur? | 05-fading | 3/3 |  |
 
 ## 7.05 Sunspots and the solar cycle
 
 Lab: LAB-31
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-007-005-001 | How do sunspots change the ionization of the atmosphere? | — | 0/3 |  |
-| B-007-005-002 | How long is an average sunspot cycle? | — | 0/3 |  |
-| B-007-005-003 | What is solar flux? | — | 0/3 |  |
-| B-007-005-004 | What is the solar-flux index? | — | 0/3 |  |
-| B-007-005-005 | What influences all radiocommunication beyond ground wave or line-of-sight ranges? | — | 0/3 |  |
-| B-007-005-006 | What effect of the sun's activity influences ionospheric propagation on a daily basis? | — | 0/3 |  |
-| B-007-005-007 | When sunspot numbers are high, how is propagation affected? | — | 0/3 |  |
-| B-007-005-008 | All communication frequencies throughout the spectrum are affected in varying degrees by: | — | 0/3 |  |
-| B-007-005-009 | Average duration of a solar cycle is: | — | 0/3 |  |
-| B-007-005-010 | The ability of the ionosphere to refract high frequency radio signals depends on: | — | 0/3 |  |
-| B-007-005-011 | What is the major cause of cyclical changes in HF propagation? | — | 0/3 |  |
+| B-007-005-001 | How do sunspots change the ionization of the atmosphere? | 02-explore-max, 03-sunspots | 3/3 |  |
+| B-007-005-002 | How long is an average sunspot cycle? | 03-sunspots | 3/3 |  |
+| B-007-005-003 | What is solar flux? | 04-flux | 3/3 |  |
+| B-007-005-004 | What is the solar-flux index? | 04-flux | 3/3 |  |
+| B-007-005-005 | What influences all radiocommunication beyond ground wave or line-of-sight ranges? | 06-sun | 3/3 |  |
+| B-007-005-006 | What effect of the sun's activity influences ionospheric propagation on a daily basis? | 06-sun | 3/3 |  |
+| B-007-005-007 | When sunspot numbers are high, how is propagation affected? | 02-explore-max, 03-sunspots, 05-explore-min | 3/3 |  |
+| B-007-005-008 | All communication frequencies throughout the spectrum are affected in varying degrees by: | 06-sun | 3/3 |  |
+| B-007-005-009 | Average duration of a solar cycle is: | 03-sunspots | 3/3 |  |
+| B-007-005-010 | The ability of the ionosphere to refract high frequency radio signals depends on: | 06-sun | 3/3 |  |
+| B-007-005-011 | What is the major cause of cyclical changes in HF propagation? | 03-sunspots | 3/3 |  |
 
 ## 7.06 Critical and maximum usable frequency
 
 Lab: LAB-12
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-007-006-001 | Observatories probe the ionosphere at vertical incidence. What term describes the highest frequency that a region can reflect at the time? | — | 0/3 |  |
-| B-007-006-002 | What causes the maximum usable frequency to vary? | — | 0/3 |  |
-| B-007-006-003 | What does maximum usable frequency mean? | — | 0/3 |  |
-| B-007-006-004 | Why is communication possible between two continents at a frequency above the local critical frequency? | — | 0/3 |  |
-| B-007-006-005 | What is one way to determine if the maximum usable frequency (MUF) is high enough to support 28 MHz propagation between your station and western Europe? | — | 0/3 |  |
-| B-007-006-006 | What usually happens to radio waves with frequencies below the maximum usable frequency (MUF) when they are sent into the ionosphere? | — | 0/3 |  |
-| B-007-006-007 | At what point in the solar cycle does the 20-metre band usually support worldwide propagation during daylight hours? | — | 0/3 |  |
-| B-007-006-008 | What happens daily when the solar UV radiation increases? | — | 0/3 |  |
-| B-007-006-009 | When is propagation on the 80-metre band generally the LEAST effective? | — | 0/3 |  |
-| B-007-006-010 | The optimum working frequency provides the best long-range HF communication. Compared with the maximum usable frequency (MUF), it is usually: | — | 0/3 |  |
-| B-007-006-011 | During summer daytime, which bands are the most difficult for communications beyond ground wave? | — | 0/3 |  |
+| B-007-006-001 | Observatories probe the ionosphere at vertical incidence. What term describes the highest frequency that a region can reflect at the time? | 03-muf | 3/3 |  |
+| B-007-006-002 | What causes the maximum usable frequency to vary? | 03-muf | 3/3 |  |
+| B-007-006-003 | What does maximum usable frequency mean? | 02-explore-10m, 03-muf | 3/3 |  |
+| B-007-006-004 | Why is communication possible between two continents at a frequency above the local critical frequency? | 03-muf | 3/3 |  |
+| B-007-006-005 | What is one way to determine if the maximum usable frequency (MUF) is high enough to support 28 MHz propagation between your station and western Europe? | 04-owf | 3/3 |  |
+| B-007-006-006 | What usually happens to radio waves with frequencies below the maximum usable frequency (MUF) when they are sent into the ionosphere? | 03-muf | 3/3 |  |
+| B-007-006-007 | At what point in the solar cycle does the 20-metre band usually support worldwide propagation during daylight hours? | 06-bands | 3/3 |  |
+| B-007-006-008 | What happens daily when the solar UV radiation increases? | 02-explore-10m, 03-muf | 3/3 |  |
+| B-007-006-009 | When is propagation on the 80-metre band generally the LEAST effective? | 05-explore-80m, 06-bands | 3/3 |  |
+| B-007-006-010 | The optimum working frequency provides the best long-range HF communication. Compared with the maximum usable frequency (MUF), it is usually: | 04-owf | 3/3 |  |
+| B-007-006-011 | During summer daytime, which bands are the most difficult for communications beyond ground wave? | 05-explore-80m, 06-bands | 3/3 |  |
 
 ## 7.07 VHF propagation: sporadic E and tropospheric ducting
 
 Lab: LAB-32
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-007-007-001 | Which ionospheric region most affects sky-wave propagation on the 6-metre band? | — | 0/3 |  |
-| B-007-007-002 | What effect does tropospheric bending have on 2-metre radio waves? | — | 0/3 |  |
-| B-007-007-003 | What causes tropospheric ducting of radio waves? | — | 0/3 |  |
-| B-007-007-004 | What term describes that portion of a transmitted wave kept close to the Earth's surface due to bending in the atmosphere? | — | 0/3 |  |
-| B-007-007-005 | What is a sporadic-E condition? | — | 0/3 |  |
-| B-007-007-006 | On which amateur radio band is the extended-distance propagation effect of sporadic-E most often observed? | — | 0/3 |  |
-| B-007-007-007 | In the northern hemisphere, in which direction should a directional antenna be pointed to take maximum advantage of auroral propagation? | — | 0/3 |  |
-| B-007-007-008 | Where in the ionosphere does auroral activity occur? | — | 0/3 |  |
-| B-007-007-009 | Which analog emission mode is the most reliable in auroral propagation? | — | 0/3 |  |
-| B-007-007-010 | Excluding enhanced propagation modes, what is the approximate range of normal VHF tropospheric propagation? | — | 0/3 |  |
-| B-007-007-011 | What effect is responsible for propagating a VHF signal over 800 km? | — | 0/3 |  |
+| B-007-007-001 | Which ionospheric region most affects sky-wave propagation on the 6-metre band? | 06-explore-es, 07-es | 3/3 |  |
+| B-007-007-002 | What effect does tropospheric bending have on 2-metre radio waves? | 02-explore-height, 03-tropo | 3/3 |  |
+| B-007-007-003 | What causes tropospheric ducting of radio waves? | 04-explore-duct, 05-ducting | 3/3 |  |
+| B-007-007-004 | What term describes that portion of a transmitted wave kept close to the Earth's surface due to bending in the atmosphere? | 02-explore-height, 03-tropo | 3/3 |  |
+| B-007-007-005 | What is a sporadic-E condition? | 06-explore-es, 07-es | 3/3 |  |
+| B-007-007-006 | On which amateur radio band is the extended-distance propagation effect of sporadic-E most often observed? | 06-explore-es, 07-es | 3/3 |  |
+| B-007-007-007 | In the northern hemisphere, in which direction should a directional antenna be pointed to take maximum advantage of auroral propagation? | 08-explore-aurora, 09-aurora | 3/3 |  |
+| B-007-007-008 | Where in the ionosphere does auroral activity occur? | 09-aurora | 3/3 |  |
+| B-007-007-009 | Which analog emission mode is the most reliable in auroral propagation? | 09-aurora | 3/3 |  |
+| B-007-007-010 | Excluding enhanced propagation modes, what is the approximate range of normal VHF tropospheric propagation? | 03-tropo | 3/3 |  |
+| B-007-007-011 | What effect is responsible for propagating a VHF signal over 800 km? | 04-explore-duct, 05-ducting | 3/3 |  |
 
 ## 7.08 Scatter, meteor and auroral propagation
 
 Lab: LAB-32
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-007-008-001 | What kind of unusual HF propagation allows weak signals from the skip zone to be heard? | — | 0/3 |  |
-| B-007-008-002 | If you receive a weak, distorted signal close to the maximum usable frequency, what type of propagation is probably occurring? | — | 0/3 |  |
-| B-007-008-003 | What type of VHF/UHF propagation depends upon small variations in density and water-vapour content? | — | 0/3 |  |
-| B-007-008-004 | What makes HF scatter signals often sound distorted? | — | 0/3 |  |
-| B-007-008-005 | Why are HF scatter signals usually weak? | — | 0/3 |  |
-| B-007-008-006 | What type of propagation may allow a weak high frequency (HF) signal to be heard at a distance too far for ground-wave propagation but too near for normal sky-wave propagation? | — | 0/3 |  |
-| B-007-008-007 | On the HF bands, when is scatter propagation most likely involved? | — | 0/3 |  |
-| B-007-008-008 | Tropospheric scatter frequently explains VHF/UHF communications well beyond the radio horizon. What makes this propagation mode possible? | — | 0/3 |  |
-| B-007-008-009 | Meteor scatter is most effective on what band? | — | 0/3 |  |
-| B-007-008-010 | What is the effect of scattering on a radio wave? | — | 0/3 |  |
-| B-007-008-011 | In which frequency range is meteor scatter most effective for extended-range communication? | — | 0/3 |  |
+| B-007-008-001 | What kind of unusual HF propagation allows weak signals from the skip zone to be heard? | 06-hf-scatter | 3/3 |  |
+| B-007-008-002 | If you receive a weak, distorted signal close to the maximum usable frequency, what type of propagation is probably occurring? | 06-hf-scatter | 3/3 |  |
+| B-007-008-003 | What type of VHF/UHF propagation depends upon small variations in density and water-vapour content? | 07-tropo-scatter | 3/3 |  |
+| B-007-008-004 | What makes HF scatter signals often sound distorted? | 06-hf-scatter | 3/3 |  |
+| B-007-008-005 | Why are HF scatter signals usually weak? | 06-hf-scatter | 3/3 |  |
+| B-007-008-006 | What type of propagation may allow a weak high frequency (HF) signal to be heard at a distance too far for ground-wave propagation but too near for normal sky-wave propagation? | 06-hf-scatter | 3/3 |  |
+| B-007-008-007 | On the HF bands, when is scatter propagation most likely involved? | 06-hf-scatter | 3/3 |  |
+| B-007-008-008 | Tropospheric scatter frequently explains VHF/UHF communications well beyond the radio horizon. What makes this propagation mode possible? | 07-tropo-scatter | 3/3 |  |
+| B-007-008-009 | Meteor scatter is most effective on what band? | 04-explore-meteor, 05-meteor | 3/3 |  |
+| B-007-008-010 | What is the effect of scattering on a radio wave? | 05-meteor | 3/3 |  |
+| B-007-008-011 | In which frequency range is meteor scatter most effective for extended-range communication? | 04-explore-meteor, 05-meteor | 3/3 |  |
 

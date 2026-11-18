@@ -1,0 +1,51 @@
+{
+  "lab": "LAB-30",
+  "steps": {
+    "explore-angle": {
+      "title": "Shorten the skip",
+      "prompt": "On 14 MHz at midday, raise the radiation angle until the signal comes down within 1500 km.",
+      "config": {
+        "f": 14,
+        "angle": 5,
+        "hour": 12,
+        "controls": {
+          "f": false,
+          "angle": {
+            "min": 1,
+            "max": 60,
+            "step": 1
+          },
+          "hour": false
+        }
+      },
+      "goal": "refracted && hop <= 1500",
+      "goal_text": "Within 1500 km",
+      "success": "Higher angle, shorter skip: geometry, with the region height unchanged."
+    },
+    "explore-europe": {
+      "title": "Two hops to Europe",
+      "prompt": "Lower the radiation angle until two hops reach Europe.",
+      "config": {
+        "f": 7,
+        "angle": 40,
+        "hour": 22,
+        "rx": 5000,
+        "controls": {
+          "f": false,
+          "angle": {
+            "min": 1,
+            "max": 60,
+            "step": 1
+          },
+          "hour": false
+        }
+      },
+      "goal": "refracted && hopsToRx <= 2",
+      "goal_text": "Two hops",
+      "hints": [
+        "Below about 6° each F2 hop is long enough."
+      ],
+      "success": "Low angles give the longest hops: two take you about 5000 km."
+    }
+  }
+}

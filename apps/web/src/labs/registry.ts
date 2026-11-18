@@ -5,6 +5,10 @@ import { BlockDiagramLab } from "./BlockDiagramLab";
 import { ColourCodeLab } from "./ColourCodeLab";
 import { ComponentBenchLab } from "./ComponentBenchLab";
 import { DbLadderLab } from "./DbLadderLab";
+import { IonosphereLab } from "./IonosphereLab";
+import { SolarCycleLab } from "./SolarCycleLab";
+import { VhfLab } from "./VhfLab";
+import { WorldClockLab } from "./WorldClockLab";
 import { FeedlineLab } from "./FeedlineLab";
 import { PatternLab } from "./PatternLab";
 import { SwrTunerLab } from "./SwrTunerLab";
@@ -51,7 +55,7 @@ export const LAB_REGISTRY: LabEntry[] = [
   { id: "LAB-09", name: "Phonetic & Q-Code Trainer", component: null },
   { id: "LAB-10", name: "Morse Trainer", component: MorseLab },
   { id: "LAB-11", name: "Emergency Net Scenario", component: null },
-  { id: "LAB-12", name: "World Map & Clock", component: null },
+  { id: "LAB-12", name: "World Map & Clock", component: WorldClockLab },
   { id: "LAB-13", name: "Block-Diagram Builder", component: BlockDiagramLab },
   { id: "LAB-14", name: "Mode Spectrum Lab", component: SpectrumLab },
   { id: "LAB-15", name: "Power Bench", component: PowerBenchLab },
@@ -69,9 +73,9 @@ export const LAB_REGISTRY: LabEntry[] = [
   { id: "LAB-27", name: "SWR Bridge & Tuner", component: SwrTunerLab },
   { id: "LAB-28", name: "Antenna Builder", component: AntennaBuilderLab },
   { id: "LAB-29", name: "Radiation Pattern 3D", component: PatternLab },
-  { id: "LAB-30", name: "Ionosphere Simulator", component: null },
-  { id: "LAB-31", name: "Solar Cycle Dial", component: null },
-  { id: "LAB-32", name: "VHF Propagation Sandbox", component: null },
+  { id: "LAB-30", name: "Ionosphere Simulator", component: IonosphereLab },
+  { id: "LAB-31", name: "Solar Cycle Dial", component: SolarCycleLab },
+  { id: "LAB-32", name: "VHF Propagation Sandbox", component: VhfLab },
   { id: "LAB-33", name: "Interference Detective", component: null },
   { id: "LAB-34", name: "Filter Designer", component: null },
   { id: "LAB-35", name: "Exam Simulator", component: null },

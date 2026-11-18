@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-007-006-001:
+  Maximum usable frequency: The MUF is for an oblique path, not straight up.
+  Optimum working frequency: The optimum working frequency is below the MUF.
+  Doppler frequency: Doppler frequency isn't an ionospheric term.
+B-007-006-002:
+  The temperature of the ionosphere: The ionosphere's temperature isn't the driver.
+  The speed of the winds in the upper atmosphere: Upper-air winds aren't the driver.
+  The type of weather just below the ionosphere: Weather below the ionosphere isn't the driver.
+B-007-006-003:
+  The lowest frequency at which a signal will reach a given destination: The MUF is the highest, not the lowest.
+  The highest frequency that is most absorbed by the ionosphere: It's about reaching a destination, not absorption.
+  The lowest frequency that is most absorbed by the ionosphere: It's not about absorption.
+B-007-006-004:
+  The sun's relative position differs between the two locations: The sun's position isn't why.
+  Ionization is not uniform around the globe: Non-uniform ionization isn't why.
+  A higher frequency cuts through absorption more easily: Higher frequencies don't cut through absorption to reach another continent.
+B-007-006-005:
+  Listen for 20-metre beacon stations: 20 m beacons tell you about 14 MHz, not 28 MHz.
+  Listen for 31-metre broadcast stations: 31 m broadcasts are about 9.7 MHz.
+  Listen for WWVH time signals on 15 MHz: WWVH is in Hawaii on 15 MHz, not a 28 MHz test to Europe.
+B-007-006-006:
+  They are changed to a frequency above the MUF: The ionosphere doesn't change their frequency.
+  They are completely absorbed by the ionosphere: Below the MUF they're not completely absorbed.
+  They pass through the ionosphere: Above the MUF they pass through; below it they return.
+B-007-006-007:
+  Only at the minimum point of the solar cycle: 20 m works at minimum too.
+  Only at the maximum point of the solar cycle: 20 m works at minimum, not only maximum.
+  At the beginning of the solar cycle: It's any point in the cycle.
+B-007-006-008:
+  The atmospheric noise level decreases: Noise isn't the daily effect.
+  Ground wave propagation decreases: Ground wave doesn't change.
+  Weather in the ionosphere changes: There's no weather in the ionosphere.
+B-007-006-009:
+  Evening in winter: Winter evenings are good on 80 m.
+  Evening in summer: Summer evenings are fair.
+  Daytime in winter: Winter days are shorter and less absorbing than summer days.
+B-007-006-010:
+  double the MUF: Double the MUF wouldn't come back at all.
+  half the MUF: Half the MUF is too low.
+  slightly higher: Above the MUF the signal goes through.
+B-007-006-011:
+  40 metres: 40 m works by day.
+  30 metres: 30 m works by day.
+  20 metres: 20 m works well by day.

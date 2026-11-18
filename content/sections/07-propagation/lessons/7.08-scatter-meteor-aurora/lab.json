@@ -1,0 +1,26 @@
+{
+  "lab": "LAB-32",
+  "steps": {
+    "explore-meteor": {
+      "title": "Meteor scatter",
+      "prompt": "Choose the band where meteor scatter works best.",
+      "config": {
+        "band": 2,
+        "height": 10,
+        "meteors": true,
+        "controls": {
+          "band": true,
+          "height": false,
+          "inversion": false,
+          "sporadicE": false,
+          "aurora": false,
+          "meteors": false,
+          "heading": false
+        }
+      },
+      "goal": "meteorLink",
+      "goal_text": "Meteor scatter link",
+      "success": "6 m: between 30 and 100 MHz is meteor scatter's sweet spot."
+    }
+  }
+}

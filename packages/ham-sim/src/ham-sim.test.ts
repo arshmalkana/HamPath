@@ -54,6 +54,14 @@ import {
   loopVariables,
   patternVariables,
   patternField,
+  ionization,
+  hopDistance,
+  ionosphereVariables,
+  solarCycleVariables,
+  vhfVariables,
+  mapPathVariables,
+  distanceKm,
+  bearing,
 } from "./index.ts";
 
 describe("units", () => {
@@ -597,5 +605,49 @@ describe("section 6 feedline and antenna models", () => {
     expect(resultMatches("41.96 metres", runCalculation({ calc: "antenna", given: { k: 306, f: "7.15 MHz" } }))).toBe(
       false,
     );
+  });
+});
+
+describe("section 7 propagation models", () => {
+  it("peaks ionization at midday and bottoms out just before dawn", () => {
+    const hours = Array.from({ length: 48 }, (_, i) => i / 2);
+    const vals = hours.map(ionization);
+    expect(hours[vals.indexOf(Math.max(...vals))]).toBe(12);
+    const min = hours[vals.indexOf(Math.min(...vals))]!;
+    expect(min).toBeGreaterThanOrEqual(5);
+    expect(min).toBeLessThanOrEqual(6);
+  });
+  it("gives about 4000 km per F2 hop and 2000 km per E hop at low angles", () => {
+    expect(hopDistance(0, 300)).toBeGreaterThan(3700);
+    expect(hopDistance(0, 300)).toBeLessThan(4200);
+    expect(hopDistance(0, 90)).toBeGreaterThan(1900);
+    expect(hopDistance(0, 90)).toBeLessThan(2300);
+    expect(hopDistance(30, 300)).toBeLessThan(hopDistance(10, 300));
+    expect(hopDistance(10, 400)).toBeGreaterThan(hopDistance(10, 300));
+  });
+  it("absorbs the low bands by day, and returns them at night", () => {
+    expect(ionosphereVariables({ f: 1.8, angle: 20, hour: 12 })).toMatchObject({ absorbed: true });
+    expect(ionosphereVariables({ f: 1.8, angle: 20, hour: 0 })).toMatchObject({ absorbed: false, refracted: true });
+    expect(ionosphereVariables({ f: 146, angle: 20, hour: 12 })).toMatchObject({ escapes: true });
+    expect(ionosphereVariables({ f: 1.8, angle: 20, hour: 12 })!.groundWave as number).toBeGreaterThan(200);
+  });
+  it("opens 10 m near solar maximum and keeps 20 m open all cycle", () => {
+    expect(solarCycleVariables({ year: 0 })).toMatchObject({ open10: false, open20: true });
+    expect(solarCycleVariables({ year: 5.5 })).toMatchObject({ open10: true, open20: true });
+  });
+  it("models VHF modes", () => {
+    expect(vhfVariables({ band: 2, height: 10, inversion: true })).toMatchObject({ ducting: true });
+    expect(vhfVariables({ band: 2, height: 10, sporadicE: true })).toMatchObject({ es: false });
+    expect(vhfVariables({ band: 6, height: 10, sporadicE: true })).toMatchObject({ es: true });
+    expect(vhfVariables({ band: 2, height: 10, aurora: true, heading: 350 })).toMatchObject({ auroraLink: true });
+  });
+  it("works out path MUF, distance and bearing", () => {
+    const cfg = { from: [-75.7, 45.4] as [number, number], to: [-0.1, 51.5] as [number, number], sfi: 150 };
+    expect(mapPathVariables({ utc: 14.5, f: 28 }, cfg)).toMatchObject({ open: true });
+    expect(mapPathVariables({ utc: 2, f: 28 }, cfg)).toMatchObject({ open: false, aboveMuf: true });
+    expect(distanceKm(cfg.from, cfg.to)).toBeGreaterThan(5200);
+    expect(distanceKm(cfg.from, cfg.to)).toBeLessThan(5500);
+    expect(bearing(cfg.from, cfg.to)).toBeGreaterThan(40);
+    expect(bearing(cfg.from, cfg.to)).toBeLessThan(60);
   });
 });

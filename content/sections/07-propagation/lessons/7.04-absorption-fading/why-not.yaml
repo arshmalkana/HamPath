@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-007-004-001:
+  It bends the radio waves out into space: The D region absorbs; it doesn't bend waves into space.
+  It refracts the radio waves back to Earth: The D region doesn't refract them back.
+  It distorts the waves: It doesn't distort them; it absorbs them.
+B-007-004-002:
+  The presence of ionized clouds in the E region: E-region clouds aren't the cause.
+  The splitting of the F region into two sub-regions: The F region splitting isn't the cause.
+  The weather below the ionosphere: Weather isn't the cause.
+B-007-004-003:
+  Wavering: Wavering isn't the term.
+  Absorption: Absorption is energy lost, not phase.
+  Intermodulation: Intermodulation is mixing in a receiver.
+B-007-004-004:
+  Overhead power lines create a Faraday cage: Power lines don't form a Faraday cage over you.
+  Underground conduits change ground conductivity: Underground conduits aren't the cause.
+  Passing vehicles absorb the radio signals: Passing cars aren't the cause.
+B-007-004-005:
+  Consistently weaker signals: "Not consistently weaker: it varies."
+  Consistently stronger signals: "Not consistently stronger: it varies."
+  A shift in signal frequency: The frequency doesn't shift.
+B-007-004-006:
+  Try the other sideband: The other sideband suffers equally.
+  Try a different antenna polarization: Polarization doesn't help with absorption.
+  Try a different frequency shift: Frequency shift isn't the fix.
+B-007-004-007:
+  The polarization of ground waves and ionospheric waves continually varies: Ground waves don't vary polarization continually.
+  The refraction forces the wave's polarization to vertical: Refraction doesn't force vertical polarization.
+  The polarization of ionospheric waves varies depending on the entry angle into the refracting region: It's the change in the ionosphere, not the entry angle, that scrambles it.
+B-007-004-008:
+  Small changes in directional antenna heading at the receiving station: Antenna heading isn't what causes it.
+  Time differences between the receiving and transmitting stations: Time differences between stations aren't the cause.
+  Large changes in the height of the ionosphere at the receiving station ordinarily occurring shortly before sunrise and sunset: Height changes at sunrise and sunset aren't the definition.
+B-007-004-009:
+  It is the same for both wide and narrow bandwidths: "Bandwidth matters: wider is worse."
+  Only the receiver bandwidth determines the selective fading effect: The transmitted bandwidth matters, not just the receiver's.
+  It is more pronounced at narrow bandwidths: It's worse on wide signals, not narrow.
+B-007-004-010:
+  Increase the speed of propagation: They don't change the speed.
+  Increase the occupied bandwidth: They don't change the bandwidth.
+  Change the wavelength: They don't change the wavelength.
+B-007-004-011:
+  Frequency shift: Multipath doesn't shift the frequency.
+  Heterodyne squeal: Heterodyne squeal comes from two carriers.
+  Higher noise floor: The noise floor isn't the effect.

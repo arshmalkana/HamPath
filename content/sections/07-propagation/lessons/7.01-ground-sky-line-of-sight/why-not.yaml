@@ -1,0 +1,41 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-007-001-001:
+  Ducting: Ducting is an occasional long-distance mode, not normal between nearby stations.
+  Ionospheric: VHF normally passes through the ionosphere.
+  Auroral: Aurora is an occasional mode.
+B-007-001-002:
+  Multi-hop HF worldwide communications: Worldwide multi-hop needs low angles, not near-vertical.
+  Regional communications above the critical frequency: Above the critical frequency, a near-vertical signal goes through.
+  Continent-wide communications: NVIS is medium range, not continent-wide.
+B-007-001-003:
+  Tropospheric propagation: Tropospheric propagation is in the lower atmosphere.
+  Ground-wave propagation: Ground wave follows the surface.
+  Earth-Moon-Earth propagation: EME bounces off the moon.
+B-007-001-004:
+  Ionization in the troposphere: The troposphere isn't ionized.
+  Diffraction caused by soil conductivity: Soil conductivity doesn't stretch the VHF horizon.
+  Refraction in the D-region: The D region doesn't refract VHF.
+B-007-001-005:
+  Tropospheric wave: The tropospheric wave is in the lower atmosphere.
+  Scattered wave: A scattered wave is redirected in many directions.
+  Space wave: A space wave goes in a straight line.
+B-007-001-006:
+  Tropospheric wave: The tropospheric wave is bent by the lower atmosphere.
+  Ionospheric wave: The ionospheric wave goes up to the ionosphere.
+  Scattered wave: A scattered wave is redirected.
+B-007-001-007:
+  Tropospheric ducting: Ducting is a VHF mode.
+  Skip wave: Skip comes back far beyond 200 km.
+  Space wave: Space wave is line of sight.
+B-007-001-008:
+  40 metres: 40 m's ground wave is shorter than 160 m's.
+  10 metres: 10 m's ground wave is short.
+  6 metres: 6 m's ground wave is shortest.
+B-007-001-009:
+  Direct wave: A direct wave goes in a straight line.
+  Scattered wave: A scattered wave is redirected in many directions.
+  Plane wave: Plane wave describes a wavefront shape.
+B-007-001-010:
+  ground wave: Ground wave reaches only a few hundred km.
+  scattered wave: Scatter is weak, not the usual long-haul mode.
+  space wave: Space wave is line of sight.

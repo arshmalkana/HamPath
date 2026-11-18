@@ -1,0 +1,25 @@
+{
+  "lab": "LAB-31",
+  "steps": {
+    "explore-max": {
+      "title": "Open 10 metres",
+      "prompt": "Turn the cycle until 10 m opens for daytime DX.",
+      "config": {
+        "year": 0
+      },
+      "goal": "open10",
+      "goal_text": "10 m open",
+      "success": "With more sunspots, the MUF climbs past 28 MHz."
+    },
+    "explore-min": {
+      "title": "Solar minimum",
+      "prompt": "Go to a point where 10 m is closed. Is 20 m still open?",
+      "config": {
+        "year": 5.5
+      },
+      "goal": "!open10 && open20",
+      "goal_text": "10 m closed, 20 m open",
+      "success": "Even at solar minimum, 20 m still supports daytime DX."
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "lab": "LAB-30",
+  "steps": {
+    "explore-ground": {
+      "title": "The longest ground wave",
+      "prompt": "Find the band with the longest ground wave, at least 200 km.",
+      "config": {
+        "f": 28,
+        "angle": 20,
+        "hour": 12,
+        "bands": [
+          1.8,
+          3.5,
+          7,
+          14,
+          28
+        ],
+        "controls": {
+          "f": true,
+          "angle": false,
+          "hour": false
+        }
+      },
+      "goal": "groundWave >= 200",
+      "goal_text": "200 km of ground wave",
+      "success": "160 m: the lowest frequency has the longest ground wave."
+    },
+    "explore-nvis": {
+      "title": "Straight up",
+      "prompt": "On 5.3 MHz at midday, raise the radiation angle until the signal lands within 400 km.",
+      "config": {
+        "f": 5.3,
+        "angle": 20,
+        "hour": 12,
+        "controls": {
+          "f": false,
+          "angle": {
+            "min": 5,
+            "max": 85,
+            "step": 5
+          },
+          "hour": false
+        }
+      },
+      "goal": "refracted && hop <= 400",
+      "goal_text": "Lands within 400 km",
+      "hints": [
+        "Go above 55°."
+      ],
+      "success": "A high angle comes back down close by: that's NVIS."
+    },
+    "explore-vhf": {
+      "title": "Through the ionosphere",
+      "prompt": "Raise the frequency until the signal goes through the ionosphere instead of coming back.",
+      "config": {
+        "f": 7,
+        "angle": 20,
+        "hour": 12,
+        "bands": [
+          7,
+          14,
+          21,
+          28,
+          50,
+          146
+        ],
+        "controls": {
+          "f": true,
+          "angle": false,
+          "hour": false
+        }
+      },
+      "goal": "escapes",
+      "goal_text": "Signal escapes",
+      "success": "Above the MUF the signal passes straight through. VHF normally works by line of sight."
+    }
+  }
+}

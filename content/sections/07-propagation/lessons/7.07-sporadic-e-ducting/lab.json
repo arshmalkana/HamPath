@@ -1,0 +1,95 @@
+{
+  "lab": "LAB-32",
+  "steps": {
+    "explore-aurora": {
+      "title": "Beam the aurora",
+      "prompt": "Point the beam to use the aurora.",
+      "config": {
+        "band": 2,
+        "height": 10,
+        "aurora": true,
+        "heading": 180,
+        "controls": {
+          "band": false,
+          "height": false,
+          "inversion": false,
+          "sporadicE": false,
+          "aurora": false,
+          "meteors": false,
+          "heading": true
+        }
+      },
+      "goal": "auroraLink",
+      "goal_text": "Beam on the aurora",
+      "hints": [
+        "The aurora is to the north."
+      ],
+      "success": "North: your signal scatters off the aurora."
+    },
+    "explore-height": {
+      "title": "Raise the antenna",
+      "prompt": "Raise both antennas until the radio horizon reaches 50 km.",
+      "config": {
+        "band": 2,
+        "height": 5,
+        "controls": {
+          "band": false,
+          "height": {
+            "min": 2,
+            "max": 60,
+            "step": 1
+          },
+          "inversion": false,
+          "sporadicE": false,
+          "aurora": false,
+          "meteors": false,
+          "heading": false
+        }
+      },
+      "goal": "horizon >= 50",
+      "goal_text": "50 km horizon",
+      "success": "Height pushes the horizon out, and tropospheric bending stretches it a bit further."
+    },
+    "explore-duct": {
+      "title": "The inversion",
+      "prompt": "Add a temperature inversion.",
+      "config": {
+        "band": 2,
+        "height": 10,
+        "controls": {
+          "band": false,
+          "height": false,
+          "inversion": true,
+          "sporadicE": false,
+          "aurora": false,
+          "meteors": false,
+          "heading": false
+        }
+      },
+      "goal": "ducting && reach >= 800",
+      "goal_text": "Ducting",
+      "success": "The inversion forms a duct: 2 m reaches well past 800 km."
+    },
+    "explore-es": {
+      "title": "Sporadic E",
+      "prompt": "Switch to the band where sporadic E works best.",
+      "config": {
+        "band": 2,
+        "height": 10,
+        "sporadicE": true,
+        "controls": {
+          "band": true,
+          "height": false,
+          "inversion": false,
+          "sporadicE": false,
+          "aurora": false,
+          "meteors": false,
+          "heading": false
+        }
+      },
+      "goal": "es",
+      "goal_text": "Sporadic E opening",
+      "success": "6 m: the dense E patch reflects it 1000 to 2000 km."
+    }
+  }
+}

@@ -18,6 +18,18 @@ import { blockDiagramVariables, type DiagramConfig, type DiagramState } from "./
 import { spectrumVariables, type SpectrumConfig, type SpectrumState } from "./spectrum.ts";
 import { antennaVariables, patternVariables, type PatternState } from "./antennas.ts";
 import {
+  ionosphereVariables,
+  mapPathVariables,
+  solarCycleVariables,
+  vhfVariables,
+  type IonosphereConfig,
+  type IonosphereState,
+  type MapPathConfig,
+  type MapPathState,
+  type SolarCycleState,
+  type VhfState,
+} from "./propagation.ts";
+import {
   feedlineVariables,
   swrVariables,
   type FeedlineConfig,
@@ -245,6 +257,14 @@ export function labVariables(labId: string, state: unknown, config: Record<strin
       return spectrumVariables(st as unknown as SpectrumState, config as SpectrumConfig);
     case "LAB-28":
       return antennaVariables(st, config);
+    case "LAB-30":
+      return ionosphereVariables(st as unknown as IonosphereState, config as IonosphereConfig);
+    case "LAB-31":
+      return solarCycleVariables(st as unknown as SolarCycleState);
+    case "LAB-32":
+      return vhfVariables(st as unknown as VhfState);
+    case "LAB-12":
+      return mapPathVariables(st as unknown as MapPathState, config as unknown as MapPathConfig);
     case "LAB-29":
       return patternVariables(st as unknown as PatternState);
     case "LAB-26":
@@ -390,6 +410,30 @@ export const LAB_GOAL_VARIABLES: Record<string, string[]> = {
     "coilReactance",
     "horizontal",
   ],
+  "LAB-30": [
+    "foF2",
+    "foE",
+    "ionization",
+    "dayFactor",
+    "split",
+    "absorbed",
+    "absorptionDb",
+    "refracted",
+    "region",
+    "escapes",
+    "hop",
+    "groundWave",
+    "skipZone",
+    "muf",
+    "hopsToRx",
+    "inSkip",
+    "f",
+    "angle",
+    "hour",
+  ],
+  "LAB-31": ["year", "ssn", "sfi", "muf", "open10", "open20", "open6"],
+  "LAB-32": ["horizon", "reach", "ducting", "es", "auroraLink", "meteorLink", "north", "band"],
+  "LAB-12": ["utc", "midHour", "muf", "owf", "open", "absorbed", "aboveMuf", "distance", "bearing", "f"],
   "LAB-29": ["gainDbi", "gainDbd", "isotropic", "vertical", "matched", "received", "forward"],
   "LAB-26": ["Z0", "vf", "lossDb", "delivered", "length", "f", "balanced", "commonMode"],
   "LAB-27": ["swr", "stationSwr", "rigSwr", "reflected", "matched", "power", "foldback", "f0", "fault"],

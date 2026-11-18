@@ -521,6 +521,18 @@ describe("POST /lab-events: authored labs are verified on the server", () => {
       { mode: "loop", f: 21.4, perimeter: 14.3, shape: "quad", feed: "bottom" },
       { mode: "loop", f: 21.4, perimeter: 12, shape: "quad", feed: "bottom" },
     ],
+    // section 7
+    ["7.01/explore-nvis", { f: 5.3, angle: 60, hour: 12 }, { f: 5.3, angle: 20, hour: 12 }],
+    ["7.03/explore-europe", { f: 7, angle: 5, hour: 22 }, { f: 7, angle: 15, hour: 22 }],
+    ["7.04/explore-night", { f: 1.8, angle: 20, hour: 0 }, { f: 1.8, angle: 20, hour: 12 }],
+    ["7.05/explore-max", { year: 5.5 }, { year: 0 }],
+    ["7.06/explore-10m", { utc: 14.5, f: 28 }, { utc: 2, f: 28 }],
+    [
+      "7.07/explore-aurora",
+      { band: 2, height: 10, aurora: true, heading: 0 },
+      { band: 2, height: 10, aurora: true, heading: 180 },
+    ],
+    ["7.08/explore-meteor", { band: 6, height: 10, meteors: true }, { band: 2, height: 10, meteors: true }],
     // section 4
     [
       "4.01/explore-drive",
