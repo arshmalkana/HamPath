@@ -329,6 +329,11 @@ export function labVariables(labId: string, state: unknown, config: Record<strin
       return feedlineVariables(st as unknown as FeedlineState, config as unknown as FeedlineConfig);
     case "LAB-27":
       return swrVariables(st as unknown as SwrState, config as unknown as SwrConfig);
+    case "LAB-35":
+      return {
+        mocks: typeof st.mocks === "number" ? st.mocks : 0,
+        ready: typeof st.mocks === "number" && st.mocks >= 3,
+      };
     case "LAB-01":
       return bandPlanVariables(st as unknown as BandPlanState);
     case "LAB-03":
@@ -454,6 +459,7 @@ export const LAB_GOAL_VARIABLES: Record<string, string[]> = {
     "legal",
     "atLimit",
   ],
+  "LAB-35": ["mocks", "ready"],
   "LAB-01": ["inBand", "band", "bwLimit", "bw", "bwOk", "edgeOk", "modeOk", "legal", "hf"],
   "LAB-03": ["canadian", "suffixOk", "valid", "regionOk", "atStart", "atEnd", "maxGap", "count", "idOk"],
   "LAB-10": ["keyer", "elements", "correct", "timingError", "clean", "attempted", "total", "done"],

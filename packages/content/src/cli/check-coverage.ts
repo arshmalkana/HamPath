@@ -7,8 +7,9 @@
  *   4. every lab config passes its schema and every image has alt text
  *
  * Errors in authored lessons (and in the bank, titles or exam blueprint) fail the run. Lessons that
- * aren't written yet are reported as gaps, not failures. `-- --strict` is the launch gate: every
- * section must be fully built.
+ * Strict by default (the launch gate): every section fully built, every lesson complete (Hook,
+ * Explore lab, Learn cards, Check) and all 35 labs built. `-- --allow-gaps` reports unbuilt
+ * lessons as gaps instead, for drafting.
  */
 import { appendFileSync, readFileSync } from "node:fs";
 import {
@@ -22,10 +23,10 @@ import {
   type QuestionsByTopic,
 } from "../index.ts";
 
-const strict = process.argv.includes("--strict");
+const strict = !process.argv.includes("--allow-gaps");
 const bank = parseBank(readFileSync(BANK_PATH));
 const tree = readContentTree();
-const result = validateContent(bank, tree);
+const result = validateContent(bank, tree, { strict });
 
 // Exam blueprint must stay satisfiable as the bank changes.
 const byTopic: QuestionsByTopic = new Map();
@@ -96,7 +97,7 @@ console.log(line(head));
 console.log(widths.map((w) => "-".repeat(w)).join("  "));
 for (const r of table) console.log(line(r));
 console.log(`\nTotal: ${t.taught}/${t.questions} taught on a card, ${t.whyNotComplete}/${t.questions} with 3 Why not? notes, ${t.authoredLessons}/${t.lessons} lessons built.`);
-if (unbuilt.length) console.log(`Not failing for unbuilt lessons in section(s) ${unbuilt.join(", ")}${strict ? " (except in --strict)" : ""}.`);
+if (unbuilt.length) console.log(`Not failing for unbuilt lessons in section(s) ${unbuilt.join(", ")}${strict ? " (except in strict mode)" : ""}.`);
 
 if (process.env.GITHUB_STEP_SUMMARY) {
   const md = [

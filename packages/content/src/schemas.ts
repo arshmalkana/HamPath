@@ -623,6 +623,7 @@ export const PatternConfigSchema = z.object({
 
 /** Config schema and the variables a goal may reference, per implemented lab. */
 export const LAB_SCHEMAS: Record<string, { config: z.ZodType; variables: string[] }> = {
+  "LAB-35": { config: z.object({}), variables: LAB_GOAL_VARIABLES["LAB-35"]! },
   "LAB-13": { config: DiagramConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-13"]! },
   "LAB-14": { config: SpectrumConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-14"]! },
   "LAB-28": { config: AntennaConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-28"]! },

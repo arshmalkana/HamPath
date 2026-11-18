@@ -8,6 +8,7 @@ import { AntennaPermitLab } from "./AntennaPermitLab";
 import { BandPlanLab } from "./BandPlanLab";
 import { CallSignLab } from "./CallSignLab";
 import { DbLadderLab } from "./DbLadderLab";
+import { ExamSimulatorLab } from "./ExamSimulatorLab";
 import { PhoneticLab } from "./DrillLab";
 import { RepeaterLab } from "./RepeaterLab";
 import { RulesLab } from "./RulesLab";
@@ -87,7 +88,7 @@ export const LAB_REGISTRY: LabEntry[] = [
   { id: "LAB-32", name: "VHF Propagation Sandbox", component: VhfLab },
   { id: "LAB-33", name: "Interference Detective", component: InterferenceLab },
   { id: "LAB-34", name: "Filter Designer", component: FilterLab },
-  { id: "LAB-35", name: "Exam Simulator", component: null },
+  { id: "LAB-35", name: "Exam Simulator", component: ExamSimulatorLab },
 ];
 
 export function findLab(id: string): LabEntry | undefined {

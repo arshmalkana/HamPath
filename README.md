@@ -46,19 +46,19 @@ docs/coverage/    Generated: every question, its lesson, the cards that teach it
 
 ## Commands
 
-| Command                                  | Does                                                                                     |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `pnpm dev`                               | Everything above                                                                         |
-| `pnpm test`                              | All Vitest suites. Builds a throwaway `hampath_test` database first (needs `pnpm db:up`) |
-| `pnpm lint` / `pnpm format`              | ESLint / Prettier                                                                        |
-| `pnpm typecheck`                         | `tsc` in every package                                                                   |
-| `pnpm check:coverage`                    | CI content checks (SPEC §8) with a per-section report; `-- --strict` is the launch gate  |
-| `pnpm coverage`                          | Regenerate `docs/coverage/` from the bank and `content/`                                 |
-| `pnpm build`                             | Production build of the web app                                                          |
-| `pnpm db:setup` / `pnpm db:reset`        | Migrate, seed, import, load content / the same on a fresh volume                         |
-| `pnpm import:bank [file] [-- --dry-run]` | Import an ISED bank file and print the diff (added / changed / retired)                  |
-| `pnpm db:generate`                       | Generate a migration after editing `packages/db/src/schema.ts`                           |
-| `pnpm db:make-admin <email>`             | Give a signed-in account the admin role                                                  |
+| Command                                  | Does                                                                                           |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `pnpm dev`                               | Everything above                                                                               |
+| `pnpm test`                              | All Vitest suites. Builds a throwaway `hampath_test` database first (needs `pnpm db:up`)       |
+| `pnpm lint` / `pnpm format`              | ESLint / Prettier                                                                              |
+| `pnpm typecheck`                         | `tsc` in every package                                                                         |
+| `pnpm check:coverage`                    | CI content checks (SPEC §8) and the launch gate, strict by default; `-- --allow-gaps` to draft |
+| `pnpm coverage`                          | Regenerate `docs/coverage/` from the bank and `content/`                                       |
+| `pnpm build`                             | Production build of the web app                                                                |
+| `pnpm db:setup` / `pnpm db:reset`        | Migrate, seed, import, load content / the same on a fresh volume                               |
+| `pnpm import:bank [file] [-- --dry-run]` | Import an ISED bank file and print the diff (added / changed / retired)                        |
+| `pnpm db:generate`                       | Generate a migration after editing `packages/db/src/schema.ts`                                 |
+| `pnpm db:make-admin <email>`             | Give a signed-in account the admin role                                                        |
 
 ## CI
 

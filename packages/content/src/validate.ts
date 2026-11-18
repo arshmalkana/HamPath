@@ -40,6 +40,45 @@ const rel = (p: string) => path.relative(REPO_ROOT, p).replaceAll("\\", "/");
  * lab configs pass their schema; media has alt text.
  * `strict` (the Phase 2 launch gate) additionally requires all 100 lessons to be authored.
  */
+/** Card types that teach (the Learn part of a lesson). */
+const LEARN_TYPES = new Set(["concept", "predict", "numeric", "worked_example", "drag_drop", "flashcards", "audio"]);
+
+/**
+ * The launch gate's completeness checks (strict mode): every lesson has a Hook, an Explore card
+ * bound to a step of its own lab, Learn cards, and a worked example where it has calculations;
+ * every one of the 35 labs is built, has a config schema, and (except the Exam Simulator) is used.
+ * The Check is built automatically from the lesson's questions.
+ */
+export function launchGate(tree: ContentTree): string[] {
+  const errors: string[] = [];
+  const used = new Set<string>();
+  for (const l of tree.lessons) {
+    const where = rel(l.dir);
+    const types = l.cards.map((c) => c.front.type);
+    if (!types.includes("hook")) errors.push(`${where}: no Hook card (launch gate)`);
+    if (!types.some((t) => LEARN_TYPES.has(t))) errors.push(`${where}: no Learn cards (launch gate)`);
+    if (Object.keys(l.yaml.calculations ?? {}).length && !types.includes("worked_example"))
+      errors.push(`${where}: has calculations but no worked example (launch gate)`);
+    const labCards = l.cards.filter((c) => c.front.type === "lab");
+    if (!l.lab || labCards.length === 0) {
+      errors.push(`${where}: no Explore lab step (launch gate)`);
+      continue;
+    }
+    if (l.yaml.lab_id && l.lab.lab !== l.yaml.lab_id) errors.push(`${where}: lab.json is ${l.lab.lab} but lesson.yaml says ${l.yaml.lab_id}`);
+    used.add(l.lab.lab);
+    for (const c of labCards) {
+      if (!c.front.lab_step || !(c.front.lab_step in l.lab.steps)) errors.push(`${where}: card ${c.key} points at missing lab step "${c.front.lab_step}"`);
+    }
+  }
+  if (tree.labs.length !== 35) errors.push(`content/labs.yaml: ${tree.labs.length} labs, expected 35`);
+  for (const lab of tree.labs) {
+    if (!lab.component) errors.push(`content/labs.yaml: ${lab.id} ${lab.name} is not built (launch gate)`);
+    if (!LAB_SCHEMAS[lab.id]) errors.push(`packages/content/src/schemas.ts: ${lab.id} has no config schema (launch gate)`);
+    if (lab.id !== "LAB-35" && !used.has(lab.id)) errors.push(`content/labs.yaml: ${lab.id} ${lab.name} isn't used by any lesson (launch gate)`);
+  }
+  return errors;
+}
+
 export function validateContent(bank: ParsedBank, tree: ContentTree, opts: { strict?: boolean } = {}): ValidationResult {
   const errors = [...bank.errors.map((e) => `bank: ${e}`), ...tree.errors];
   const warnings: string[] = [];
@@ -186,6 +225,7 @@ export function validateContent(bank: ParsedBank, tree: ContentTree, opts: { str
     if (opts.strict) errors.push(`${msg} (strict mode requires 100% coverage)`);
     else warnings.push(msg);
   }
+  if (opts.strict) errors.push(...launchGate(tree));
 
   const all = lessons.flatMap((l) => l.questions);
   return {

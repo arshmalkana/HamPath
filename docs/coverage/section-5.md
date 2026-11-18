@@ -181,7 +181,7 @@ Status: authored
 | B-005-009-007 | What precaution must you take when using polarized electrolytic capacitors? | 07-electrolytic | 3/3 |  |
 | B-005-009-008 | If you wire two 12-millihenry chokes in series, what is the inductance of the combination? | 02-explore-coils, 04-inductors | 3/3 | ✓ ham-sim |
 | B-005-009-009 | If you wire two 20-millihenry inductors in parallel, what is the inductance of the combination? | 02-explore-coils, 04-inductors | 3/3 | ✓ ham-sim |
-| B-005-009-010 | If you wire two 20-microfarad capacitors in series, what is the capacity of the combination? | 03-explore-caps, 05-capacitors | 3/3 | ✓ ham-sim |
+| B-005-009-010 | If you wire two 20-microfarad capacitors in series, what is the capacity of the combination? | 03-explore-caps, 05-capacitors, 08-worked | 3/3 | ✓ ham-sim |
 | B-005-009-011 | If you wire two 24-microfarad capacitors in parallel, what is the capacity of the combination? | 03-explore-caps, 05-capacitors | 3/3 | ✓ ham-sim |
 
 ## 5.10 Reactance

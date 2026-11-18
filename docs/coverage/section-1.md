@@ -258,7 +258,7 @@ Status: authored
 | B-001-015-004 | The holder of an Amateur Radio Operator Certificate may operate radio-controlled models: | 06-privileges | 3/3 |  |
 | B-001-015-005 | What is the frequency range of the 80-metre amateur radio band in Canada? | 02-explore-80, 03-bands, 04-flash | 3/3 | ✓ ham-sim |
 | B-001-015-006 | What is the frequency range of the 160-metre amateur radio band in Canada? | 02-explore-80, 03-bands, 04-flash | 3/3 | ✓ ham-sim |
-| B-001-015-007 | What is the frequency range of the 40-metre amateur radio band in Canada? | 03-bands, 04-flash | 3/3 | ✓ ham-sim |
+| B-001-015-007 | What is the frequency range of the 40-metre amateur radio band in Canada? | 03-bands, 04-flash, 07-worked | 3/3 | ✓ ham-sim |
 | B-001-015-008 | What is the frequency range of the 20-metre amateur radio band in Canada? | 03-bands, 04-flash | 3/3 | ✓ ham-sim |
 | B-001-015-009 | What is the frequency range of the 15-metre amateur radio band in Canada? | 03-bands, 04-flash, 05-explore-15 | 3/3 | ✓ ham-sim |
 | B-001-015-010 | What is the frequency range of the 10-metre amateur radio band in Canada? | 03-bands, 04-flash | 3/3 | ✓ ham-sim |
@@ -273,7 +273,7 @@ Status: authored
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
 | B-001-016-001 | What is the maximum authorized bandwidth on the 6-metre and 2-metre bands? | 03-limits | 3/3 | ✓ ham-sim |
-| B-001-016-002 | The maximum bandwidth of an amateur radio station's transmission allowed in the band 28 MHz to 29.7 MHz is: | 03-limits | 3/3 | ✓ ham-sim |
+| B-001-016-002 | The maximum bandwidth of an amateur radio station's transmission allowed in the band 28 MHz to 29.7 MHz is: | 03-limits, 07-worked | 3/3 | ✓ ham-sim |
 | B-001-016-003 | Except for one band, what is the allowed bandwidth on amateur radio bands between 7 MHz and 25 MHz? | 03-limits | 3/3 | ✓ ham-sim |
 | B-001-016-004 | The maximum bandwidth of an amateur radio station's transmission allowed in the band 144 MHz to 148 MHz is: | 03-limits | 3/3 | ✓ ham-sim |
 | B-001-016-005 | The maximum bandwidth of an amateur radio station's transmission allowed in the band 50 MHz to 54 MHz is: | 03-limits | 3/3 | ✓ ham-sim |
@@ -295,7 +295,7 @@ Status: authored
 | B-001-017-001 | What transmitter power should Canadian amateur radio operators use at all times? | 05-minimum | 3/3 |  |
 | B-001-017-002 | For single sideband (SSB) operation, what is the maximum transmitter peak envelope power (PEP) that an amateur radio station may use if the operator holds an Amateur Radio Operator Certificate with Advanced Qualification? | 03-limits, 04-explore-adv, 07-flash | 3/3 | ✓ ham-sim |
 | B-001-017-003 | You have determined the maximum transmitter power that meets RF exposure and radiated power limits. Where do you verify this power is NOT exceeded? | 05-minimum | 3/3 |  |
-| B-001-017-004 | For SSB operation on 3750 kHz, what is the maximum transmitter peak envelope power (PEP) that an amateur radio station may use if the operator holds an Amateur Radio Operator Certificate with Basic and Morse code qualifications? | 03-limits, 07-flash | 3/3 | ✓ ham-sim |
+| B-001-017-004 | For SSB operation on 3750 kHz, what is the maximum transmitter peak envelope power (PEP) that an amateur radio station may use if the operator holds an Amateur Radio Operator Certificate with Basic and Morse code qualifications? | 03-limits, 07-flash, 08-worked | 3/3 | ✓ ham-sim |
 | B-001-017-005 | For SSB operation on 7055 kHz, what is the maximum transmitter peak envelope power (PEP) that an amateur radio station may use if the operator holds an Amateur Radio Operator Certificate with Basic Qualification with Honours? | 03-limits | 3/3 | ✓ ham-sim |
 | B-001-017-006 | What is the maximum effective radiated power (ERP), expressed as peak envelope power (PEP), the holder of an Amateur Radio Operator Certificate with Advanced Qualification may use on 60 metres? | 03-limits | 3/3 | ✓ ham-sim |
 | B-001-017-007 | What is the maximum allowed DC input power to the final RF stage of an amateur radio transmitter when the operator holds an Amateur Radio Operator Certificate with Advanced Qualification? | 03-limits, 07-flash | 3/3 | ✓ ham-sim |

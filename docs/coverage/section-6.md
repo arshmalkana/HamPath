@@ -121,7 +121,7 @@ Status: authored
 | B-006-006-008 | Where does impedance matching need to be done to minimize transmission line losses in an antenna system? | 04-where | 3/3 |  |
 | B-006-006-009 | If an antenna is correctly matched to a transmission line, the length of the transmission line: | 04-where | 3/3 |  |
 | B-006-006-010 | Why is an antenna tuner (external or internal) frequently used with modern solid-state transceivers? | 02-explore-tuner, 03-tuners | 3/3 |  |
-| B-006-006-011 | If a transmission line with a characteristic impedance of 50 ohms feeds a folded dipole with a feed point impedance close to 300 ohms, what impedance transformation ratio is needed to match the two? | 05-explore-ratio, 06-transformers | 3/3 | ✓ ham-sim |
+| B-006-006-011 | If a transmission line with a characteristic impedance of 50 ohms feeds a folded dipole with a feed point impedance close to 300 ohms, what impedance transformation ratio is needed to match the two? | 05-explore-ratio, 06-transformers, 07-worked | 3/3 | ✓ ham-sim |
 
 ## 6.07 Polarization
 

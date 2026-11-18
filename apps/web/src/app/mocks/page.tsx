@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { serverApi } from "@/lib/server";
-import { StartMock } from "./StartMock";
+import { Lab } from "@/labs/Lab";
 
 export const metadata: Metadata = { title: "Mock exams" };
 export const dynamic = "force-dynamic";
@@ -32,7 +32,7 @@ export default async function MocksPage() {
             : "A full exam in the real format, timed."}
         </p>
       </div>
-      <StartMock />
+      <Lab id="LAB-35" config={{ config: {}, goal: null }} mode="explore" />
       <section className="map-section" aria-labelledby="past" style={{ marginTop: "var(--space-xl)" }}>
         <h2 className="section-title" id="past">
           Your mock exams
