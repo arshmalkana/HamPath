@@ -243,5 +243,10 @@ export interface Sc6State {
 export function sc6Variables(s: Sc6State): Vars | null {
   if (!finite(s?.f) || s.f <= 0) return null;
   const limit = sc6Limit(s.f, s.environment);
-  return { f: s.f, limit, lowest: s.environment !== "controlled" && s.f >= 48 && s.f <= 300, controlled: s.environment === "controlled" };
+  return {
+    f: s.f,
+    limit,
+    lowest: s.environment !== "controlled" && s.f >= 48 && s.f <= 300,
+    controlled: s.environment === "controlled",
+  };
 }

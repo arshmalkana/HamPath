@@ -77,7 +77,10 @@ export function RepeaterLab({ config, mode, onState }: LabBodyProps) {
             value={String(s.offset) as "0"}
             onChange={(x) => set("offset", Number(x))}
             disabled={demo}
-            options={(cfg.offsets ?? [-600, 0, 600]).map((o) => ({ value: String(o) as "0", label: o === 0 ? "Simplex" : `${o > 0 ? "+" : "−"}${Math.abs(o)} kHz` }))}
+            options={(cfg.offsets ?? [-600, 0, 600]).map((o) => ({
+              value: String(o) as "0",
+              label: o === 0 ? "Simplex" : `${o > 0 ? "+" : "−"}${Math.abs(o)} kHz`,
+            }))}
           />
         )}
         {cfg.controls.tone && (

@@ -597,7 +597,11 @@ describe("POST /lab-events: authored labs are verified on the server", () => {
     ["1.16/band-edge", { f: 14.347, emission: "ssb" }, { f: 14.349, emission: "ssb" }],
     ["1.17/limit-basic-dc", { power: 250 }, { power: 260 }],
     ["1.18/repeater-10m", { offset: -100, tone: null }, { offset: 0, tone: null }],
-    ["1.21/itu-regions", { answers: { ca: "Region 2", jp: "Region 3", fr: "Region 1", au: "Region 3", ke: "Region 1", br: "Region 2" } }, { answers: { ca: "Region 1" } }],
+    [
+      "1.21/itu-regions",
+      { answers: { ca: "Region 2", jp: "Region 3", fr: "Region 1", au: "Region 3", ke: "Region 1", br: "Region 2" } },
+      { answers: { ca: "Region 1" } },
+    ],
     ["1.23/permit-height", { height: 14.5, choice: "none" }, { height: 15, choice: "none" }],
     ["1.24/sc6-lowest", { f: 146, environment: "uncontrolled" }, { f: 2000, environment: "uncontrolled" }],
     ["1.25/case-tv", { diagnosis: "fieldHigh", cure: "reduceField" }, { diagnosis: "immunity", cure: "ownerFixes" }],

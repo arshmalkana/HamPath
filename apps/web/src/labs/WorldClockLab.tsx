@@ -138,7 +138,11 @@ function ItuBody({ config, mode, onState }: LabBodyProps) {
         <WorldMap
           date={date}
           label="World map with the places to classify"
-          markers={cfg.places.map((p) => ({ lon: p.lon, lat: p.lat, label: cfg.cases.find((k) => k.id === p.id)?.situation ?? p.id }))}
+          markers={cfg.places.map((p) => ({
+            lon: p.lon,
+            lat: p.lat,
+            label: cfg.cases.find((k) => k.id === p.id)?.situation ?? p.id,
+          }))}
         />
       </div>
       <ul className="inspect-list">
@@ -146,11 +150,22 @@ function ItuBody({ config, mode, onState }: LabBodyProps) {
           const got = answers[k.id];
           const right = got ? got === k.answer : null;
           return (
-            <li key={k.id} className="inspect-item shack-well" data-state={right === null ? undefined : right ? "right" : "wrong"}>
+            <li
+              key={k.id}
+              className="inspect-item shack-well"
+              data-state={right === null ? undefined : right ? "right" : "wrong"}
+            >
               <p className="inspect-label">{k.situation}</p>
               <div className="chip-row" role="group" aria-label={k.situation}>
                 {k.options.map((o) => (
-                  <button key={o} type="button" className="chip" aria-pressed={got === o} disabled={demo || right === true} onClick={() => setAnswers((a) => ({ ...a, [k.id]: o }))}>
+                  <button
+                    key={o}
+                    type="button"
+                    className="chip"
+                    aria-pressed={got === o}
+                    disabled={demo || right === true}
+                    onClick={() => setAnswers((a) => ({ ...a, [k.id]: o }))}
+                  >
                     {o}
                   </button>
                 ))}
@@ -172,7 +187,13 @@ function ItuBody({ config, mode, onState }: LabBodyProps) {
 /** LAB-12 World Map & Clock: propagation (7.06), clock (2.09) and ITU regions (1.21). */
 export function WorldClockLab(props: LabBodyProps) {
   const m = (props.config as { mode?: string }).mode;
-  return m === "clock" ? <ClockBody {...props} /> : m === "itu" ? <ItuBody {...props} /> : <PropagationBody {...props} />;
+  return m === "clock" ? (
+    <ClockBody {...props} />
+  ) : m === "itu" ? (
+    <ItuBody {...props} />
+  ) : (
+    <PropagationBody {...props} />
+  );
 }
 
 function PropagationBody({ config, mode, onState }: LabBodyProps) {

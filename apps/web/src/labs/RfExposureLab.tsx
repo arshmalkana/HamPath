@@ -1,6 +1,13 @@
 "use client";
 import { useState } from "react";
-import { powerDensity, rfExposureVariables, sc6Limit, sc6Variables, type RfExposureConfig, type Sc6State } from "@hampath/ham-sim";
+import {
+  powerDensity,
+  rfExposureVariables,
+  sc6Limit,
+  sc6Variables,
+  type RfExposureConfig,
+  type Sc6State,
+} from "@hampath/ham-sim";
 import { Knob, Plot, ToggleSwitch, sample } from "@hampath/ui";
 import type { LabBodyProps } from "./registry";
 import { Readouts, fmt, useReport } from "./common";
@@ -55,10 +62,21 @@ function Sc6Body({ config, mode, onState }: LabBodyProps) {
           />
         )}
         {cfg.controls.environment && (
-          <ToggleSwitch label="Controlled environment" checked={s.environment === "controlled"} onChange={(x) => setS((c) => ({ ...c, environment: x ? "controlled" : "uncontrolled" }))} disabled={demo} />
+          <ToggleSwitch
+            label="Controlled environment"
+            checked={s.environment === "controlled"}
+            onChange={(x) => setS((c) => ({ ...c, environment: x ? "controlled" : "uncontrolled" }))}
+            disabled={demo}
+          />
         )}
       </div>
-      <Readouts items={[["Frequency", fq(s.f)], ["Limit", wm2(v.limit as number)], ["Environment", s.environment]]} />
+      <Readouts
+        items={[
+          ["Frequency", fq(s.f)],
+          ["Limit", wm2(v.limit as number)],
+          ["Environment", s.environment],
+        ]}
+      />
       <p className="lab-state" role="status">
         {v.lowest
           ? "48 to 300 MHz: the lowest limits, because the human body absorbs RF energy most in this range."

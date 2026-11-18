@@ -31,20 +31,47 @@ export function AntennaPermitLab({ config, mode, onState }: LabBodyProps) {
     <div className="lab">
       <p className="lab-prompt">{cfg.scene}</p>
       <div className="shack-well">
-        <svg viewBox="0 0 520 170" role="img" aria-label={`A ${s.height} m antenna tower beside a house. ${v.excluded ? "Below the exclusion height." : "Above the exclusion height: consultation applies."}`}>
+        <svg
+          viewBox="0 0 520 170"
+          role="img"
+          aria-label={`A ${s.height} m antenna tower beside a house. ${v.excluded ? "Below the exclusion height." : "Above the exclusion height: consultation applies."}`}
+        >
           <path className="iono-ground" d="M10,150 H510" />
-          <path className="part" d="M300,150 V100 L340,70 L380,100 V150 Z" />
+          <path className="part" d="M300,150 V128 L325,112 L350,128 V150 Z" />
           <path className="part-line yagi-element" d={`M200,150 V${150 - h * 4.5}`} />
           <path className="part-line" d={`M180,${150 - h * 4.5} H220`} />
-          <path className="iono-ray iono-ray-dead" d={`M20,${150 - (v.exemptBelow as number) * 4.5} H500`} strokeDasharray="6 5" />
+          <path
+            className="iono-ray iono-ray-dead"
+            d={`M20,${150 - (v.exemptBelow as number) * 4.5} H500`}
+            strokeDasharray="6 5"
+          />
           <text className="part-value" x="500" y={150 - (v.exemptBelow as number) * 4.5 - 6} textAnchor="end">
             exclusion: under {v.exemptBelow} m
           </text>
         </svg>
       </div>
       <div className="knobs">
-        {cfg.controls.height && <Knob label="Tower height" value={s.height} min={5} max={30} step={0.5} onChange={(x) => set("height", x)} format={(x) => `${x} m`} disabled={demo} />}
-        {cfg.controls.choice && <SegChoice label="Process to follow" value={s.choice} onChange={(x) => set("choice", x)} disabled={demo} options={CHOICES} />}
+        {cfg.controls.height && (
+          <Knob
+            label="Tower height"
+            value={s.height}
+            min={5}
+            max={30}
+            step={0.5}
+            onChange={(x) => set("height", x)}
+            format={(x) => `${x} m`}
+            disabled={demo}
+          />
+        )}
+        {cfg.controls.choice && (
+          <SegChoice
+            label="Process to follow"
+            value={s.choice}
+            onChange={(x) => set("choice", x)}
+            disabled={demo}
+            options={CHOICES}
+          />
+        )}
       </div>
       <Readouts
         items={[

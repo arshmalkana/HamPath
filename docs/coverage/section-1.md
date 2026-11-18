@@ -305,126 +305,126 @@ Status: authored
 
 ## 1.18 Repeaters, beacons and test carriers
 
-Lab: LAB-01
+Lab: LAB-08
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-018-001 | What kind of amateur radio station automatically retransmits the signals of other stations? | — | 0/3 |  |
-| B-001-018-002 | An unmodulated carrier may be transmitted only: | — | 0/3 |  |
-| B-001-018-003 | What is the lowest output frequency of the repeaters that holders of an Amateur Radio Operator Certificate with only a Basic Qualification are allowed to use? | — | 0/3 |  |
-| B-001-018-004 | What is the lowest output frequency band segment of the repeaters that holders of an Amateur Radio Operator Certificate with only a Basic Qualification are allowed to use? | — | 0/3 |  |
+| B-001-018-001 | What kind of amateur radio station automatically retransmits the signals of other stations? | 02-explore, 03-repeaters | 3/3 |  |
+| B-001-018-002 | An unmodulated carrier may be transmitted only: | 04-carrier | 3/3 |  |
+| B-001-018-003 | What is the lowest output frequency of the repeaters that holders of an Amateur Radio Operator Certificate with only a Basic Qualification are allowed to use? | 02-explore, 03-repeaters | 3/3 |  |
+| B-001-018-004 | What is the lowest output frequency band segment of the repeaters that holders of an Amateur Radio Operator Certificate with only a Basic Qualification are allowed to use? | 02-explore, 03-repeaters | 3/3 |  |
 
 ## 1.19 Frequency stability and overmodulation
 
-Lab: none
+Lab: LAB-14
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-019-001 | What do Canadian regulations stipulate regarding frequency stability in the amateur radio service? | — | 0/3 |  |
-| B-001-019-002 | Which of the following emission modes requires that an amateur radio station have means to prevent or indicate overmodulation? | — | 0/3 |  |
-| B-001-019-003 | Amateur radio stations are required to have means of indicating or preventing a signal quality problem unique to voice transmissions. What is it? | — | 0/3 |  |
-| B-001-019-004 | What is the maximum percentage of modulation permitted for amateur radio voice communications? | — | 0/3 |  |
-| B-001-019-005 | What must all amateur radio stations be capable of reliably measuring, regardless of emission mode? | — | 0/3 |  |
-| B-001-019-006 | What is the maximum percentage of modulation permitted for amateur radio voice communications? | — | 0/3 |  |
+| B-001-019-001 | What do Canadian regulations stipulate regarding frequency stability in the amateur radio service? | 04-stability | 3/3 |  |
+| B-001-019-002 | Which of the following emission modes requires that an amateur radio station have means to prevent or indicate overmodulation? | 03-modulation | 3/3 |  |
+| B-001-019-003 | Amateur radio stations are required to have means of indicating or preventing a signal quality problem unique to voice transmissions. What is it? | 02-explore, 03-modulation | 3/3 |  |
+| B-001-019-004 | What is the maximum percentage of modulation permitted for amateur radio voice communications? | 02-explore, 03-modulation | 3/3 |  |
+| B-001-019-005 | What must all amateur radio stations be capable of reliably measuring, regardless of emission mode? | 04-stability | 3/3 |  |
+| B-001-019-006 | What is the maximum percentage of modulation permitted for amateur radio voice communications? | 02-explore, 03-modulation | 3/3 |  |
 
 ## 1.20 International communications
 
 Lab: LAB-02
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-020-001 | What types of messages may be transmitted to an amateur radio station in a foreign country? | — | 0/3 |  |
-| B-001-020-002 | The amateur radio station operator shall ensure that: | — | 0/3 |  |
-| B-001-020-003 | Which of the following is a provision of the International Telecommunication Union's Radio Regulations that applies to Canadian amateur radio operators? | — | 0/3 |  |
-| B-001-020-004 | What do the International Telecommunication Union's Radio Regulations prescribe regarding proficiency in Morse code? | — | 0/3 |  |
-| B-001-020-005 | Canadian amateur radio operators must comply with the Radiocommunication Act and Radiocommunication Regulations. What other organization issues radio regulations that Canadian amateur radio operators must comply with? | — | 0/3 |  |
+| B-001-020-001 | What types of messages may be transmitted to an amateur radio station in a foreign country? | 02-explore, 03-intl | 3/3 |  |
+| B-001-020-002 | The amateur radio station operator shall ensure that: | 03-intl | 3/3 |  |
+| B-001-020-003 | Which of the following is a provision of the International Telecommunication Union's Radio Regulations that applies to Canadian amateur radio operators? | 02-explore, 03-intl | 3/3 |  |
+| B-001-020-004 | What do the International Telecommunication Union's Radio Regulations prescribe regarding proficiency in Morse code? | 03-intl | 3/3 |  |
+| B-001-020-005 | Canadian amateur radio operators must comply with the Radiocommunication Act and Radiocommunication Regulations. What other organization issues radio regulations that Canadian amateur radio operators must comply with? | 02-explore, 03-intl | 3/3 |  |
 
 ## 1.21 ITU regions and operating abroad
 
-Lab: none
+Lab: LAB-12
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-021-001 | In which region of the International Telecommunication Union is Canada located? | — | 0/3 |  |
-| B-001-021-002 | A Canadian amateur radio operator, operating their station in the state of Florida, is subject to which frequency band limits? | — | 0/3 |  |
-| B-001-021-003 | A Canadian amateur radio operator, operating their station 7 kilometres offshore from the coast of Florida, is subject to which frequency band limits? | — | 0/3 |  |
-| B-001-021-004 | In which region of the International Telecommunication Union are Australia, Japan, and Southeast Asia located? | — | 0/3 |  |
-| B-001-021-005 | In which region of the International Telecommunication Union are Europe and Africa located? | — | 0/3 |  |
-| B-001-021-006 | A CEPT (European Conference of Postal and Telecommunications Administrations) Amateur Radio Licence allows a qualified Canadian amateur radio operator to operate while visiting any participating country. What minimum level of qualification does a Canadian amateur radio operator need? | — | 0/3 |  |
-| B-001-021-007 | A Canadian amateur radio operator with a CEPT (European Conference of Postal and Telecommunications Administrations) Amateur Radio Licence operates in a participating country using a voice mode. What form of identification is required? | — | 0/3 |  |
-| B-001-021-008 | What minimum level of qualification does a Canadian amateur radio operator need to operate in the United States? | — | 0/3 |  |
-| B-001-021-009 | A Canadian amateur radio operator is operating in the United States using voice. What form of identification is required? | — | 0/3 |  |
+| B-001-021-001 | In which region of the International Telecommunication Union is Canada located? | 02-explore, 03-regions | 3/3 |  |
+| B-001-021-002 | A Canadian amateur radio operator, operating their station in the state of Florida, is subject to which frequency band limits? | 04-abroad | 3/3 |  |
+| B-001-021-003 | A Canadian amateur radio operator, operating their station 7 kilometres offshore from the coast of Florida, is subject to which frequency band limits? | 04-abroad | 3/3 |  |
+| B-001-021-004 | In which region of the International Telecommunication Union are Australia, Japan, and Southeast Asia located? | 02-explore, 03-regions | 3/3 |  |
+| B-001-021-005 | In which region of the International Telecommunication Union are Europe and Africa located? | 02-explore, 03-regions | 3/3 |  |
+| B-001-021-006 | A CEPT (European Conference of Postal and Telecommunications Administrations) Amateur Radio Licence allows a qualified Canadian amateur radio operator to operate while visiting any participating country. What minimum level of qualification does a Canadian amateur radio operator need? | 04-abroad | 3/3 |  |
+| B-001-021-007 | A Canadian amateur radio operator with a CEPT (European Conference of Postal and Telecommunications Administrations) Amateur Radio Licence operates in a participating country using a voice mode. What form of identification is required? | 04-abroad | 3/3 |  |
+| B-001-021-008 | What minimum level of qualification does a Canadian amateur radio operator need to operate in the United States? | 04-abroad | 3/3 |  |
+| B-001-021-009 | A Canadian amateur radio operator is operating in the United States using voice. What form of identification is required? | 04-abroad | 3/3 |  |
 
 ## 1.22 Examinations and fees
 
 Lab: LAB-02
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-022-001 | Which of these statements is NOT correct? | — | 0/3 |  |
-| B-001-022-002 | Which of the following statements is NOT correct? | — | 0/3 |  |
-| B-001-022-003 | What is the fee for taking an examination for an Amateur Radio Operator Certificate, administered by an accredited examiner? | — | 0/3 |  |
-| B-001-022-004 | What is the fee for taking Amateur Radio Operator Certificate examinations at an Innovation, Science and Economic Development Canada office? | — | 0/3 |  |
-| B-001-022-005 | Which of the following statements is NOT correct? | — | 0/3 |  |
+| B-001-022-001 | Which of these statements is NOT correct? | 03-fees | 3/3 |  |
+| B-001-022-002 | Which of the following statements is NOT correct? | 02-explore, 04-accommodation | 3/3 |  |
+| B-001-022-003 | What is the fee for taking an examination for an Amateur Radio Operator Certificate, administered by an accredited examiner? | 02-explore, 03-fees | 3/3 |  |
+| B-001-022-004 | What is the fee for taking Amateur Radio Operator Certificate examinations at an Innovation, Science and Economic Development Canada office? | 02-explore, 03-fees | 3/3 |  |
+| B-001-022-005 | Which of the following statements is NOT correct? | 02-explore, 04-accommodation | 3/3 |  |
 
 ## 1.23 Antenna structures and land-use consultation
 
 Lab: LAB-06
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-023-001 | Which of these statements about the installation or modification of an antenna structure is NOT correct? | — | 0/3 |  |
-| B-001-023-002 | Who has authority over antenna installations, including antenna masts and towers? | — | 0/3 |  |
-| B-001-023-003 | When may you NOT be required to contact land-use authorities to determine public consultation requirements for an antenna system? | — | 0/3 |  |
-| B-001-023-004 | If an amateur radio operator wants to install or modify an antenna system and the local land-use authority has no approval process, what must the amateur radio operator do? | — | 0/3 |  |
-| B-001-023-005 | Which is NOT an element of the Innovation, Science and Economic Development Canada public consultation process for antenna systems? | — | 0/3 |  |
-| B-001-023-006 | Innovation, Science and Economic Development Canada's default public consultation process for antenna systems requires proponents to address: | — | 0/3 |  |
-| B-001-023-007 | In a municipality with a public consultation process for antenna systems, when might public consultation NOT be required? | — | 0/3 |  |
-| B-001-023-008 | The proponent of an antenna system and a stakeholder, other than the general public, have failed to reach an agreement. How is a final decision reached? | — | 0/3 |  |
-| B-001-023-009 | Ignoring other requirements regarding the installation or modification of an antenna system, what is the tallest antenna structure you could erect without public consultation? | — | 0/3 |  |
-| B-001-023-010 | Where a land-use authority or municipality has established a public consultation process for antenna systems, who determines how public consultation should take place? | — | 0/3 |  |
+| B-001-023-001 | Which of these statements about the installation or modification of an antenna structure is NOT correct? | 03-authority | 3/3 |  |
+| B-001-023-002 | Who has authority over antenna installations, including antenna masts and towers? | 03-authority | 3/3 |  |
+| B-001-023-003 | When may you NOT be required to contact land-use authorities to determine public consultation requirements for an antenna system? | 04-process, 05-explore-height | 3/3 |  |
+| B-001-023-004 | If an amateur radio operator wants to install or modify an antenna system and the local land-use authority has no approval process, what must the amateur radio operator do? | 02-explore-process, 04-process | 3/3 |  |
+| B-001-023-005 | Which is NOT an element of the Innovation, Science and Economic Development Canada public consultation process for antenna systems? | 04-process | 3/3 |  |
+| B-001-023-006 | Innovation, Science and Economic Development Canada's default public consultation process for antenna systems requires proponents to address: | 04-process | 3/3 |  |
+| B-001-023-007 | In a municipality with a public consultation process for antenna systems, when might public consultation NOT be required? | 04-process | 3/3 |  |
+| B-001-023-008 | The proponent of an antenna system and a stakeholder, other than the general public, have failed to reach an agreement. How is a final decision reached? | 03-authority | 3/3 |  |
+| B-001-023-009 | Ignoring other requirements regarding the installation or modification of an antenna system, what is the tallest antenna structure you could erect without public consultation? | 04-process, 05-explore-height | 3/3 |  |
+| B-001-023-010 | Where a land-use authority or municipality has established a public consultation process for antenna systems, who determines how public consultation should take place? | 04-process | 3/3 |  |
 
 ## 1.24 RF exposure and Safety Code 6
 
 Lab: LAB-05
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-024-001 | What organization has published safety guidelines for the maximum limits of RF energy near the human body? | — | 0/3 |  |
-| B-001-024-002 | What is the purpose of Safety Code 6? | — | 0/3 |  |
-| B-001-024-003 | According to Safety Code 6, what frequencies cause us the greatest risk from RF energy? | — | 0/3 |  |
-| B-001-024-004 | Why is the limit of exposure to RF the lowest in the frequency range of 48 MHz to 300 MHz, according to Safety Code 6? | — | 0/3 |  |
-| B-001-024-005 | According to Safety Code 6, what is the maximum safe power output to the antenna of a hand-held VHF or UHF radio? | — | 0/3 |  |
-| B-001-024-006 | When specifying maximum levels of exposure to RF fields, which two basic situations does Safety Code 6 cover? | — | 0/3 |  |
-| B-001-024-007 | Apart from energy absorption and especially below 10 MHz, what is the second established adverse health effect described in Safety Code 6? | — | 0/3 |  |
-| B-001-024-008 | Which statement is NOT correct? | — | 0/3 |  |
-| B-001-024-009 | Safety Code 6 sets limits for RF exposure from radio transmitters. Which types of transmitters are exempt from regulation? | — | 0/3 |  |
-| B-001-024-010 | Which of these statements about Safety Code 6 is NOT correct? | — | 0/3 |  |
+| B-001-024-001 | What organization has published safety guidelines for the maximum limits of RF energy near the human body? | 03-sc6 | 3/3 |  |
+| B-001-024-002 | What is the purpose of Safety Code 6? | 03-sc6 | 3/3 |  |
+| B-001-024-003 | According to Safety Code 6, what frequencies cause us the greatest risk from RF energy? | 02-explore-lowest, 03-sc6 | 3/3 |  |
+| B-001-024-004 | Why is the limit of exposure to RF the lowest in the frequency range of 48 MHz to 300 MHz, according to Safety Code 6? | 02-explore-lowest, 03-sc6 | 3/3 |  |
+| B-001-024-005 | According to Safety Code 6, what is the maximum safe power output to the antenna of a hand-held VHF or UHF radio? | 05-scope | 3/3 |  |
+| B-001-024-006 | When specifying maximum levels of exposure to RF fields, which two basic situations does Safety Code 6 cover? | 04-explore-env, 05-scope | 3/3 |  |
+| B-001-024-007 | Apart from energy absorption and especially below 10 MHz, what is the second established adverse health effect described in Safety Code 6? | 03-sc6 | 3/3 |  |
+| B-001-024-008 | Which statement is NOT correct? | 04-explore-env, 05-scope | 3/3 |  |
+| B-001-024-009 | Safety Code 6 sets limits for RF exposure from radio transmitters. Which types of transmitters are exempt from regulation? | 05-scope | 3/3 |  |
+| B-001-024-010 | Which of these statements about Safety Code 6 is NOT correct? | 03-sc6 | 3/3 |  |
 
 ## 1.25 Field strength and EMC complaints
 
 Lab: LAB-33
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-025-001 | Your neighbour's stereo system malfunctions when you are transmitting. What provision in Electromagnetic Compatibility Advisory Bulletin EMCAB-2 deems the stereo system's lack of immunity is the cause? | — | 0/3 |  |
-| B-001-025-002 | Your neighbour's television receiver malfunctions when you are transmitting. What provision in Electromagnetic Compatibility Advisory Bulletin EMCAB-2 deems your transmission is the cause? | — | 0/3 |  |
-| B-001-025-003 | When determining the field strength criterion per Electromagnetic Compatibility Advisory Bulletin EMCAB-2, what type of equipment describes devices often used in home entertainment systems, but not strictly speaking radio apparatus? | — | 0/3 |  |
-| B-001-025-004 | Your neighbour complains that your transmissions interfere with their garage door opener. When determining the applicable field strength criterion in Electromagnetic Compatibility Advisory Bulletin EMCAB-2, what type of equipment is the garage door opener? | — | 0/3 |  |
+| B-001-025-001 | Your neighbour's stereo system malfunctions when you are transmitting. What provision in Electromagnetic Compatibility Advisory Bulletin EMCAB-2 deems the stereo system's lack of immunity is the cause? | 02-explore-stereo, 03-emcab | 3/3 |  |
+| B-001-025-002 | Your neighbour's television receiver malfunctions when you are transmitting. What provision in Electromagnetic Compatibility Advisory Bulletin EMCAB-2 deems your transmission is the cause? | 03-emcab, 04-explore-tv | 3/3 |  |
+| B-001-025-003 | When determining the field strength criterion per Electromagnetic Compatibility Advisory Bulletin EMCAB-2, what type of equipment describes devices often used in home entertainment systems, but not strictly speaking radio apparatus? | 02-explore-stereo, 05-types | 3/3 |  |
+| B-001-025-004 | Your neighbour complains that your transmissions interfere with their garage door opener. When determining the applicable field strength criterion in Electromagnetic Compatibility Advisory Bulletin EMCAB-2, what type of equipment is the garage door opener? | 05-types | 3/3 |  |
 

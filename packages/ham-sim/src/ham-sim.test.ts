@@ -795,9 +795,15 @@ describe("section 1 regulation models", () => {
 
 describe("section 1 batch 3 models", () => {
   it("decides when antenna consultation applies and whose process", () => {
-    expect(permitVariables({ height: 20, choice: "ised" }, { localProcess: false })).toMatchObject({ processOk: true, excluded: false });
+    expect(permitVariables({ height: 20, choice: "ised" }, { localProcess: false })).toMatchObject({
+      processOk: true,
+      excluded: false,
+    });
     expect(permitVariables({ height: 20, choice: "ised" }, { localProcess: true })).toMatchObject({ processOk: false });
-    expect(permitVariables({ height: 14, choice: "none" }, { localProcess: true })).toMatchObject({ processOk: true, excluded: true });
+    expect(permitVariables({ height: 14, choice: "none" }, { localProcess: true })).toMatchObject({
+      processOk: true,
+      excluded: true,
+    });
   });
   it("has Safety Code 6 limits continuous, and lowest from 48 to 300 MHz", () => {
     expect(sc6Limit(20)).toBeCloseTo(sc6Limit(20.0001), 3);

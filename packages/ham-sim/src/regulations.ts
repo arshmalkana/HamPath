@@ -210,7 +210,10 @@ export interface PermitState {
 
 export function permitVariables(s: PermitState, c: PermitConfig): Vars | null {
   if (!finite(s?.height) || !c || typeof c.localProcess !== "boolean") return null;
-  const exempt = c.localProcess && c.localExemptHeight ? Math.max(c.localExemptHeight, ISED_EXCLUSION_HEIGHT_M) : ISED_EXCLUSION_HEIGHT_M;
+  const exempt =
+    c.localProcess && c.localExemptHeight
+      ? Math.max(c.localExemptHeight, ISED_EXCLUSION_HEIGHT_M)
+      : ISED_EXCLUSION_HEIGHT_M;
   const excluded = s.height < exempt;
   const required = excluded ? "none" : c.localProcess ? "municipal" : "ised";
   return { height: s.height, excluded, processOk: s.choice === required, exemptBelow: exempt };
