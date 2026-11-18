@@ -17,8 +17,16 @@
 - { id: LAB-14, name: Mode Spectrum Lab, component: null, lessons: ["3.10", "3.11", "3.12", "3.13", "3.15"] }
 - { id: LAB-15, name: Power Bench, component: null, lessons: ["3.08", "3.16", "3.17"] }
 - { id: LAB-16, name: Safe Shack Inspector, component: null, lessons: ["3.18", "3.19", "3.20", "3.21"] }
-- { id: LAB-17, name: Component Bench, component: null, lessons: ["4.01", "4.02", "4.03", "4.04", "4.05"] }
-- { id: LAB-18, name: Resistor Colour Code, component: null, lessons: ["4.06"] }
+- id: LAB-17
+  name: Component Bench
+  component: ComponentBenchLab
+  lessons: ["4.01", "4.02", "4.03", "4.04", "4.05"]
+  default_config: { device: diode, mode: iv, input: 0, drive: 0.2, controls: { device: false, input: { min: -10, max: 2, step: 0.1 }, drive: false } }
+- id: LAB-18
+  name: Resistor Colour Code
+  component: ColourCodeLab
+  lessons: ["4.06"]
+  default_config: { bands: [brown, black, brown, gold], game: false, controls: { bands: [true, true, true, true] } }
 - id: LAB-19
   name: Unit Slider
   component: UnitSliderLab

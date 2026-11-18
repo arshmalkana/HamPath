@@ -2,6 +2,14 @@ import { solveOhm, solvePower, type OhmVar } from "./ohm.ts";
 import { parallelResistance, seriesResistance } from "./resistors.ts";
 import { formatNumber, formatQuantity, parseQuantity, roundSig, type Unit } from "./units.ts";
 import { capacitiveReactance, inductiveReactance, powerRatioToDb, resonantFrequency } from "./wave.ts";
+import {
+  COLOURS,
+  MULTIPLIER_COLOURS,
+  colourCodeValue,
+  multiplierOf,
+  type Colour,
+  type MultiplierColour,
+} from "./components.ts";
 
 /**
  * A calculation spec, authored in a lesson's `calculations:` next to the question id. CI runs it
@@ -227,6 +235,40 @@ const calculators: Record<string, Calculator> = {
     const out = P * ratio;
     steps.push(`P = ${q(P, "W")} × ${n(ratio)} = ${q(out, "W")}`);
     return { value: out, unit: "W", steps };
+  },
+
+  /** Four-band resistor colour code: first digit, second digit, multiplier. */
+  colour_code: (s) => {
+    const bands = s.given.bands;
+    if (!Array.isArray(bands) || bands.length < 3)
+      throw new Error("colour_code needs bands: [digit, digit, multiplier]");
+    const [b1, b2, m] = bands.map(String) as [Colour, Colour, MultiplierColour];
+    if (!COLOURS.includes(b1) || !COLOURS.includes(b2) || !MULTIPLIER_COLOURS.includes(m))
+      throw new Error(`Unknown colour in ${bands.join(", ")}`);
+    const R = colourCodeValue(b1, b2, m);
+    const digits = COLOURS.indexOf(b1) * 10 + COLOURS.indexOf(b2);
+    return {
+      value: R,
+      unit: "Ω",
+      steps: [
+        `${b1} = ${COLOURS.indexOf(b1)}, ${b2} = ${COLOURS.indexOf(b2)}: digits ${digits}`,
+        `${m} multiplier = × ${n(multiplierOf(m))}`,
+        `${digits} × ${n(multiplierOf(m))} = ${q(R, "Ω")}`,
+      ],
+    };
+  },
+
+  /** Tolerance band: the highest value a resistor may have (the lowest is in the steps). */
+  tolerance: (s) => {
+    const R = need(val(s.given, "R", "Ω"), "R");
+    const tol = need(val(s.given, "tol", ""), "tol");
+    const lo = R * (1 - tol / 100);
+    const hi = R * (1 + tol / 100);
+    return {
+      value: hi,
+      unit: "Ω",
+      steps: [`${n(tol)}% of ${q(R, "Ω")} = ${q((R * tol) / 100, "Ω")}`, `Range: ${q(lo, "Ω")} to ${q(hi, "Ω")}`],
+    };
   },
 
   /** S-meter after a power change: dB over S9 now + 10 log(P2/P1). */

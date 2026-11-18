@@ -1,0 +1,52 @@
+{
+  "lab": "LAB-17",
+  "steps": {
+    "explore-on": {
+      "title": "Base current in, collector current out",
+      "prompt": "Turn up the base current until the transistor is fully on (saturated).",
+      "config": {
+        "device": "bjt",
+        "mode": "iv",
+        "input": 0.00002,
+        "controls": {
+          "device": false,
+          "input": {
+            "min": 0,
+            "max": 0.0002,
+            "step": 0.00001
+          }
+        }
+      },
+      "goal": "saturated",
+      "goal_text": "Transistor saturated",
+      "hints": [
+        "Each microampere into the base lets 100 µA flow in the collector.",
+        "The circuit can't pass more than 12 mA."
+      ],
+      "success": "About 100 times the base current flows in the collector, until 12 mA: the transistor is saturated, fully on. The base controls the output current."
+    },
+    "explore-cutoff": {
+      "title": "From fully on to fully off",
+      "prompt": "The transistor is saturated. Now switch it fully off.",
+      "config": {
+        "device": "bjt",
+        "mode": "iv",
+        "input": 0.00015,
+        "controls": {
+          "device": false,
+          "input": {
+            "min": 0,
+            "max": 0.0002,
+            "step": 0.00001
+          }
+        }
+      },
+      "goal": "cutoff",
+      "goal_text": "Transistor cut off",
+      "hints": [
+        "No base current, no collector current."
+      ],
+      "success": "Zero base current: cut off, no collector current. Saturated and cut off, on and off: a switch, worked by the base."
+    }
+  }
+}

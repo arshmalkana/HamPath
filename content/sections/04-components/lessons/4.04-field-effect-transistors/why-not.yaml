@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-004-004-001:
+  NPN and PNP: NPN and PNP are the bipolar transistor types.
+  Silicon and germanium: Silicon and germanium are semiconductor materials, not the FET types.
+  Gallium and arsenide: Gallium arsenide is one material, not two FET types.
+B-004-004-002:
+  Point-contact transistor: A point-contact transistor is an early bipolar type, with emitter and collector.
+  Bipolar transistor: A bipolar transistor has collector, emitter and base.
+  Unijunction transistor: A unijunction transistor has an emitter and two bases.
+B-004-004-003:
+  Drain: The drain is where carriers leave the channel; it doesn't control it.
+  Source: The source is where carriers enter; it doesn't control the channel.
+  Collector: Collector is a bipolar electrode.
+B-004-004-004:
+  Gate: The gate controls the channel; carriers don't enter there.
+  Drain: Carriers leave at the drain.
+  Emitter: Emitter is a bipolar electrode.
+B-004-004-005:
+  Collector: Collector is a bipolar electrode.
+  Source: Carriers enter at the source.
+  Gate: The gate controls the channel; carriers don't leave through it.
+B-004-004-006:
+  It uses high resistance semiconductors: Its materials aren't especially resistive; the insulated, reverse-biased gate is the reason.
+  It functions at low voltage: Low voltage operation has nothing to do with input impedance.
+  It functions at high current: High current would mean low impedance, not high.
+B-004-004-007:
+  Source: The source is one end of the channel, not the control.
+  Drain: The drain is the other end of the channel.
+  Base: Base is the bipolar transistor's control electrode.
+B-004-004-008:
+  The reverse bias is increased: More reverse bias pinches the channel and reduces current.
+  A forward bias is applied: A junction FET's gate isn't forward biased in normal use; that would make it conduct.
+  A forward bias is removed: There's no forward bias to remove; the gate is reverse biased.
+B-004-004-009:
+  Base: The base corresponds to the gate.
+  Drain: Drain is an FET electrode; it matches the collector.
+  Collector: The collector corresponds to the drain.
+B-004-004-010:
+  Base: The base corresponds to the gate.
+  Source: Source is an FET electrode; it matches the emitter.
+  Emitter: The emitter corresponds to the source.
+B-004-004-011:
+  Source and gate: The gate controls the channel; it isn't one of its ends.
+  Gate and drain: The gate isn't an end of the channel; the source is one end.
+  Source and base: Base is a bipolar electrode.

@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-004-003-001:
+  Variable resistor: A variable resistor can only reduce a signal; it has no gain.
+  Thyristor: A thyristor is a latching switch, not a small-signal amplifier.
+  Silicon-controlled rectifier: An SCR is a thyristor, a switch; it doesn't amplify small signals.
+B-004-003-002:
+  Varactor: A varactor is a diode used as a voltage-controlled capacitor.
+  P-N junction: A P-N junction on its own is a diode; it doesn't amplify.
+  Diode: A diode conducts one way; it has no gain.
+B-004-003-003:
+  Drain, base and source: Drain and source belong to a field-effect transistor.
+  Collector, source and drain: Source and drain are FET electrodes.
+  Gate, source and drain: Gate, source and drain are the FET's electrodes.
+B-004-003-004:
+  Detection: Detection recovers information from a signal.
+  Modulation: Modulation puts information onto a carrier.
+  Rectification: Rectification turns AC into DC.
+B-004-003-005:
+  The current gain would be too low: Gain isn't the problem; the voltages would all be the wrong way round.
+  The electrodes are labelled differently: Both have collector, emitter and base; the labels are the same.
+  The frequency response would be limited: Frequency response isn't the issue; polarity is.
+B-004-003-006:
+  Field-effect transistor: NPN and PNP describe bipolar transistors; FETs are N or P channel.
+  Triac: A triac is an AC switch, not an audio amplifier.
+  Thyristor: A thyristor is a switching device, not described as NPN.
+B-004-003-007:
+  Diode and triode: A triode is a tube; a diode isn't a transistor.
+  Varicap and varistor: Varicaps and varistors are other components entirely.
+  P channel and N channel: P channel and N channel describe field-effect transistors.
+B-004-003-008:
+  Excessive light: Ordinary transistors aren't damaged by light.
+  Saturation: "Saturation is a normal state: fully on."
+  Cut-off: "Cut-off is a normal state: fully off."
+B-004-003-009:
+  Emitter: The emitter carries the output current but doesn't control it.
+  Collector: The collector carries the output current; the base controls it.
+  Source: Source is an FET electrode.
+B-004-003-010:
+  Emitter: The emitter carries the current; it doesn't decide on or off.
+  Collector: The collector carries the switched current; the base controls it.
+  Gate: Gate is the FET's control electrode, not the bipolar's.
+B-004-003-011:
+  An inverter: An inverter is one use of a switch, but the behaviour itself is a switch.
+  An amplifier: An amplifier works between the two extremes, not at them.
+  A timer: A timer needs other parts to set the time.

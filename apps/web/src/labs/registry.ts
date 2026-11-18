@@ -1,5 +1,7 @@
 import type { ComponentType } from "react";
 import type { Vars } from "@hampath/ham-sim";
+import { ColourCodeLab } from "./ColourCodeLab";
+import { ComponentBenchLab } from "./ComponentBenchLab";
 import { DbLadderLab } from "./DbLadderLab";
 import { MeterLab } from "./MeterLab";
 import { OhmsLawLab } from "./OhmsLawLab";
@@ -43,8 +45,8 @@ export const LAB_REGISTRY: LabEntry[] = [
   { id: "LAB-14", name: "Mode Spectrum Lab", component: null },
   { id: "LAB-15", name: "Power Bench", component: null },
   { id: "LAB-16", name: "Safe Shack Inspector", component: null },
-  { id: "LAB-17", name: "Component Bench", component: null },
-  { id: "LAB-18", name: "Resistor Colour Code", component: null },
+  { id: "LAB-17", name: "Component Bench", component: ComponentBenchLab },
+  { id: "LAB-18", name: "Resistor Colour Code", component: ColourCodeLab },
   { id: "LAB-19", name: "Unit Slider", component: UnitSliderLab },
   { id: "LAB-20", name: "Ohm's Law Circuit Builder", component: OhmsLawLab },
   { id: "LAB-21", name: "AC Scope", component: ScopeLab },

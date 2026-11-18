@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-004-006-001:
+  Third: The third band is the multiplier.
+  Second: The second band is the second digit.
+  First: The first band is the first digit.
+B-004-006-002:
+  The resistance material: The bands don't tell you what the resistor is made of.
+  The power rating in watts: Power rating is shown by physical size, not the bands.
+  The resistance tolerance in percent: Tolerance is the fourth band.
+B-004-006-003:
+  The value of the resistor in ohms: The value comes from the first three bands.
+  The power rating in watts: Power rating isn't colour coded on four-band resistors.
+  The resistance material: The bands don't show the material.
+B-004-006-004:
+  90 ohms to 100 ohms: "The tolerance works both ways: it can be above 100 too."
+  10 ohms to 100 ohms: 10% of 100 is 10, not 90.
+  80 ohms to 120 ohms: 80 to 120 would be 20% tolerance.
+B-004-006-005:
+  Third: The third band is the multiplier, the same for both.
+  Fourth: The fourth band is the tolerance, not part of the value.
+  First: Both start with 3, so the first band is the same.
+B-004-006-006:
+  5%: 5% is less precise than 0.1%.
+  10%: 10% is less precise than 5% or 0.1%.
+  20%: 20% is the least precise of the four.
+B-004-006-007:
+  0.1%: 0.1% is the most precise of the four.
+  5%: 5% is more precise than 20%.
+  10%: 10% is more precise than 20%.
+B-004-006-008:
+  It increases: Some resistors increase, but not all; it depends on the coefficient.
+  It remains constant: Real resistors drift with temperature.
+  It decreases: Some decrease, but not all; it depends on the coefficient.
+B-004-006-009:
+  Tolerance: Tolerance is a percentage either side of the value, not per degree.
+  Power rating: Power rating is in watts.
+  Ohmic value: Ohmic value is the resistance itself.
+B-004-006-010:
+  First: Both start with 1, so the first band is the same.
+  Second: Both have 2 as the second digit.
+  Fourth: The fourth band is tolerance, not part of the value.
+B-004-006-011:
+  274 ohms: "274 Ω reads yellow as a third digit. The third band is a multiplier: add four zeros."
+  72 kilohms: "72 kΩ swaps the digits: red comes first, so it's 27."
+  27 megohms: 27 MΩ would need a blue multiplier (six zeros), not yellow.

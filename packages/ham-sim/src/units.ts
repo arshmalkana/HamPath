@@ -108,10 +108,12 @@ export function parseQuantity(text: string, expectedUnit?: Unit): Quantity | nul
   if (expectedUnit && rest === expectedUnit) return { value, unit: expectedUnit };
 
   // Word prefixes: "milliamperes", "kilo ohms"
-  const lower = rest.toLowerCase();
+  const lower = rest.toLowerCase().replace(/^megohm/, "megaohm");
   for (const [word, e] of Object.entries(PREFIX_WORDS)) {
     if (lower.startsWith(word)) {
-      const u = lookupUnit(lower.slice(word.length).trim());
+      const tail = lower.slice(word.length).trim();
+      // "kilohms", "megohms": the prefix swallows the o of ohms
+      const u = lookupUnit(tail) ?? (tail.startsWith("hm") ? lookupUnit(`o${tail}`) : undefined);
       if (u) return { value: value * 10 ** e, unit: u };
     }
   }

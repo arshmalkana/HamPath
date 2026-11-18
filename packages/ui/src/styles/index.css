@@ -2117,3 +2117,57 @@ a.lesson-tile[data-done="true"] {
   stroke: var(--shack-muted);
   stroke-width: 4;
 }
+
+/* ================================================================ LAB-18 colour code */
+.resistor-body {
+  fill: var(--resistor-body);
+}
+.band {
+  stroke: var(--shack-readout-ground);
+  stroke-width: 1;
+}
+.band-black {
+  fill: var(--band-black);
+}
+.band-brown {
+  fill: var(--band-brown);
+}
+.band-red {
+  fill: var(--band-red);
+}
+.band-orange {
+  fill: var(--band-orange);
+}
+.band-yellow {
+  fill: var(--band-yellow);
+}
+.band-green {
+  fill: var(--band-green);
+}
+.band-blue {
+  fill: var(--band-blue);
+}
+.band-violet {
+  fill: var(--band-violet);
+}
+.band-grey {
+  fill: var(--band-grey);
+}
+.band-white {
+  fill: var(--band-white);
+}
+.band-gold {
+  fill: var(--band-gold);
+}
+.band-silver {
+  fill: var(--band-silver);
+}
+.band-none {
+  fill: var(--resistor-body);
+  stroke: none;
+}
+.lab-state {
+  margin: 0;
+  color: var(--shack-ink-2);
+  font-size: var(--text-sm);
+}

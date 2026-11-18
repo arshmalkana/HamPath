@@ -1,0 +1,28 @@
+{
+  "lab": "LAB-17",
+  "steps": {
+    "explore-gate": {
+      "title": "Open the channel",
+      "prompt": "Decrease the reverse bias on the gate until at least 8 mA flows through the channel.",
+      "config": {
+        "device": "fet",
+        "mode": "iv",
+        "input": -3.5,
+        "controls": {
+          "device": false,
+          "input": {
+            "min": -4,
+            "max": 0,
+            "step": 0.25
+          }
+        }
+      },
+      "goal": "current >= 0.008",
+      "goal_text": "8 mA in the channel",
+      "hints": [
+        "Move the gate voltage toward 0 V."
+      ],
+      "success": "Less reverse bias, wider channel, more current. And the gate itself took no current at all: high impedance."
+    }
+  }
+}

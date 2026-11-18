@@ -245,8 +245,24 @@ export const ResonanceConfig = z.object({
   controls: z.object({ L: z.boolean(), C: z.boolean(), f: z.boolean(), circuit: z.boolean() }),
 });
 
+const Colour = z.enum(["black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"]);
+export const BenchConfig = z.object({
+  device: z.enum(["diode", "zener", "bjt", "fet", "triode"]),
+  mode: z.enum(["iv", "amp", "rectifier"]),
+  input: z.number(),
+  drive: z.number().min(0).optional(),
+  controls: z.object({ device: z.boolean(), input: RangeOrLocked, drive: RangeOrLocked.optional() }),
+});
+export const ColourCodeConfig = z.object({
+  bands: z.tuple([Colour, Colour, z.union([Colour, z.enum(["gold", "silver"])]), z.enum(["brown", "red", "gold", "silver", "none"])]),
+  game: z.boolean().optional(),
+  controls: z.object({ bands: z.tuple([z.boolean(), z.boolean(), z.boolean(), z.boolean()]) }),
+});
+
 /** Config schema and the variables a goal may reference, per implemented lab. */
 export const LAB_SCHEMAS: Record<string, { config: z.ZodType; variables: string[] }> = {
+  "LAB-17": { config: BenchConfig, variables: LAB_GOAL_VARIABLES["LAB-17"]! },
+  "LAB-18": { config: ColourCodeConfig, variables: LAB_GOAL_VARIABLES["LAB-18"]! },
   "LAB-19": { config: UnitSliderConfig, variables: LAB_GOAL_VARIABLES["LAB-19"]! },
   "LAB-20": { config: z.union([CombineLabConfig, OhmsLabConfig]), variables: LAB_GOAL_VARIABLES["LAB-20"]! },
   "LAB-21": { config: ScopeConfig, variables: LAB_GOAL_VARIABLES["LAB-21"]! },

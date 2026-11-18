@@ -1,0 +1,18 @@
+---
+type: predict
+title: The howl
+teaches:
+  - B-004-001-011
+interaction:
+  kind: predict
+  prompt: You hold a microphone close to the loudspeaker of the same PA amplifier. What happens?
+  choices:
+    - text: The sound gets cleaner
+      feedback: "The speaker feeds the mic, which feeds the speaker: that's positive feedback, and it doesn't clean anything up."
+    - text: It starts to howl on its own
+      correct: true
+      feedback: Right. Output fed back in step with the input makes the amplifier oscillate.
+    - text: The volume drops
+      feedback: Feedback in step with the input adds to it, so it builds up rather than dropping.
+---
+Predict, then check.

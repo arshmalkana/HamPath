@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-004-001-001:
+  Modulator: A modulator puts information onto a carrier; it doesn't exist to make signals bigger.
+  Oscillator: An oscillator generates a signal; it doesn't boost one coming in.
+  Multiplier: A multiplier changes frequency, not amplitude.
+B-004-001-002:
+  be reduced to zero: The output doesn't vanish; it just stops being an accurate copy.
+  cause oscillations: Oscillation comes from positive feedback, not from non-linearity.
+  overload the power supply: Non-linearity changes the signal's shape, not the supply's load.
+B-004-001-003:
+  an RF oscillator: An oscillator makes a signal; it can't boost one from the antenna.
+  an audio oscillator: An audio oscillator makes a tone; it can't boost radio signals.
+  an audio amplifier: Signals from the antenna are radio frequency, so an audio amplifier is the wrong one.
+B-004-001-004:
+  an RF oscillator: An oscillator generates a signal; it doesn't boost the microphone's.
+  an RF amplifier: Microphone signals are audio, not radio frequency.
+  an audio oscillator: An audio oscillator makes a tone; it doesn't amplify the microphone.
+B-004-001-005:
+  3 Hz to 300 Hz: 3 Hz to 300 Hz misses most of the voice band.
+  300 Hz to 1 000 Hz: Speech needs more than 1 kHz to stay understandable; the band runs to about 3 kHz.
+  40 Hz to 40 000 Hz: 40 Hz to 40 kHz is hi-fi; a transmitter only needs the speech band.
+B-004-001-006:
+  Phase: Amplifiers aren't designed to increase phase.
+  Frequency: An amplifier doesn't change a signal's frequency.
+  Linearity: Linearity is how faithful the copy is, not something an amplifier increases.
+B-004-001-007:
+  attenuation: Attenuation is a decrease in level, the opposite of gain.
+  amplitude: Amplitude is the size of the signal itself, not the increase.
+  modulation: Modulation puts information onto a carrier.
+B-004-001-008:
+  attenuation: Attenuation is the opposite of gain.
+  oscillation: Oscillation is generating a signal, not having gain.
+  modulation: Modulation is adding information to a carrier.
+B-004-001-009:
+  attenuator: An attenuator has loss, not gain.
+  oscillator: Oscillators aren't rated in gain.
+  audio fader: A fader turns signals down; it doesn't advertise gain.
+B-004-001-010:
+  Current gain: Current gain compares output current to input current, not power to DC supply.
+  Dynamic range: Dynamic range is the span between the weakest and strongest signals handled.
+  Loss factor: Loss factor isn't the output-to-DC-input ratio.
+B-004-001-011:
+  Distortion is minimized: Positive feedback makes distortion worse, not better.
+  Frequency response is flattened: Positive feedback doesn't flatten the frequency response.
+  Voltage gain is reduced: Positive feedback raises gain until it oscillates; negative feedback reduces it.

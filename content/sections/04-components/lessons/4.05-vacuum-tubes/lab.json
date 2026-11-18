@@ -1,0 +1,28 @@
+{
+  "lab": "LAB-17",
+  "steps": {
+    "explore-grid": {
+      "title": "The grid in control",
+      "prompt": "The grid is very negative and little current flows. Raise the plate current to at least 15 mA.",
+      "config": {
+        "device": "triode",
+        "mode": "iv",
+        "input": -7,
+        "controls": {
+          "device": false,
+          "input": {
+            "min": -8,
+            "max": 0,
+            "step": 0.5
+          }
+        }
+      },
+      "goal": "current >= 0.015",
+      "goal_text": "15 mA plate current",
+      "hints": [
+        "Make the grid less negative."
+      ],
+      "success": "A less negative grid lets more electrons through from cathode to plate. A small grid voltage controls a big plate current: just like an FET's gate."
+    }
+  }
+}

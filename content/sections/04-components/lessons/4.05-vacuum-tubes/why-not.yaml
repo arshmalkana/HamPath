@@ -1,0 +1,37 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-004-005-001:
+  It uses less current: "Tubes use more current than transistors, not less: the heater alone draws plenty."
+  It is much smaller: Tubes are much bigger than transistors.
+  It uses lower voltages: Tubes need higher voltages, often hundreds of volts.
+B-004-005-002:
+  Cathode and grid: The grid controls the current but doesn't carry the output.
+  Emitter and collector: Emitter and collector are bipolar transistor electrodes.
+  Source and drain: Source and drain are FET electrodes.
+B-004-005-003:
+  have electrons drifting through a vacuum: Only tubes have electrons crossing a vacuum.
+  dissipate heat when not conducting: Neither dissipates much heat when not conducting.
+  use heat to cause electron movement: Only tubes use a heated cathode to free electrons.
+B-004-005-004:
+  Collector: Collector is a bipolar transistor electrode.
+  Cathode: The cathode is near ground; it's the most negative.
+  Grid: The grid is usually slightly negative.
+B-004-005-005:
+  Triac: A triac is an AC switch.
+  Thyristor: A thyristor is a latching switch.
+  Bipolar transistor: A bipolar transistor is current controlled; the voltage-controlled FET is closer to a triode.
+B-004-005-006:
+  Emitter: Emitter is a bipolar transistor electrode.
+  Cathode: The cathode emits electrons; the grid controls them.
+  Plate: The plate collects electrons; the grid controls them.
+B-004-005-007:
+  Grid: The grid controls electrons; it doesn't emit them.
+  Collector: Collector is a bipolar transistor electrode.
+  Plate: The plate collects electrons.
+B-004-005-008:
+  Argon: A triode holds a vacuum, not argon.
+  Air: Air would let the hot cathode burn out.
+  Neon: Neon fills a neon lamp, not a triode.
+B-004-005-009:
+  Diode: A diode has just a cathode and a plate, no grid.
+  Tetrode: A tetrode has two grids.
+  Pentode: A pentode has three grids.

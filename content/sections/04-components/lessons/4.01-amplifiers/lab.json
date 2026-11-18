@@ -1,0 +1,31 @@
+{
+  "lab": "LAB-17",
+  "steps": {
+    "explore-drive": {
+      "title": "Turn it up",
+      "prompt": "The amplifier has a gain of 10. Turn up the input signal until the output can't follow any more.",
+      "config": {
+        "device": "bjt",
+        "mode": "amp",
+        "input": 0.0001,
+        "drive": 0.2,
+        "controls": {
+          "device": false,
+          "input": false,
+          "drive": {
+            "min": 0,
+            "max": 2,
+            "step": 0.1
+          }
+        }
+      },
+      "goal": "distorted",
+      "goal_text": "Output clipped",
+      "hints": [
+        "The output can't swing beyond 10 V. What input would need more than that?",
+        "Anything over 1 V in needs more than 10 V out."
+      ],
+      "success": "Past 1 V in, the output needs more than 10 V and its peaks are clipped flat. The amplifier is non-linear now: the output is distorted."
+    }
+  }
+}

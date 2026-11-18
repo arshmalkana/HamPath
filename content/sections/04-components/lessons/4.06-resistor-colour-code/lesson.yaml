@@ -1,0 +1,29 @@
+code: "4.06"
+title: The resistor colour code
+est_minutes: 12
+lab_id: LAB-18
+question_ids:
+  - B-004-006-001
+  - B-004-006-002
+  - B-004-006-003
+  - B-004-006-004
+  - B-004-006-005
+  - B-004-006-006
+  - B-004-006-007
+  - B-004-006-008
+  - B-004-006-009
+  - B-004-006-010
+  - B-004-006-011
+calculations:
+  B-004-006-004:
+    calc: tolerance
+    given:
+      R: 100 Ω
+      tol: 10
+  B-004-006-011:
+    calc: colour_code
+    given:
+      bands:
+        - red
+        - violet
+        - yellow

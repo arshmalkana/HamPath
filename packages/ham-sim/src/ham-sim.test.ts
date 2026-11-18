@@ -26,6 +26,12 @@ import {
   resonanceVariables,
   meterLabVariables,
   ohmsLabVariables,
+  colourCodeValue,
+  colourCodeVariables,
+  benchVariables,
+  diodeCurrent,
+  fetDrainCurrent,
+  triodePlateCurrent,
 } from "./index.ts";
 
 describe("units", () => {
@@ -277,5 +283,67 @@ describe("LAB-20 networks report circuit totals", () => {
     expect(
       ohmsLabVariables({ topology: "parallel", E: 12, resistors: [100, 100, 100, 100], closed: true }).I,
     ).toBeCloseTo(0.48);
+  });
+});
+
+describe("section 4 component models", () => {
+  it("reads the colour code, including gold and silver multipliers", () => {
+    expect(colourCodeValue("red", "violet", "yellow")).toBe(270_000);
+    expect(colourCodeValue("brown", "black", "brown")).toBe(100);
+    expect(colourCodeValue("yellow", "violet", "gold")).toBeCloseTo(4.7);
+    expect(colourCodeValue("orange", "orange", "silver")).toBeCloseTo(0.33);
+    const v = colourCodeVariables({ bands: ["brown", "black", "brown", "silver"] })!;
+    expect(v).toMatchObject({ R: 100, tol: 10 });
+    expect(v.min).toBeCloseTo(90);
+    expect(v.max).toBeCloseTo(110);
+    expect(colourCodeVariables({ bands: ["brown", "black", "pink" as never, "gold"] })).toBeNull();
+  });
+  it("parses kilohms and megohms in bank answers", () => {
+    expect(parseQuantity("270 kilohms")).toEqual({ value: 270_000, unit: "Ω" });
+    expect(parseQuantity("27 megohms")).toEqual({ value: 27_000_000, unit: "Ω" });
+  });
+  it("runs the colour-code and tolerance calculators", () => {
+    expect(runCalculation({ calc: "colour_code", given: { bands: ["red", "violet", "yellow"] } }).value).toBe(270_000);
+    const tol = runCalculation({ calc: "tolerance", given: { R: "100 Ω", tol: 10 } });
+    expect(tol.value).toBeCloseTo(110);
+    expect(tol.steps.join(" ")).toMatch(/90/);
+  });
+  it("models diodes, Zeners, FETs and triodes", () => {
+    expect(diodeCurrent(-5)).toBe(0);
+    expect(diodeCurrent(1.6)).toBeCloseTo(0.01);
+    expect(diodeCurrent(-6, true)).toBeLessThan(0);
+    expect(fetDrainCurrent(0)).toBeCloseTo(0.01);
+    expect(fetDrainCurrent(-4)).toBe(0);
+    expect(fetDrainCurrent(-1)).toBeGreaterThan(fetDrainCurrent(-2));
+    expect(triodePlateCurrent(0)).toBeCloseTo(0.02);
+    expect(triodePlateCurrent(-8)).toBe(0);
+  });
+  it("reports bench states: saturation, cut-off, clipping, regulation", () => {
+    expect(benchVariables({ device: "bjt", mode: "iv", input: 0.0002 })).toMatchObject({
+      saturated: true,
+      current: 0.012,
+    });
+    expect(benchVariables({ device: "bjt", mode: "iv", input: 0 })).toMatchObject({ cutoff: true, current: 0 });
+    expect(benchVariables({ device: "bjt", mode: "amp", input: 0, drive: 0.5 })).toMatchObject({
+      distorted: false,
+      outputPeak: 5,
+    });
+    expect(benchVariables({ device: "bjt", mode: "amp", input: 0, drive: 1.5 })).toMatchObject({
+      distorted: true,
+      outputPeak: 10,
+    });
+    expect(benchVariables({ device: "zener", mode: "iv", input: -6 })).toMatchObject({
+      regulating: true,
+      conducting: true,
+    });
+    expect(benchVariables({ device: "laser" as never, mode: "iv", input: 0 })).toBeNull();
+    expect(labVariables("LAB-17", { device: "diode", mode: "iv", input: 1 })).toMatchObject({
+      conducting: true,
+      forward: true,
+    });
+    expect(labVariables("LAB-18", { bands: ["red", "red", "red", "gold"], score: 3 })).toMatchObject({
+      R: 2200,
+      score: 3,
+    });
   });
 });

@@ -144,6 +144,20 @@
   --shack-night: oklch(8% 0.02 260 / 0.55);
   --shack-fault: oklch(74% 0.16 27);
   --shack-grid: oklch(100% 0 0 / 0.07);
+  /* Resistor colour-code bands (always shown with their names too) */
+  --band-black: oklch(20% 0 0);
+  --band-brown: oklch(42% 0.08 50);
+  --band-red: oklch(55% 0.2 27);
+  --band-orange: oklch(70% 0.17 55);
+  --band-yellow: oklch(88% 0.17 98);
+  --band-green: oklch(58% 0.15 150);
+  --band-blue: oklch(52% 0.15 255);
+  --band-violet: oklch(50% 0.17 305);
+  --band-grey: oklch(62% 0 0);
+  --band-white: oklch(97% 0 0);
+  --band-gold: oklch(75% 0.12 85);
+  --band-silver: oklch(82% 0.01 250);
+  --resistor-body: oklch(80% 0.06 70);
   /* Scene: the illustrated shack on the dashboard */
   --scene-wall: oklch(33% 0.025 235);
   --scene-wall-trim: oklch(28% 0.022 235);

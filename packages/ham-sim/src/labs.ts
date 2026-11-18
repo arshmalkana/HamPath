@@ -14,6 +14,7 @@ import {
   type UnitSliderState,
 } from "./lab-models.ts";
 import { solveCircuit, type Topology } from "./resistors.ts";
+import { benchVariables, colourCodeVariables, type BenchState, type ColourCodeState } from "./components.ts";
 
 /**
  * LAB-20 breadboard. Four sockets around one loop:
@@ -210,6 +211,10 @@ export function labVariables(labId: string, state: unknown, config: Record<strin
       return transformerVariables(st as unknown as TransformerState);
     case "LAB-24":
       return resonanceVariables(st as unknown as ResonanceState);
+    case "LAB-17":
+      return benchVariables(st as unknown as BenchState);
+    case "LAB-18":
+      return colourCodeVariables(st as unknown as ColourCodeState);
     default:
       return null;
   }
@@ -259,4 +264,19 @@ export const LAB_GOAL_VARIABLES: Record<string, string[]> = {
   "LAB-22": ["P0", "db", "ratio", "Pout"],
   "LAB-23": ["ratio", "Vs", "Is", "Ip", "Pout", "Pin", "Zp", "stepUp"],
   "LAB-24": ["f0", "f", "XL", "XC", "Z", "Q", "bandwidth", "atResonance", "parallel"],
+  "LAB-17": [
+    "current",
+    "forward",
+    "conducting",
+    "regulating",
+    "saturated",
+    "cutoff",
+    "reverseBias",
+    "gain",
+    "drive",
+    "outputPeak",
+    "distorted",
+    "rectified",
+  ],
+  "LAB-18": ["R", "tol", "min", "max", "score"],
 };

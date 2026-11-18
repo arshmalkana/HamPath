@@ -1,0 +1,68 @@
+{
+  "lab": "LAB-17",
+  "steps": {
+    "explore-forward": {
+      "title": "Which way does it conduct?",
+      "prompt": "Find a voltage where the diode conducts.",
+      "config": {
+        "device": "diode",
+        "mode": "iv",
+        "input": -5,
+        "controls": {
+          "device": false,
+          "input": {
+            "min": -10,
+            "max": 2,
+            "step": 0.1
+          }
+        }
+      },
+      "goal": "conducting && forward",
+      "goal_text": "Diode conducting",
+      "hints": [
+        "Negative voltages reverse bias the diode.",
+        "Go above about 0.7 V, anode positive."
+      ],
+      "success": "Forward biased past about 0.6 V, it conducts. Any negative voltage, reverse biased, gives no current: it conducts one way only."
+    },
+    "explore-rectifier": {
+      "title": "AC in, what comes out?",
+      "prompt": "AC on the anode (dashed). What do you see at the cathode (solid)?",
+      "config": {
+        "device": "diode",
+        "mode": "rectifier",
+        "input": 0,
+        "controls": {
+          "device": false,
+          "input": false
+        }
+      },
+      "goal": "rectified",
+      "goal_text": "Look at the output",
+      "success": "Only the positive halves get through: pulsating DC. That's rectification."
+    },
+    "explore-zener": {
+      "title": "The Zener",
+      "prompt": "Reverse bias this Zener (negative volts) until it starts to conduct backwards and hold its voltage.",
+      "config": {
+        "device": "zener",
+        "mode": "iv",
+        "input": 0,
+        "controls": {
+          "device": false,
+          "input": {
+            "min": -8,
+            "max": 2,
+            "step": 0.1
+          }
+        }
+      },
+      "goal": "regulating",
+      "goal_text": "Zener holding its voltage",
+      "hints": [
+        "Go well below −5 V."
+      ],
+      "success": "Past −5.1 V it conducts in reverse and the voltage across it stays at 5.1 V however hard you push. That's regulation."
+    }
+  }
+}

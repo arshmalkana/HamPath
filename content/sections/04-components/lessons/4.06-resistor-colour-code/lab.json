@@ -1,0 +1,43 @@
+{
+  "lab": "LAB-18",
+  "steps": {
+    "explore-value": {
+      "title": "Read the bands",
+      "prompt": "This resistor reads brown, black, brown: 100 Ω. Set the bands for 270 kΩ.",
+      "config": {
+        "bands": [
+          "brown",
+          "black",
+          "brown",
+          "gold"
+        ]
+      },
+      "goal": "approx(R, 270000)",
+      "goal_text": "270 kΩ",
+      "hints": [
+        "270 000 is 27 followed by four zeros.",
+        "Red = 2, violet = 7, and the multiplier with four zeros is yellow."
+      ],
+      "success": "Red, violet, yellow: 27 and four zeros, 270 kΩ. The third band is a multiplier, not a digit."
+    },
+    "speed-round": {
+      "title": "Speed round",
+      "prompt": "Match five resistors in a row. Names are always shown next to the colours.",
+      "config": {
+        "bands": [
+          "brown",
+          "black",
+          "black",
+          "gold"
+        ],
+        "game": true
+      },
+      "goal": "score >= 5",
+      "goal_text": "Five matched",
+      "hints": [
+        "Digits first, then count the zeros for the multiplier, then the tolerance band last."
+      ],
+      "success": "Five in a row. You can read the colour code."
+    }
+  }
+}

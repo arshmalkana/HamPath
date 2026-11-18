@@ -1,0 +1,41 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-004-002-001:
+  Protect against voltage transients: A series diode doesn't absorb voltage spikes; that's a transient suppressor's job.
+  Permit AC operation: A transceiver runs on DC; one diode in the lead doesn't let it run on AC.
+  Overcurrent protection: A diode doesn't limit current; a fuse protects against overcurrent.
+B-004-002-002:
+  regeneration: Regeneration is controlled positive feedback, not recovering information.
+  conversion: Conversion changes frequency; recovering information with a diode is detection.
+  biasing: Biasing sets an operating point; it doesn't recover information.
+B-004-002-003:
+  provide a voltage phase shift: A Zener doesn't shift phase.
+  boost the power supply voltage: A Zener can't raise a supply voltage; it holds one steady.
+  provide a path through which current can flow: Any conductor provides a current path; a Zener's job is regulation.
+B-004-002-004:
+  amplification: Amplification makes signals bigger; it doesn't turn AC into DC.
+  transformation: Transformation changes AC voltage but leaves it AC.
+  modulation: Modulation puts information on a carrier.
+B-004-002-005:
+  gate and source: Gate and source belong to a field-effect transistor.
+  collector and base: Collector and base belong to a bipolar transistor.
+  cathode and drain: Drain belongs to a field-effect transistor.
+B-004-002-006:
+  No signal: The positive half-cycles do get through.
+  Steady direct current: It isn't steady; it pulses with each half-cycle until filtered.
+  Pulsating alternating current: It no longer alternates; the negative halves are blocked.
+B-004-002-007:
+  anode to cathode: Anode to cathode is the conventional current direction, the way the arrow points. Electrons go the other way.
+  source to drain: Source and drain belong to a field-effect transistor.
+  base to collector: Base and collector belong to a bipolar transistor.
+B-004-002-008:
+  A fluorescent bulb: A fluorescent bulb is a gas discharge tube, not a semiconductor.
+  A neon bulb: A neon bulb is a gas discharge lamp, not a semiconductor.
+  A vacuum diode: A vacuum diode is a tube; it doesn't glow in colours.
+B-004-002-009:
+  It has a high response speed: Speed doesn't matter for polarity protection.
+  Its peak inverse voltage is below 1 volt: A peak inverse voltage below 1 V would make it fail; protection relies on blocking reverse current.
+  It has high forward resistance: High forward resistance would waste power; it's the one-way action that protects.
+B-004-002-010:
+  close coupled: Coupling isn't what makes a diode conduct.
+  enhanced: Enhancement describes a type of FET, not a diode.
+  reverse biased: Reverse biased, a diode blocks.

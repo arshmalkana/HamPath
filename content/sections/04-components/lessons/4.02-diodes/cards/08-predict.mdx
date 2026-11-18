@@ -1,0 +1,19 @@
+---
+type: predict
+title: Battery backwards
+teaches:
+  - B-004-002-001
+  - B-004-002-009
+interaction:
+  kind: predict
+  prompt: A diode sits in the positive lead of a 13.8 V radio. You connect the supply backwards. What happens?
+  choices:
+    - text: The radio runs normally
+      feedback: The diode only lets current through one way, so reversed leads get nothing through.
+    - text: Nothing; the diode blocks and the radio is safe
+      correct: true
+      feedback: Right. Reverse biased, the diode doesn't conduct, so no reversed current reaches the radio.
+    - text: The diode turns the supply into AC
+      feedback: A diode can't make AC; it only lets current pass one way.
+---
+Predict, then check.

@@ -378,7 +378,7 @@ describe("POST /admin/import-bank", () => {
   });
 });
 
-describe("POST /lab-events: section 5 labs are verified on the server", () => {
+describe("POST /lab-events: authored labs are verified on the server", () => {
   const cases: [string, unknown, unknown][] = [
     // [lab step, state that meets the goal, state that doesn't]
     ["5.01/explore-khz", { exp: 3 }, { exp: 6 }],
@@ -420,6 +420,27 @@ describe("POST /lab-events: section 5 labs are verified on the server", () => {
       "5.06/explore-rating",
       { topology: "series", E: 44.5, resistors: [500, 500], closed: true },
       { topology: "series", E: 30, resistors: [500, 500], closed: true },
+    ],
+    // section 4
+    [
+      "4.01/explore-drive",
+      { device: "bjt", mode: "amp", input: 0.0001, drive: 1.5 },
+      { device: "bjt", mode: "amp", input: 0.0001, drive: 0.5 },
+    ],
+    ["4.02/explore-forward", { device: "diode", mode: "iv", input: 1.2 }, { device: "diode", mode: "iv", input: -5 }],
+    ["4.02/explore-zener", { device: "zener", mode: "iv", input: -6 }, { device: "zener", mode: "iv", input: -3 }],
+    ["4.03/explore-cutoff", { device: "bjt", mode: "iv", input: 0 }, { device: "bjt", mode: "iv", input: 0.00015 }],
+    ["4.04/explore-gate", { device: "fet", mode: "iv", input: 0 }, { device: "fet", mode: "iv", input: -2 }],
+    ["4.05/explore-grid", { device: "triode", mode: "iv", input: -1 }, { device: "triode", mode: "iv", input: -5 }],
+    [
+      "4.06/explore-value",
+      { bands: ["red", "violet", "yellow", "gold"] },
+      { bands: ["red", "violet", "orange", "gold"] },
+    ],
+    [
+      "4.06/speed-round",
+      { bands: ["brown", "black", "black", "gold"], score: 5 },
+      { bands: ["brown", "black", "black", "gold"], score: 2 },
     ],
   ];
   it.each(cases)("%s", async (step, good, bad) => {
