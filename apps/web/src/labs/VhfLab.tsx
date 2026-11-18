@@ -53,7 +53,7 @@ export function VhfLab({ config, mode, onState }: LabBodyProps) {
               ? "Sporadic E is up, but it mostly affects 6 m."
               : s.meteors && s.band !== 6
                 ? "Meteor scatter works best on 6 m."
-                : "Line of sight, stretched a little by normal tropospheric bending: the radio horizon.";
+                : "Line of sight, stretched a little by normal tropospheric bending: the radio horizon. Even on the best days, normal tropospheric propagation tops out around 800 km; going beyond that takes ducting.";
 
   return (
     <div className="lab">
