@@ -1,0 +1,46 @@
+{
+  "lab": "LAB-04",
+  "steps": {
+    "explore-mic": {
+      "title": "Set the mic gain",
+      "prompt": "Turn the mic gain down until the ALC stays within its range, while keeping the peaks near full power.",
+      "config": {
+        "mode": "ssb",
+        "rated": 100,
+        "mic": 0.95,
+        "processor": 0,
+        "controls": {
+          "mic": true,
+          "processor": false
+        }
+      },
+      "goal": "!alcOver && pep >= 90",
+      "goal_text": "Clean, near full power",
+      "hints": [
+        "The ALC meter must not go past its range.",
+        "Somewhere between half and three-quarters gain."
+      ],
+      "success": "Peaks reach full power and the ALC stays within its range. No splatter."
+    },
+    "explore-processor": {
+      "title": "Speech processing",
+      "prompt": "Raise the average power without distorting the voice.",
+      "config": {
+        "mode": "ssb",
+        "rated": 100,
+        "mic": 0.6,
+        "processor": 0,
+        "controls": {
+          "mic": false,
+          "processor": true
+        }
+      },
+      "goal": "avg >= 40 && !distorted",
+      "goal_text": "More average power, clean",
+      "hints": [
+        "Heavy processing distorts."
+      ],
+      "success": "Moderate processing doubles the average power for the same PEP. Heavy processing would distort and splatter."
+    }
+  }
+}

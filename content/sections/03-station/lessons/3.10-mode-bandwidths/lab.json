@@ -29,7 +29,7 @@
       "hints": [
         "Try each of the three modes."
       ],
-      "success": "FM voice is widest, about 12 kHz. SSB is about 2.4 kHz and CW about 150 Hz."
+      "success": "FM voice is widest, about 16 kHz. SSB is about 2.4 kHz and CW about 150 Hz."
     },
     "explore-ssb-filter": {
       "title": "Choose a filter for SSB",

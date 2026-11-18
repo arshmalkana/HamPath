@@ -21,7 +21,7 @@ import {
  */
 export interface CalcSpec {
   calc: string;
-  given: Record<string, string | number | (string | number)[]>;
+  given: Record<string, string | number | (string | number | (string | number)[])[]>;
   find?: string;
   /** Unit of the answer when the calculator can't infer it (e.g. "quantity"). */
   unit?: Unit | "";
@@ -31,6 +31,10 @@ export interface CalcResult {
   value: number;
   unit: Unit | "";
   steps: string[];
+  /** Further values the answer must also contain (e.g. volts and ampere-hours). */
+  also?: { value: number; unit: Unit | "" }[];
+  /** Relative tolerance when matching answers (default 2%); frequencies need far tighter. */
+  tolerance?: number;
 }
 
 type Given = CalcSpec["given"];
@@ -56,6 +60,7 @@ function list(given: Given, key: string, unit: Unit): number[] | undefined {
   if (!Array.isArray(raw)) return undefined;
   return raw.map((x) => {
     if (typeof x === "number") return x;
+    if (Array.isArray(x)) throw new Error(`Nested list in ${key}`);
     const p = parseQuantity(x, unit);
     if (!p) throw new Error(`Cannot parse '${x}' in ${key}`);
     return p.value;
@@ -335,6 +340,79 @@ const calculators: Record<string, Calculator> = {
     return { value: v, unit: "V", steps: [...steps, `Vp = Vs ÷ ${n(r)} = ${q(v, "V")}`] };
   },
 
+  /** AM bandwidth: carrier plus two sidebands, so twice the highest audio frequency. */
+  am_bandwidth: (s) => {
+    const audio = need(val(s.given, "audio", "Hz"), "audio");
+    return {
+      value: 2 * audio,
+      unit: "Hz",
+      steps: [
+        "AM has a sideband each side of the carrier, each as wide as the audio",
+        `Bandwidth = 2 × ${q(audio, "Hz")} = ${q(2 * audio, "Hz")}`,
+      ],
+    };
+  },
+
+  /** Single-sideband frequency for a single tone: USB = carrier + tone, LSB = carrier − tone. */
+  sideband: (s) => {
+    const f = need(val(s.given, "f", "Hz"), "f");
+    const tone = need(val(s.given, "tone", "Hz"), "tone");
+    const lower = String(s.given.sideband ?? "usb").toLowerCase() === "lsb";
+    const out = lower ? f - tone : f + tone;
+    return {
+      value: out,
+      unit: "Hz",
+      tolerance: 1e-6,
+      steps: [
+        `${lower ? "Lower" : "Upper"} sideband: the RF is ${lower ? "below" : "above"} the suppressed carrier by the tone frequency`,
+        `${q(f, "Hz")} ${lower ? "−" : "+"} ${q(tone, "Hz")} = ${q(out, "Hz")}`,
+      ],
+    };
+  },
+
+  /** Identical batteries: series adds volts (same Ah); parallel adds ampere-hours (same volts). */
+  battery_bank: (s) => {
+    const V = need(val(s.given, "V", "V"), "V");
+    const ah = need(val(s.given, "Ah", ""), "Ah");
+    const count = need(val(s.given, "count", ""), "count");
+    const series = String(s.given.wiring ?? "series") === "series";
+    const bankV = series ? V * count : V;
+    const bankAh = series ? ah : ah * count;
+    return {
+      value: bankV,
+      unit: "V",
+      also: [{ value: bankAh, unit: "A" }],
+      steps: [
+        series
+          ? "In series the voltages add; the capacity stays the same"
+          : "In parallel the capacities add; the voltage stays the same",
+        `${n(count)} × ${n(V)} V, ${n(ah)} Ah in ${series ? "series" : "parallel"}: ${n(bankV)} V, ${n(bankAh)} Ah`,
+      ],
+    };
+  },
+
+  /** Smallest wire gauge whose drop over the round trip stays within the limit. */
+  wire_gauge: (s) => {
+    const len = need(val(s.given, "length", "m"), "length");
+    const max = need(val(s.given, "max_drop", "V"), "max_drop");
+    const table = s.given.table;
+    if (!Array.isArray(table)) throw new Error("wire_gauge needs table: [[gauge, V per metre], ...]");
+    const rows = (table as unknown[]).map((r) => (r as number[]).map(Number) as [number, number]);
+    const perM = max / (2 * len);
+    const ok = rows.filter(([, v]) => v <= perM).sort((a, b) => b[1] - a[1]);
+    if (!ok.length) throw new Error("no gauge in the table is heavy enough");
+    const [gauge, v] = ok[0]!;
+    return {
+      value: gauge,
+      unit: "",
+      steps: [
+        `The current goes there and back: ${n(2 * len)} m of wire`,
+        `Allowed loss per metre = ${n(max)} V ÷ ${n(2 * len)} m = ${n(perM)} V/m`,
+        `The thinnest wire that loses no more than that: number ${gauge} (${n(v)} V/m, ${n(v * 2 * len)} V in total)`,
+      ],
+    };
+  },
+
   /** Superheterodyne local oscillator: LO = f + IF (LO above) or f − IF (LO below). */
   superhet: (s) => {
     const f = need(val(s.given, "f", "Hz"), "f");
@@ -440,6 +518,15 @@ export function answerNumbers(answer: string, unit?: Unit | ""): number[] {
     } else if (Number.isFinite(bare)) out.push(bare);
   }
   return out;
+}
+
+/** True when the answer contains the result's value and every `also` value. */
+export function resultMatches(answer: string, r: Pick<CalcResult, "value" | "unit" | "also" | "tolerance">): boolean {
+  const tol = r.tolerance ?? 0.02;
+  return (
+    answerMatches(answer, r.value, r.unit, tol) &&
+    (r.also ?? []).every((a) => answerMatches(answer, a.value, a.unit, tol))
+  );
 }
 
 /** True when some number in `answer` matches `value` within `tolerance` (relative). */

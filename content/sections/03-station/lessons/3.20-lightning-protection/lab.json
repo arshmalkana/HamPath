@@ -1,0 +1,59 @@
+{
+  "lab": "LAB-16",
+  "steps": {
+    "inspect-antenna": {
+      "title": "Inspect the antenna site",
+      "prompt": "Mark each item safe or a hazard.",
+      "config": {
+        "scene": "Antenna day at a club member's house.",
+        "items": [
+          {
+            "id": "cables",
+            "label": "Antenna and rotator cables are grounded whenever the station is off.",
+            "hazard": false,
+            "why": "It helps protect the station and building from lightning."
+          },
+          {
+            "id": "surge",
+            "label": "The lightning surge protector is fitted behind the transceiver.",
+            "hazard": true,
+            "why": "It belongs outside, close to the earth ground, so the surge doesn't enter the house."
+          },
+          {
+            "id": "harness",
+            "label": "The climber wears approved fall arrest equipment.",
+            "hazard": false,
+            "why": "It limits injuries if they fall."
+          },
+          {
+            "id": "hat",
+            "label": "The helper at the base of the tower has no hard hat.",
+            "hazard": true,
+            "why": "A dropped tool could hit them."
+          },
+          {
+            "id": "wire",
+            "label": "A wire antenna is strung at head height across the yard.",
+            "hazard": true,
+            "why": "Someone could touch it while you transmit and get an RF burn."
+          },
+          {
+            "id": "off",
+            "label": "The transmitter is off and the feedline disconnected before repairs start.",
+            "hazard": false,
+            "why": "The right first step."
+          },
+          {
+            "id": "openwire",
+            "label": "Open-wire feedline runs along the fence beside the footpath.",
+            "hazard": true,
+            "why": "High RF voltage on it can burn anyone who touches it."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All judged correctly",
+      "success": "All seven judged correctly."
+    }
+  }
+}

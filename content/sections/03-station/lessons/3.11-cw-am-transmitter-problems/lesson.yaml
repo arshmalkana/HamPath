@@ -1,0 +1,21 @@
+code: "3.11"
+title: "CW transmitter problems: chirp and clicks"
+est_minutes: 12
+lab_id: LAB-14
+question_ids:
+  - B-003-011-001
+  - B-003-011-002
+  - B-003-011-003
+  - B-003-011-004
+  - B-003-011-005
+  - B-003-011-006
+  - B-003-011-007
+  - B-003-011-008
+  - B-003-011-009
+  - B-003-011-010
+  - B-003-011-011
+calculations:
+  B-003-011-007:
+    calc: am_bandwidth
+    given:
+      audio: 3 kHz

@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-015-001:
+  Digital protocols can fall back to analog as needed: Digital systems don't fall back to analog; they digitize the analog first.
+  Digital signals are continuously variable signals: Digital signals take discrete values, not continuously variable ones.
+  Modern transceivers have the necessary high efficiency amplifiers: Amplifier efficiency has nothing to do with what can be sent.
+B-003-015-002:
+  Digital data represents information as a continuously variable quantity: A continuously variable quantity is analog data.
+  Digital data easily translates into digital signals: That's not the fundamental difference; discrete values are.
+  Digital data requires complex waveforms for transmission: Digital data doesn't need complex waveforms.
+B-003-015-003:
+  To receive digital data and export to the internet: Exporting to the internet is an iGate's job.
+  To receive analog FM, convert to digital data and retransmit: A digipeater doesn't convert analog FM.
+  To receive digital data, convert to analog FM and retransmit: A digipeater doesn't convert data into analog FM.
+B-003-015-004:
+  A way of connecting terminal-node controllers by telephone so data can be sent over long distances: Packet networks connect over radio, not telephone lines.
+  The connections on terminal-node controllers: The connections on a TNC are just ports, not a network.
+  The programming in a terminal-node controller that rejects other callers if a station is already connected: Rejecting other callers isn't what network means.
+B-003-015-005:
+  Time interleaving of the transmissions: FT8 does take turns in 15-second slots, but its narrow width is why so many fit.
+  Formatting of the messages into packets: Packets aren't why FT8 is compact.
+  Message structure with limited contact information: Short messages help sensitivity, but the narrow bandwidth is why dozens fit.
+B-003-015-006:
+  PSK31: PSK31 needs a stronger signal than FT8.
+  RTTY: RTTY needs a much stronger signal.
+  CW: CW by ear needs a stronger signal than FT8.
+B-003-015-007:
+  50 Hz to 100 Hz: 50 to 100 Hz is narrower than an RTTY signal; you'd overlap.
+  3 kHz to 5 kHz: 3 to 5 kHz wastes spectrum.
+  6 kHz to 10 kHz: 6 to 10 kHz is far more than needed.
+B-003-015-008:
+  Ensure your transmitter's audio compression is set to maximum: Maximum compression makes splatter more likely.
+  Verify that the automatic level control (ALC) is actively limiting every transmission: If the ALC is limiting, you're already overdriving.
+  Ask a local station to confirm your signal can be successfully decoded: Being decoded doesn't prove there's no splatter.
+B-003-015-009:
+  Packet functionality is included in most modern radios: Most modern radios don't include packet.
+  Capable of simultaneous voice, image and data transmission: Packet doesn't send voice and images at the same time.
+  Encrypted signals prevent eavesdropping: Amateur signals may not be encrypted.
+B-003-015-010:
+  Unattended operation: ARQ is about errors, not unattended operation.
+  Error detection: "ARQ goes beyond detecting errors: it gets the data resent, correcting them."
+  Automatic link establishment: Automatic link establishment is a different feature (ALE).
+B-003-015-011:
+  Higher signal-to-noise ratio: Too much audio worsens the signal-to-noise for others.
+  Lower error rate: Overdriving raises errors for others, not lowers them.
+  Power amplifier overheating: The problem is splatter, not mainly heat.

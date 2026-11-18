@@ -1,0 +1,70 @@
+{
+  "lab": "LAB-14",
+  "steps": {
+    "explore-digital": {
+      "title": "How narrow?",
+      "prompt": "Find the narrowest mode.",
+      "config": {
+        "mode": "ssb",
+        "filter": 3000,
+        "tune": 0,
+        "filters": [
+          3000
+        ],
+        "waterfall": true,
+        "dialHz": 14074000,
+        "controls": {
+          "modes": [
+            "ssb",
+            "rtty",
+            "psk31",
+            "ft8"
+          ],
+          "filter": false,
+          "tune": false,
+          "agc": false
+        }
+      },
+      "goal": "bw <= 50",
+      "goal_text": "Narrowest mode found",
+      "hints": [
+        "Try FT8."
+      ],
+      "success": "FT8 is about 50 Hz wide: dozens fit in one 2.4 kHz SSB channel. It also copies signals 20 dB below the noise."
+    },
+    "explore-rtty": {
+      "title": "Find a clear spot",
+      "prompt": "Move your RTTY transmit frequency until it no longer overlaps the contact in progress.",
+      "config": {
+        "mode": "rtty",
+        "filter": 250,
+        "tune": 50,
+        "noSignal": true,
+        "qrm": {
+          "mode": "rtty",
+          "offset": 0
+        },
+        "tuneLabel": "Your offset from the contact",
+        "filters": [
+          250
+        ],
+        "controls": {
+          "modes": false,
+          "filter": false,
+          "tune": {
+            "min": -600,
+            "max": 600,
+            "step": 50
+          },
+          "agc": false
+        }
+      },
+      "goal": "qrm < 0.02",
+      "goal_text": "Clear of the contact",
+      "hints": [
+        "An RTTY signal is about 250 Hz wide."
+      ],
+      "success": "At 250 Hz or more, centre to centre, you don't overlap. 250 to 500 Hz is the rule of thumb."
+    }
+  }
+}

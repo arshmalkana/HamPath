@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-021-001:
+  Make sure that an RF leakage filter is installed at the antenna feed point: RF leakage filters aren't a safety device here; keep the antenna away from your eyes.
+  Make sure the standing wave ratio is low before you conduct a test: Low SWR doesn't reduce what the antenna radiates at you.
+  Never use a horizontally polarized antenna: Polarization doesn't change the exposure.
+B-003-021-002:
+  Make sure the antenna is near the ground to keep its RF energy pointing in the correct direction: Near the ground puts it closer to people.
+  Make sure you connect an RF leakage filter at the antenna feed point: There's no such thing as an RF leakage filter for this.
+  Make sure that RF field screens are in place: Field screens aren't the practical answer; location is.
+B-003-021-003:
+  Make sure that RF leakage filters are connected: Leakage filters don't stop the amplifier being switched on.
+  Make sure the amplifier output connector is grounded: Grounding the output doesn't make it safe to open.
+  Make sure all RF screens are in place at the amplifier output connector: Screens at the connector don't help when the shielding comes off.
+B-003-021-004:
+  To use your body to reflect the signal in one direction: Your head absorbs RF; it isn't meant as a reflector.
+  To keep static charges from building up: Static charge isn't the concern.
+  To help the antenna radiate energy equally in all directions: Your head distorts the pattern; it doesn't help it.
+B-003-021-005:
+  Pointed towards the station you are contacting: Pointing it at the station doesn't reduce exposure.
+  Pointed at the horizon: Pointing at the horizon isn't the safety rule.
+  Pointed down to bounce the signal off the ground: Bouncing off the ground isn't how handhelds work.
+B-003-021-006:
+  It lowers blood pressure: RF doesn't lower blood pressure.
+  It paralyzes the tissue: RF doesn't paralyze tissue.
+  It restricts blood flow: RF heats tissue; it doesn't restrict blood flow.
+B-003-021-007:
+  Heart: The heart isn't the organ most at risk from RF heating.
+  Liver: The liver isn't most at risk.
+  Hands: Hands have good blood flow to carry heat away.
+B-003-021-008:
+  It decreases linearly with the distance: It falls faster than linearly.
+  It decreases in inverse proportion to the distance: "Inverse proportion is too slow: it's the square."
+  It decreases at a rate depending on ground absorption: In free space there's no ground absorption.
+B-003-021-009:
+  Position the antennas parallel to electrical power wires to take advantage of parasitic effects: Parallel to power wiring couples RF into it.
+  Position the antennas along the edge of a wall where it meets the floor or ceiling to reduce parasitic radiation: Wall edges don't reduce exposure.
+  Locate the antennas close to your operating position to minimize transmission line length: Close to the operator means more exposure.
+B-003-021-010:
+  So static electricity buildup is minimized: Static isn't the reason.
+  So they will not damage nearby structures with RF energy: RF doesn't damage buildings.
+  So they will receive more sky waves and fewer ground waves: Sky-wave reception isn't the safety reason.
+B-003-021-011:
+  Near or over moist ground so RF energy will be radiated away from the ground: Moist ground isn't the safety point; height is.
+  As close to the transmitter as possible so RF energy will be concentrated near the transmitter: Near the transmitter puts people near the RF.
+  Close to the ground so simple adjustments can be easily made without climbing a ladder: Low ends are easy to touch.

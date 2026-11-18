@@ -436,6 +436,53 @@ describe("POST /lab-events: authored labs are verified on the server", () => {
     ],
     ["3.10/explore-cw-qrm", { mode: "cw", filter: 250, tune: 0 }, { mode: "cw", filter: 500, tune: 0 }],
     ["3.10/explore-tune", { mode: "ssb", filter: 2400, tune: 50 }, { mode: "ssb", filter: 2400, tune: 300 }],
+    [
+      "3.11/explore-keying",
+      { mode: "cw", filter: 2400, tune: 0, regulated: true, shaped: true },
+      { mode: "cw", filter: 2400, tune: 0, regulated: false, shaped: true },
+    ],
+    ["3.12/explore-mic", { mic: 0.6, processor: 0 }, { mic: 0.95, processor: 0 }],
+    [
+      "3.13/explore-deviation",
+      { mode: "fm", filter: 20000, tune: 0, deviation: 5000 },
+      { mode: "fm", filter: 20000, tune: 0, deviation: 2500 },
+    ],
+    ["3.14/explore-keyer", { keyer: true, sent: "-.-" }, { keyer: false, sent: "-.-", durations: [3, 1, 3] }],
+    ["3.15/explore-rtty", { mode: "rtty", filter: 250, tune: 300 }, { mode: "rtty", filter: 250, tune: 100 }],
+    [
+      "3.16/explore-parallel",
+      { batteries: 2, wiring: "parallel", load: 5, gauge: 10, length: 3, fuse: "battery", supply: "battery" },
+      { batteries: 2, wiring: "series", load: 5, gauge: 10, length: 3, fuse: "battery", supply: "battery" },
+    ],
+    [
+      "3.17/explore-gauge",
+      { batteries: 1, wiring: "parallel", load: 22, gauge: 10, length: 3, fuse: "battery", supply: "battery" },
+      { batteries: 1, wiring: "parallel", load: 22, gauge: 12, length: 3, fuse: "battery", supply: "battery" },
+    ],
+    [
+      "3.18/inspect-security",
+      {
+        verdicts: {
+          keysw: "safe",
+          mic: "hazard",
+          wrench: "hazard",
+          interlock: "safe",
+          live: "hazard",
+          unplugged: "safe",
+        },
+      },
+      {
+        verdicts: {
+          keysw: "safe",
+          mic: "safe",
+          wrench: "hazard",
+          interlock: "safe",
+          live: "hazard",
+          unplugged: "safe",
+        },
+      },
+    ],
+    ["3.21/explore-distance", { distance: 8 }, { distance: 3 }],
     // section 4
     [
       "4.01/explore-drive",

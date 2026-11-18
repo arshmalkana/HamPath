@@ -1,0 +1,72 @@
+{
+  "lab": "LAB-15",
+  "steps": {
+    "explore-parallel": {
+      "title": "Twice the running time",
+      "prompt": "Rewire the two batteries to keep 12 V but double the capacity.",
+      "config": {
+        "batteries": 2,
+        "wiring": "series",
+        "load": 5,
+        "controls": {
+          "batteries": false,
+          "wiring": true,
+          "load": false,
+          "gauge": false,
+          "fuse": false,
+          "supply": false
+        }
+      },
+      "goal": "approx(Ah, 40) && approx(V, 12)",
+      "goal_text": "12 V, 40 Ah",
+      "success": "Parallel: still 12 V, but 40 Ah, so the radio runs twice as long."
+    },
+    "explore-series": {
+      "title": "Twice the voltage",
+      "prompt": "Rewire them for 24 V.",
+      "config": {
+        "batteries": 2,
+        "wiring": "parallel",
+        "load": 5,
+        "controls": {
+          "batteries": false,
+          "wiring": true,
+          "load": false,
+          "gauge": false,
+          "fuse": false,
+          "supply": false
+        }
+      },
+      "goal": "approx(V, 24)",
+      "goal_text": "24 V",
+      "success": "Series: 24 V, but still 20 Ah."
+    },
+    "explore-sag": {
+      "title": "Draw more current",
+      "prompt": "Raise the load until the terminal voltage has dropped by at least half a volt.",
+      "config": {
+        "batteries": 1,
+        "wiring": "parallel",
+        "load": 2,
+        "controls": {
+          "batteries": false,
+          "wiring": false,
+          "load": {
+            "min": 0,
+            "max": 40,
+            "step": 2
+          },
+          "gauge": false,
+          "fuse": false,
+          "supply": false
+        }
+      },
+      "goal": "sag >= 0.5",
+      "goal_text": "Voltage sagging",
+      "hints": [
+        "Go above 25 A."
+      ],
+      "success": "The more current you draw, the more voltage is lost across the battery's internal resistance."
+    }
+  }
+}

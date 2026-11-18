@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-013-001:
+  The additional gain following the discriminator: The noise is already there before the discriminator; the gain ahead of it is what matters.
+  The nature of atmospheric noise in the VHF range: Atmospheric noise is low at VHF; the receiver's own gain makes the roar.
+  The higher intermediate frequency used in FM receivers: The IF frequency doesn't create the noise.
+B-003-013-002:
+  Your audio will be distorted: Too little deviation is quiet, not distorted.
+  Your range will be shorter: Deviation doesn't change your range.
+  The repeater will not respond: The repeater still responds; your audio is just low.
+B-003-013-003:
+  Spectrum spread: Spectrum spread isn't the term for FM's frequency change.
+  Shift: Shift is used for FSK, not FM voice.
+  Modulation index: Modulation index is deviation divided by audio frequency, not the change itself.
+B-003-013-004:
+  A frequency-modulated carrier: With no audio there's nothing to frequency-modulate the carrier.
+  An amplitude-modulated carrier: An FM transmitter doesn't make AM, working microphone or not.
+  A phase-modulated carrier: There's no audio to phase-modulate it either.
+B-003-013-005:
+  The carrier is not detectable: The FM carrier is perfectly detectable.
+  It is more resistant to distortion caused by reflected signals: FM is affected by reflections (picket-fencing); that's not its advantage.
+  Its RF carrier stays on frequency better than the AM modes: Frequency stability depends on the oscillator, not the mode.
+B-003-013-006:
+  Less than 5 kHz: Under 5 kHz is narrower than the deviation alone.
+  Between 5 kHz and 10 kHz: 5 to 10 kHz is too narrow; the sidebands add the audio frequency each side.
+  Greater than 20 kHz: Over 20 kHz would need much more deviation.
+B-003-013-007:
+  By a larger amplitude of the carrier: FM's amplitude stays constant.
+  By a larger pulse width in the transmitted wave train: Pulse width isn't used in FM.
+  By a larger peak envelope power: FM has a constant envelope; PEP doesn't change with level.
+B-003-013-008:
+  Multiplex modulation: Multiplexing combines channels; it isn't a type of modulation like FM.
+  Amplitude modulation: AM changes amplitude, the opposite of FM.
+  Pulse modulation: Pulse modulation sends pulses; it's unrelated.
+B-003-013-009:
+  The transmitter efficiency for this mode is low: FM transmitters are actually very efficient.
+  Harmonics could not be attenuated to practical levels: Harmonics are just as easy to filter in FM.
+  The frequency stability would not be adequate: Frequency stability isn't the problem; bandwidth is.
+B-003-013-010:
+  Setting the wrong CTCSS tone: A wrong CTCSS tone stops the repeater opening; it doesn't distort you.
+  Excessive transmit power: More power makes you louder, not distorted.
+  Cross-polarized antenna: Cross-polarization weakens a signal; it doesn't distort the audio.
+B-003-013-011:
+  Overpower effect: Overpower effect isn't the term.
+  Interference effect: Interference effect isn't the term.
+  Surrender effect: Surrender effect isn't the term.

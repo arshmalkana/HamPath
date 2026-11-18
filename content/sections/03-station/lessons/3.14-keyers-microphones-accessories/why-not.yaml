@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-014-001:
+  Straight key: A straight key forms characters only as well as your timing.
+  Touchpad: Touchpads aren't what most operators use to form Morse.
+  DTMF keypad: A DTMF keypad sends phone tones, not Morse.
+B-003-014-002:
+  By eliminating key clicks: Key clicks come from the transmitter's keying waveform, not the keyer.
+  By improving the tone of the CW signal: The tone is set by the receiver, not the keyer.
+  By ensuring that the dots and dashes have the same amplitude: All CW elements have the same amplitude anyway; timing is what the keyer fixes.
+B-003-014-003:
+  Noise blanker threshold: The noise blanker is a receiver setting.
+  Deviation control: Deviation is set at the factory for FM; mic gain is what you adjust.
+  Automatic gain control level: AGC is a receiver setting.
+B-003-014-004:
+  Noise canceller (phasing): A phasing noise canceller cancels a noise source using a second antenna; it doesn't analyze.
+  Noise limiter: A noise limiter just clips peaks.
+  Noise blanker: A noise blanker removes pulses; it doesn't analyze signal characteristics.
+B-003-014-005:
+  VXO: A VXO is a variable crystal oscillator.
+  VCO: A VCO is a voltage-controlled oscillator.
+  VFO: A VFO is a variable frequency oscillator.
+B-003-014-006:
+  It reduces average transmitter power requirements: A processor raises average power; it doesn't reduce it.
+  It reduces unwanted noise pickup from the microphone: A processor can actually bring up background noise.
+  It improves voice frequency fidelity: Processing trades some fidelity for punch.
+B-003-014-007:
+  Increase the peak envelope power: At 100% modulation the peaks can't go higher.
+  Decrease the average power: Processing raises average power, not lowers it.
+  Decrease the peak envelope power: The peak power stays the same.
+B-003-014-008:
+  Noise limiter: A noise limiter clips all peaks; it doesn't recognize pulses.
+  Automatic level control: ALC is a transmitter circuit.
+  Narrowband filter: A narrow filter reduces bandwidth; it doesn't target pulses.
+B-003-014-009:
+  Continuous wideband background noise: Continuous background noise needs DSP noise reduction.
+  Interfering signals on the same frequency: A noise blanker can't separate two signals on one frequency.
+  Distortion from overdeviated signals: Overdeviation is a transmitter fault.
+B-003-014-010:
+  To change antennas for operation on other frequencies: Changing antennas for other bands is an antenna switch's job.
+  To prevent RF currents entering the transmitter circuits: Keeping RF out of the transmitter isn't its purpose.
+  To allow more than one transmitter to be used: It doesn't let you use more than one transmitter.
+B-003-014-011:
+  Crystal: A crystal microphone uses a piezoelectric crystal.
+  Condenser: A condenser microphone uses a charged diaphragm, like a capacitor.
+  Electret: An electret is a permanently charged condenser type.

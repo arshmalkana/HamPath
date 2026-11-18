@@ -1,0 +1,31 @@
+code: "3.16"
+title: Batteries
+est_minutes: 12
+lab_id: LAB-15
+question_ids:
+  - B-003-016-001
+  - B-003-016-002
+  - B-003-016-003
+  - B-003-016-004
+  - B-003-016-005
+  - B-003-016-006
+  - B-003-016-007
+  - B-003-016-008
+  - B-003-016-009
+  - B-003-016-010
+  - B-003-016-011
+calculations:
+  B-003-016-009:
+    calc: battery_bank
+    given:
+      V: 12 V
+      Ah: 20
+      count: 2
+      wiring: parallel
+  B-003-016-010:
+    calc: battery_bank
+    given:
+      V: 12 V
+      Ah: 20
+      count: 2
+      wiring: series

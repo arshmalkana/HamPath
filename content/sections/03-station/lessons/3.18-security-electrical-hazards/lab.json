@@ -1,0 +1,53 @@
+{
+  "lab": "LAB-16",
+  "steps": {
+    "inspect-security": {
+      "title": "Inspect the station",
+      "prompt": "Mark each item safe or a hazard.",
+      "config": {
+        "scene": "You're checking a friend's home station and car.",
+        "items": [
+          {
+            "id": "keysw",
+            "label": "The station's main power goes through a key-operated switch.",
+            "hazard": false,
+            "why": "No one can switch the station on without the key."
+          },
+          {
+            "id": "mic",
+            "label": "The microphone stays in the parked car.",
+            "hazard": true,
+            "why": "Anyone could get in and transmit. Take the microphone with you."
+          },
+          {
+            "id": "wrench",
+            "label": "A wrench is resting across the car battery terminals.",
+            "hazard": true,
+            "why": "The battery's short-circuit current can make the wrench red-hot."
+          },
+          {
+            "id": "interlock",
+            "label": "The high-voltage supply has an interlock switch on its cabinet.",
+            "hazard": false,
+            "why": "Opening the cabinet cuts the power before anyone can touch the high voltage."
+          },
+          {
+            "id": "live",
+            "label": "Someone is probing a power supply that's plugged in with its cover off.",
+            "hazard": true,
+            "why": "Working on a live supply risks a fatal shock. Unplug it first."
+          },
+          {
+            "id": "unplugged",
+            "label": "A faulty supply is switched off and unplugged before it's opened.",
+            "hazard": false,
+            "why": "That's exactly the right first step."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All judged correctly",
+      "success": "All six judged correctly."
+    }
+  }
+}

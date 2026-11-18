@@ -2271,3 +2271,86 @@ a.lesson-tile[data-done="true"] {
   stroke: var(--shack-readout);
   stroke-width: 2;
 }
+
+/* ================================================================ LAB-10 Morse */
+.morse-tape {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-height: 56px;
+}
+.morse-bar {
+  display: inline-block;
+  height: 14px;
+  border-radius: 7px;
+  background: var(--shack-readout);
+}
+.morse-gap {
+  display: inline-block;
+  width: 22px;
+}
+.morse-key {
+  min-width: 140px;
+  touch-action: none;
+  user-select: none;
+}
+
+/* ================================================================ LAB-15 power bench */
+.fuse {
+  fill: var(--shack-lamp);
+  stroke: var(--shack-part);
+  stroke-width: 2;
+}
+
+/* ================================================================ LAB-16 inspector */
+.inspect-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.inspect-item {
+  display: grid;
+  gap: var(--space-xs);
+  align-content: start;
+  border: 2px solid transparent;
+}
+.inspect-item[data-state="right"] {
+  border-color: var(--shack-ok);
+}
+.inspect-item[data-state="wrong"] {
+  border-color: var(--shack-fault);
+}
+.inspect-label {
+  margin: 0;
+  color: var(--shack-ink);
+}
+.inspect-why {
+  margin: 0;
+  color: var(--shack-ink-2);
+  font-size: var(--text-sm);
+}
+
+/* ================================================================ LAB-05 RF exposure */
+.rf-zone {
+  fill: var(--shack-fault);
+  fill-opacity: 0.18;
+}
+.rf-person {
+  fill: none;
+  stroke: var(--shack-fault);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+circle.rf-person {
+  fill: var(--shack-fault);
+}
+.rf-person.rf-safe {
+  stroke: var(--shack-ok);
+}
+circle.rf-person.rf-safe {
+  fill: var(--shack-ok);
+}

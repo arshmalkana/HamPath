@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-016-001:
+  16 volts: 16 V is more than a charged 12 V battery gives.
+  28 volts: 28 V is a truck or aircraft system.
+  9 volts: 9 V is a small transistor-radio battery.
+B-003-016-002:
+  A potentiometer: A potentiometer has three terminals but no polarity.
+  A fuse: A fuse works either way round.
+  A resistor: A resistor works either way round.
+B-003-016-003:
+  low leakage battery: Low leakage describes self-discharge, not rechargeability.
+  memory battery: Memory battery isn't the term.
+  primary battery: A primary battery is single-use.
+B-003-016-004:
+  Germanium diode: A diode doesn't generate EMF.
+  P-channel FET: A FET doesn't generate EMF.
+  Metal-film resistor: A resistor uses energy; it doesn't supply it.
+B-003-016-005:
+  It provides a higher voltage: NiMH cells give about 1.2 V, less than alkaline.
+  It can be discarded without precautions: NiMH batteries still need proper disposal.
+  It contains a liquid electrolyte: NiMH cells aren't liquid-electrolyte batteries.
+B-003-016-006:
+  Electrolyte becoming dry: Dry electrolyte isn't why the voltage drops under load.
+  Current capacity: Capacity is how long it lasts, not why the voltage drops.
+  Voltage capacity: Voltage capacity isn't a real cause.
+B-003-016-007:
+  Simple charging methods: Lithium batteries need careful, controlled charging.
+  Lower voltage per cell: Lower voltage per cell isn't an advantage.
+  High tolerance to overcharge: Lithium batteries tolerate overcharge badly.
+B-003-016-008:
+  One or more cells may become short-circuited: Cells don't short just from high current.
+  The battery will accept the subsequent charge in a shorter time: Faster discharge doesn't make it recharge faster.
+  The voltage delivered will be higher: Voltage drops under heavy load; it doesn't rise.
+B-003-016-009:
+  6 volts, 80 ampere-hours: Parallel batteries don't halve the voltage.
+  24 volts, 20 ampere-hours: 24 V is series.
+  24 volts, 40 ampere-hours: 24 V, 40 Ah would need four batteries.
+B-003-016-010:
+  24 volts, 40 ampere-hours: 40 Ah would mean parallel too; series keeps 20 Ah.
+  12 volts, 40 ampere-hours: 12 V, 40 Ah is parallel.
+  6 volts, 80 ampere-hours: Series doesn't halve the voltage.
+B-003-016-011:
+  recharged: Lithium-ion batteries are made to be recharged.
+  left disconnected: Leaving it disconnected is fine.
+  left overnight at room temperature: Room temperature overnight is fine.

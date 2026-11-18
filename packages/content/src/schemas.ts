@@ -32,7 +32,7 @@ export type LabCatalogue = z.infer<typeof LabCatalogueSchema>;
 const calcValue = z.union([z.string(), z.number()]);
 export const CalcSpecSchema = z.strictObject({
   calc: z.enum(CALCULATORS as [string, ...string[]]),
-  given: z.record(z.string(), z.union([calcValue, z.array(calcValue)])),
+  given: z.record(z.string(), z.union([calcValue, z.array(z.union([calcValue, z.array(calcValue)]))])),
   find: z.string().optional(),
   unit: z.enum(["V", "A", "Ω", "W", "Hz", "F", "H", "m", "s", ""]).optional(),
 });
@@ -297,12 +297,72 @@ export const SpectrumConfigSchema = z.object({
   dialHz: z.number().positive().optional(),
   waterfall: z.boolean().optional(),
   qrm: z.object({ mode: SpectrumMode, offset: z.number() }).nullable().optional(),
+  expectedDeviation: z.number().positive().optional(),
+  deviation: z.number().min(0).optional(),
+  regulated: z.boolean().optional(),
+  shaped: z.boolean().optional(),
+  squelch: z.boolean().optional(),
+  noSignal: z.boolean().optional(),
+  tuneLabel: z.string().optional(),
   controls: z.object({
     modes: z.union([z.array(SpectrumMode).min(2).max(4), z.literal(false)]),
     filter: z.boolean(),
     tune: RangeOrLocked,
     agc: z.boolean(),
+    deviation: RangeOrLocked.optional(),
+    keying: z.boolean().optional(),
+    squelch: z.boolean().optional(),
   }),
+});
+export const SsbDriveConfigSchema = z.object({
+  mode: z.literal("ssb"),
+  rated: z.number().positive(),
+  mic: z.number().min(0).max(1),
+  processor: z.union([z.literal(0), z.literal(1), z.literal(2)]),
+  controls: z.object({ mic: z.boolean(), processor: z.boolean() }),
+});
+export const KeyerConfigSchema = z.object({
+  mode: z.literal("keyer"),
+  target: z.string().regex(/^[A-Z0-9]+$/),
+  keyer: z.boolean(),
+  controls: z.object({ keyer: z.boolean() }),
+});
+const Supply = z.enum(["battery", "linear", "switching", "unregulated"]);
+export const PowerBenchConfigSchema = z.object({
+  cellV: z.number().positive(),
+  cellAh: z.number().positive(),
+  cellR: z.number().min(0),
+  batteries: z.number().int().min(1).max(4),
+  wiring: z.enum(["series", "parallel"]),
+  load: z.number().min(0),
+  gauge: z.union([z.literal(8), z.literal(10), z.literal(12), z.literal(14)]),
+  length: z.number().positive(),
+  fuse: z.enum(["battery", "radio", "none"]),
+  supply: Supply,
+  supplies: z.array(Supply).min(2).max(4).optional(),
+  controls: z.object({
+    batteries: z.boolean(),
+    wiring: z.boolean(),
+    load: RangeOrLocked,
+    gauge: z.boolean(),
+    fuse: z.boolean(),
+    supply: z.boolean(),
+  }),
+});
+export const InspectorConfigSchema = z.object({
+  scene: z.string(),
+  items: z
+    .array(z.strictObject({ id: z.string(), label: z.string(), hazard: z.boolean(), why: z.string() }))
+    .min(2)
+    .refine((xs) => new Set(xs.map((x) => x.id)).size === xs.length, "item ids must be unique"),
+});
+export const RfExposureConfigSchema = z.object({
+  source: z.string(),
+  power: z.number().positive(),
+  gainDbi: z.number(),
+  limit: z.number().positive(),
+  distance: z.number().positive(),
+  controls: z.object({ distance: z.object({ min: z.number().positive(), max: z.number().positive(), step: z.number().positive() }) }),
 });
 export const AntennaConfigSchema = z.object({
   mode: z.literal("yagi"),
@@ -318,6 +378,11 @@ export const LAB_SCHEMAS: Record<string, { config: z.ZodType; variables: string[
   "LAB-13": { config: DiagramConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-13"]! },
   "LAB-14": { config: SpectrumConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-14"]! },
   "LAB-28": { config: AntennaConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-28"]! },
+  "LAB-04": { config: SsbDriveConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-04"]! },
+  "LAB-10": { config: KeyerConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-10"]! },
+  "LAB-15": { config: PowerBenchConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-15"]! },
+  "LAB-16": { config: InspectorConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-16"]! },
+  "LAB-05": { config: RfExposureConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-05"]! },
   "LAB-17": { config: BenchConfig, variables: LAB_GOAL_VARIABLES["LAB-17"]! },
   "LAB-18": { config: ColourCodeConfig, variables: LAB_GOAL_VARIABLES["LAB-18"]! },
   "LAB-19": { config: UnitSliderConfig, variables: LAB_GOAL_VARIABLES["LAB-19"]! },

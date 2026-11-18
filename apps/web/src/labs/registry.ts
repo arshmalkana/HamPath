@@ -5,6 +5,11 @@ import { BlockDiagramLab } from "./BlockDiagramLab";
 import { ColourCodeLab } from "./ColourCodeLab";
 import { ComponentBenchLab } from "./ComponentBenchLab";
 import { DbLadderLab } from "./DbLadderLab";
+import { MorseLab } from "./MorseLab";
+import { PowerBenchLab } from "./PowerBenchLab";
+import { PowerLimitLab } from "./PowerLimitLab";
+import { RfExposureLab } from "./RfExposureLab";
+import { SafetyInspectorLab } from "./SafetyInspectorLab";
 import { SpectrumLab } from "./SpectrumLab";
 import { MeterLab } from "./MeterLab";
 import { OhmsLawLab } from "./OhmsLawLab";
@@ -35,19 +40,19 @@ export const LAB_REGISTRY: LabEntry[] = [
   { id: "LAB-01", name: "Band Plan Explorer", component: null },
   { id: "LAB-02", name: "Rules Navigator", component: null },
   { id: "LAB-03", name: "Call Sign Builder", component: null },
-  { id: "LAB-04", name: "Power Limit Calculator", component: null },
-  { id: "LAB-05", name: "RF Exposure Zone", component: null },
+  { id: "LAB-04", name: "Power Limit Calculator", component: PowerLimitLab },
+  { id: "LAB-05", name: "RF Exposure Zone", component: RfExposureLab },
   { id: "LAB-06", name: "Antenna Permit Planner", component: null },
   { id: "LAB-07", name: "Virtual QSO Simulator", component: null },
   { id: "LAB-08", name: "Repeater Lab", component: null },
   { id: "LAB-09", name: "Phonetic & Q-Code Trainer", component: null },
-  { id: "LAB-10", name: "Morse Trainer", component: null },
+  { id: "LAB-10", name: "Morse Trainer", component: MorseLab },
   { id: "LAB-11", name: "Emergency Net Scenario", component: null },
   { id: "LAB-12", name: "World Map & Clock", component: null },
   { id: "LAB-13", name: "Block-Diagram Builder", component: BlockDiagramLab },
   { id: "LAB-14", name: "Mode Spectrum Lab", component: SpectrumLab },
-  { id: "LAB-15", name: "Power Bench", component: null },
-  { id: "LAB-16", name: "Safe Shack Inspector", component: null },
+  { id: "LAB-15", name: "Power Bench", component: PowerBenchLab },
+  { id: "LAB-16", name: "Safe Shack Inspector", component: SafetyInspectorLab },
   { id: "LAB-17", name: "Component Bench", component: ComponentBenchLab },
   { id: "LAB-18", name: "Resistor Colour Code", component: ColourCodeLab },
   { id: "LAB-19", name: "Unit Slider", component: UnitSliderLab },

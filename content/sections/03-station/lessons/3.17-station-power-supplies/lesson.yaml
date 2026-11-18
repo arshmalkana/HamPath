@@ -1,0 +1,31 @@
+code: "3.17"
+title: Power supplies for the station
+est_minutes: 12
+lab_id: LAB-15
+question_ids:
+  - B-003-017-001
+  - B-003-017-002
+  - B-003-017-003
+  - B-003-017-004
+  - B-003-017-005
+  - B-003-017-006
+  - B-003-017-007
+  - B-003-017-008
+  - B-003-017-009
+  - B-003-017-010
+  - B-003-017-011
+calculations:
+  B-003-017-009:
+    calc: wire_gauge
+    given:
+      length: 3 m
+      max_drop: 0.5 V
+      table:
+        - - 14
+          - 0.19
+        - - 12
+          - 0.11
+        - - 10
+          - 0.07
+        - - 8
+          - 0.05

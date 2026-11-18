@@ -176,219 +176,219 @@ Status: authored
 
 Lab: LAB-14
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-011-001 | What does chirp mean? | — | 0/3 |  |
-| B-003-011-002 | What can be done to keep a CW transmitter from chirping? | — | 0/3 |  |
-| B-003-011-003 | What is the advantage of using a variable frequency oscillator in a basic CW transmitter? | — | 0/3 |  |
-| B-003-011-004 | Which type of transmitter modulation changes the amplitude of an RF wave for the purpose of conveying information? | — | 0/3 |  |
-| B-003-011-005 | In what emission mode does the instantaneous amplitude (envelope) of the RF signal vary with the modulating audio? | — | 0/3 |  |
-| B-003-011-006 | Morse code is usually transmitted by radio as: | — | 0/3 |  |
-| B-003-011-007 | You are transmitting using amplitude modulation. What bandwidth does your signal occupy if the highest frequency of your voice is 3 kHz? | — | 0/3 |  |
-| B-003-011-008 | What frequency components are present in the bandwidth of an amplitude modulated signal? | — | 0/3 |  |
-| B-003-011-009 | An RF oscillator should be electrically and mechanically stable. This is to ensure that the oscillator does NOT: | — | 0/3 |  |
-| B-003-011-010 | The DC power to the final stage of your transmitter is 200 watts and the RF output is 125 watts. What has happened to the rest of the power? | — | 0/3 |  |
-| B-003-011-011 | The difference between DC input power and RF output power of a transmitter RF amplifier: | — | 0/3 |  |
+| B-003-011-001 | What does chirp mean? | 02-explore-keying, 03-chirp | 3/3 |  |
+| B-003-011-002 | What can be done to keep a CW transmitter from chirping? | 02-explore-keying, 03-chirp | 3/3 |  |
+| B-003-011-003 | What is the advantage of using a variable frequency oscillator in a basic CW transmitter? | 03-chirp | 3/3 |  |
+| B-003-011-004 | Which type of transmitter modulation changes the amplitude of an RF wave for the purpose of conveying information? | 06-am | 3/3 |  |
+| B-003-011-005 | In what emission mode does the instantaneous amplitude (envelope) of the RF signal vary with the modulating audio? | 06-am | 3/3 |  |
+| B-003-011-006 | Morse code is usually transmitted by radio as: | 04-cw | 3/3 |  |
+| B-003-011-007 | You are transmitting using amplitude modulation. What bandwidth does your signal occupy if the highest frequency of your voice is 3 kHz? | 05-explore-am, 06-am, 07-worked-am | 3/3 | ✓ ham-sim |
+| B-003-011-008 | What frequency components are present in the bandwidth of an amplitude modulated signal? | 05-explore-am, 06-am | 3/3 |  |
+| B-003-011-009 | An RF oscillator should be electrically and mechanically stable. This is to ensure that the oscillator does NOT: | 03-chirp | 3/3 |  |
+| B-003-011-010 | The DC power to the final stage of your transmitter is 200 watts and the RF output is 125 watts. What has happened to the rest of the power? | 08-heat | 3/3 |  |
+| B-003-011-011 | The difference between DC input power and RF output power of a transmitter RF amplifier: | 08-heat | 3/3 |  |
 
 ## 3.12 SSB transmitter adjustment and PEP
 
 Lab: LAB-04
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-012-001 | What may happen if an SSB transmitter is operated with the microphone gain set too high? | — | 0/3 |  |
-| B-003-012-002 | What may happen if an SSB transmitter is operated with too much speech processing? | — | 0/3 |  |
-| B-003-012-003 | What is the term for the average power during one RF cycle, at the crest of the modulation envelope? | — | 0/3 |  |
-| B-003-012-004 | What is the usual bandwidth of an amateur radio single-sideband signal? | — | 0/3 |  |
-| B-003-012-005 | Why does the power amplifier of the SSB transmitter need to be linear? | — | 0/3 |  |
-| B-003-012-006 | What is one advantage of carrier suppression in a double sideband voice transmission? | — | 0/3 |  |
-| B-003-012-007 | What does overmodulation do to a single-sideband signal? | — | 0/3 |  |
-| B-003-012-008 | How should the microphone gain control be adjusted for voice operation on a single-sideband transmitter? | — | 0/3 |  |
-| B-003-012-009 | The purpose of a balanced modulator in an SSB transmitter is to: | — | 0/3 |  |
-| B-003-012-010 | Your SSB transmitter is set to operate lower sideband at 7100 kHz. With a single 1000 Hz tone as modulation, at which frequency is RF transmitted? | — | 0/3 |  |
-| B-003-012-011 | The automatic level control (ALC) in an SSB transmitter: | — | 0/3 |  |
+| B-003-012-001 | What may happen if an SSB transmitter is operated with the microphone gain set too high? | 02-explore-mic, 03-gain-alc | 3/3 |  |
+| B-003-012-002 | What may happen if an SSB transmitter is operated with too much speech processing? | 04-explore-processor, 05-processing | 3/3 |  |
+| B-003-012-003 | What is the term for the average power during one RF cycle, at the crest of the modulation envelope? | 06-pep | 3/3 |  |
+| B-003-012-004 | What is the usual bandwidth of an amateur radio single-sideband signal? | 06-pep | 3/3 |  |
+| B-003-012-005 | Why does the power amplifier of the SSB transmitter need to be linear? | 05-processing | 3/3 |  |
+| B-003-012-006 | What is one advantage of carrier suppression in a double sideband voice transmission? | 06-pep | 3/3 |  |
+| B-003-012-007 | What does overmodulation do to a single-sideband signal? | 02-explore-mic, 03-gain-alc | 3/3 |  |
+| B-003-012-008 | How should the microphone gain control be adjusted for voice operation on a single-sideband transmitter? | 02-explore-mic, 03-gain-alc | 3/3 |  |
+| B-003-012-009 | The purpose of a balanced modulator in an SSB transmitter is to: | 06-pep | 3/3 |  |
+| B-003-012-010 | Your SSB transmitter is set to operate lower sideband at 7100 kHz. With a single 1000 Hz tone as modulation, at which frequency is RF transmitted? | 07-worked-lsb | 3/3 | ✓ ham-sim |
+| B-003-012-011 | The automatic level control (ALC) in an SSB transmitter: | 02-explore-mic, 03-gain-alc | 3/3 |  |
 
 ## 3.13 FM deviation, squelch and capture
 
 Lab: LAB-14
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-013-001 | What causes the loud noise heard from an FM receiver in the absence of a signal? | — | 0/3 |  |
-| B-003-013-002 | You are using an FM repeater configured for 5 kHz deviation, but your transmitter is set to 2.5 kHz deviation. What is the consequence? | — | 0/3 |  |
-| B-003-013-003 | What term defines the change in frequency caused by modulation in an FM transmitter? | — | 0/3 |  |
-| B-003-013-004 | What kind of emission would your FM transmitter produce if its microphone failed to work? | — | 0/3 |  |
-| B-003-013-005 | Why is FM voice best for local VHF/UHF radio communications? | — | 0/3 |  |
-| B-003-013-006 | What is the approximate bandwidth of a frequency modulated signal using 5 kHz deviation? | — | 0/3 |  |
-| B-003-013-007 | How is a higher level of the modulating signal represented in an FM signal? | — | 0/3 |  |
-| B-003-013-008 | What modulation method is most closely related to frequency modulation? | — | 0/3 |  |
-| B-003-013-009 | Why isn't FM used as an amateur radio emission mode below 28 MHz? | — | 0/3 |  |
-| B-003-013-010 | Several stations report that your FM transmission is loud and distorted, but on frequency. Which of the following is the most probable cause of the distortion? | — | 0/3 |  |
-| B-003-013-011 | When more than one signal is present, the FM receiver is likely to demodulate only the strongest signal. What is this behaviour called? | — | 0/3 |  |
+| B-003-013-001 | What causes the loud noise heard from an FM receiver in the absence of a signal? | 05-explore-squelch, 06-squelch-capture | 3/3 |  |
+| B-003-013-002 | You are using an FM repeater configured for 5 kHz deviation, but your transmitter is set to 2.5 kHz deviation. What is the consequence? | 02-explore-deviation, 03-deviation | 3/3 |  |
+| B-003-013-003 | What term defines the change in frequency caused by modulation in an FM transmitter? | 02-explore-deviation, 03-deviation | 3/3 |  |
+| B-003-013-004 | What kind of emission would your FM transmitter produce if its microphone failed to work? | 06-squelch-capture | 3/3 |  |
+| B-003-013-005 | Why is FM voice best for local VHF/UHF radio communications? | 04-bandwidth | 3/3 |  |
+| B-003-013-006 | What is the approximate bandwidth of a frequency modulated signal using 5 kHz deviation? | 02-explore-deviation, 04-bandwidth | 3/3 |  |
+| B-003-013-007 | How is a higher level of the modulating signal represented in an FM signal? | 02-explore-deviation, 03-deviation | 3/3 |  |
+| B-003-013-008 | What modulation method is most closely related to frequency modulation? | 04-bandwidth | 3/3 |  |
+| B-003-013-009 | Why isn't FM used as an amateur radio emission mode below 28 MHz? | 04-bandwidth | 3/3 |  |
+| B-003-013-010 | Several stations report that your FM transmission is loud and distorted, but on frequency. Which of the following is the most probable cause of the distortion? | 03-deviation | 3/3 |  |
+| B-003-013-011 | When more than one signal is present, the FM receiver is likely to demodulate only the strongest signal. What is this behaviour called? | 06-squelch-capture | 3/3 |  |
 
 ## 3.14 Keyers, microphones and station accessories
 
 Lab: LAB-10
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-014-001 | What do many amateur radio operators use to help form good Morse code characters? | — | 0/3 |  |
-| B-003-014-002 | How does an electronic keyer help form good Morse code characters? | — | 0/3 |  |
-| B-003-014-003 | What do you need to adjust before using a microphone for the first time with a transceiver? | — | 0/3 |  |
-| B-003-014-004 | What noise management system analyzes noise and signal characteristics to partially remove noise? | — | 0/3 |  |
-| B-003-014-005 | What circuit causes a transmitter to automatically transmit when an operator speaks into its microphone? | — | 0/3 |  |
-| B-003-014-006 | What is the reason for using a properly adjusted speech processor with a single-sideband voice transmitter? | — | 0/3 |  |
-| B-003-014-007 | If a single-sideband voice transmitter is 100% modulated, how will using a speech processor affect the transmitter's output? | — | 0/3 |  |
-| B-003-014-008 | In a receiver, what noise management circuit recognizes high-amplitude short-duration pulses and removes them? | — | 0/3 |  |
-| B-003-014-009 | What type of interference is a noise blanker circuit most effective in eliminating? | — | 0/3 |  |
-| B-003-014-010 | What is the function of transmit/receive switching in a transceiver? | — | 0/3 |  |
-| B-003-014-011 | What type of microphone has internal components similar to a loudspeaker? | — | 0/3 |  |
+| B-003-014-001 | What do many amateur radio operators use to help form good Morse code characters? | 02-explore, 03-keyers | 3/3 |  |
+| B-003-014-002 | How does an electronic keyer help form good Morse code characters? | 02-explore, 03-keyers | 3/3 |  |
+| B-003-014-003 | What do you need to adjust before using a microphone for the first time with a transceiver? | 04-microphones | 3/3 |  |
+| B-003-014-004 | What noise management system analyzes noise and signal characteristics to partially remove noise? | 05-noise, 07-flash | 3/3 |  |
+| B-003-014-005 | What circuit causes a transmitter to automatically transmit when an operator speaks into its microphone? | 04-microphones, 07-flash | 3/3 |  |
+| B-003-014-006 | What is the reason for using a properly adjusted speech processor with a single-sideband voice transmitter? | 04-microphones | 3/3 |  |
+| B-003-014-007 | If a single-sideband voice transmitter is 100% modulated, how will using a speech processor affect the transmitter's output? | 04-microphones | 3/3 |  |
+| B-003-014-008 | In a receiver, what noise management circuit recognizes high-amplitude short-duration pulses and removes them? | 05-noise, 07-flash | 3/3 |  |
+| B-003-014-009 | What type of interference is a noise blanker circuit most effective in eliminating? | 05-noise | 3/3 |  |
+| B-003-014-010 | What is the function of transmit/receive switching in a transceiver? | 06-tr | 3/3 |  |
+| B-003-014-011 | What type of microphone has internal components similar to a loudspeaker? | 04-microphones, 07-flash | 3/3 |  |
 
 ## 3.15 Digital modes and packet radio
 
 Lab: LAB-14
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-015-001 | Why can a modern digital radio system transmit voice and images, not just data? | — | 0/3 |  |
-| B-003-015-002 | What is the fundamental difference between digital and analog data? | — | 0/3 |  |
-| B-003-015-003 | What is the function of a digipeater? | — | 0/3 |  |
-| B-003-015-004 | What does "network" mean in packet radio? | — | 0/3 |  |
-| B-003-015-005 | Why can dozens of FT8 communications occur simultaneously in the space needed for one single-sideband transmission? | — | 0/3 |  |
-| B-003-015-006 | Which of these modes can work at the lowest signal-to-noise ratio as measured in a 2500 Hz bandwidth? | — | 0/3 |  |
-| B-003-015-007 | When selecting an RTTY transmitting frequency, what minimum frequency separation from a contact in progress should you allow (centre to centre) to minimize interference? | — | 0/3 |  |
-| B-003-015-008 | When using a digital mode based on a computer sound card, how can you verify that the transmit audio level is NOT excessive? | — | 0/3 |  |
-| B-003-015-009 | What feature of packet radio makes it especially useful for emergency communications? | — | 0/3 |  |
-| B-003-015-010 | A digital protocol implements automatic repeat request (ARQ). What does it permit? | — | 0/3 |  |
-| B-003-015-011 | With a digital communication mode based on a computer sound card, what is the result of feeding excessive audio into the transmitter? | — | 0/3 |  |
+| B-003-015-001 | Why can a modern digital radio system transmit voice and images, not just data? | 03-digital | 3/3 |  |
+| B-003-015-002 | What is the fundamental difference between digital and analog data? | 03-digital | 3/3 |  |
+| B-003-015-003 | What is the function of a digipeater? | 07-packet | 3/3 |  |
+| B-003-015-004 | What does "network" mean in packet radio? | 07-packet | 3/3 |  |
+| B-003-015-005 | Why can dozens of FT8 communications occur simultaneously in the space needed for one single-sideband transmission? | 02-explore-digital, 04-ft8 | 3/3 |  |
+| B-003-015-006 | Which of these modes can work at the lowest signal-to-noise ratio as measured in a 2500 Hz bandwidth? | 02-explore-digital, 04-ft8 | 3/3 |  |
+| B-003-015-007 | When selecting an RTTY transmitting frequency, what minimum frequency separation from a contact in progress should you allow (centre to centre) to minimize interference? | 04-ft8, 05-explore-rtty | 3/3 |  |
+| B-003-015-008 | When using a digital mode based on a computer sound card, how can you verify that the transmit audio level is NOT excessive? | 06-levels | 3/3 |  |
+| B-003-015-009 | What feature of packet radio makes it especially useful for emergency communications? | 07-packet | 3/3 |  |
+| B-003-015-010 | A digital protocol implements automatic repeat request (ARQ). What does it permit? | 07-packet | 3/3 |  |
+| B-003-015-011 | With a digital communication mode based on a computer sound card, what is the result of feeding excessive audio into the transmitter? | 06-levels | 3/3 |  |
 
 ## 3.16 Batteries
 
 Lab: LAB-15
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-016-001 | What approximate voltage does a standard automobile starter battery usually supply? | — | 0/3 |  |
-| B-003-016-002 | Which of the following has a positive terminal and a negative terminal? | — | 0/3 |  |
-| B-003-016-003 | A battery, that can be repeatedly recharged by supplying it with electrical energy, is known as a: | — | 0/3 |  |
-| B-003-016-004 | Which of the following is a source of electromotive force (EMF)? | — | 0/3 |  |
-| B-003-016-005 | Why is the NiMH battery often preferred over a conventional alkaline battery? | — | 0/3 |  |
-| B-003-016-006 | The voltage at a battery's terminals will drop when it supplies current. What is the cause of the drop? | — | 0/3 |  |
-| B-003-016-007 | For portable operation, what is the primary advantage of lithium-based batteries over lead-acid batteries? | — | 0/3 |  |
-| B-003-016-008 | Battery capacity is commonly stated as a value of current delivered over a specified period of time. What is the effect of exceeding that specified current? | — | 0/3 |  |
-| B-003-016-009 | What voltage and capacity will you achieve by connecting two 12 volts, 20 ampere-hour batteries in parallel? | — | 0/3 |  |
-| B-003-016-010 | What voltage and capacity will you achieve by connecting two 12 volts, 20 ampere-hour batteries in series? | — | 0/3 |  |
-| B-003-016-011 | A lithium-ion battery should never be: | — | 0/3 |  |
+| B-003-016-001 | What approximate voltage does a standard automobile starter battery usually supply? | 05-basics | 3/3 |  |
+| B-003-016-002 | Which of the following has a positive terminal and a negative terminal? | 05-basics | 3/3 |  |
+| B-003-016-003 | A battery, that can be repeatedly recharged by supplying it with electrical energy, is known as a: | 05-basics | 3/3 |  |
+| B-003-016-004 | Which of the following is a source of electromotive force (EMF)? | 05-basics | 3/3 |  |
+| B-003-016-005 | Why is the NiMH battery often preferred over a conventional alkaline battery? | 05-basics | 3/3 |  |
+| B-003-016-006 | The voltage at a battery's terminals will drop when it supplies current. What is the cause of the drop? | 06-explore-sag, 07-internal | 3/3 |  |
+| B-003-016-007 | For portable operation, what is the primary advantage of lithium-based batteries over lead-acid batteries? | 07-internal | 3/3 |  |
+| B-003-016-008 | Battery capacity is commonly stated as a value of current delivered over a specified period of time. What is the effect of exceeding that specified current? | 07-internal | 3/3 |  |
+| B-003-016-009 | What voltage and capacity will you achieve by connecting two 12 volts, 20 ampere-hour batteries in parallel? | 02-explore-parallel, 04-banks, 08-worked | 3/3 | ✓ ham-sim |
+| B-003-016-010 | What voltage and capacity will you achieve by connecting two 12 volts, 20 ampere-hour batteries in series? | 03-explore-series, 04-banks, 08-worked | 3/3 | ✓ ham-sim |
+| B-003-016-011 | A lithium-ion battery should never be: | 07-internal | 3/3 |  |
 
 ## 3.17 Power supplies for the station
 
 Lab: LAB-15
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-017-001 | You construct a simple DC power supply using a transformer, rectifier and filter capacitor. If you use the supply to power a CW transmitter, what problem with signal quality could it cause? | — | 0/3 |  |
-| B-003-017-002 | What device converts 120 volts AC to 12 volts DC? | — | 0/3 |  |
-| B-003-017-003 | When selecting a 13.8 V DC power supply for a transceiver, what design specification is most important? | — | 0/3 |  |
-| B-003-017-004 | Compared to a switching (switch mode) power supply, why may a linear power supply be preferred? | — | 0/3 |  |
-| B-003-017-005 | In a mobile installation, why should the fuse in the DC line to the transceiver be located as near to the battery as possible? | — | 0/3 |  |
-| B-003-017-006 | Apart from efficiency, what is one advantage of a switching (switch mode) power supply over a linear power supply? | — | 0/3 |  |
-| B-003-017-007 | Why are heavy-gauge wires used for a 100-watt transceiver's DC power connection? | — | 0/3 |  |
-| B-003-017-008 | What are the nominal power-line voltages supplied to homes? | — | 0/3 |  |
-| B-003-017-009 | Your transceiver's user guide suggests limiting the voltage drop to 0.5 volts and the vehicle battery is 3 metres away. Given the losses listed below at the required current of 22 amperes, which minimum wire gauge must you use? | — | 0/3 |  |
-| B-003-017-010 | Why must the positive lead from the vehicle battery to your transceiver be fused? | — | 0/3 |  |
-| B-003-017-011 | You have a very loud low-frequency hum appearing on your transmission. In what part of the transmitter would you first look for the trouble? | — | 0/3 |  |
+| B-003-017-001 | You construct a simple DC power supply using a transformer, rectifier and filter capacitor. If you use the supply to power a CW transmitter, what problem with signal quality could it cause? | 07-explore-supply, 08-supplies | 3/3 |  |
+| B-003-017-002 | What device converts 120 volts AC to 12 volts DC? | 08-supplies | 3/3 |  |
+| B-003-017-003 | When selecting a 13.8 V DC power supply for a transceiver, what design specification is most important? | 03-wire | 3/3 |  |
+| B-003-017-004 | Compared to a switching (switch mode) power supply, why may a linear power supply be preferred? | 07-explore-supply, 08-supplies | 3/3 |  |
+| B-003-017-005 | In a mobile installation, why should the fuse in the DC line to the transceiver be located as near to the battery as possible? | 05-explore-fuse, 06-fuses | 3/3 |  |
+| B-003-017-006 | Apart from efficiency, what is one advantage of a switching (switch mode) power supply over a linear power supply? | 07-explore-supply, 08-supplies | 3/3 |  |
+| B-003-017-007 | Why are heavy-gauge wires used for a 100-watt transceiver's DC power connection? | 02-explore-gauge, 03-wire | 3/3 |  |
+| B-003-017-008 | What are the nominal power-line voltages supplied to homes? | 08-supplies | 3/3 |  |
+| B-003-017-009 | Your transceiver's user guide suggests limiting the voltage drop to 0.5 volts and the vehicle battery is 3 metres away. Given the losses listed below at the required current of 22 amperes, which minimum wire gauge must you use? | 02-explore-gauge, 03-wire, 04-worked-gauge | 3/3 | ✓ ham-sim |
+| B-003-017-010 | Why must the positive lead from the vehicle battery to your transceiver be fused? | 05-explore-fuse, 06-fuses | 3/3 |  |
+| B-003-017-011 | You have a very loud low-frequency hum appearing on your transmission. In what part of the transmitter would you first look for the trouble? | 08-supplies | 3/3 |  |
 
 ## 3.18 Station security and electrical hazards
 
 Lab: LAB-16
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-018-001 | How could you best keep unauthorized persons from using your station at home? | — | 0/3 |  |
-| B-003-018-002 | How could you best keep unauthorized persons from using a mobile station in your car? | — | 0/3 |  |
-| B-003-018-003 | What electrical hazard, if any, does the starter battery in a vehicle present? | — | 0/3 |  |
-| B-003-018-004 | Why would there be a switch in a high-voltage power supply to turn off the power if its cabinet is opened? | — | 0/3 |  |
-| B-003-018-005 | What is the minimum electrical current that can be fatal to the human body? | — | 0/3 |  |
-| B-003-018-006 | Which body organ can be fatally affected by a very small amount of electrical current? | — | 0/3 |  |
-| B-003-018-007 | What is the lowest voltage that is usually considered hazardous to humans? | — | 0/3 |  |
-| B-003-018-008 | What should you do if you discover someone who is being burned by high voltage? | — | 0/3 |  |
-| B-003-018-009 | What is the safest method to remove an unconscious person from contact with a high-voltage source? | — | 0/3 |  |
-| B-003-018-010 | Before checking a fault in a mains-operated power supply unit, it would be safest to first: | — | 0/3 |  |
-| B-003-018-011 | What is the risk involved in troubleshooting a live power supply? | — | 0/3 |  |
+| B-003-018-001 | How could you best keep unauthorized persons from using your station at home? | 02-explore, 03-security | 3/3 |  |
+| B-003-018-002 | How could you best keep unauthorized persons from using a mobile station in your car? | 02-explore, 03-security | 3/3 |  |
+| B-003-018-003 | What electrical hazard, if any, does the starter battery in a vehicle present? | 02-explore, 05-batteries-supplies | 3/3 |  |
+| B-003-018-004 | Why would there be a switch in a high-voltage power supply to turn off the power if its cabinet is opened? | 02-explore, 05-batteries-supplies | 3/3 |  |
+| B-003-018-005 | What is the minimum electrical current that can be fatal to the human body? | 04-current | 3/3 |  |
+| B-003-018-006 | Which body organ can be fatally affected by a very small amount of electrical current? | 04-current | 3/3 |  |
+| B-003-018-007 | What is the lowest voltage that is usually considered hazardous to humans? | 04-current | 3/3 |  |
+| B-003-018-008 | What should you do if you discover someone who is being burned by high voltage? | 06-rescue | 3/3 |  |
+| B-003-018-009 | What is the safest method to remove an unconscious person from contact with a high-voltage source? | 06-rescue | 3/3 |  |
+| B-003-018-010 | Before checking a fault in a mains-operated power supply unit, it would be safest to first: | 02-explore, 05-batteries-supplies | 3/3 |  |
+| B-003-018-011 | What is the risk involved in troubleshooting a live power supply? | 02-explore, 05-batteries-supplies | 3/3 |  |
 
 ## 3.19 Grounding, bonding and fuses
 
 Lab: LAB-16
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-019-001 | For best protection from electrical shock, what should be grounded in your station? | — | 0/3 |  |
-| B-003-019-002 | Established practice demands that all ground electrodes be bonded together with heavy conductors. What protection does this provide in case of a lightning strike? | — | 0/3 |  |
-| B-003-019-003 | Why should you never use a fuse with a higher current rating than specified? | — | 0/3 |  |
-| B-003-019-004 | Which of these materials is best for a ground rod driven into the earth? | — | 0/3 |  |
-| B-003-019-005 | You need to work on a power supply that has been taken offline. What is the first thing you should do once the cabinet is open? | — | 0/3 |  |
-| B-003-019-006 | Where should the green wire in a three-wire AC line cord be connected in a power supply? | — | 0/3 |  |
-| B-003-019-007 | Your third-floor station has a ground wire running 10 metres down to a ground rod. You get an RF burn when you touch your HF transceiver while transmitting. What is the likely cause? | — | 0/3 |  |
-| B-003-019-008 | Where should the chassis ground terminals on all station equipment be connected? | — | 0/3 |  |
-| B-003-019-009 | What is a safe method to discharge power supply filter capacitors? | — | 0/3 |  |
-| B-003-019-010 | On mains-operated power supplies, the ground wire of the AC line is connected to the power supply chassis. What protection does this provide if a fault occurs in the power supply? | — | 0/3 |  |
-| B-003-019-011 | Why do fuses have a voltage rating? | — | 0/3 |  |
+| B-003-019-001 | For best protection from electrical shock, what should be grounded in your station? | 02-explore, 03-grounding | 3/3 |  |
+| B-003-019-002 | Established practice demands that all ground electrodes be bonded together with heavy conductors. What protection does this provide in case of a lightning strike? | 02-explore, 03-grounding | 3/3 |  |
+| B-003-019-003 | Why should you never use a fuse with a higher current rating than specified? | 02-explore, 06-fuses | 3/3 |  |
+| B-003-019-004 | Which of these materials is best for a ground rod driven into the earth? | 02-explore, 03-grounding | 3/3 |  |
+| B-003-019-005 | You need to work on a power supply that has been taken offline. What is the first thing you should do once the cabinet is open? | 05-capacitors | 3/3 |  |
+| B-003-019-006 | Where should the green wire in a three-wire AC line cord be connected in a power supply? | 02-explore, 03-grounding | 3/3 |  |
+| B-003-019-007 | Your third-floor station has a ground wire running 10 metres down to a ground rod. You get an RF burn when you touch your HF transceiver while transmitting. What is the likely cause? | 02-explore, 04-rf-ground | 3/3 |  |
+| B-003-019-008 | Where should the chassis ground terminals on all station equipment be connected? | 02-explore, 03-grounding | 3/3 |  |
+| B-003-019-009 | What is a safe method to discharge power supply filter capacitors? | 02-explore, 05-capacitors | 3/3 |  |
+| B-003-019-010 | On mains-operated power supplies, the ground wire of the AC line is connected to the power supply chassis. What protection does this provide if a fault occurs in the power supply? | 03-grounding | 3/3 |  |
+| B-003-019-011 | Why do fuses have a voltage rating? | 06-fuses | 3/3 |  |
 
 ## 3.20 Lightning protection
 
 Lab: LAB-16
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-020-001 | Why should you ground all antenna and rotator cables when your station is not in use? | — | 0/3 |  |
-| B-003-020-002 | You want to install a lightning surge protector on your transmission line, where should it be inserted? | — | 0/3 |  |
-| B-003-020-003 | How can your station equipment best be protected from lightning damage? | — | 0/3 |  |
-| B-003-020-004 | What equipment should be worn for working on an antenna tower? | — | 0/3 |  |
-| B-003-020-005 | Why should you wear approved fall arrest equipment if you are working on an antenna tower? | — | 0/3 |  |
-| B-003-020-006 | For safety, how high should you place a horizontal wire antenna? | — | 0/3 |  |
-| B-003-020-007 | Why should you wear a hard hat if you are on the ground helping someone work on an antenna tower? | — | 0/3 |  |
-| B-003-020-008 | Why should your outside antennas be high enough so that no one can touch them while you are transmitting? | — | 0/3 |  |
-| B-003-020-009 | Why should you make sure that no one can touch an open-wire transmission line while you are transmitting with it? | — | 0/3 |  |
-| B-003-020-010 | What safety precautions should you take before beginning repairs on an antenna? | — | 0/3 |  |
-| B-003-020-011 | What safety precaution is especially important for a ground-mounted antenna? | — | 0/3 |  |
+| B-003-020-001 | Why should you ground all antenna and rotator cables when your station is not in use? | 02-explore, 03-lightning | 3/3 |  |
+| B-003-020-002 | You want to install a lightning surge protector on your transmission line, where should it be inserted? | 02-explore, 03-lightning | 3/3 |  |
+| B-003-020-003 | How can your station equipment best be protected from lightning damage? | 03-lightning | 3/3 |  |
+| B-003-020-004 | What equipment should be worn for working on an antenna tower? | 02-explore, 04-towers | 3/3 |  |
+| B-003-020-005 | Why should you wear approved fall arrest equipment if you are working on an antenna tower? | 04-towers | 3/3 |  |
+| B-003-020-006 | For safety, how high should you place a horizontal wire antenna? | 02-explore, 05-placement | 3/3 |  |
+| B-003-020-007 | Why should you wear a hard hat if you are on the ground helping someone work on an antenna tower? | 02-explore, 04-towers | 3/3 |  |
+| B-003-020-008 | Why should your outside antennas be high enough so that no one can touch them while you are transmitting? | 05-placement | 3/3 |  |
+| B-003-020-009 | Why should you make sure that no one can touch an open-wire transmission line while you are transmitting with it? | 02-explore, 05-placement | 3/3 |  |
+| B-003-020-010 | What safety precautions should you take before beginning repairs on an antenna? | 02-explore, 04-towers | 3/3 |  |
+| B-003-020-011 | What safety precaution is especially important for a ground-mounted antenna? | 05-placement | 3/3 |  |
 
 ## 3.21 Antenna and RF safety
 
 Lab: LAB-05
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-021-001 | What should you do for safety when operating at UHF and microwave frequencies? | — | 0/3 |  |
-| B-003-021-002 | What should you do for safety if you put up a UHF transmitting antenna? | — | 0/3 |  |
-| B-003-021-003 | What should you do for safety, before removing the shielding on a UHF power amplifier? | — | 0/3 |  |
-| B-003-021-004 | Why should you make sure the antenna of a hand-held transceiver is not close to your head when transmitting? | — | 0/3 |  |
-| B-003-021-005 | How should you position the antenna of a hand-held transceiver while you are transmitting? | — | 0/3 |  |
-| B-003-021-006 | How can exposure to a large amount of RF energy affect body tissue? | — | 0/3 |  |
-| B-003-021-007 | Which body organ is the most likely to be damaged from the heating effects of RF radiation? | — | 0/3 |  |
-| B-003-021-008 | How does the power density of an electromagnetic wave change as it propagates away from an antenna in free space? | — | 0/3 |  |
-| B-003-021-009 | If you operate your station with indoor antennas, what precautions should you take when you install them? | — | 0/3 |  |
-| B-003-021-010 | Why should directional high-gain antennas be mounted higher than nearby structures? | — | 0/3 |  |
-| B-003-021-011 | For best RF safety, where should the ends and centre of a dipole antenna be located? | — | 0/3 |  |
+| B-003-021-001 | What should you do for safety when operating at UHF and microwave frequencies? | 06-practice | 3/3 |  |
+| B-003-021-002 | What should you do for safety if you put up a UHF transmitting antenna? | 06-practice | 3/3 |  |
+| B-003-021-003 | What should you do for safety, before removing the shielding on a UHF power amplifier? | 06-practice | 3/3 |  |
+| B-003-021-004 | Why should you make sure the antenna of a hand-held transceiver is not close to your head when transmitting? | 06-practice | 3/3 |  |
+| B-003-021-005 | How should you position the antenna of a hand-held transceiver while you are transmitting? | 06-practice | 3/3 |  |
+| B-003-021-006 | How can exposure to a large amount of RF energy affect body tissue? | 05-tissue | 3/3 |  |
+| B-003-021-007 | Which body organ is the most likely to be damaged from the heating effects of RF radiation? | 05-tissue | 3/3 |  |
+| B-003-021-008 | How does the power density of an electromagnetic wave change as it propagates away from an antenna in free space? | 02-explore, 03-inverse-square, 04-explore-double | 3/3 |  |
+| B-003-021-009 | If you operate your station with indoor antennas, what precautions should you take when you install them? | 06-practice | 3/3 |  |
+| B-003-021-010 | Why should directional high-gain antennas be mounted higher than nearby structures? | 02-explore, 06-practice | 3/3 |  |
+| B-003-021-011 | For best RF safety, where should the ends and centre of a dipole antenna be located? | 06-practice | 3/3 |  |
 

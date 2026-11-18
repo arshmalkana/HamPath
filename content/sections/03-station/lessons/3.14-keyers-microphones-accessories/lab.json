@@ -1,0 +1,23 @@
+{
+  "lab": "LAB-10",
+  "steps": {
+    "explore-keyer": {
+      "title": "Straight key or keyer?",
+      "prompt": "Switch to the electronic keyer and send K (dah dit dah).",
+      "config": {
+        "mode": "keyer",
+        "target": "K",
+        "keyer": false,
+        "controls": {
+          "keyer": true
+        }
+      },
+      "goal": "keyer && correct",
+      "goal_text": "K sent with the keyer",
+      "hints": [
+        "Choose Electronic keyer, then press Dah, Dit, Dah."
+      ],
+      "success": "Every element is exactly the right length. With the straight key you had to time each one yourself."
+    }
+  }
+}

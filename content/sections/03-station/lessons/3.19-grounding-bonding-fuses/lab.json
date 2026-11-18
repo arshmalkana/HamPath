@@ -1,0 +1,59 @@
+{
+  "lab": "LAB-16",
+  "steps": {
+    "inspect-grounding": {
+      "title": "Inspect the grounding",
+      "prompt": "Mark each item safe or a hazard.",
+      "config": {
+        "scene": "A station on the third floor of a house.",
+        "items": [
+          {
+            "id": "single",
+            "label": "Every chassis is wired to one single-point ground.",
+            "hazard": false,
+            "why": "One reference point keeps everything at the same potential."
+          },
+          {
+            "id": "separate",
+            "label": "Each radio has its own separate ground rod, not bonded to the others.",
+            "hazard": true,
+            "why": "Unbonded rods can sit at different voltages in a lightning strike. Bond them together."
+          },
+          {
+            "id": "bigfuse",
+            "label": "A 20 A fuse replaces the 10 A one the manual specifies.",
+            "hazard": true,
+            "why": "In a fault it won't blow in time. Damage or fire can follow."
+          },
+          {
+            "id": "rod",
+            "label": "The ground rod is copper-clad steel.",
+            "hazard": false,
+            "why": "The best choice: strong and conductive."
+          },
+          {
+            "id": "green",
+            "label": "The line cord's green wire goes to the chassis.",
+            "hazard": false,
+            "why": "If a fault touches the chassis, the current goes to ground."
+          },
+          {
+            "id": "screwdriver",
+            "label": "Filter capacitors are discharged with a screwdriver.",
+            "hazard": true,
+            "why": "Use an insulated shorting stick with an inline resistor."
+          },
+          {
+            "id": "long",
+            "label": "A 10 m wire down to the ground rod is the station's only RF ground.",
+            "hazard": true,
+            "why": "On HF it can have high impedance: you can get RF burns from the equipment."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All judged correctly",
+      "success": "All seven judged correctly."
+    }
+  }
+}

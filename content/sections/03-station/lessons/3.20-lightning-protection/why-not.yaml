@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-020-001:
+  To lock the antenna system in one position: Grounding cables doesn't lock the antenna's position.
+  To avoid radio frequency interference: It's for lightning, not interference.
+  To prevent unauthorized persons from using the station: It doesn't stop anyone using the station.
+B-003-020-002:
+  Close to the antenna: Near the antenna isn't close to earth ground.
+  Behind the transceiver: Behind the transceiver lets the surge into the house.
+  Anywhere on the line: "Position matters: outside, near the ground."
+B-003-020-003:
+  Use heavy insulation on the wiring: Insulation won't stop lightning.
+  Never turn off the equipment: Leaving equipment on doesn't protect it.
+  Disconnect the ground system from all radios: Disconnecting the ground removes protection.
+B-003-020-004:
+  A reflective vest: A reflective vest won't stop a fall.
+  A pair of insulating gloves: Insulating gloves won't stop a fall.
+  A positioning waist belt: A positioning belt alone doesn't arrest a fall.
+B-003-020-005:
+  To bring any tools you might use up and down the tower safely: It isn't a tool carrier.
+  To keep the tower from becoming unstable while you are working: It doesn't keep the tower stable.
+  To hold your tools so they don't fall and injure someone on the ground: It doesn't hold your tools.
+B-003-020-006:
+  Above high-voltage electrical lines: Never mount antennas near power lines.
+  Just high enough so you can easily reach it for adjustments or repairs: Easy to reach also means easy to touch.
+  As close to the ground as possible: Close to the ground is the most dangerous.
+B-003-020-007:
+  So you won't be hurt if the tower should accidentally fall: A hard hat won't save you from a falling tower.
+  To keep RF energy away from your head during antenna testing: A hard hat doesn't stop RF.
+  So someone passing by will know that work is being done on the tower and will stay away: A hard hat isn't a warning sign.
+B-003-020-008:
+  Touching the antenna might reflect the signal back to the transmitter and cause damage: Touching it won't damage the transmitter by reflection.
+  Touching the antenna might radiate harmonics: Touching it doesn't create harmonics.
+  Touching the antenna might cause television interference: TV interference isn't the danger.
+B-003-020-009:
+  Because contact might break the transmission line: Touching it is unlikely to break the line; the burn is the danger.
+  Because contact might cause spurious emissions: Spurious emissions aren't the danger.
+  Because contact might cause a short circuit and damage the transmitter: Damage to the transmitter isn't the main concern; burns are.
+B-003-020-010:
+  Be sure the antenna structure is properly grounded: Grounding is good, but turn off and disconnect first.
+  Plan the operation in the shortest possible time to minimize fatigue: Saving time isn't the key safety step.
+  Ensure all masts to be installed are sufficiently light: Mast weight isn't the first precaution.
+B-003-020-011:
+  Ensure the feed point is at eye level: The feed point at eye level makes it easier to touch.
+  Ensure the location is as dry as possible: A dry location isn't the priority.
+  All radials should be buried at least 15 cm deep: Radial depth isn't the key safety precaution.

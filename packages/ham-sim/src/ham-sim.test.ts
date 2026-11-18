@@ -36,6 +36,15 @@ import {
   spectrumVariables,
   fractionPassed,
   yagiVariables,
+  ssbDriveVariables,
+  keyerVariables,
+  powerBenchVariables,
+  wireDrop,
+  inspectorVariables,
+  powerDensity,
+  rfExposureVariables,
+  resultMatches,
+  occupiedBandwidth,
 } from "./index.ts";
 
 describe("units", () => {
@@ -416,5 +425,88 @@ describe("section 3 lab models", () => {
     expect(runCalculation({ calc: "superhet", given: { f: "14.2 MHz", if: "9 MHz", lo: "below" } }).value).toBeCloseTo(
       5.2e6,
     );
+  });
+});
+
+describe("section 3 station models", () => {
+  it("drives SSB: ALC over range means splatter; heavy processing distorts", () => {
+    expect(ssbDriveVariables({ mic: 0.95, processor: 0 }, { rated: 100 })).toMatchObject({
+      alcOver: true,
+      splatter: true,
+    });
+    expect(ssbDriveVariables({ mic: 0.6, processor: 0 }, { rated: 100 })).toMatchObject({
+      alcOver: false,
+      pep: 100,
+      avg: 20,
+    });
+    expect(ssbDriveVariables({ mic: 0.6, processor: 1 }, { rated: 100 })).toMatchObject({ avg: 40, distorted: false });
+    expect(ssbDriveVariables({ mic: 0.6, processor: 2 }, { rated: 100 })).toMatchObject({ distorted: true });
+  });
+  it("checks keyed Morse against the target and grades straight-key timing", () => {
+    expect(keyerVariables({ keyer: true, sent: "-.-" }, { target: "K" })).toMatchObject({
+      correct: true,
+      timingError: 0,
+    });
+    expect(keyerVariables({ keyer: false, sent: "-.-", durations: [3, 1.6, 3] }, { target: "K" })).toMatchObject({
+      correct: true,
+      clean: false,
+    });
+    expect(keyerVariables({ keyer: true, sent: "-.- --.-" }, { target: "KQ" })).toMatchObject({ correct: true });
+  });
+  it("models battery banks, internal resistance and wire drop (both ways)", () => {
+    const cfg = { cellV: 12, cellAh: 20, cellR: 0.02 };
+    const base = { load: 5, gauge: 10 as const, length: 3, fuse: "battery" as const, supply: "battery" as const };
+    expect(powerBenchVariables({ ...base, batteries: 2, wiring: "parallel" }, cfg)).toMatchObject({ V: 12, Ah: 40 });
+    expect(powerBenchVariables({ ...base, batteries: 2, wiring: "series" }, cfg)).toMatchObject({ V: 24, Ah: 20 });
+    expect(wireDrop(10, 3, 22)).toBeCloseTo(0.42);
+    expect(wireDrop(12, 3, 22)).toBeCloseTo(0.66);
+    expect(powerBenchVariables({ ...base, batteries: 1, wiring: "parallel", load: 30 }, cfg)!.sag).toBeCloseTo(0.6);
+    expect(powerBenchVariables({ ...base, batteries: 1, wiring: "parallel", fuse: "radio" }, cfg)).toMatchObject({
+      protected: false,
+      fused: true,
+    });
+  });
+  it("grades the safety inspector from the trusted item list", () => {
+    const c = {
+      items: [
+        { id: "a", label: "", hazard: true, why: "" },
+        { id: "b", label: "", hazard: false, why: "" },
+      ],
+    };
+    expect(inspectorVariables({ verdicts: { a: "hazard", b: "safe" } }, c)).toMatchObject({
+      complete: true,
+      hazardsFound: 1,
+    });
+    expect(inspectorVariables({ verdicts: { a: "safe", b: "safe" } }, c)).toMatchObject({ complete: false, wrong: 1 });
+  });
+  it("falls off with the square of distance", () => {
+    expect(powerDensity(50, 13, 2) / powerDensity(50, 13, 4)).toBeCloseTo(4);
+    expect(rfExposureVariables({ distance: 7 }, { power: 50, gainDbi: 13, limit: 1.7 })).toMatchObject({ safe: true });
+  });
+  it("uses Carson's rule for FM and widens unshaped CW", () => {
+    expect(occupiedBandwidth({ mode: "fm", deviation: 5000 })).toBe(16000);
+    expect(occupiedBandwidth({ mode: "cw", shaped: false })).toBeGreaterThan(1000);
+  });
+  it("matches multi-value and tight-tolerance calculations", () => {
+    const bank = runCalculation({ calc: "battery_bank", given: { V: "12 V", Ah: 20, count: 2, wiring: "parallel" } });
+    expect(resultMatches("12 volts, 40 ampere-hours", bank)).toBe(true);
+    expect(resultMatches("24 volts, 40 ampere-hours", bank)).toBe(false);
+    const lsb = runCalculation({ calc: "sideband", given: { f: "7100 kHz", tone: "1000 Hz", sideband: "lsb" } });
+    expect(resultMatches("7099 kHz", lsb)).toBe(true);
+    expect(resultMatches("7101 kHz", lsb)).toBe(false);
+    const g = runCalculation({
+      calc: "wire_gauge",
+      given: {
+        length: "3 m",
+        max_drop: "0.5 V",
+        table: [
+          [14, 0.19],
+          [12, 0.11],
+          [10, 0.07],
+          [8, 0.05],
+        ],
+      },
+    });
+    expect(g.value).toBe(10);
   });
 });

@@ -1,0 +1,23 @@
+code: "3.12"
+title: SSB transmitter adjustment and PEP
+est_minutes: 12
+lab_id: LAB-04
+question_ids:
+  - B-003-012-001
+  - B-003-012-002
+  - B-003-012-003
+  - B-003-012-004
+  - B-003-012-005
+  - B-003-012-006
+  - B-003-012-007
+  - B-003-012-008
+  - B-003-012-009
+  - B-003-012-010
+  - B-003-012-011
+calculations:
+  B-003-012-010:
+    calc: sideband
+    given:
+      f: 7100 kHz
+      tone: 1000 Hz
+      sideband: lsb

@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-017-001:
+  Key clicks: Key clicks come from the keying waveform, not the supply.
+  Harmonics: Harmonics come from the amplifier, not the supply.
+  Overmodulation: CW doesn't overmodulate; the supply voltage dipping causes chirp.
+B-003-017-002:
+  Low-pass filter: A low-pass filter removes harmonics; it doesn't convert AC.
+  Inverter: An inverter turns DC into AC, the opposite.
+  Power conditioner: A power conditioner cleans up AC; it doesn't convert it to DC.
+B-003-017-003:
+  Undervoltage protection: Undervoltage protection is nice but not the key spec.
+  Output connection compatibility: Connectors are easy to change; current capability isn't.
+  Voltage and current metering: Meters are a convenience.
+B-003-017-004:
+  Reduced physical dimensions and weight: Smaller size is the switching supply's advantage.
+  Higher efficiency: Switching supplies are the more efficient ones.
+  Better regulation for FM equipment: Regulation isn't better for FM; RF quietness is the linear supply's advantage.
+B-003-017-005:
+  To reduce the voltage drop in the radio's DC supply: Wire size, not fuse position, sets the voltage drop.
+  To prevent the vehicle's electronic systems causing noise: Fuse position doesn't stop vehicle noise.
+  To better absorb voltage transients: Fuses don't absorb transients.
+B-003-017-006:
+  Lower risk of radio frequency noise: Switching supplies have a higher risk of RF noise.
+  Different simultaneous output voltages: Multiple outputs aren't the main advantage.
+  Simpler to repair: Switching supplies are harder to repair.
+B-003-017-007:
+  To prevent an electrical shock: Wire gauge doesn't prevent shock at 12 V.
+  To avoid RF interference: Wire gauge isn't about RF interference.
+  To minimize ripple: Ripple is the supply's job, not the wire's.
+B-003-017-008:
+  110 volts and 220 volts: 110 and 220 V are old or foreign figures.
+  100 volts and 200 volts: 100 and 200 V is Japan, not Canada.
+  130 volts and 260 volts: 130 and 260 V are too high.
+B-003-017-009:
+  Number 14, 0.19 V per metre: Number 14 loses 0.19 V/m, 1.14 V over 6 m.
+  Number 12, 0.11 V per metre: "Number 12 loses 0.11 V/m, 0.66 V over 6 m: over the limit."
+  Number 8, 0.05 V per metre: Number 8 works, but it's heavier than the minimum.
+B-003-017-010:
+  To prevent interference to the vehicle's electronic systems: The fuse is for fire safety, not interference.
+  To reduce the voltage drop in the radio's DC supply: A fuse doesn't reduce the voltage drop.
+  To protect the radio from transient voltages: Fuses don't protect against transients.
+B-003-017-011:
+  The variable-frequency oscillator: A VFO fault causes drift or chirp, not hum.
+  The driver circuit: The driver isn't the usual source of hum.
+  The power amplifier circuit: Hum points to the supply's filtering, not the amplifier.

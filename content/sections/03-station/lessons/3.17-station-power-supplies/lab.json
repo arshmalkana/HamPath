@@ -1,0 +1,82 @@
+{
+  "lab": "LAB-15",
+  "steps": {
+    "explore-gauge": {
+      "title": "Pick the wire",
+      "prompt": "Choose the thinnest wire that keeps the loss within 0.5 V.",
+      "config": {
+        "batteries": 1,
+        "wiring": "parallel",
+        "load": 22,
+        "gauge": 14,
+        "length": 3,
+        "controls": {
+          "batteries": false,
+          "wiring": false,
+          "load": false,
+          "gauge": true,
+          "fuse": false,
+          "supply": false
+        }
+      },
+      "goal": "drop <= 0.5 && drop >= 0.4",
+      "goal_text": "Thinnest wire that works",
+      "hints": [
+        "Count 6 m of wire: there and back.",
+        "Number 12 loses 0.66 V. Try one size heavier."
+      ],
+      "success": "Number 10 loses 0.42 V over the 6 m round trip. Number 8 would work too, but it's heavier than needed."
+    },
+    "explore-fuse": {
+      "title": "Where does the fuse go?",
+      "prompt": "Put the fuse where it protects the whole run of wire.",
+      "config": {
+        "batteries": 1,
+        "wiring": "parallel",
+        "load": 22,
+        "gauge": 10,
+        "length": 3,
+        "fuse": "radio",
+        "controls": {
+          "batteries": false,
+          "wiring": false,
+          "load": false,
+          "gauge": false,
+          "fuse": true,
+          "supply": false
+        }
+      },
+      "goal": "protected",
+      "goal_text": "Whole lead protected",
+      "success": "At the battery, the fuse protects every centimetre of the positive lead."
+    },
+    "explore-supply": {
+      "title": "Choose a supply",
+      "prompt": "Choose the supply least likely to put RF noise into your receiver that also won't make your CW chirp.",
+      "config": {
+        "batteries": 1,
+        "wiring": "parallel",
+        "load": 20,
+        "gauge": 10,
+        "length": 1,
+        "supply": "switching",
+        "supplies": [
+          "linear",
+          "switching",
+          "unregulated"
+        ],
+        "controls": {
+          "batteries": false,
+          "wiring": false,
+          "load": false,
+          "gauge": false,
+          "fuse": false,
+          "supply": true
+        }
+      },
+      "goal": "regulated && !rfNoise",
+      "goal_text": "Quiet, regulated supply",
+      "success": "The linear supply: regulated, so no chirp, and no switching noise. The switching one is smaller and lighter, though."
+    }
+  }
+}

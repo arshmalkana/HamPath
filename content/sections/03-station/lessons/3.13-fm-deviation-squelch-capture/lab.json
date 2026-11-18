@@ -1,0 +1,60 @@
+{
+  "lab": "LAB-14",
+  "steps": {
+    "explore-deviation": {
+      "title": "Set the deviation",
+      "prompt": "Set your deviation to match the repeater's 5 kHz.",
+      "config": {
+        "mode": "fm",
+        "filter": 20000,
+        "tune": 0,
+        "deviation": 2500,
+        "expectedDeviation": 5000,
+        "filters": [
+          20000
+        ],
+        "controls": {
+          "modes": false,
+          "filter": false,
+          "tune": false,
+          "agc": false,
+          "deviation": {
+            "min": 0,
+            "max": 8000,
+            "step": 500
+          }
+        }
+      },
+      "goal": "approx(deviation, 5000)",
+      "goal_text": "5 kHz deviation",
+      "hints": [
+        "Turn the deviation up to 5 kHz."
+      ],
+      "success": "At 5 kHz your audio level is normal, and the signal is about 16 kHz wide. Go past it and you distort."
+    },
+    "explore-squelch": {
+      "title": "The rushing noise",
+      "prompt": "Stop the receiver roaring when no one is talking.",
+      "config": {
+        "mode": "fm",
+        "filter": 20000,
+        "tune": 0,
+        "noSignal": true,
+        "squelch": false,
+        "filters": [
+          20000
+        ],
+        "controls": {
+          "modes": false,
+          "filter": false,
+          "tune": false,
+          "agc": false,
+          "squelch": true
+        }
+      },
+      "goal": "squelched",
+      "goal_text": "Squelch on",
+      "success": "Squelch mutes the audio until a signal arrives. The roar came from the huge gain ahead of the discriminator."
+    }
+  }
+}

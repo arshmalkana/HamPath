@@ -17,6 +17,23 @@ import { solveCircuit, type Topology } from "./resistors.ts";
 import { blockDiagramVariables, type DiagramConfig, type DiagramState } from "./diagrams.ts";
 import { spectrumVariables, type SpectrumConfig, type SpectrumState } from "./spectrum.ts";
 import { antennaVariables } from "./antennas.ts";
+import {
+  inspectorVariables,
+  keyerVariables,
+  powerBenchVariables,
+  rfExposureVariables,
+  ssbDriveVariables,
+  type InspectorConfig,
+  type InspectorState,
+  type KeyerConfig,
+  type KeyerState,
+  type PowerBenchConfig,
+  type PowerBenchState,
+  type RfExposureConfig,
+  type RfExposureState,
+  type SsbDriveConfig,
+  type SsbDriveState,
+} from "./station.ts";
 import { benchVariables, colourCodeVariables, type BenchState, type ColourCodeState } from "./components.ts";
 
 /**
@@ -220,6 +237,16 @@ export function labVariables(labId: string, state: unknown, config: Record<strin
       return spectrumVariables(st as unknown as SpectrumState, config as SpectrumConfig);
     case "LAB-28":
       return antennaVariables(st);
+    case "LAB-04":
+      return ssbDriveVariables(st as unknown as SsbDriveState, config as unknown as SsbDriveConfig);
+    case "LAB-10":
+      return keyerVariables(st as unknown as KeyerState, config as unknown as KeyerConfig);
+    case "LAB-15":
+      return powerBenchVariables(st as unknown as PowerBenchState, config as unknown as PowerBenchConfig);
+    case "LAB-16":
+      return inspectorVariables(st as unknown as InspectorState, config as unknown as InspectorConfig);
+    case "LAB-05":
+      return rfExposureVariables(st as unknown as RfExposureState, config as unknown as RfExposureConfig);
     case "LAB-17":
       return benchVariables(st as unknown as BenchState);
     case "LAB-18":
@@ -289,6 +316,42 @@ export const LAB_GOAL_VARIABLES: Record<string, string[]> = {
   ],
   "LAB-18": ["R", "tol", "min", "max", "score"],
   "LAB-13": ["placed", "total", "wrong", "complete", "found"],
-  "LAB-14": ["bw", "filter", "passed", "lost", "qrm", "excess", "tuneError", "natural", "agc", "swing"],
+  "LAB-14": [
+    "bw",
+    "filter",
+    "passed",
+    "lost",
+    "qrm",
+    "excess",
+    "tuneError",
+    "natural",
+    "agc",
+    "swing",
+    "deviation",
+    "audio",
+    "overdeviated",
+    "chirp",
+    "clicks",
+    "squelched",
+    "minSnr",
+  ],
+  "LAB-04": ["drive", "alc", "alcOver", "pep", "avg", "processor", "distorted", "splatter", "bandwidth"],
+  "LAB-10": ["keyer", "elements", "correct", "timingError", "clean"],
+  "LAB-15": [
+    "V",
+    "Ah",
+    "sag",
+    "terminal",
+    "drop",
+    "atRadio",
+    "hours",
+    "protected",
+    "fused",
+    "rfNoise",
+    "regulated",
+    "chirp",
+  ],
+  "LAB-16": ["correct", "wrong", "total", "hazards", "hazardsFound", "complete"],
+  "LAB-05": ["S", "d", "limit", "ratio", "safe", "safeDistance"],
   "LAB-28": ["reflecting", "directing", "gain", "fb", "reflectorLongest", "directorShortest", "fedDriven", "fed"],
 };

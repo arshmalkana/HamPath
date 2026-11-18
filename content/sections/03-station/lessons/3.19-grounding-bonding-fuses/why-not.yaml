@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-019-001:
+  The transmission line: The feedline shield is grounded, but all equipment needs it for shock protection.
+  The AC power line: The AC line is already grounded by the electrical system.
+  The power supply primary: The supply primary is the mains side; you ground the equipment.
+B-003-019-002:
+  Establishes a ground (reference) plane at the station: The ground plane isn't why electrodes are bonded.
+  Drains static electricity on a continuous basis: Draining static isn't the purpose of bonding.
+  Reduces induced current by adding impedance: Bonding reduces impedance; it doesn't add it.
+B-003-019-003:
+  The fuse may open during normal operation: A higher-rated fuse is less likely to open, not more.
+  Voltage delivered to the circuit would be limited: A fuse doesn't limit voltage.
+  A low current circuit may not function properly: Fuse rating doesn't affect normal operation.
+B-003-019-004:
+  Hard plastic: Plastic doesn't conduct.
+  Iron or steel: Plain iron or steel corrodes; copper-clad is better.
+  Fibreglass: Fibreglass doesn't conduct.
+B-003-019-005:
+  Bond the chassis to ground: Bonding the chassis doesn't remove stored charge.
+  Place the unit on an insulating mat: An insulating mat helps, but the capacitors could still hold a lethal charge.
+  Short the AC input leads together: Shorting the AC input does nothing for the capacitors.
+B-003-019-006:
+  To the white wire: Green is ground; white is neutral.
+  To the "hot" side of the power switch: Never connect ground to the hot side.
+  To the fuse: The fuse goes in the hot lead, not the ground.
+B-003-019-007:
+  The transmitting antenna is not the correct wavelength: The antenna's length doesn't make the equipment hot.
+  The gauge of the ground wire used is insufficient: A thicker wire still has high impedance if it's a resonant length.
+  The ground connection of the wall outlet is defective: The outlet ground is for AC safety, not RF.
+B-003-019-008:
+  To separate ground electrodes: Separate electrodes can sit at different potentials.
+  To the antenna system ground: The antenna ground is part of the system, but equipment goes to the single point.
+  To adjacent devices in a chain: Daisy-chaining puts devices at different potentials.
+B-003-019-009:
+  Use a long screwdriver with an insulated handle: A screwdriver gives no protection and no current limit.
+  Use an insulated wire with alligator clips on each end: Clip leads give no controlled discharge or protection.
+  Allow time for bleeder resistors to discharge the capacitors: Bleeder resistors can fail; never trust them.
+B-003-019-010:
+  Protects connected equipment from over voltage: The chassis ground doesn't protect against over-voltage.
+  Prevents damage to the AC supply circuit breaker: It doesn't protect the breaker.
+  Prevents the equipment fuse from blowing unnecessarily: It doesn't stop the fuse blowing; it lets it blow.
+B-003-019-011:
+  To prevent dielectric breakdown of the fuse holder: The fuse holder isn't what the rating describes.
+  To limit current leakage to ground while in operation: Leakage isn't what the voltage rating covers.
+  To ensure voltage transients can be safely dissipated: Fuses aren't rated to absorb transients.

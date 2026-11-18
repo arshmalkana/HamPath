@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-012-001:
+  It may cause harmonic interference on higher bands: Harmonics are a separate problem; overdriven SSB splatters next to your frequency.
+  It may cause interference to other stations operating on lower bands: Splatter lands beside your own frequency, not on lower bands.
+  It may cause digital interference to computer equipment: Overmodulation isn't digital interference to computers.
+B-003-012-002:
+  It may cause digital interference to computer equipment: Processing doesn't cause digital interference to computers.
+  It may cause insufficient modulation of the carrier: Too much processing over-modulates; it doesn't under-modulate.
+  It may cause interference to other stations operating on a higher frequency band: The splatter is near your frequency, not on a higher band.
+B-003-012-003:
+  RMS power: RMS power is a different way to describe a steady signal, not the crest of the envelope.
+  Average radio frequency power: Average RF power is over the whole transmission, not at the crest.
+  Peak transmitter input power: Input power is measured at the DC supply, not on the RF envelope.
+B-003-012-004:
+  1 kHz: 1 kHz is too narrow for intelligible voice.
+  2 kHz: SSB is a bit wider than 2 kHz; the range is 2 to 3 kHz.
+  Between 3 kHz and 6 kHz: 3 to 6 kHz is the width of AM.
+B-003-012-005:
+  Hum and noise are reduced: Linearity has nothing to do with hum and noise.
+  Power demand on the power supply is regulated: Linearity doesn't regulate the supply's load.
+  Power output variations due to voice peaks are reduced: Linearity keeps the shape; it doesn't reduce the peaks.
+B-003-012-006:
+  Only half the bandwidth is needed for the same information content: Halving the bandwidth comes from removing a sideband, not the carrier.
+  Greater modulation percentage is obtainable with lower distortion: Carrier suppression doesn't change the modulation percentage.
+  Simpler equipment can be used to receive a double sideband suppressed carrier signal: Receiving suppressed-carrier signals needs more complex equipment, not simpler.
+B-003-012-007:
+  It increases the range of your signal: Overmodulation doesn't increase range; it spreads interference.
+  It occupies less bandwidth and has a poor high frequency response: Overmodulation makes the signal wider, not narrower.
+  It has higher fidelity and an improved signal-to-noise ratio: Overmodulation lowers fidelity.
+B-003-012-008:
+  For full deflection of the ALC meter: Full ALC deflection means you're overdriving.
+  For 100% frequency deviation on voice peaks: Deviation is an FM setting.
+  For a dip in the drain or collector current: Dipping current is for tuning an amplifier, not setting mic gain.
+B-003-012-009:
+  make sure that the carrier and both sidebands are 180 degrees out of phase: Phasing carrier and sidebands isn't the balanced modulator's purpose.
+  ensure that the percentage of modulation is kept constant: It doesn't hold the modulation percentage constant.
+  suppress the carrier and pass one sideband: It passes both sidebands; the filter after it removes one.
+B-003-012-010:
+  7101 kHz: 7101 kHz is upper sideband.
+  6100 kHz: 6100 kHz would be 1000 kHz away, not 1000 Hz.
+  8100 kHz: 8100 kHz would be 1000 kHz away.
+B-003-012-011:
+  reduces transmitter audio feedback: ALC isn't audio feedback control.
+  increases the occupied bandwidth: ALC keeps the bandwidth from growing; it doesn't increase it.
+  reduces system noise: ALC doesn't reduce system noise.

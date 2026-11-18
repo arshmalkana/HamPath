@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-018-001:
+  Use a carrier-operated relay in the main power line: A carrier-operated relay switches on a signal; it doesn't lock anyone out.
+  Put a "Danger - High Voltage" sign in the station: A sign doesn't stop anyone.
+  Put fuses in the main power line: Fuses protect circuits; they don't lock the station.
+B-003-018-002:
+  Tune the radio to an unused frequency when you are done using it: Someone can just retune the radio.
+  Turn the radio off when you are not using it: Someone can just turn the radio back on.
+  Put a "Do not touch" sign on the radio: A sign doesn't stop anyone.
+B-003-018-003:
+  None, given its low voltage: "Low voltage doesn't mean no hazard: the short-circuit current is huge."
+  High electromagnetic fields: A battery doesn't make strong electromagnetic fields.
+  Possibility of electric shock: 12 V is too low to give a dangerous shock through dry skin.
+B-003-018-004:
+  To keep dangerous RF radiation from leaking out through an open cabinet: The interlock is about high voltage, not RF leaking out.
+  To keep dangerous RF radiation from coming in through an open cabinet: The interlock is about high voltage, not RF coming in.
+  To turn the power supply off when it is not being used: It's a safety switch, not a power-saving one.
+B-003-018-005:
+  500 milliamperes: 500 mA is far above the fatal threshold.
+  1 ampere: 1 A is far above the fatal threshold.
+  2 amperes: 2 A is far above the fatal threshold.
+B-003-018-006:
+  The brain: The heart is most at risk from small currents.
+  The liver: The liver isn't the organ at risk.
+  The lungs: The lungs aren't the organ most at risk.
+B-003-018-007:
+  "100": 100 V is well above the threshold.
+  "240": 240 V is well above the threshold.
+  "347": 347 V is well above the threshold.
+B-003-018-008:
+  Wait for a few minutes to see if the person can get away from the high voltage on their own, then try to help: Waiting could be fatal; act at once, power off first.
+  Immediately drag the person away from the high voltage: Touching them while the power is on puts you in the circuit too.
+  Run from the area so you won't be burned too: Running away leaves them to die.
+B-003-018-009:
+  Wrap the person in a blanket and pull him to a safe area: Pulling them with a blanket still risks contact; cut the power first.
+  Call an electrician: Calling an electrician wastes critical time; cut the power.
+  Remove the person by pulling an arm or a leg: Grabbing an arm or leg makes you part of the circuit.
+B-003-018-010:
+  short out the leads of the filter capacitor: Shorting the capacitor comes after unplugging, and with a proper tool.
+  check the action of the capacitor bleeder resistance: Checking the bleeder comes later; unplug first.
+  remove and check the fuse from the power supply: Pulling the fuse doesn't disconnect everything; unplug the cord.
+B-003-018-011:
+  Damaging connected equipment: Damaging equipment is possible, but the real danger is shock.
+  Electromagnetic interference: Interference isn't the risk.
+  Blowing the fuse: A blown fuse is the least of it.

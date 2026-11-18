@@ -1,0 +1,57 @@
+{
+  "lab": "LAB-14",
+  "steps": {
+    "explore-keying": {
+      "title": "Clean up the CW",
+      "prompt": "This CW signal chirps and clicks. Fix both faults.",
+      "config": {
+        "mode": "cw",
+        "filter": 2400,
+        "tune": 0,
+        "regulated": false,
+        "shaped": false,
+        "filters": [
+          2400
+        ],
+        "controls": {
+          "modes": false,
+          "filter": false,
+          "tune": false,
+          "agc": false,
+          "keying": true
+        }
+      },
+      "goal": "chirp == 0 && clicks == 0",
+      "goal_text": "Clean CW",
+      "hints": [
+        "Chirp comes from the supply voltage dipping on every key-down.",
+        "Clicks come from switching the carrier on and off too sharply."
+      ],
+      "success": "A regulated supply stops the chirp, and shaped keying edges stop the clicks."
+    },
+    "explore-am": {
+      "title": "Compare AM and SSB",
+      "prompt": "Switch to AM. How much wider is it than SSB?",
+      "config": {
+        "mode": "ssb",
+        "filter": 15000,
+        "tune": 0,
+        "filters": [
+          15000
+        ],
+        "controls": {
+          "modes": [
+            "ssb",
+            "am"
+          ],
+          "filter": false,
+          "tune": false,
+          "agc": false
+        }
+      },
+      "goal": "bw >= 6000",
+      "goal_text": "AM selected",
+      "success": "AM is 6 kHz wide: a carrier plus two 3 kHz sidebands. SSB sends just one sideband."
+    }
+  }
+}

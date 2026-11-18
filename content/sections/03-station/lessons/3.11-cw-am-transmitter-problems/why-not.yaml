@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-011-001:
+  A high-pitched tone which is received along with every CW dit and dah: A tone with every dit is a sidetone or a click, not chirp.
+  A slow change in transmitter frequency as the oscillator warms up: A slow change as the oscillator warms up is drift.
+  An overload in a receiver's audio circuit whenever CW is received: Receiver audio overload isn't chirp; chirp is a transmitter fault.
+B-003-011-002:
+  Add a key click filter: A key click filter softens the edges; it doesn't stop the frequency shifting.
+  Keep the oscillator impedance very steady under the transmit load: It's the supply voltage, not the oscillator impedance, that must stay steady.
+  Add a low-pass filter: A low-pass filter removes harmonics, not chirp.
+B-003-011-003:
+  Use of higher speed Morse code is supported: A VFO has nothing to do with Morse speed.
+  Greater suppression of key clicks: Key clicks come from the keying, not the oscillator type.
+  Greater suppression of harmonics: Harmonics are removed by filtering, not by a VFO.
+B-003-011-004:
+  Phase modulation: Phase modulation changes the phase, not the amplitude.
+  Frequency shift keying: FSK shifts between two frequencies.
+  Frequency modulation: FM changes the frequency.
+B-003-011-005:
+  Frequency modulation: FM keeps a constant amplitude.
+  Pulse modulation: Pulse modulation sends pulses; its envelope doesn't follow audio.
+  Frequency shift keying: FSK keeps a constant amplitude and shifts frequency.
+B-003-011-006:
+  a series of key clicks: Clicks are a fault, not how Morse is sent.
+  a continuous carrier: A continuous carrier carries no Morse at all.
+  a phase-shifted carrier: CW isn't sent by shifting the carrier's phase.
+B-003-011-007:
+  3 kHz: 3 kHz is one sideband; AM has two.
+  12 kHz: 12 kHz would be four sidebands.
+  9 kHz: "9 kHz doesn't fit: two 3 kHz sidebands make 6 kHz."
+B-003-011-008:
+  Two sidebands: The carrier is there in AM too.
+  One sideband: AM has two sidebands, not one.
+  Carrier and one sideband: AM has two sidebands as well as the carrier.
+B-003-011-009:
+  become overmodulated: Overmodulation is about audio level, not oscillator stability.
+  generate key clicks: Key clicks come from the keying waveform.
+  cause undue distortion: Distortion isn't what an unstable oscillator causes; drift is.
+B-003-011-010:
+  It has been used to provide greater efficiency: Efficiency is the ratio of output to input; it doesn't use up power.
+  It has been used to provide negative feedback: Negative feedback doesn't consume power.
+  It has been used to provide positive feedback: Positive feedback doesn't consume power either; the loss is heat.
+B-003-011-011:
+  is lost in the transmission line: Line loss happens after the amplifier, not between its input and output.
+  is due to oscillations: Oscillations are a fault, not where the power goes.
+  radiates from the antenna: What radiates is the RF output itself; the difference is heat.
