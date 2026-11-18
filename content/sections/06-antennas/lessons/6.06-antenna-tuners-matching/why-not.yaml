@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-006-006-001:
+  Transmitting to a balanced antenna with an unbalanced transmission line: Balance doesn't trigger foldback; mismatch does.
+  Open circuit in lightning surge protector ground connection: A lightning ground fault doesn't affect the SWR.
+  Excessive antenna element movement in high winds: Wind movement doesn't trigger foldback.
+B-006-006-002:
+  It helps a receiver automatically tune in stations that are far away: A tuner doesn't find stations.
+  It switches an antenna system to a transmitter when sending, and to a receiver when listening: That's transmit/receive switching.
+  It switches multiple transceivers to a common transmission line and antenna: That's an antenna switch.
+B-006-006-003:
+  A quarter-wave stub: A quarter-wave stub isn't the usual EFHW match.
+  A counterpoise: A counterpoise doesn't transform the impedance.
+  A good ground on the coax shield: Grounding the shield doesn't match the impedance.
+B-006-006-004:
+  Load impedance equal to half of the source impedance: Half the source impedance isn't a match.
+  Load impedance equal to twice the source impedance: Twice the source impedance isn't a match.
+  Load impedance equal to the square root of source impedance: A square root has nothing to do with it.
+B-006-006-005:
+  More harmonic suppression: A tuner at the antenna doesn't suppress more harmonics.
+  Less atmospheric noise pickup: Location doesn't change atmospheric noise.
+  More usable bandwidth: The usable bandwidth isn't the advantage.
+B-006-006-006:
+  By diverting reflections to a dummy load: A tuner doesn't divert reflections to a dummy load.
+  By increasing the conductance of the transmission line: It doesn't change the line's conductance.
+  By adjusting the resonant frequency of the antenna: It doesn't change the antenna's resonance.
+B-006-006-007:
+  It supports larger power than reactive components: Reactive components handle power fine.
+  It provides constant voltage to the load: A transformer doesn't regulate voltage.
+  It isolates the source from reflections: It doesn't isolate reflections.
+B-006-006-008:
+  At the junction between the transmitter and the transmission line: Matching at the transmitter leaves the line mismatched.
+  Anywhere along the transmission line: "The location matters: at the antenna."
+  At a quarter wavelength from the transmitter: A quarter-wave from the transmitter isn't the place.
+B-006-006-009:
+  must be a full wavelength long: No particular length is needed when matched.
+  must be an odd number of quarter-wavelengths: Odd quarter-waves aren't required.
+  must be an even number of half-wavelengths: Even half-waves aren't required.
+B-006-006-010:
+  It reduces losses in the line to the antenna: A tuner in the shack doesn't reduce line loss.
+  It reduces common-mode noise pickup: It doesn't reduce common-mode noise.
+  It absorbs the reflected energy from a mismatched antenna system: It doesn't absorb reflected energy.
+B-006-006-011:
+  2:1: 2:1 would match 100 Ω.
+  4:1: 4:1 would match 200 Ω.
+  9:1: 9:1 would match 450 Ω.

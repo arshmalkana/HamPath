@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-006-013-001:
+  A centre-fed half-wavelength long wire: A centre-fed half-wave wire is a dipole.
+  A quarter-wavelength vertical conductor fed at the bottom: A quarter-wave fed at the bottom is a vertical.
+  Four straight, parallel elements in line with each other, each approximately a half-wavelength long: Four straight half-wave elements is a collinear or Yagi-like array, not a quad.
+B-006-013-002:
+  An antenna made of a large multi-turn triangular loop: A multi-turn loop isn't a delta loop.
+  An antenna system made of three vertical antennas, arranged in a triangular shape: Three verticals in a triangle is a phased array.
+  An antenna made from several triangular coils of wire on an insulating form: Coils on a form aren't an antenna like this.
+B-006-013-003:
+  7.01 metres: 7.01 m is a half-wave.
+  10.93 metres: 10.93 m doesn't fit 306 ÷ 21.4.
+  3.57 metres: 3.57 m is a quarter-wave.
+B-006-013-004:
+  10.49 metres: 10.49 m is a half-wave.
+  16.36 metres: 16.36 m doesn't fit 306 ÷ 14.3.
+  5.35 metres: 5.35 m is a quarter-wave.
+B-006-013-005:
+  3.55 metres: 3.55 m is too short.
+  8.15 metres: 8.15 m doesn't fit 306 ÷ 28.7.
+  4.98 metres: 4.98 m is a half-wave.
+B-006-013-006:
+  Requires a more heavy-duty mast or tower: A quad isn't heavier on the mast than a Yagi of the same size.
+  Lower gain: A quad has slightly more gain, not less.
+  Requires matching to the transmission line: Both need matching.
+B-006-013-007:
+  In the centre of a side element: The centre of a side gives vertical polarization.
+  At a junction of the bottom element and a side element: A corner isn't the horizontal feed point.
+  On a side element, one quarter wavelength from the top: A quarter-wave from the top isn't the standard horizontal feed.
+B-006-013-008:
+  It will change the antenna polarization from vertical to horizontal: "It's the other way: horizontal to vertical."
+  It will significantly decrease the antenna feed point impedance: The impedance doesn't change significantly.
+  It will significantly increase the antenna feed point impedance: The impedance doesn't change significantly.
+B-006-013-009:
+  41.96 metres: "41.96 m is 300 ÷ f: a loop needs a little more."
+  10.49 metres: 10.49 m is a quarter-wave.
+  20.00 metres: 20.00 m is about a half-wave.
+B-006-013-010:
+  three quarters of a wavelength: Three quarters of a wavelength isn't a quad.
+  two wavelengths: Two wavelengths is too long.
+  one half wavelength: A half-wave is a dipole.
+B-006-013-011:
+  One quarter of a wavelength: A quarter-wave is too short.
+  Two wavelengths: Two wavelengths is too long.
+  One half of a wavelength: A half-wave is too short.

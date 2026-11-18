@@ -108,14 +108,26 @@
     tray: [ammeter, voltmeter]
     controls: { E: { min: 0, max: 12, step: 0.5 }, R: false, switch: true }
     show: { ammeter: true, voltmeter: true, power: false }
-- { id: LAB-26, name: Feedline Lab, component: null, lessons: ["6.01", "6.02", "6.03", "6.04"] }
-- { id: LAB-27, name: SWR Bridge & Tuner, component: null, lessons: ["6.05", "6.06"] }
+- id: LAB-26
+  name: Feedline Lab
+  component: FeedlineLab
+  lessons: ["6.01", "6.02", "6.03", "6.04"]
+  default_config: { mode: loss, line: rg213, length: 30, f: 14200000, balun: false, controls: {} }
+- id: LAB-27
+  name: SWR Bridge & Tuner
+  component: SwrTunerLab
+  lessons: ["6.05", "6.06"]
+  default_config: { r: 50, x: 0, fDesign: 14.2, length: 1, f: 14.2, lineLoss: 0, ratio: 1, tuner: null, controls: {} }
 - id: LAB-28
   name: Antenna Builder
   component: AntennaBuilderLab
   lessons: ["3.09", "6.08", "6.10", "6.11", "6.12", "6.13"]
   default_config: { mode: yagi, reflector: 1, driven: 1, director: 1, feed: null, controls: { lengths: true, feed: true } }
-- { id: LAB-29, name: Radiation Pattern 3D, component: null, lessons: ["6.07", "6.09", "6.11"] }
+- id: LAB-29
+  name: Radiation Pattern 3D
+  component: PatternLab
+  lessons: ["6.07", "6.09"]
+  default_config: { antenna: dipole, orientation: horizontal, parasitic: none, antennas: [isotropic, dipole, yagi], controls: { antenna: true, orientation: true, rx: false, parasitic: false } }
 - { id: LAB-30, name: Ionosphere Simulator, component: null, lessons: ["7.01", "7.02", "7.03", "7.04", "7.06"] }
 - { id: LAB-31, name: Solar Cycle Dial, component: null, lessons: ["7.05"] }
 - { id: LAB-32, name: VHF Propagation Sandbox, component: null, lessons: ["7.07", "7.08"] }

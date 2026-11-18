@@ -1,0 +1,21 @@
+code: "6.04"
+title: Feedline loss and connectors
+est_minutes: 12
+lab_id: LAB-26
+question_ids:
+  - B-006-004-001
+  - B-006-004-002
+  - B-006-004-003
+  - B-006-004-004
+  - B-006-004-005
+  - B-006-004-006
+  - B-006-004-007
+  - B-006-004-008
+  - B-006-004-009
+  - B-006-004-010
+calculations:
+  B-006-004-009:
+    calc: line_loss_change
+    given:
+      from: 20 m
+      to: 40 m

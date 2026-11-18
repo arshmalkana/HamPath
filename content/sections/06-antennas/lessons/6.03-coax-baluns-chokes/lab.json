@@ -1,0 +1,47 @@
+{
+  "lab": "LAB-26",
+  "steps": {
+    "explore-route": {
+      "title": "Along the fence",
+      "prompt": "Choose a feedline that won't be affected by the metal fence.",
+      "config": {
+        "mode": "loss",
+        "line": "window",
+        "length": 20,
+        "f": 14200000,
+        "lines": [
+          "window",
+          "openwire",
+          "twinlead",
+          "rg213"
+        ],
+        "controls": {
+          "line": true
+        }
+      },
+      "goal": "!balanced",
+      "goal_text": "Shielded line chosen",
+      "success": "Coax keeps its field inside the shield, so the fence doesn't affect it. Ice and burial don't either."
+    },
+    "explore-foam": {
+      "title": "Foam or solid?",
+      "prompt": "Pick the lower-loss cable.",
+      "config": {
+        "mode": "loss",
+        "line": "rg213",
+        "length": 30,
+        "f": 146000000,
+        "lines": [
+          "rg213",
+          "foam"
+        ],
+        "controls": {
+          "line": true
+        }
+      },
+      "goal": "lossDb <= 1.6",
+      "goal_text": "Lower-loss cable",
+      "success": "Foam dielectric loses less: about 1.5 dB here, against 2.4 dB for solid."
+    }
+  }
+}

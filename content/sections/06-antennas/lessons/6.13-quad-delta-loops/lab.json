@@ -1,0 +1,48 @@
+{
+  "lab": "LAB-28",
+  "steps": {
+    "explore-quad": {
+      "title": "Size the quad loop",
+      "prompt": "Set the loop's wire length for 21.4 MHz.",
+      "config": {
+        "mode": "loop",
+        "f": 21.4,
+        "perimeter": 12,
+        "shape": "quad",
+        "feed": "bottom",
+        "controls": {
+          "perimeter": {
+            "min": 10,
+            "max": 18,
+            "step": 0.05
+          },
+          "feed": false
+        }
+      },
+      "goal": "resonant",
+      "goal_text": "Resonant on 21.4 MHz",
+      "hints": [
+        "306 ÷ 21.4 ≈ 14.3 m."
+      ],
+      "success": "14.30 m: one wavelength of wire."
+    },
+    "explore-feed": {
+      "title": "Horizontal or vertical?",
+      "prompt": "Move the feed point for horizontal polarization.",
+      "config": {
+        "mode": "loop",
+        "f": 28.7,
+        "perimeter": 10.66,
+        "shape": "delta",
+        "feed": "side",
+        "controls": {
+          "perimeter": false,
+          "feed": true
+        }
+      },
+      "goal": "horizontal",
+      "goal_text": "Horizontal polarization",
+      "success": "Fed in the centre of the bottom side: horizontal polarization."
+    }
+  }
+}

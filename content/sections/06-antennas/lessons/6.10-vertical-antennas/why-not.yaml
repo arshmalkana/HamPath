@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-006-010-001:
+  Divide 468 by the operating frequency in MHz: 468 ÷ f gives a half-wave in feet.
+  Divide 300 by the operating frequency in MHz: 300 ÷ f gives a full wavelength.
+  Divide 143 by the operating frequency in MHz: 143 ÷ f gives a half-wave.
+B-006-010-002:
+  3.55 metres: 3.55 m uses 75 ÷ f.
+  7.10 metres: 7.10 m is about a half-wave.
+  6.77 metres: 6.77 m is a half-wave.
+B-006-010-003:
+  32 cm: 32 cm is a quarter-wave.
+  105 cm: 105 cm is too long.
+  135 cm: 135 cm is about a full wave.
+B-006-010-004:
+  Because it has a high radiation angle: A 5/8-wave has a lower radiation angle, not higher.
+  Because it does not require impedance matching: A 5/8-wave does need matching.
+  Because it can handle more power: Power handling isn't the advantage.
+B-006-010-005:
+  Most of it goes vertically straight-up: A vertical radiates least straight up.
+  Most of it goes equally in two opposite directions: Two directions is a dipole's broadside pattern.
+  Most of it goes in one direction: A vertical is omnidirectional, not directional.
+B-006-010-006:
+  It increases the radiation angle: Sloping radials lower the radiation angle slightly; the match is the advantage.
+  It brings the feed point impedance closer to 300 ohms: They bring it to 50 Ω, not 300 Ω.
+  It lowers the radiation angle: The match, not the angle, is the main advantage.
+B-006-010-007:
+  Horizontal quarter-wave radials: Horizontal radials give about 36 Ω.
+  Horizontal half-wave radials: Half-wave radials aren't used.
+  Upward sloping half-wave radials: Upward-sloping half-wave radials aren't a ground plane.
+B-006-010-008:
+  300-ohm balanced transmission line: 300 Ω balanced line doesn't match.
+  75-ohm balanced transmission line: 75 Ω balanced line doesn't match.
+  75-ohm coaxial cable: 75 Ω coax is a worse match than 50 Ω.
+B-006-010-009:
+  Use a solid radiating element instead of tubing: Solid or tubing doesn't change resonance much.
+  Install a capacitor in series with the antenna: A series capacitor would make it even more capacitive.
+  Connect the transmission line shield to the vehicle's chassis: Grounding the shield doesn't tune it.
+B-006-010-010:
+  To lower the losses: A coil adds loss, if anything.
+  To lower the Q: It doesn't lower the Q.
+  To filter out electrical noise: It isn't a noise filter.
+B-006-010-011:
+  Use an insulator with a higher breakdown voltage: Insulator rating doesn't reduce ground loss.
+  Improve the impedance match at the base: A better match doesn't reduce ground loss.
+  Raise the antenna one eighth of a wavelength: Raising it doesn't replace a radial system.

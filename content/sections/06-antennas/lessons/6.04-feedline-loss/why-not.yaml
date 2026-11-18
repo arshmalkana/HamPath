@@ -1,0 +1,41 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-006-004-001:
+  Excess reflections at the antenna feed point: Feed-point reflections depend on the match, not the cable type.
+  Excess RF radiation from the transmission line: Coax doesn't radiate when used properly.
+  Excess transmission line heating: The loss does become heat, but the main problem is less power at the antenna.
+B-006-004-002:
+  It can be located near metal objects without problems: Open-wire line is badly affected by nearby metal.
+  It has low impedance, which facilitates matching to a transceiver: Open-wire line has high impedance, not low.
+  It does not radiate RF energy, which could cause interference to nearby equipment: Open-wire line can radiate if unbalanced.
+B-006-004-003:
+  Install a balun at the antenna feed point: A balun doesn't reduce line loss.
+  Roll the excess cable into a coil: A coil of coax has the same loss.
+  Install a low-pass filter at the transceiver: A low-pass filter doesn't reduce line loss.
+B-006-004-004:
+  Signal loss decreases as the length increases: Loss increases with length, not decreases.
+  Signal loss is the least when the length is the same as the signal's wavelength: There's no special length with least loss.
+  Signal loss is the same for any length of transmission line: Loss depends on length.
+B-006-004-005:
+  Signal loss increases with decreasing frequency: Loss increases with frequency, not decreasing frequency.
+  Signal loss increases as the square of frequency: Loss rises with frequency, but not as the square.
+  Signal loss is the same for any frequency: Loss depends on frequency.
+B-006-004-006:
+  More RF power is radiated from the antenna: RG-58 has more loss, so less power is radiated.
+  SWR at the antenna increases: The cable doesn't change the antenna's SWR.
+  SWR at the antenna decreases: The cable doesn't change the antenna's SWR.
+B-006-004-007:
+  75-ohm twin-lead: Twin-lead has more loss than open-wire line.
+  coaxial cable: Coax has more loss than open-wire line.
+  300-ohm twin-lead: 300-ohm twin-lead has more loss than open-wire line.
+B-006-004-008:
+  Ohms per MHz: Ohms per MHz isn't a loss measure.
+  Decibel per MHz: Loss is per length, not per MHz.
+  Ohms per metre: Ohms per metre is resistance, not RF loss.
+B-006-004-009:
+  It would be increased by 50%: "Double the length is double the loss: 100%, not 50%."
+  It would be increased by 10%: 10% is far too little.
+  It would be increased by 20%: 20% is far too little.
+B-006-004-010:
+  Loss increases, due to increased wave velocity: Wave velocity doesn't change with frequency.
+  Loss decreases, due to skin effect: Skin effect makes loss increase, not decrease.
+  Loss decreases, due to decreased SWR: Frequency doesn't decrease SWR.

@@ -1,0 +1,40 @@
+{
+  "lab": "LAB-26",
+  "steps": {
+    "explore-tuner-balun": {
+      "title": "Window line from an unbalanced tuner",
+      "prompt": "Stop the window line radiating: add the device that joins unbalanced to balanced.",
+      "config": {
+        "mode": "balun",
+        "line": "window",
+        "length": 20,
+        "f": 7100000,
+        "balun": false,
+        "controls": {
+          "balun": true
+        }
+      },
+      "goal": "!commonMode",
+      "goal_text": "Balanced feed",
+      "success": "With a balun at the tuner, the window line carries equal and opposite currents and doesn't radiate."
+    },
+    "explore-dipole-balun": {
+      "title": "Coax to a dipole",
+      "prompt": "Current is flowing on the outside of the shield. Fix it.",
+      "config": {
+        "mode": "balun",
+        "antenna": "dipole",
+        "line": "rg213",
+        "length": 20,
+        "f": 7100000,
+        "balun": false,
+        "controls": {
+          "balun": true
+        }
+      },
+      "goal": "!commonMode",
+      "goal_text": "No current on the shield",
+      "success": "A balun between the coax and the dipole keeps current off the outside of the shield."
+    }
+  }
+}

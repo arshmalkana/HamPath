@@ -1,0 +1,22 @@
+code: "6.06"
+title: Antenna tuners and matching
+est_minutes: 14
+lab_id: LAB-27
+question_ids:
+  - B-006-006-001
+  - B-006-006-002
+  - B-006-006-003
+  - B-006-006-004
+  - B-006-006-005
+  - B-006-006-006
+  - B-006-006-007
+  - B-006-006-008
+  - B-006-006-009
+  - B-006-006-010
+  - B-006-006-011
+calculations:
+  B-006-006-011:
+    calc: impedance_ratio
+    given:
+      from: 50 Ω
+      to: 300 Ω

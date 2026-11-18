@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-006-002-001:
+  Window line: Window line has two wires side by side, not one inside the other.
+  Open-wire line: Open-wire line has two separate wires.
+  Waveguide: A waveguide is a hollow metal tube with no centre wire.
+B-006-002-002:
+  Coaxial cable: Coax has one conductor inside the other.
+  Waveguide: A waveguide is a hollow pipe.
+  Open-wire line: Open-wire line is held apart by spreaders, not embedded in insulation.
+B-006-002-003:
+  Coaxial cable: Coax has one conductor inside the other.
+  Window line: Window line's wires are embedded in insulation, not held by rods.
+  Twisted pair: Twisted pair is twisted together, not held apart.
+B-006-002-004:
+  Increase antenna gain: A balun doesn't add gain.
+  Shunt common-mode current to ground: Choking common-mode current is a side effect, not its purpose.
+  Balance antenna impedance: It joins balanced to unbalanced; it doesn't balance the antenna's impedance.
+B-006-002-005:
+  Between the transmitter and the coaxial cable: At the transmitter it's too far from the dipole.
+  Between the antenna and the ground: The balun isn't connected to ground.
+  Between the coaxial cable and the ground: The balun goes in the feedline, not to ground.
+B-006-002-006:
+  The conductors are twisted together: Twisting doesn't unbalance a line.
+  One conductor has a poor connection at the antenna: A poor connection is a fault, not what makes a line unbalanced.
+  The conductors have deteriorated insulation: Old insulation is a fault, not what makes a line unbalanced.
+B-006-002-007:
+  A triaxial transformer: A triaxial transformer isn't the standard answer.
+  A wave trap: A wave trap blocks a frequency.
+  A loading coil: A loading coil adds inductance.
+B-006-002-008:
+  A surge suppressor: A surge suppressor is for lightning.
+  A phasing harness: A phasing harness combines antennas.
+  A tuning stub: A tuning stub is a matching device, not a balanced-unbalanced join.
+B-006-002-009:
+  has one conductor inside the other: "One inside the other is coax: unbalanced."
+  carries RF current on one wire only: A balanced line carries current on both wires.
+  is made of one conductor only: A balanced line has two conductors.
+B-006-002-010:
+  Transmission line stub: A stub matches impedances; it doesn't convert balanced to unbalanced.
+  Quarter-wave transformer: A quarter-wave transformer matches impedance, not balance.
+  Autotransformer: An autotransformer doesn't isolate balanced from unbalanced.
+B-006-002-011:
+  Coaxial cable: Coax has one conductor inside the other.
+  Twin-lead: Twin-lead is embedded in insulation, not held by spreaders.
+  Twisted pair: Twisted pair is twisted together.

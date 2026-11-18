@@ -5,6 +5,9 @@ import { BlockDiagramLab } from "./BlockDiagramLab";
 import { ColourCodeLab } from "./ColourCodeLab";
 import { ComponentBenchLab } from "./ComponentBenchLab";
 import { DbLadderLab } from "./DbLadderLab";
+import { FeedlineLab } from "./FeedlineLab";
+import { PatternLab } from "./PatternLab";
+import { SwrTunerLab } from "./SwrTunerLab";
 import { MorseLab } from "./MorseLab";
 import { PowerBenchLab } from "./PowerBenchLab";
 import { PowerLimitLab } from "./PowerLimitLab";
@@ -62,10 +65,10 @@ export const LAB_REGISTRY: LabEntry[] = [
   { id: "LAB-23", name: "Transformer Lab", component: TransformerLab },
   { id: "LAB-24", name: "Resonance Tuner", component: ResonanceLab },
   { id: "LAB-25", name: "Meter Lab", component: MeterLab },
-  { id: "LAB-26", name: "Feedline Lab", component: null },
-  { id: "LAB-27", name: "SWR Bridge & Tuner", component: null },
+  { id: "LAB-26", name: "Feedline Lab", component: FeedlineLab },
+  { id: "LAB-27", name: "SWR Bridge & Tuner", component: SwrTunerLab },
   { id: "LAB-28", name: "Antenna Builder", component: AntennaBuilderLab },
-  { id: "LAB-29", name: "Radiation Pattern 3D", component: null },
+  { id: "LAB-29", name: "Radiation Pattern 3D", component: PatternLab },
   { id: "LAB-30", name: "Ionosphere Simulator", component: null },
   { id: "LAB-31", name: "Solar Cycle Dial", component: null },
   { id: "LAB-32", name: "VHF Propagation Sandbox", component: null },

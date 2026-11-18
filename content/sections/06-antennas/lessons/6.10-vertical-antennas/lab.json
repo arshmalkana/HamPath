@@ -1,0 +1,75 @@
+{
+  "lab": "LAB-28",
+  "steps": {
+    "explore-quarter": {
+      "title": "Cut a quarter-wave vertical",
+      "prompt": "Set the length so it resonates on 21.125 MHz.",
+      "config": {
+        "mode": "vertical",
+        "f": 21.125,
+        "length": 2.5,
+        "radials": "drooping",
+        "controls": {
+          "length": {
+            "min": 2,
+            "max": 5,
+            "step": 0.01
+          },
+          "radials": false,
+          "coil": false
+        }
+      },
+      "goal": "resonant",
+      "goal_text": "Resonant on 21.125 MHz",
+      "hints": [
+        "71.3 ÷ 21.125 ≈ 3.37 m."
+      ],
+      "success": "3.37 m: 71.3 ÷ 21.125."
+    },
+    "explore-radials": {
+      "title": "Match the ground plane",
+      "prompt": "Change the radials to bring the feed impedance to 50 Ω.",
+      "config": {
+        "mode": "vertical",
+        "f": 21.125,
+        "length": 3.37,
+        "radials": "horizontal",
+        "controls": {
+          "length": false,
+          "radials": true,
+          "coil": false
+        }
+      },
+      "goal": "approx(feedZ, 50)",
+      "goal_text": "50 Ω feed",
+      "success": "Sloping the radials down raises the feed impedance from about 36 Ω to 50 Ω."
+    },
+    "explore-coil": {
+      "title": "An 80 m mobile whip",
+      "prompt": "Add loading-coil inductance until the whip resonates on 3.75 MHz.",
+      "config": {
+        "mode": "vertical",
+        "f": 3.75,
+        "length": 2,
+        "radials": "drooping",
+        "coil": 0,
+        "whipReactance": 1500,
+        "controls": {
+          "length": false,
+          "radials": false,
+          "coil": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        }
+      },
+      "goal": "resonant",
+      "goal_text": "Resonant on 80 m",
+      "hints": [
+        "You need about 1500 Ω of inductive reactance: around 64 µH."
+      ],
+      "success": "About 64 µH cancels the whip's −1500 Ω. The coil makes the short whip resonate."
+    }
+  }
+}

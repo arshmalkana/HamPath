@@ -1,0 +1,71 @@
+{
+  "lab": "LAB-27",
+  "steps": {
+    "explore-analyzer": {
+      "title": "Find the dip",
+      "prompt": "Lengthen or shorten the antenna until the SWR on 3.6 MHz is 1.2:1 or better.",
+      "config": {
+        "r": 50,
+        "x": 0,
+        "fDesign": 3.9,
+        "length": 1,
+        "f": 3.6,
+        "analyzer": true,
+        "sweep": [
+          3.4,
+          4.1
+        ],
+        "controls": {
+          "length": true
+        }
+      },
+      "goal": "swr <= 1.2",
+      "goal_text": "Matched on 3.6 MHz",
+      "hints": [
+        "The dip is above your frequency. Which way moves resonance down?",
+        "A longer antenna resonates lower."
+      ],
+      "success": "About 8% longer moves the dip from 3.9 down to 3.6 MHz."
+    },
+    "explore-fault": {
+      "title": "Something's wrong",
+      "prompt": "Find and fix the fault.",
+      "config": {
+        "r": 50,
+        "x": 0,
+        "fDesign": 14.2,
+        "length": 1,
+        "f": 14.2,
+        "fault": "open",
+        "controls": {
+          "repair": true
+        }
+      },
+      "goal": "!fault && swr <= 1.5",
+      "goal_text": "Fault fixed",
+      "success": "An open connection reflected everything. Clean, tight connectors brought the SWR back to 1:1."
+    },
+    "explore-loss": {
+      "title": "The lying meter",
+      "prompt": "Increase the feedline loss until the station meter reads 1.5:1 or better, even though the antenna hasn't changed.",
+      "config": {
+        "r": 150,
+        "x": 0,
+        "fDesign": 14.2,
+        "length": 1,
+        "f": 14.2,
+        "lineLoss": 0,
+        "controls": {
+          "lineLoss": {
+            "min": 0,
+            "max": 10,
+            "step": 1
+          }
+        }
+      },
+      "goal": "stationSwr <= 1.5",
+      "goal_text": "The meter looks fine",
+      "success": "The antenna is still 3:1, but the lossy line eats the reflected power on the way back."
+    }
+  }
+}

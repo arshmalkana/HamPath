@@ -1,0 +1,46 @@
+{
+  "lab": "LAB-28",
+  "steps": {
+    "explore-cut": {
+      "title": "Cut a 10 m dipole",
+      "prompt": "Set the length for 28.150 MHz.",
+      "config": {
+        "mode": "dipole",
+        "f": 28.15,
+        "length": 6,
+        "orientation": "ns",
+        "controls": {
+          "length": {
+            "min": 4,
+            "max": 7,
+            "step": 0.01
+          },
+          "orientation": false
+        }
+      },
+      "goal": "resonant",
+      "goal_text": "Resonant on 28.150 MHz",
+      "hints": [
+        "143 ÷ 28.15 ≈ 5.08 m."
+      ],
+      "success": "5.08 m: 143 ÷ 28.150."
+    },
+    "explore-orient": {
+      "title": "Which way does it radiate?",
+      "prompt": "Turn the dipole so it radiates east and west.",
+      "config": {
+        "mode": "dipole",
+        "f": 28.15,
+        "length": 5.08,
+        "orientation": "ew",
+        "controls": {
+          "length": false,
+          "orientation": true
+        }
+      },
+      "goal": "beamEW",
+      "goal_text": "Radiating east and west",
+      "success": "Ends north and south, radiation east and west: broadside to the wire."
+    }
+  }
+}

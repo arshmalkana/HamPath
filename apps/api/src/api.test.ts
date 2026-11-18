@@ -483,6 +483,44 @@ describe("POST /lab-events: authored labs are verified on the server", () => {
       },
     ],
     ["3.21/explore-distance", { distance: 8 }, { distance: 3 }],
+    // section 6
+    [
+      "6.01/explore-coax",
+      { line: "rg58", length: 20, f: 14200000, D: 7, d: 2, dielectric: "solid" },
+      { line: "rg58", length: 20, f: 14200000, D: 7, d: 3, dielectric: "solid" },
+    ],
+    [
+      "6.02/explore-dipole-balun",
+      { line: "rg213", length: 20, f: 7100000, balun: true },
+      { line: "rg213", length: 20, f: 7100000, balun: false },
+    ],
+    ["6.04/explore-uhf", { line: "foam", length: 30, f: 440000000 }, { line: "rg58", length: 30, f: 440000000 }],
+    ["6.05/explore-analyzer", { length: 1.08, f: 3.6 }, { length: 1, f: 3.6 }],
+    [
+      "6.06/explore-tuner",
+      { length: 1, f: 14.2, tuner: { xl: 100, xc: 100 } },
+      { length: 1, f: 14.2, tuner: { xl: 0, xc: 500 } },
+    ],
+    [
+      "6.07/explore-pol",
+      { antenna: "dipole", orientation: "vertical", rx: "vertical" },
+      { antenna: "dipole", orientation: "vertical", rx: "horizontal" },
+    ],
+    [
+      "6.08/explore-lengthen",
+      { mode: "dipole", f: 3.6, length: 39.7, orientation: "ns" },
+      { mode: "dipole", f: 3.6, length: 36.7, orientation: "ns" },
+    ],
+    [
+      "6.10/explore-coil",
+      { mode: "vertical", f: 3.75, length: 2, radials: "drooping", coil: 64 },
+      { mode: "vertical", f: 3.75, length: 2, radials: "drooping", coil: 20 },
+    ],
+    [
+      "6.13/explore-quad",
+      { mode: "loop", f: 21.4, perimeter: 14.3, shape: "quad", feed: "bottom" },
+      { mode: "loop", f: 21.4, perimeter: 12, shape: "quad", feed: "bottom" },
+    ],
     // section 4
     [
       "4.01/explore-drive",

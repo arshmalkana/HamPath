@@ -16,7 +16,15 @@ import {
 import { solveCircuit, type Topology } from "./resistors.ts";
 import { blockDiagramVariables, type DiagramConfig, type DiagramState } from "./diagrams.ts";
 import { spectrumVariables, type SpectrumConfig, type SpectrumState } from "./spectrum.ts";
-import { antennaVariables } from "./antennas.ts";
+import { antennaVariables, patternVariables, type PatternState } from "./antennas.ts";
+import {
+  feedlineVariables,
+  swrVariables,
+  type FeedlineConfig,
+  type FeedlineState,
+  type SwrConfig,
+  type SwrState,
+} from "./feedline.ts";
 import {
   inspectorVariables,
   keyerVariables,
@@ -236,7 +244,13 @@ export function labVariables(labId: string, state: unknown, config: Record<strin
     case "LAB-14":
       return spectrumVariables(st as unknown as SpectrumState, config as SpectrumConfig);
     case "LAB-28":
-      return antennaVariables(st);
+      return antennaVariables(st, config);
+    case "LAB-29":
+      return patternVariables(st as unknown as PatternState);
+    case "LAB-26":
+      return feedlineVariables(st as unknown as FeedlineState, config as unknown as FeedlineConfig);
+    case "LAB-27":
+      return swrVariables(st as unknown as SwrState, config as unknown as SwrConfig);
     case "LAB-04":
       return ssbDriveVariables(st as unknown as SsbDriveState, config as unknown as SsbDriveConfig);
     case "LAB-10":
@@ -353,5 +367,30 @@ export const LAB_GOAL_VARIABLES: Record<string, string[]> = {
   ],
   "LAB-16": ["correct", "wrong", "total", "hazards", "hazardsFound", "complete"],
   "LAB-05": ["S", "d", "limit", "ratio", "safe", "safeDistance"],
-  "LAB-28": ["reflecting", "directing", "gain", "fb", "reflectorLongest", "directorShortest", "fedDriven", "fed"],
+  "LAB-28": [
+    "reflecting",
+    "directing",
+    "gain",
+    "fb",
+    "reflectorLongest",
+    "directorShortest",
+    "fedDriven",
+    "fed",
+    "directors",
+    "spacing",
+    "f0",
+    "resonant",
+    "tooLong",
+    "tooShort",
+    "beamEW",
+    "beamNS",
+    "feedZ",
+    "groundLoss",
+    "swr50",
+    "coilReactance",
+    "horizontal",
+  ],
+  "LAB-29": ["gainDbi", "gainDbd", "isotropic", "vertical", "matched", "received", "forward"],
+  "LAB-26": ["Z0", "vf", "lossDb", "delivered", "length", "f", "balanced", "commonMode"],
+  "LAB-27": ["swr", "stationSwr", "rigSwr", "reflected", "matched", "power", "foldback", "f0", "fault"],
 };

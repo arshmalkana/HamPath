@@ -1,0 +1,51 @@
+{
+  "lab": "LAB-28",
+  "steps": {
+    "explore-directors": {
+      "title": "Add directors",
+      "prompt": "Add directors until the forward gain reaches at least 8.5 dBd.",
+      "config": {
+        "mode": "yagi",
+        "reflector": 1.05,
+        "driven": 1,
+        "director": 0.95,
+        "feed": "driven",
+        "directors": 1,
+        "spacing": 0.2,
+        "f": 14,
+        "controls": {
+          "lengths": false,
+          "feed": false,
+          "directors": true,
+          "spacing": false
+        }
+      },
+      "goal": "gain >= 8.5",
+      "goal_text": "8.5 dBd",
+      "success": "Each extra director on a longer boom adds gain and narrows the beam."
+    },
+    "explore-spacing": {
+      "title": "Best front-to-back",
+      "prompt": "Choose the element spacing that gives the best front-to-back ratio.",
+      "config": {
+        "mode": "yagi",
+        "reflector": 1.05,
+        "driven": 1,
+        "director": 0.95,
+        "feed": "driven",
+        "directors": 1,
+        "spacing": 0.1,
+        "f": 14,
+        "controls": {
+          "lengths": false,
+          "feed": false,
+          "directors": false,
+          "spacing": true
+        }
+      },
+      "goal": "fb >= 19.5",
+      "goal_text": "Best front-to-back",
+      "success": "About 0.2 λ gives the best front-to-back. Wider spacing gives a little more gain but less front-to-back."
+    }
+  }
+}

@@ -1,0 +1,25 @@
+code: "6.08"
+title: Wavelength and dipole length
+est_minutes: 14
+lab_id: LAB-28
+question_ids:
+  - B-006-008-001
+  - B-006-008-002
+  - B-006-008-003
+  - B-006-008-004
+  - B-006-008-005
+  - B-006-008-006
+  - B-006-008-007
+  - B-006-008-008
+  - B-006-008-009
+  - B-006-008-010
+  - B-006-008-011
+calculations:
+  B-006-008-003:
+    calc: wavelength
+    given:
+      f: 25 MHz
+  B-006-008-011:
+    calc: wavelength
+    given:
+      f: 2 MHz

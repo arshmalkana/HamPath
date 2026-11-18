@@ -1,0 +1,37 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-006-012-001:
+  5.33 metres: 5.33 m uses 150 ÷ f.
+  10.66 metres: 10.66 m is a full wave.
+  2.53 metres: 2.53 m is a quarter-wave.
+B-006-012-002:
+  It usually produces vertically polarized radiation: A random wire isn't usually vertically polarized.
+  It must be longer than 1 wavelength: It can be shorter than a wavelength.
+  It must be installed in a straight line, without bends: It can bend.
+B-006-012-003:
+  A major lobe off each end of the antenna: The ends are where it radiates least.
+  Spherical (equal radiation in all directions): A dipole isn't spherical.
+  Major lobes at 45-degree angles to the antenna: There are no 45-degree lobes on a half-wave dipole.
+B-006-012-004:
+  52 ohms: 52 Ω is a coax impedance, not a dipole's.
+  300 ohms: 300 Ω is a folded dipole.
+  450 ohms: 450 Ω is window line.
+B-006-012-005:
+  Radiates mostly to the South and North: Off the ends is where it radiates least.
+  Radiates mostly to the South: It radiates both broadside directions, not one.
+  Radiates equally in all directions: It's directional, not omnidirectional.
+B-006-012-006:
+  Matching network not needed to feed with coaxial cable: An EFHW needs a matching transformer.
+  High resistance to local noise pickup: It isn't especially resistant to local noise.
+  Develops minimal common-mode current: End-fed antennas tend to have common-mode current.
+B-006-012-007:
+  It is too sharply directional at lower frequencies: Traps don't make it sharply directional.
+  It picks up more noise than a simple dipole: Traps don't add noise pickup.
+  It can only be used for one band: Traps make it multiband, not single band.
+B-006-012-008:
+  It has high directivity at the higher frequencies: Traps don't add directivity.
+  It has high gain: Traps don't add gain.
+  It minimizes harmonic radiation: Traps make harmonic radiation more likely, not less.
+B-006-012-009:
+  40.00 metres: 40.00 m uses 150 ÷ f.
+  62.40 metres: 62.40 m is far too long.
+  80.00 metres: 80.00 m is a full wave.

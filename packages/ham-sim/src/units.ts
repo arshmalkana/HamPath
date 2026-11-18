@@ -109,6 +109,8 @@ export function parseQuantity(text: string, expectedUnit?: Unit): Quantity | nul
 
   // Word prefixes: "milliamperes", "kilo ohms"
   const lower = rest.toLowerCase().replace(/^megohm/, "megaohm");
+  // Centimetres appear in antenna answers ("67 cm"); centi isn't one of the exam's SI prefixes.
+  if (/^(cm|centimet(re|er)s?)$/.test(lower)) return { value: value / 100, unit: "m" };
   for (const [word, e] of Object.entries(PREFIX_WORDS)) {
     if (lower.startsWith(word)) {
       const tail = lower.slice(word.length).trim();

@@ -1,0 +1,54 @@
+{
+  "lab": "LAB-28",
+  "steps": {
+    "explore-lengthen": {
+      "title": "Move it down the band",
+      "prompt": "Set the dipole's length so it resonates on 3.6 MHz.",
+      "config": {
+        "mode": "dipole",
+        "f": 3.6,
+        "length": 36.7,
+        "orientation": "ns",
+        "controls": {
+          "length": {
+            "min": 30,
+            "max": 45,
+            "step": 0.1
+          },
+          "orientation": false
+        }
+      },
+      "goal": "resonant",
+      "goal_text": "Resonant on 3.6 MHz",
+      "hints": [
+        "Lower frequency needs a longer antenna.",
+        "143 ÷ 3.6 ≈ 39.7 m."
+      ],
+      "success": "About 39.7 m. Longer wire, lower resonant frequency."
+    },
+    "explore-shorten": {
+      "title": "Move it up the band",
+      "prompt": "Set the length so it resonates on 3.9 MHz.",
+      "config": {
+        "mode": "dipole",
+        "f": 3.9,
+        "length": 39.7,
+        "orientation": "ns",
+        "controls": {
+          "length": {
+            "min": 30,
+            "max": 45,
+            "step": 0.1
+          },
+          "orientation": false
+        }
+      },
+      "goal": "resonant",
+      "goal_text": "Resonant on 3.9 MHz",
+      "hints": [
+        "143 ÷ 3.9 ≈ 36.7 m."
+      ],
+      "success": "Shorter wire, higher resonant frequency: about 36.7 m."
+    }
+  }
+}

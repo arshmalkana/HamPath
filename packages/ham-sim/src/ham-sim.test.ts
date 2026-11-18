@@ -45,6 +45,15 @@ import {
   rfExposureVariables,
   resultMatches,
   occupiedBandwidth,
+  coaxZ0,
+  openWireZ0,
+  feedlineVariables,
+  swrVariables,
+  dipoleVariables,
+  verticalVariables,
+  loopVariables,
+  patternVariables,
+  patternField,
 } from "./index.ts";
 
 describe("units", () => {
@@ -508,5 +517,85 @@ describe("section 3 station models", () => {
       },
     });
     expect(g.value).toBe(10);
+  });
+});
+
+describe("section 6 feedline and antenna models", () => {
+  it("computes Z0 from geometry, independent of length", () => {
+    expect(coaxZ0(7, 2, 2.25)).toBeCloseTo(50, 0);
+    expect(openWireZ0(45, 2)).toBeCloseTo(456, -1);
+    const a = feedlineVariables({ line: "rg58", length: 20, f: 14.2e6 }, { mode: "loss" })!;
+    const b = feedlineVariables({ line: "rg58", length: 10, f: 14.2e6 }, { mode: "loss" })!;
+    expect(a.Z0).toBe(b.Z0);
+    expect(a.lossDb as number).toBeCloseTo(2 * (b.lossDb as number));
+  });
+  it("loses more at higher frequency and in thinner cable; open-wire is lowest", () => {
+    const at = (line: "rg58" | "rg213" | "openwire", f: number) =>
+      feedlineVariables({ line, length: 30, f }, { mode: "loss" })!.lossDb as number;
+    expect(at("rg58", 440e6)).toBeGreaterThan(at("rg58", 14e6));
+    expect(at("rg58", 440e6)).toBeGreaterThan(at("rg213", 440e6));
+    expect(at("openwire", 14e6)).toBeLessThan(at("rg213", 14e6));
+    expect(
+      feedlineVariables({ line: "rg213", length: 20, f: 7e6 }, { mode: "balun", antenna: "dipole" }),
+    ).toMatchObject({ commonMode: true });
+  });
+  it("gives SWR from the mismatch; loss hides it; the tuner and transformers match", () => {
+    const base = { r: 50, x: 0, fDesign: 14.2 };
+    expect(swrVariables({ length: 1, f: 14.2 }, base)!.swr).toBeCloseTo(1);
+    expect(swrVariables({ length: 1, f: 14.2 }, { ...base, r: 150 })!.swr).toBeCloseTo(3);
+    expect(swrVariables({ length: 1, f: 14.2, lineLoss: 4 }, { ...base, r: 150 })!.stationSwr as number).toBeLessThan(
+      1.5,
+    );
+    expect(
+      swrVariables({ length: 1, f: 14.2, tuner: { xl: 100, xc: 100 } }, { ...base, r: 200, x: 100 })!.rigSwr,
+    ).toBeCloseTo(1);
+    expect(swrVariables({ length: 1, f: 14.2, ratio: 6 }, { ...base, r: 300 })!.rigSwr).toBeCloseTo(1);
+    expect(swrVariables({ length: 1, f: 14.2 }, { ...base, fault: "open" })).toMatchObject({ foldback: true });
+  });
+  it("uses the exam's length rules", () => {
+    expect(dipoleVariables({ mode: "dipole", f: 3.6, length: 143 / 3.6, orientation: "ns" })).toMatchObject({
+      resonant: true,
+      beamEW: true,
+    });
+    expect(dipoleVariables({ mode: "dipole", f: 3.6, length: 36.7, orientation: "ns" })).toMatchObject({
+      tooShort: true,
+    });
+    expect(verticalVariables({ mode: "vertical", f: 21.125, length: 3.37, radials: "drooping" })).toMatchObject({
+      resonant: true,
+      feedZ: 50,
+    });
+    expect(
+      verticalVariables(
+        { mode: "vertical", f: 3.75, length: 2, radials: "drooping", coil: 64 },
+        { whipReactance: 1500 },
+      ),
+    ).toMatchObject({ resonant: true });
+    expect(loopVariables({ mode: "loop", f: 7.15, perimeter: 42.8, shape: "quad", feed: "side" })).toMatchObject({
+      resonant: true,
+      horizontal: false,
+    });
+  });
+  it("shapes patterns: isotropic sphere, dipole null off the ends, director pulls forward", () => {
+    const iso = { antenna: "isotropic" as const, orientation: "horizontal" as const };
+    expect(patternField(iso, 1, 0, 0)).toBe(patternField(iso, 0, 1, 0));
+    const dip = { antenna: "dipole" as const, orientation: "horizontal" as const };
+    expect(patternField(dip, 1, 0, 0)).toBeCloseTo(0);
+    expect(patternField(dip, 0, 0, 1)).toBeCloseTo(1);
+    const dir = { ...dip, parasitic: "director" as const };
+    expect(patternField(dir, 0, 0, 1)).toBeGreaterThan(patternField(dir, 0, 0, -1));
+    expect(patternVariables({ ...dip, rx: "vertical" })).toMatchObject({
+      matched: false,
+      received: -20,
+      gainDbi: 2.15,
+    });
+  });
+  it("matches centimetre and multi-figure length answers", () => {
+    expect(parseQuantity("67 cm")).toEqual({ value: 0.67, unit: "m" });
+    expect(resultMatches("42.80 metres", runCalculation({ calc: "antenna", given: { k: 306, f: "7.15 MHz" } }))).toBe(
+      true,
+    );
+    expect(resultMatches("41.96 metres", runCalculation({ calc: "antenna", given: { k: 306, f: "7.15 MHz" } }))).toBe(
+      false,
+    );
   });
 });

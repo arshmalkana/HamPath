@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-006-001-001:
+  A counterpoise wire: A counterpoise is part of some antennas, not what links radio and antenna.
+  A ground wire: A ground wire is for safety, not carrying the signal to the antenna.
+  A radial wire: Radials are part of a vertical antenna.
+B-006-001-002:
+  length of the line: Length doesn't change characteristic impedance.
+  frequency at which the line is operated: Frequency doesn't set characteristic impedance.
+  load placed at the end of the line: The load doesn't change the line's own impedance.
+B-006-001-003:
+  26 ohms: Halving the length doesn't halve the impedance.
+  104 ohms: Characteristic impedance doesn't change with length.
+  13 ohms: Length has no effect on characteristic impedance.
+B-006-001-004:
+  Characteristic impedance is independent of line diameter: Diameter matters, but only as a ratio.
+  Characteristic impedance is set by the choice of conducting material: The conductor material affects loss, not impedance.
+  Their characteristic impedance depends on operating frequency: Characteristic impedance doesn't depend on frequency.
+B-006-001-005:
+  300-ohm window line: Window line can't be buried; the soil changes its impedance.
+  600-ohm open-wire line: Open-wire line can't be buried.
+  75-ohm twin-lead: Twin-lead can't be buried.
+B-006-001-006:
+  25 ohms: 25 Ω would reflect some energy.
+  100 ohms: 100 Ω would reflect some energy.
+  200 ohms: 200 Ω would reflect a lot of energy.
+B-006-001-007:
+  Center conductor material: The centre conductor's material affects loss, not velocity.
+  Size and spacing of the conductors: Size and spacing set impedance, not velocity factor.
+  Use of a solid or braided shield: The shield type affects shielding, not velocity.
+B-006-001-008:
+  Length of the line: Length doesn't affect characteristic impedance.
+  Height above ground: Height above ground affects it only slightly; spacing is the design factor.
+  Distance to metal structures: Nearby metal disturbs it, but isn't part of its design.
+B-006-001-009:
+  An infinite impedance: Not infinite, except in special cases.
+  A zero impedance: Not zero, except in special cases.
+  An impedance nearly equal to the characteristic impedance: A mismatched load doesn't give Z0 at the input.
+B-006-001-010:
+  The distance between the centres of the conductors and the length of the line: Length doesn't matter.
+  The radius of the conductors and the frequency of the signal: Frequency doesn't matter.
+  The frequency of the signal and the length of the line: Neither frequency nor length matters.
+B-006-001-011:
+  The diameter of the shield and the length of the line: Length doesn't matter.
+  The diameter of the shield and the frequency of the signal: Frequency doesn't matter, and it's a ratio of two diameters.
+  The frequency of the signal and the length of the line: Neither frequency nor length matters.

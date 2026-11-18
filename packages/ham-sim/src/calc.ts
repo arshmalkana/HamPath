@@ -413,6 +413,56 @@ const calculators: Record<string, Calculator> = {
     };
   },
 
+  /** Matched line loss in dB is proportional to length: percentage change from one length to another. */
+  line_loss_change: (s) => {
+    const a = need(val(s.given, "from", "m"), "from");
+    const b = need(val(s.given, "to", "m"), "to");
+    const pct = (b / a - 1) * 100;
+    return {
+      value: pct,
+      unit: "",
+      steps: [
+        "Loss in dB is proportional to length",
+        `${n(b)} m ÷ ${n(a)} m = ${n(b / a)} times the loss`,
+        `An increase of ${n(pct)}%`,
+      ],
+    };
+  },
+
+  /** Impedance transformation ratio between two impedances. */
+  impedance_ratio: (s) => {
+    const a = need(val(s.given, "from", "Ω"), "from");
+    const b = need(val(s.given, "to", "Ω"), "to");
+    const r = Math.max(a, b) / Math.min(a, b);
+    return { value: r, unit: "", steps: [`Ratio = ${q(Math.max(a, b), "Ω")} ÷ ${q(Math.min(a, b), "Ω")} = ${n(r)}:1`] };
+  },
+
+  /** Gain over a dipole = gain over isotropic − 2.15 dB (rounded to 2.1 in the exam). */
+  dbi_to_dbd: (s) => {
+    const dbi = need(val(s.given, "dbi", ""), "dbi");
+    const dbd = dbi - 2.1;
+    return {
+      value: dbd,
+      unit: "",
+      steps: ["A dipole has about 2.1 dB of gain over isotropic", `${n(dbi)} dBi − 2.1 dB = ${n(dbd)} dBd`],
+    };
+  },
+
+  /** Stacking identical antennas: each doubling adds 3 dB. */
+  stack_gain: (s) => {
+    const g = need(val(s.given, "gain", ""), "gain");
+    const count = need(val(s.given, "count", ""), "count");
+    const total = g + 10 * Math.log10(count);
+    return {
+      value: total,
+      unit: "",
+      steps: [
+        `${n(count)} antennas: 10 × log(${n(count)}) = ${n(10 * Math.log10(count))} dB more`,
+        `${n(g)} + ${n(10 * Math.log10(count))} ≈ ${n(total)} dBi`,
+      ],
+    };
+  },
+
   /** Superheterodyne local oscillator: LO = f + IF (LO above) or f − IF (LO below). */
   superhet: (s) => {
     const f = need(val(s.given, "f", "Hz"), "f");
@@ -457,6 +507,8 @@ const calculators: Record<string, Calculator> = {
     return {
       value: l,
       unit: "m",
+      // Lengths are quoted to 3 or 4 figures, and 300 ÷ f sits within 2% of 306 ÷ f.
+      tolerance: 0.005,
       steps: [`${name} (metres) ≈ ${n(k)} ÷ f (MHz)`, `= ${n(k)} ÷ ${n(mhz)}`, `= ${n(l)} m`],
     };
   },

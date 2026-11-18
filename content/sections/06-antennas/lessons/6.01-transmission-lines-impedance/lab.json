@@ -1,0 +1,70 @@
+{
+  "lab": "LAB-26",
+  "steps": {
+    "explore-coax": {
+      "title": "Make 50 Ω coax",
+      "prompt": "With solid polyethylene dielectric, set the diameters to make 50 Ω coax.",
+      "config": {
+        "mode": "coax-geometry",
+        "line": "rg58",
+        "length": 20,
+        "f": 14200000,
+        "D": 7,
+        "d": 3,
+        "dielectric": "solid",
+        "controls": {
+          "D": true,
+          "d": true
+        }
+      },
+      "goal": "approx(Z0, 50, 0.03)",
+      "goal_text": "50 Ω",
+      "hints": [
+        "A thinner centre conductor raises the impedance.",
+        "With solid dielectric you need a ratio of about 3.5: try 7 mm and 2 mm."
+      ],
+      "success": "About 3.5 to 1 makes 50 Ω with solid dielectric. A 14 mm cable with a 4 mm centre would be 50 Ω too: only the ratio matters."
+    },
+    "explore-cut": {
+      "title": "Cut it in half",
+      "prompt": "Cut the line down to 10 m and watch the characteristic impedance.",
+      "config": {
+        "mode": "loss",
+        "line": "rg58",
+        "length": 20,
+        "f": 14200000,
+        "controls": {
+          "length": {
+            "min": 5,
+            "max": 20,
+            "step": 1
+          }
+        }
+      },
+      "goal": "length <= 10",
+      "goal_text": "Cut to 10 m",
+      "success": "Still 50 Ω. The loss goes down with length, but the characteristic impedance doesn't change."
+    },
+    "explore-open": {
+      "title": "Open-wire line",
+      "prompt": "Space the wires to make about 450 Ω.",
+      "config": {
+        "mode": "open-geometry",
+        "line": "window",
+        "length": 20,
+        "f": 14200000,
+        "d": 2,
+        "S": 20,
+        "controls": {
+          "S": true
+        }
+      },
+      "goal": "approx(Z0, 450, 0.03)",
+      "goal_text": "About 450 Ω",
+      "hints": [
+        "Wider spacing means higher impedance."
+      ],
+      "success": "About 40 to 45 mm apart gives 450 Ω with 2 mm wire."
+    }
+  }
+}

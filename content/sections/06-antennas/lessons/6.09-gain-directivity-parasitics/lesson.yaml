@@ -1,0 +1,21 @@
+code: "6.09"
+title: Gain, directivity and parasitic elements
+est_minutes: 14
+lab_id: LAB-29
+question_ids:
+  - B-006-009-001
+  - B-006-009-002
+  - B-006-009-003
+  - B-006-009-004
+  - B-006-009-005
+  - B-006-009-006
+  - B-006-009-007
+  - B-006-009-008
+  - B-006-009-009
+  - B-006-009-010
+  - B-006-009-011
+calculations:
+  B-006-009-011:
+    calc: dbi_to_dbd
+    given:
+      dbi: 4.1

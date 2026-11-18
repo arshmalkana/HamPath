@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-006-011-001:
+  Large diameter elements: Large elements widen bandwidth but don't make it multiband.
+  Multiple reflector elements: Multiple reflectors don't make it multiband.
+  T-match feed circuit: A T-match is a feed method, not a multiband feature.
+B-006-011-002:
+  5.09 metres: 5.09 m is a quarter-wave.
+  10.71 metres: "10.71 m uses 150 ÷ f: that's the reflector length."
+  21.43 metres: 21.43 m is a full wave.
+B-006-011-003:
+  7.11 metres: "7.11 m is 150 ÷ f: a reflector."
+  3.38 metres: 3.38 m is a quarter-wave.
+  3.55 metres: 3.55 m is far too short.
+B-006-011-004:
+  10.68 metres: 10.68 m is a full wave.
+  2.54 metres: 2.54 m is about a quarter-wave.
+  2.67 metres: 2.67 m is a quarter-wave.
+B-006-011-005:
+  Front-to-back ratio increases: More directors mainly raise gain; front-to-back isn't the main effect.
+  Beamwidth increases: Beamwidth narrows, not widens.
+  Power handling capability increases: Power handling doesn't change.
+B-006-011-006:
+  Better front-to-back ratio: Front-to-back is best near 0.2 λ; wider spacing is for gain.
+  Lower feed point impedance: Spacing doesn't lower feed impedance as its main advantage.
+  Wider bandwidth: Bandwidth isn't the main advantage.
+B-006-011-007:
+  Excellent omnidirectional coverage in the horizontal plane: A Yagi is directional, not omnidirectional.
+  Their wide bandwidth provides a good match over an entire band: Yagis are fairly narrow-band.
+  Their high angle of radiation facilitates long-range communications: A low angle helps long range, not a high one.
+B-006-011-008:
+  The ratio of the power radiated by the director element, to the power radiated by the reflector element: It's power forward versus backward, not director versus reflector.
+  The ratio of the length of the director element, to the length of the reflector element: It isn't a ratio of lengths.
+  The ratio of the driven element-to-director spacing, to the driven element-to-reflector spacing: It isn't a ratio of spacings.
+B-006-011-009:
+  Decrease the element spacing: Closer spacing narrows bandwidth.
+  Install loading coils in the elements: Loading coils narrow bandwidth.
+  Use tapered elements: Tapered elements are for mechanical reasons.
+B-006-011-010:
+  "0.10": "0.10 λ is too close: low gain."
+  "0.50": 0.50 λ is too far.
+  "0.75": 0.75 λ is far too far.
+B-006-011-011:
+  7 dBi: Stacking adds gain; it doesn't reduce it.
+  20 dBi: "Gains in dB don't add like that: two antennas give +3 dB."
+  10 dBi: Stacking two adds 3 dB.

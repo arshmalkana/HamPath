@@ -1,0 +1,29 @@
+code: "6.10"
+title: Vertical antennas
+est_minutes: 14
+lab_id: LAB-28
+question_ids:
+  - B-006-010-001
+  - B-006-010-002
+  - B-006-010-003
+  - B-006-010-004
+  - B-006-010-005
+  - B-006-010-006
+  - B-006-010-007
+  - B-006-010-008
+  - B-006-010-009
+  - B-006-010-010
+  - B-006-010-011
+calculations:
+  B-006-010-002:
+    calc: antenna
+    given:
+      k: 71.3
+      f: 21.125 MHz
+      element: Quarter-wave vertical
+  B-006-010-003:
+    calc: antenna
+    given:
+      k: 150
+      f: 223 MHz
+      element: Half-wave vertical (VHF)

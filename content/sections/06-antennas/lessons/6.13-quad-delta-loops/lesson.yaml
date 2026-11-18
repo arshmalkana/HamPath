@@ -1,0 +1,41 @@
+code: "6.13"
+title: Quad and delta loop antennas
+est_minutes: 12
+lab_id: LAB-28
+question_ids:
+  - B-006-013-001
+  - B-006-013-002
+  - B-006-013-003
+  - B-006-013-004
+  - B-006-013-005
+  - B-006-013-006
+  - B-006-013-007
+  - B-006-013-008
+  - B-006-013-009
+  - B-006-013-010
+  - B-006-013-011
+calculations:
+  B-006-013-003:
+    calc: antenna
+    given:
+      k: 306
+      f: 21.4 MHz
+      element: Quad driven element
+  B-006-013-004:
+    calc: antenna
+    given:
+      k: 306
+      f: 14.3 MHz
+      element: Quad driven element
+  B-006-013-005:
+    calc: antenna
+    given:
+      k: 306
+      f: 28.7 MHz
+      element: Delta loop
+  B-006-013-009:
+    calc: antenna
+    given:
+      k: 306
+      f: 7.15 MHz
+      element: Horizontal loop

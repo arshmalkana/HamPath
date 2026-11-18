@@ -1,0 +1,68 @@
+{
+  "lab": "LAB-26",
+  "steps": {
+    "explore-length": {
+      "title": "Too much cable",
+      "prompt": "Cut the cable to the length you actually need.",
+      "config": {
+        "mode": "loss",
+        "line": "rg58",
+        "length": 60,
+        "f": 14200000,
+        "controls": {
+          "length": {
+            "min": 5,
+            "max": 60,
+            "step": 5
+          }
+        }
+      },
+      "goal": "length <= 15",
+      "goal_text": "Excess cable removed",
+      "success": "Less cable, less loss. Coiling the spare length would have kept all of its loss."
+    },
+    "explore-freq": {
+      "title": "Up in frequency",
+      "prompt": "Step the frequency up to 440 MHz and watch the loss.",
+      "config": {
+        "mode": "loss",
+        "line": "rg58",
+        "length": 30,
+        "f": 3500000,
+        "bands": [
+          3500000,
+          14200000,
+          146000000,
+          440000000
+        ],
+        "controls": {
+          "f": true
+        }
+      },
+      "goal": "f >= 440000000",
+      "goal_text": "On 70 cm",
+      "success": "The same cable loses about a tenth as much on 80 m as it does on 70 cm."
+    },
+    "explore-uhf": {
+      "title": "Rescue the 70 cm station",
+      "prompt": "Choose a cable that gets at least half the power to the antenna.",
+      "config": {
+        "mode": "loss",
+        "line": "rg58",
+        "length": 30,
+        "f": 440000000,
+        "lines": [
+          "rg58",
+          "rg213",
+          "foam"
+        ],
+        "controls": {
+          "line": true
+        }
+      },
+      "goal": "delivered >= 0.5",
+      "goal_text": "Half the power delivered",
+      "success": "Low-loss foam coax gets more than half your power there. RG-58 wasted 90% of it."
+    }
+  }
+}

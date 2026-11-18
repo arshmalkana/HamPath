@@ -2354,3 +2354,75 @@ circle.rf-person {
 circle.rf-person.rf-safe {
   fill: var(--shack-ok);
 }
+
+/* ================================================================ LAB-26/27/28/29 antennas and lines */
+.coax-shield {
+  fill: var(--shack-part);
+}
+.coax-dielectric {
+  fill: var(--shack-panel-2);
+}
+.coax-foam {
+  fill-opacity: 0.6;
+}
+.coax-air {
+  fill: var(--shack-well);
+}
+.coax-centre {
+  fill: var(--shack-lamp);
+}
+.balun {
+  fill: var(--shack-panel-2);
+  stroke: var(--shack-lamp);
+  stroke-width: 2;
+}
+.feed-ladder {
+  stroke: var(--shack-wire);
+  stroke-width: 6;
+  stroke-dasharray: 2 6;
+  fill: none;
+}
+.insulator {
+  fill: var(--shack-panel-2);
+  stroke: var(--shack-part);
+  stroke-width: 2;
+}
+.loop-wire {
+  fill: none;
+  stroke: var(--shack-part);
+  stroke-width: 4;
+}
+.feed-point {
+  fill: var(--shack-lamp);
+}
+.pattern-3d {
+  display: grid;
+  gap: var(--space-xs);
+}
+.pattern-canvas {
+  width: 100%;
+  min-height: 240px;
+  border-radius: var(--radius-control);
+}
+.pattern-canvas:focus-visible {
+  outline: 3px solid var(--shack-lamp);
+  outline-offset: 2px;
+}
+.pattern-canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  touch-action: none;
+}
+.pattern-cuts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+  align-content: center;
+}
+.pattern-cut {
+  margin: 0;
+  display: grid;
+  justify-items: center;
+}

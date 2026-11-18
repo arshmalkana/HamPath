@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-006-009-001:
+  By direct connection to a driven element: A parasitic element isn't connected to the driven element.
+  By direct connection to the transmission line: It isn't connected to the feedline either.
+  By inductive coupling from a wave trap: Wave traps don't feed parasitic elements.
+B-006-009-002:
+  By using a radiating element with a larger diameter: Thicker elements widen bandwidth, not directivity.
+  By adding traps to the radiating element: Traps make it multiband, not directional.
+  By lengthening the radiating element: Lengthening it detunes it; it doesn't add directivity.
+B-006-009-003:
+  From the new element towards the dipole: That's what a longer element does.
+  In both directions at right angles to the elements: Broadside both ways is the dipole alone.
+  In both directions parallel to the elements: Off the ends is where a dipole radiates least.
+B-006-009-004:
+  From the dipole towards the new element: That's what a shorter element does.
+  In both directions at right angles to the elements: Broadside both ways is the dipole alone.
+  In both directions parallel to the elements: Off the ends is where a dipole radiates least.
+B-006-009-005:
+  front-to-back ratio: Front-to-back compares forward and back, not frequencies.
+  beamwidth: Beamwidth is an angle, not a frequency range.
+  antenna aperture: Aperture is effective area, not frequency range.
+B-006-009-006:
+  1.5 dB: 1.5 dB is too low.
+  3.0 dB: 3.0 dB is too high.
+  1.0 dB: 1.0 dB is too low.
+B-006-009-007:
+  The ratio of the signal in the forward direction to the signal in the back direction: That's front-to-back ratio.
+  The ratio of the power radiated by an antenna compared to the transmitter power: That would be efficiency, not gain.
+  The power amplifier gain minus the transmission line losses: That's system gain, not antenna gain.
+B-006-009-008:
+  Antenna length divided by the number of elements: Length divided by elements isn't bandwidth.
+  The angle between the half-power radiation points: That's beamwidth.
+  The angle formed between two imaginary lines drawn through the ends of the elements: That's not a definition of bandwidth.
+B-006-009-009:
+  Maximum radiation from the ends of the antenna: A dipole radiates least off its ends.
+  Omnidirectional radiation pattern: A dipole isn't omnidirectional in free space.
+  Hemispherical radiation pattern: A dipole's pattern isn't a hemisphere.
+B-006-009-010:
+  integral: Integral isn't what the i means.
+  ionospheric: Ionospheric isn't what the i means.
+  interpolated: Interpolated isn't what the i means.
+B-006-009-011:
+  4.1 dB: 4.1 dB is the gain over isotropic, not over a dipole.
+  3.0 dB: 3.0 dB would need 5.1 dBi.
+  1.1 dB: 1.1 dB subtracts 3 dB instead of 2.1.

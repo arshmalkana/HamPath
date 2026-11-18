@@ -1,0 +1,40 @@
+code: "6.11"
+title: Yagi antennas
+est_minutes: 14
+lab_id: LAB-28
+question_ids:
+  - B-006-011-001
+  - B-006-011-002
+  - B-006-011-003
+  - B-006-011-004
+  - B-006-011-005
+  - B-006-011-006
+  - B-006-011-007
+  - B-006-011-008
+  - B-006-011-009
+  - B-006-011-010
+  - B-006-011-011
+calculations:
+  B-006-011-002:
+    calc: antenna
+    given:
+      k: 143
+      f: 14.0 MHz
+      element: Driven element
+  B-006-011-003:
+    calc: antenna
+    given:
+      k: 136
+      f: 21.1 MHz
+      element: Director
+  B-006-011-004:
+    calc: antenna
+    given:
+      k: 150
+      f: 28.1 MHz
+      element: Reflector
+  B-006-011-011:
+    calc: stack_gain
+    given:
+      gain: 10
+      count: 2

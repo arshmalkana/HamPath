@@ -1,0 +1,47 @@
+{
+  "lab": "LAB-29",
+  "steps": {
+    "explore-director": {
+      "title": "Add a shorter element",
+      "prompt": "Add a slightly shorter element and see which way the pattern moves.",
+      "config": {
+        "antenna": "dipole",
+        "orientation": "horizontal",
+        "parasitic": "none",
+        "antennas": [
+          "dipole"
+        ],
+        "controls": {
+          "antenna": false,
+          "orientation": false,
+          "rx": false,
+          "parasitic": true
+        }
+      },
+      "goal": "forward == 1",
+      "goal_text": "Director added",
+      "success": "The pattern swings from the dipole toward the shorter element: it's a director."
+    },
+    "explore-reflector": {
+      "title": "Now a longer one",
+      "prompt": "Replace it with a slightly longer element.",
+      "config": {
+        "antenna": "dipole",
+        "orientation": "horizontal",
+        "parasitic": "director",
+        "antennas": [
+          "dipole"
+        ],
+        "controls": {
+          "antenna": false,
+          "orientation": false,
+          "rx": false,
+          "parasitic": true
+        }
+      },
+      "goal": "forward == -1",
+      "goal_text": "Reflector added",
+      "success": "Now the signal goes from the longer element toward the dipole: a reflector."
+    }
+  }
+}

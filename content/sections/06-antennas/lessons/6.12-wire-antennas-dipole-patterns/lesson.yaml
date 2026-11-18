@@ -1,0 +1,27 @@
+code: "6.12"
+title: Wire antennas and dipole patterns
+est_minutes: 14
+lab_id: LAB-28
+question_ids:
+  - B-006-012-001
+  - B-006-012-002
+  - B-006-012-003
+  - B-006-012-004
+  - B-006-012-005
+  - B-006-012-006
+  - B-006-012-007
+  - B-006-012-008
+  - B-006-012-009
+calculations:
+  B-006-012-001:
+    calc: antenna
+    given:
+      k: 143
+      f: 28.150 MHz
+      element: Half-wave dipole
+  B-006-012-009:
+    calc: antenna
+    given:
+      k: 143
+      f: 3.75 MHz
+      element: Half-wave dipole

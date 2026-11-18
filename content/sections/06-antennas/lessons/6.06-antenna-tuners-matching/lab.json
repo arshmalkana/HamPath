@@ -1,0 +1,55 @@
+{
+  "lab": "LAB-27",
+  "steps": {
+    "explore-tuner": {
+      "title": "Tune it",
+      "prompt": "Adjust the tuner until the transceiver sees 1.5:1 or better.",
+      "config": {
+        "r": 200,
+        "x": 100,
+        "fDesign": 14.2,
+        "length": 1,
+        "f": 14.2,
+        "tuner": {
+          "xl": 0,
+          "xc": 500
+        },
+        "controls": {
+          "tuner": true
+        }
+      },
+      "goal": "rigSwr <= 1.5",
+      "goal_text": "Matched",
+      "hints": [
+        "Bring the capacitor down to about 100 Ω first.",
+        "Then bring the inductor up until the SWR dips."
+      ],
+      "success": "The tuner's reactance cancels the antenna's, and the radio sees 50 Ω. Full power again."
+    },
+    "explore-ratio": {
+      "title": "The folded dipole",
+      "prompt": "Choose the transformer ratio that matches 300 Ω to 50 Ω.",
+      "config": {
+        "r": 300,
+        "x": 0,
+        "fDesign": 14.2,
+        "length": 1,
+        "f": 14.2,
+        "ratio": 1,
+        "ratios": [
+          1,
+          2,
+          4,
+          6,
+          9
+        ],
+        "controls": {
+          "ratio": true
+        }
+      },
+      "goal": "rigSwr <= 1.1",
+      "goal_text": "1:1 match",
+      "success": "300 ÷ 50 = 6: a 6:1 transformer."
+    }
+  }
+}

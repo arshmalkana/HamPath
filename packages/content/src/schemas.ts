@@ -364,13 +364,100 @@ export const RfExposureConfigSchema = z.object({
   distance: z.number().positive(),
   controls: z.object({ distance: z.object({ min: z.number().positive(), max: z.number().positive(), step: z.number().positive() }) }),
 });
-export const AntennaConfigSchema = z.object({
-  mode: z.literal("yagi"),
-  reflector: z.number().min(0.85).max(1.15),
-  driven: z.number().min(0.85).max(1.15),
-  director: z.number().min(0.85).max(1.15),
-  feed: z.enum(["reflector", "driven", "director"]).nullable(),
-  controls: z.object({ lengths: z.boolean(), feed: z.boolean() }),
+const AntennaRange = z.union([z.object({ min: z.number().min(0), max: z.number().positive(), step: z.number().positive() }), z.literal(false)]);
+export const AntennaConfigSchema = z.discriminatedUnion("mode", [
+  z.object({
+    mode: z.literal("yagi"),
+    reflector: z.number().min(0.85).max(1.15),
+    driven: z.number().min(0.85).max(1.15),
+    director: z.number().min(0.85).max(1.15),
+    feed: z.enum(["reflector", "driven", "director"]).nullable(),
+    directors: z.number().int().min(1).max(4).optional(),
+    spacing: z.number().min(0.1).max(0.5).optional(),
+    f: z.number().positive().optional(),
+    controls: z.object({ lengths: z.boolean(), feed: z.boolean(), directors: z.boolean().optional(), spacing: z.boolean().optional() }),
+  }),
+  z.object({
+    mode: z.literal("dipole"),
+    f: z.number().positive(),
+    length: z.number().positive(),
+    orientation: z.enum(["ns", "ew"]),
+    controls: z.object({ length: AntennaRange, orientation: z.boolean() }),
+  }),
+  z.object({
+    mode: z.literal("vertical"),
+    f: z.number().positive(),
+    length: z.number().positive(),
+    radials: z.enum(["none", "horizontal", "drooping"]),
+    coil: z.number().min(0).optional(),
+    whipReactance: z.number().positive().optional(),
+    controls: z.object({ length: AntennaRange, radials: z.boolean(), coil: AntennaRange }),
+  }),
+  z.object({
+    mode: z.literal("loop"),
+    f: z.number().positive(),
+    perimeter: z.number().positive(),
+    shape: z.enum(["quad", "delta"]),
+    feed: z.enum(["bottom", "side"]),
+    controls: z.object({ perimeter: AntennaRange, feed: z.boolean() }),
+  }),
+]);
+const LineIdSchema = z.enum(["rg58", "rg213", "foam", "twinlead", "window", "openwire"]);
+export const FeedlineConfigSchema = z.object({
+  mode: z.enum(["coax-geometry", "open-geometry", "loss", "balun"]),
+  antenna: z.literal("dipole").optional(),
+  line: LineIdSchema,
+  length: z.number().min(0),
+  f: z.number().positive(),
+  balun: z.boolean().optional(),
+  D: z.number().positive().optional(),
+  d: z.number().positive().optional(),
+  dielectric: z.enum(["solid", "foam", "air"]).optional(),
+  S: z.number().positive().optional(),
+  lines: z.array(LineIdSchema).min(2).max(4).optional(),
+  bands: z.array(z.number().positive()).min(2).optional(),
+  controls: z.object({
+    D: z.boolean().optional(),
+    d: z.boolean().optional(),
+    dielectric: z.boolean().optional(),
+    S: z.boolean().optional(),
+    line: z.boolean().optional(),
+    length: AntennaRange.optional(),
+    f: z.boolean().optional(),
+    balun: z.boolean().optional(),
+  }),
+});
+export const SwrConfigSchema = z.object({
+  r: z.number().positive(),
+  x: z.number(),
+  fDesign: z.number().positive(),
+  fault: z.enum(["open", "short"]).nullable().optional(),
+  rated: z.number().positive().optional(),
+  length: z.number().positive(),
+  f: z.number().positive(),
+  lineLoss: z.number().min(0).optional(),
+  ratio: z.number().positive().optional(),
+  tuner: z.object({ xl: z.number().min(0), xc: z.number().positive() }).nullable().optional(),
+  analyzer: z.boolean().optional(),
+  sweep: z.tuple([z.number().positive(), z.number().positive()]).optional(),
+  ratios: z.array(z.number().positive()).min(2).optional(),
+  controls: z.object({
+    length: z.boolean().optional(),
+    f: AntennaRange.optional(),
+    lineLoss: z.union([z.object({ min: z.number().min(0), max: z.number().positive(), step: z.number().positive() }), z.literal(false)]).optional(),
+    ratio: z.boolean().optional(),
+    tuner: z.boolean().optional(),
+    repair: z.boolean().optional(),
+  }),
+});
+const PatternAntenna = z.enum(["isotropic", "dipole", "yagi"]);
+export const PatternConfigSchema = z.object({
+  antenna: PatternAntenna,
+  orientation: z.enum(["horizontal", "vertical"]),
+  rx: z.enum(["horizontal", "vertical"]).optional(),
+  parasitic: z.enum(["none", "director", "reflector"]).optional(),
+  antennas: z.array(PatternAntenna).min(1).max(4),
+  controls: z.object({ antenna: z.boolean(), orientation: z.boolean(), rx: z.boolean(), parasitic: z.boolean() }),
 });
 
 /** Config schema and the variables a goal may reference, per implemented lab. */
@@ -378,6 +465,9 @@ export const LAB_SCHEMAS: Record<string, { config: z.ZodType; variables: string[
   "LAB-13": { config: DiagramConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-13"]! },
   "LAB-14": { config: SpectrumConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-14"]! },
   "LAB-28": { config: AntennaConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-28"]! },
+  "LAB-26": { config: FeedlineConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-26"]! },
+  "LAB-27": { config: SwrConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-27"]! },
+  "LAB-29": { config: PatternConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-29"]! },
   "LAB-04": { config: SsbDriveConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-04"]! },
   "LAB-10": { config: KeyerConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-10"]! },
   "LAB-15": { config: PowerBenchConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-15"]! },

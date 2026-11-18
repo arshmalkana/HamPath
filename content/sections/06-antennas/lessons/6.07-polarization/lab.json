@@ -1,0 +1,49 @@
+{
+  "lab": "LAB-29",
+  "steps": {
+    "explore-pol": {
+      "title": "Match the polarization",
+      "prompt": "Turn the receiving antenna to get the full signal.",
+      "config": {
+        "antenna": "dipole",
+        "orientation": "vertical",
+        "rx": "horizontal",
+        "parasitic": "none",
+        "antennas": [
+          "dipole"
+        ],
+        "controls": {
+          "antenna": false,
+          "orientation": false,
+          "rx": true,
+          "parasitic": false
+        }
+      },
+      "goal": "matched",
+      "goal_text": "Polarizations match",
+      "success": "Vertical to vertical: full strength. Cross-polarized, the signal was about 20 dB weaker."
+    },
+    "explore-iso": {
+      "title": "The isotropic radiator",
+      "prompt": "Switch to the isotropic antenna and look at its shape.",
+      "config": {
+        "antenna": "dipole",
+        "orientation": "horizontal",
+        "parasitic": "none",
+        "antennas": [
+          "isotropic",
+          "dipole"
+        ],
+        "controls": {
+          "antenna": true,
+          "orientation": false,
+          "rx": false,
+          "parasitic": false
+        }
+      },
+      "goal": "isotropic",
+      "goal_text": "Isotropic selected",
+      "success": "A perfect sphere: equal in every direction. The dipole's doughnut is squashed off its ends."
+    }
+  }
+}

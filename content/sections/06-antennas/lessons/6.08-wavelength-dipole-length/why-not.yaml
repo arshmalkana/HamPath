@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-006-008-001:
+  Make it shorter: Shorter would raise the frequency; you want it lower.
+  Install it as a sloper: Sloping doesn't move resonance much.
+  Use smaller diameter wire: Thinner wire doesn't lower the resonance like length does.
+B-006-008-002:
+  Make it longer: Longer would lower the frequency; you want it higher.
+  Install it as a sloper: Sloping doesn't move resonance much.
+  Use larger diameter wire: Thicker wire doesn't raise it like shortening does.
+B-006-008-003:
+  19 metres: 19 m isn't 300 ÷ 25.
+  39 metres: 39 m is about 300 ÷ 7.7.
+  6 metres: 6 m would be 50 MHz.
+B-006-008-004:
+  200 000 kilometres per second: 200 000 km/s is the speed in some cable, not free space.
+  150 000 kilometres per second: 150 000 km/s is half the speed of light.
+  186 000 kilometres per second: 186 000 is the speed of light in miles per second, not km.
+B-006-008-005:
+  increase the resonant frequency: Series inductance lowers the resonant frequency.
+  increase its useful bandwidth: It narrows the bandwidth, if anything.
+  reduce atmospheric noise pickup: It doesn't reduce noise pickup.
+B-006-008-006:
+  lowering the radiating element: Lowering the antenna doesn't change its resonance much.
+  increasing the height of the radiating element: Height doesn't raise its resonant frequency.
+  lengthening the radiating element: Lengthening lowers the resonant frequency.
+B-006-008-007:
+  is constant: It's constant in a given medium, but the answer is it equals the speed of light.
+  is less than half the speed of light: Radio waves travel at the speed of light, not less than half.
+  varies depending on the frequency: It doesn't vary with frequency.
+B-006-008-008:
+  To decrease the effective antenna length: Insulators don't shorten the antenna; they define where it ends.
+  To increase the antenna bandwidth: They don't increase bandwidth.
+  To reduce capacitive coupling with the ground: They don't reduce ground coupling.
+B-006-008-009:
+  shorten it: Shortening raises the frequency.
+  use smaller diameter wire: Thinner wire isn't the way.
+  lengthen the transmission line: The feedline's length doesn't change the antenna's resonance.
+B-006-008-010:
+  A large wire-wound resistor: A trap isn't a resistor.
+  A coil wrapped around a ferrite rod: A coil on a ferrite rod is a choke or loopstick.
+  A hollow metal can: A hollow metal can isn't a trap.
+B-006-008-011:
+  360 metres: 360 m is far too long.
+  1500 metres: 1500 m is 300 ÷ 0.2.
+  30 metres: 30 m would be 10 MHz.

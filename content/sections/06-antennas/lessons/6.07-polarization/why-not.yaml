@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-006-007-001:
+  The electric and magnetic lines of force of a radio wave are perpendicular to the Earth's surface: Both fields perpendicular to the ground isn't possible, and it's the electric field that counts.
+  The electric lines of force of a radio wave are perpendicular to the Earth's surface: Perpendicular to the Earth is vertical polarization.
+  The magnetic lines of force of a radio wave are parallel to the Earth's surface: Polarization is defined by the electric field, not the magnetic.
+B-006-007-002:
+  The magnetic lines of force of a radio wave are perpendicular to the Earth's surface: Polarization is defined by the electric field, not the magnetic.
+  The electric and magnetic lines of force of a radio wave are parallel to the Earth's surface: Both fields can't be parallel to the ground at once, and that would be horizontal anyway.
+  The electric lines of force of a radio wave are parallel to the Earth's surface: Parallel to the ground is horizontal.
+B-006-007-003:
+  Elliptical: A plain Yagi isn't elliptically polarized.
+  Vertical: Horizontal elements give horizontal polarization.
+  Circular: Circular polarization needs crossed elements.
+B-006-007-004:
+  Circular: A plain half-wave antenna isn't circularly polarized.
+  Horizontal: Perpendicular to the ground means vertical.
+  Elliptical: It isn't elliptically polarized.
+B-006-007-005:
+  the orientation of the electric field relative to the transmission line: The feedline's direction doesn't set polarization.
+  the orientation of the magnetic field relative to the Earth's surface: It's the electric field, not the magnetic.
+  the orientation of the electric field relative to the magnetic field: It's relative to the Earth, not the magnetic field.
+B-006-007-006:
+  an infinitely long piece of wire: An infinite wire is just a long wire.
+  a dummy load: A dummy load doesn't radiate.
+  a half-wave reference dipole: The half-wave dipole is a real reference, not the isotropic one.
+B-006-007-007:
+  A torus (donut shape): A torus is a dipole's pattern.
+  A cardioid: A cardioid is a directional pattern.
+  A hemisphere: A hemisphere would only cover half the directions.
+B-006-007-008:
+  random length of wire: A random wire has no consistent polarization.
+  horizontal ground-plane antenna: A horizontal ground plane mismatches a vertical whip.
+  horizontal dipole antenna: A horizontal dipole is cross-polarized to a vertical whip.
+B-006-007-009:
+  mounted horizontally: Mounted horizontally gives horizontal polarization.
+  too near to the ground: Height doesn't change polarization.
+  very high above ground: Height doesn't change polarization.
+B-006-007-010:
+  Oblique: Oblique isn't the answer; ground waves keep their polarization.
+  Horizontal: Ground waves stay vertical.
+  Circular: Ground waves don't become circular.
+B-006-007-011:
+  at lower strength: A matching vertical antenna receives more, not less.
+  at about the same strength: Cross-polarization makes a big difference.
+  at a strength depending on the height above ground: Height isn't what decides this.

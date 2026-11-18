@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-006-005-001:
+  Reflected power equals forward power: Reflected equal to forward is the worst case, not the best.
+  An impedance transformer is needed at the antenna feed point: At 1:1 no transformer is needed.
+  An antenna tuner is needed at the transmitter: At 1:1 no tuner is needed.
+B-006-005-002:
+  An impedance match that is too low: There's no such thing as a match that's too low.
+  A serious impedance mismatch, something may be wrong with the antenna system: Below 1.5:1 is good, not a serious mismatch.
+  An antenna gain of 1.5: SWR isn't gain.
+B-006-005-003:
+  Transmitting into the wrong antenna: The wrong antenna gives a steady reading, not an erratic one.
+  Interference from electrical power lines: Power-line noise doesn't make the SWR meter jump.
+  Lack of a balun at the antenna feed point: No balun gives a steady reading.
+B-006-005-004:
+  Grounding the shield of the coaxial cable at the building entrance: Grounding the shield at the entrance is good practice.
+  Using a very long transmission line: A long line lowers the SWR reading, if anything.
+  Replacing RG-213 coaxial cable with RG-58: Lossier coax lowers the SWR reading.
+B-006-005-005:
+  Increased receive noise level: High SWR doesn't raise receive noise.
+  Increased transmission line radiation: Line radiation comes from imbalance, not SWR.
+  Increased common-mode current: Common-mode current comes from imbalance, not SWR.
+B-006-005-006:
+  Multimeter: A multimeter can't measure antenna resonance.
+  Capacitance meter: A capacitance meter isn't for antennas.
+  Frequency meter: A frequency meter measures signals, not antenna match.
+B-006-005-007:
+  heat is produced at the junction: The mismatch isn't a hot spot.
+  the SWR reading falls to 1:1: A mismatch raises the SWR above 1:1.
+  the antenna will not radiate any signal: The antenna still radiates; less power reaches it.
+B-006-005-008:
+  perfect impedance match between transmitter and transmission line: Standing waves mean a mismatch, not a perfect match.
+  maximum transfer of energy to the antenna from the transmitter: Standing waves mean less energy is transferred.
+  lack of radiation from the transmission line: Standing waves don't stop the line radiating.
+B-006-005-009:
+  Radiated RF energy: The SWR meter doesn't measure radiated energy.
+  Conductor temperature: It doesn't measure temperature.
+  Common-mode current: It doesn't measure common-mode current.
+B-006-005-010:
+  Radiation pattern of the antenna: An analyzer can't show the radiation pattern.
+  Gain of the antenna: It can't measure gain.
+  Front-to-back ratio of the antenna: It can't measure front-to-back ratio.
+B-006-005-011:
+  It decreases the SWR, because less power reaches the antenna: Less power reaching the antenna isn't why; the reflection is attenuated.
+  It has no effect, because SWR compares voltages: Line loss does change the reading.
+  It has no effect, because forward and reflected power are both affected: "Line loss affects the reflected wave twice: out and back."
