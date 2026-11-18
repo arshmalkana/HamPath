@@ -16,3 +16,4 @@ export * from "./feedline.ts";
 export * from "./propagation.ts";
 export * from "./interference.ts";
 export * from "./operating.ts";
+export * from "./regulations.ts";

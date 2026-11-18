@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-014-001:
+  Take over the conversation with the Canadian and foreign station: You don't need to take over.
+  Instruct your friend to ignore the foreign station: Ignoring them isn't necessary.
+  Stop all discussions and quickly sign off: You don't need to stop.
+B-001-014-002:
+  Amateur radio operators are automatically granted equivalent privileges in all member states of the International Telecommunication Union: ITU membership doesn't automatically grant privileges.
+  Canada automatically grants privileges to visiting amateur radio operators: Canada doesn't automatically grant privileges.
+  The foreign amateur radio operator must submit an application to Radio Amateurs of Canada (RAC): RAC doesn't issue permits.
+B-001-014-003:
+  if the amateur radio station has received written authorization from Innovation, Science and Economic Development Canada: No written authorization is needed.
+  when it is permitted by the foreign country: It's allowed because Canada doesn't prohibit it, not because of the other country.
+  when prior remuneration has been received: Payment is never allowed.
+B-001-014-004:
+  It is prohibited by Innovation, Science and Economic Development Canada: ISED doesn't prohibit it.
+  The country is not a member of the International Amateur Radio Union (IARU): IARU membership isn't the condition.
+  The conversation is not conducted totally in English or French: Language isn't the condition.
+B-001-014-005:
+  Basic with Honours: Honours isn't the privilege level.
+  Basic and Morse code: Basic and Morse isn't the level.
+  Basic: Basic isn't the level.
+B-001-014-006:
+  Only communications where the third party is in a country approved by Innovation, Science and Economic Development Canada: No ISED approval list is needed.
+  Only communications conducted entirely within Canada: It needn't be within Canada.
+  Only communications routed through a digital network: It needn't use a digital network.
+B-001-014-007:
+  satellite communication can be originated in the disaster area: Satellites don't change it.
+  the foreign administration is in a declared state of war: War isn't the exception named.
+  internet service is working well in the foreign country involved: Internet service doesn't change it.
+B-001-014-008:
+  The foreign amateur radio operator and the other person at the foreign station: The foreign amateur isn't a third party.
+  The foreign amateur radio operator and both non-certified persons: The foreign amateur isn't a third party.
+  The non-certified person at the Canadian station: The friend at the foreign station is a third party too.
+B-001-014-009:
+  Current grid square: Grid square isn't the requirement.
+  Location and output power: Power isn't required.
+  City and state of residence: City and state of residence isn't it; their location in Canada is.
+B-001-014-010:
+  The name of the nearest Canadian community: The nearest community name isn't required.
+  The name of the province or territory where the station is located: The province name isn't the format; the Canadian prefix is.
+  The transmitting frequency being used: Frequency isn't part of the identification.
+B-001-014-011:
+  only with countries that have third-party traffic agreements with Canada: No third-party agreements are needed.
+  on frequencies assigned to the Canadian Forces Affiliate Radio Service (CFARS): CFARS frequencies aren't amateur.
+  only in cases of emergencies or disaster relief: It isn't limited to emergencies.

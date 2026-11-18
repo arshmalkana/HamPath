@@ -1,0 +1,53 @@
+{
+  "lab": "LAB-01",
+  "steps": {
+    "find-80": {
+      "title": "Find 80 metres",
+      "prompt": "Tune into the 80 m band.",
+      "config": {
+        "f": 2.5,
+        "emission": "cw",
+        "emissions": [
+          "cw",
+          "ssb"
+        ],
+        "range": {
+          "min": 1.8,
+          "max": 30,
+          "step": 0.1
+        },
+        "controls": {
+          "f": true,
+          "emission": false
+        }
+      },
+      "goal": "band == 80",
+      "goal_text": "In 80 m",
+      "success": "80 m runs from 3.5 to 4.0 MHz."
+    },
+    "find-15": {
+      "title": "Find 15 metres",
+      "prompt": "Tune into the 15 m band.",
+      "config": {
+        "f": 18,
+        "emission": "cw",
+        "emissions": [
+          "cw",
+          "ssb"
+        ],
+        "range": {
+          "min": 1.8,
+          "max": 30,
+          "step": 0.1
+        },
+        "controls": {
+          "f": true,
+          "emission": false
+        }
+      },
+      "goal": "band == 15",
+      "goal_text": "In 15 m",
+      "success": "15 m runs from 21.000 to 21.450 MHz."
+    }
+  }
+}

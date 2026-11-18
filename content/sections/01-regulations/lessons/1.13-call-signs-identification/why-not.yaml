@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-013-001:
+  SM2CAN: SM is Sweden.
+  BY7HY: BY is China.
+  KA9OLS: KA is the United States.
+B-001-013-002:
+  At the beginning of a contact and at least every thirty minutes after that: You must also identify at the end.
+  At least once during each transmission: Every transmission isn't required.
+  At the beginning and end of each transmission: Every transmission isn't the rule; every 30 minutes plus start and end.
+B-001-013-003:
+  Your "handle": Handles aren't identification.
+  Your first name and your location: Your name and location don't identify the station.
+  Your full name: Your full name isn't your station's identification.
+B-001-013-004:
+  No identification is required: Identification is required.
+  Both stations must transmit both call signs: Each gives only its own call sign.
+  One of the stations must give both stations' call signs: Each station gives its own.
+B-001-013-005:
+  No identification is required: Identification is required.
+  One of the stations must transmit both stations' call signs: Each gives its own.
+  Both stations must transmit both call signs: Each gives its own.
+B-001-013-006:
+  20 minutes: 20 minutes is stricter than the rule.
+  15 minutes: 15 minutes is stricter than the rule.
+  10 minutes: 10 minutes is stricter than the rule.
+B-001-013-007:
+  Only for brief tests not meant as messages: Tests must be identified.
+  Only if it does not interfere with others: Not interfering doesn't excuse identification.
+  Only for two-way or third-party communications: Two-way traffic must be identified.
+B-001-013-008:
+  Any language being used for a contact: You must identify in English or French.
+  Any language being used for a contact, providing Canada has a third-party communications agreement with that country: Third-party agreements don't change the language rule.
+  Any language of a country that is a member of the International Telecommunication Union: ITU membership doesn't change it.
+B-001-013-009:
+  at intervals not greater than three minutes when using voice communications: Three minutes isn't the rule.
+  at intervals not greater than ten minutes when using digital modes: Ten minutes isn't the rule.
+  when requested to do so by the station being called: You must identify whether asked or not.
+B-001-013-010:
+  Brief test transmissions need not be identified: Brief tests must be identified.
+  Identification shall be transmitted at five-minute intervals: Five minutes isn't the rule.
+  Identification is only needed on voice modes: It applies to all modes.
+B-001-013-011:
+  GA, GE, MO or VQ: GA, GE and MO are British; VQ isn't Canadian.
+  A, K, N or W: A, K, N and W are American.
+  EA, EI, RO or UY: EA, EI, RO and UY are other countries.

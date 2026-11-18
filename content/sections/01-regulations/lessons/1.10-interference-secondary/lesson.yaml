@@ -1,0 +1,15 @@
+code: "1.10"
+title: Interference and secondary allocations
+est_minutes: 12
+lab_id: LAB-02
+question_ids:
+  - B-001-010-001
+  - B-001-010-002
+  - B-001-010-003
+  - B-001-010-004
+  - B-001-010-005
+  - B-001-010-006
+  - B-001-010-007
+  - B-001-010-008
+  - B-001-010-009
+  - B-001-010-010

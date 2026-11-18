@@ -157,151 +157,151 @@ Status: authored
 
 Lab: LAB-02
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-010-001 | What is a transmission that disturbs other communications called? | — | 0/3 |  |
-| B-001-010-002 | When may you deliberately interfere with another amateur radio station's communications? | — | 0/3 |  |
-| B-001-010-003 | If the regulations say that the amateur radio service is a secondary user of a frequency band, and another service is a primary user, what does this mean? | — | 0/3 |  |
-| B-001-010-004 | What rule applies if two amateur radio operators want to use the same frequency? | — | 0/3 |  |
-| B-001-010-005 | What name is given to a form of interference that seriously degrades, obstructs or repeatedly interrupts a radiocommunication service? | — | 0/3 |  |
-| B-001-010-006 | In the event the Minister of Innovation, Science and Industry determines that an amateur radio station causes harmful interference, what are the Minister's powers? | — | 0/3 |  |
-| B-001-010-007 | Amateur radio operation must not cause interference to other radio services operating in which of the following bands? | — | 0/3 |  |
-| B-001-010-008 | Amateur radio operations are NOT protected from interference caused by another service operating in which of the following frequency bands? | — | 0/3 |  |
-| B-001-010-009 | Under what circumstances may the operator of an amateur radio station conduct test transmissions? | — | 0/3 |  |
-| B-001-010-010 | Which of these amateur radio bands may be heavily occupied by licence-exempt devices? | — | 0/3 |  |
+| B-001-010-001 | What is a transmission that disturbs other communications called? | 03-harmful | 3/3 |  |
+| B-001-010-002 | When may you deliberately interfere with another amateur radio station's communications? | 02-explore, 03-harmful | 3/3 |  |
+| B-001-010-003 | If the regulations say that the amateur radio service is a secondary user of a frequency band, and another service is a primary user, what does this mean? | 02-explore, 04-secondary | 3/3 |  |
+| B-001-010-004 | What rule applies if two amateur radio operators want to use the same frequency? | 02-explore, 04-secondary | 3/3 |  |
+| B-001-010-005 | What name is given to a form of interference that seriously degrades, obstructs or repeatedly interrupts a radiocommunication service? | 03-harmful | 3/3 |  |
+| B-001-010-006 | In the event the Minister of Innovation, Science and Industry determines that an amateur radio station causes harmful interference, what are the Minister's powers? | 03-harmful | 3/3 |  |
+| B-001-010-007 | Amateur radio operation must not cause interference to other radio services operating in which of the following bands? | 04-secondary | 3/3 |  |
+| B-001-010-008 | Amateur radio operations are NOT protected from interference caused by another service operating in which of the following frequency bands? | 04-secondary | 3/3 |  |
+| B-001-010-009 | Under what circumstances may the operator of an amateur radio station conduct test transmissions? | 02-explore, 03-harmful | 3/3 |  |
+| B-001-010-010 | Which of these amateur radio bands may be heavily occupied by licence-exempt devices? | 04-secondary | 3/3 |  |
 
 ## 1.11 Distress, emergencies and relief operations
 
 Lab: LAB-11
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-011-001 | Amateur radio stations may communicate: | — | 0/3 |  |
-| B-001-011-002 | During relief operations in the days following a disaster, when may you use your amateur radio equipment to communicate on frequencies outside amateur radio bands? | — | 0/3 |  |
-| B-001-011-003 | If you hear an unanswered distress signal on an amateur radio band where you do NOT have privileges to communicate: | — | 0/3 |  |
-| B-001-011-004 | In the amateur radio service, it is permissible to broadcast: | — | 0/3 |  |
-| B-001-011-005 | An amateur radio operator in distress may: | — | 0/3 |  |
-| B-001-011-006 | During a disaster, when may an amateur radio station make transmissions necessary to meet essential communication needs and assist relief operations? | — | 0/3 |  |
-| B-001-011-007 | What transmitter power limitations must be observed by an amateur radio operator in distress? | — | 0/3 |  |
-| B-001-011-008 | What is expected of operators NOT directly involved in a disaster relief net? | — | 0/3 |  |
-| B-001-011-009 | When may amateur radio operators handle messages from recognized public service agencies? | — | 0/3 |  |
-| B-001-011-010 | When are you permitted to interfere with another station's transmissions? | — | 0/3 |  |
+| B-001-011-001 | Amateur radio stations may communicate: | 04-relief | 3/3 |  |
+| B-001-011-002 | During relief operations in the days following a disaster, when may you use your amateur radio equipment to communicate on frequencies outside amateur radio bands? | 02-explore, 04-relief | 3/3 |  |
+| B-001-011-003 | If you hear an unanswered distress signal on an amateur radio band where you do NOT have privileges to communicate: | 02-explore, 03-distress | 3/3 |  |
+| B-001-011-004 | In the amateur radio service, it is permissible to broadcast: | 04-relief | 3/3 |  |
+| B-001-011-005 | An amateur radio operator in distress may: | 03-distress | 3/3 |  |
+| B-001-011-006 | During a disaster, when may an amateur radio station make transmissions necessary to meet essential communication needs and assist relief operations? | 02-explore, 04-relief | 3/3 |  |
+| B-001-011-007 | What transmitter power limitations must be observed by an amateur radio operator in distress? | 03-distress | 3/3 |  |
+| B-001-011-008 | What is expected of operators NOT directly involved in a disaster relief net? | 02-explore, 04-relief | 3/3 |  |
+| B-001-011-009 | When may amateur radio operators handle messages from recognized public service agencies? | 04-relief | 3/3 |  |
+| B-001-011-010 | When are you permitted to interfere with another station's transmissions? | 03-distress | 3/3 |  |
 
 ## 1.12 No payment for messages
 
 Lab: LAB-02
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-012-001 | What kind of payment is allowed for third-party messages sent by an amateur radio station? | — | 0/3 |  |
-| B-001-012-002 | Radiocommunications transmitted by stations other than a broadcasting station may be divulged or used: | — | 0/3 |  |
-| B-001-012-003 | When may an amateur radio operator demand or accept remuneration for exchanging messages? | — | 0/3 |  |
-| B-001-012-004 | With regard to divulging the content of radiocommunications other than broadcasting, which of the following is an offence? | — | 0/3 |  |
+| B-001-012-001 | What kind of payment is allowed for third-party messages sent by an amateur radio station? | 02-explore, 03-payment | 3/3 |  |
+| B-001-012-002 | Radiocommunications transmitted by stations other than a broadcasting station may be divulged or used: | 03-payment | 3/3 |  |
+| B-001-012-003 | When may an amateur radio operator demand or accept remuneration for exchanging messages? | 02-explore, 03-payment | 3/3 |  |
+| B-001-012-004 | With regard to divulging the content of radiocommunications other than broadcasting, which of the following is an offence? | 02-explore, 03-payment | 3/3 |  |
 
 ## 1.13 Call signs and station identification
 
 Lab: LAB-03
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-013-001 | Which of the following call signs is a valid Canadian amateur radio call sign? | — | 0/3 |  |
-| B-001-013-002 | How often must an amateur radio station be identified? | — | 0/3 |  |
-| B-001-013-003 | What do you transmit to identify your amateur radio station? | — | 0/3 |  |
-| B-001-013-004 | What identification, if any, is required when two amateur radio stations begin communications? | — | 0/3 |  |
-| B-001-013-005 | What identification, if any, is required when two amateur radio stations end communications? | — | 0/3 |  |
-| B-001-013-006 | What is the longest period of time an amateur radio station can transmit, without identifying by call sign? | — | 0/3 |  |
-| B-001-013-007 | When may an amateur radio operator transmit unidentified communications? | — | 0/3 |  |
-| B-001-013-008 | What language may you use when identifying your station? | — | 0/3 |  |
-| B-001-013-009 | The call sign of an amateur radio station must be transmitted: | — | 0/3 |  |
-| B-001-013-010 | What are the station identification requirements for a test transmission? | — | 0/3 |  |
-| B-001-013-011 | The call sign of a Canadian amateur radio station would normally start with the letters: | — | 0/3 |  |
+| B-001-013-001 | Which of the following call signs is a valid Canadian amateur radio call sign? | 02-explore-build, 03-prefixes | 3/3 |  |
+| B-001-013-002 | How often must an amateur radio station be identified? | 04-explore-timing, 05-when | 3/3 |  |
+| B-001-013-003 | What do you transmit to identify your amateur radio station? | 03-prefixes | 3/3 |  |
+| B-001-013-004 | What identification, if any, is required when two amateur radio stations begin communications? | 05-when | 3/3 |  |
+| B-001-013-005 | What identification, if any, is required when two amateur radio stations end communications? | 05-when | 3/3 |  |
+| B-001-013-006 | What is the longest period of time an amateur radio station can transmit, without identifying by call sign? | 04-explore-timing, 05-when | 3/3 |  |
+| B-001-013-007 | When may an amateur radio operator transmit unidentified communications? | 05-when | 3/3 |  |
+| B-001-013-008 | What language may you use when identifying your station? | 05-when | 3/3 |  |
+| B-001-013-009 | The call sign of an amateur radio station must be transmitted: | 04-explore-timing, 05-when | 3/3 |  |
+| B-001-013-010 | What are the station identification requirements for a test transmission? | 05-when | 3/3 |  |
+| B-001-013-011 | The call sign of a Canadian amateur radio station would normally start with the letters: | 02-explore-build, 03-prefixes | 3/3 |  |
 
 ## 1.14 Third-party traffic and foreign operators
 
 Lab: LAB-02
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-014-001 | If a friend without amateur radio certification is using your station to talk to someone in Canada, and a foreign station breaks in to talk to your friend, what should you do? | — | 0/3 |  |
-| B-001-014-002 | In what circumstances can foreign amateur radio operators, other than United States citizens, operate while visiting Canada? | — | 0/3 |  |
-| B-001-014-003 | Canadian amateur radio operators may use their stations to transmit international communications on behalf of a third party: | — | 0/3 |  |
-| B-001-014-004 | What condition would preclude a Canadian amateur radio station from communicating with amateur radio stations in another country? | — | 0/3 |  |
-| B-001-014-005 | Foreign amateur radio operators may operate in Canada if they qualify for a CEPT (European Conference of Postal and Telecommunications Administrations) Amateur Radio Licence. What operating privileges are they granted by Innovation, Science and Economic Development Canada? | — | 0/3 |  |
-| B-001-014-006 | Third-party communications are those conducted on behalf of a person without amateur radio certification. In the Canadian amateur radio service, what third-party communications are permissible? | — | 0/3 |  |
-| B-001-014-007 | International third-party amateur radio communication in case of emergencies or disaster relief is expressly permitted unless: | — | 0/3 |  |
-| B-001-014-008 | You and a foreign amateur radio operator both have a local friend without amateur radio certification engaged in radio communication. Who is considered a third party? | — | 0/3 |  |
-| B-001-014-009 | While operating in Canada, what information must the holder of a United States-issued call sign indicate at least once during a contact? | — | 0/3 |  |
-| B-001-014-010 | While in Canada and operating in a voice mode, American amateur radio operators must identify with their call sign, the qualifier "mobile" or "portable" and what other information? | — | 0/3 |  |
-| B-001-014-011 | Canadian amateur radio stations may provide communications on behalf of third parties: | — | 0/3 |  |
+| B-001-014-001 | If a friend without amateur radio certification is using your station to talk to someone in Canada, and a foreign station breaks in to talk to your friend, what should you do? | 02-explore, 03-third-party | 3/3 |  |
+| B-001-014-002 | In what circumstances can foreign amateur radio operators, other than United States citizens, operate while visiting Canada? | 04-visitors | 3/3 |  |
+| B-001-014-003 | Canadian amateur radio operators may use their stations to transmit international communications on behalf of a third party: | 03-third-party | 3/3 |  |
+| B-001-014-004 | What condition would preclude a Canadian amateur radio station from communicating with amateur radio stations in another country? | 03-third-party | 3/3 |  |
+| B-001-014-005 | Foreign amateur radio operators may operate in Canada if they qualify for a CEPT (European Conference of Postal and Telecommunications Administrations) Amateur Radio Licence. What operating privileges are they granted by Innovation, Science and Economic Development Canada? | 04-visitors | 3/3 |  |
+| B-001-014-006 | Third-party communications are those conducted on behalf of a person without amateur radio certification. In the Canadian amateur radio service, what third-party communications are permissible? | 02-explore, 03-third-party | 3/3 |  |
+| B-001-014-007 | International third-party amateur radio communication in case of emergencies or disaster relief is expressly permitted unless: | 03-third-party | 3/3 |  |
+| B-001-014-008 | You and a foreign amateur radio operator both have a local friend without amateur radio certification engaged in radio communication. Who is considered a third party? | 02-explore, 03-third-party | 3/3 |  |
+| B-001-014-009 | While operating in Canada, what information must the holder of a United States-issued call sign indicate at least once during a contact? | 04-visitors | 3/3 |  |
+| B-001-014-010 | While in Canada and operating in a voice mode, American amateur radio operators must identify with their call sign, the qualifier "mobile" or "portable" and what other information? | 04-visitors | 3/3 |  |
+| B-001-014-011 | Canadian amateur radio stations may provide communications on behalf of third parties: | 02-explore, 03-third-party | 3/3 |  |
 
 ## 1.15 Qualifications and their privileges
 
 Lab: LAB-01
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-015-001 | If you let another amateur radio operator with additional qualifications than yours control your station and operate under your call sign, what operating privileges are allowed? | — | 0/3 |  |
-| B-001-015-002 | If you are the control operator at the station of another amateur radio operator who has more certificate qualifications than you, what operating privileges are you allowed? | — | 0/3 |  |
-| B-001-015-003 | In addition to passing the Basic written examination, what must you do before you are allowed to use amateur radio frequencies below 30 MHz? | — | 0/3 |  |
-| B-001-015-004 | The holder of an Amateur Radio Operator Certificate may operate radio-controlled models: | — | 0/3 |  |
-| B-001-015-005 | What is the frequency range of the 80-metre amateur radio band in Canada? | — | 0/3 |  |
-| B-001-015-006 | What is the frequency range of the 160-metre amateur radio band in Canada? | — | 0/3 |  |
-| B-001-015-007 | What is the frequency range of the 40-metre amateur radio band in Canada? | — | 0/3 |  |
-| B-001-015-008 | What is the frequency range of the 20-metre amateur radio band in Canada? | — | 0/3 |  |
-| B-001-015-009 | What is the frequency range of the 15-metre amateur radio band in Canada? | — | 0/3 |  |
-| B-001-015-010 | What is the frequency range of the 10-metre amateur radio band in Canada? | — | 0/3 |  |
-| B-001-015-011 | In Canada, which bands may amateur radio operators use for radio control of models? | — | 0/3 |  |
+| B-001-015-001 | If you let another amateur radio operator with additional qualifications than yours control your station and operate under your call sign, what operating privileges are allowed? | 06-privileges | 3/3 |  |
+| B-001-015-002 | If you are the control operator at the station of another amateur radio operator who has more certificate qualifications than you, what operating privileges are you allowed? | 06-privileges | 3/3 |  |
+| B-001-015-003 | In addition to passing the Basic written examination, what must you do before you are allowed to use amateur radio frequencies below 30 MHz? | 06-privileges | 3/3 |  |
+| B-001-015-004 | The holder of an Amateur Radio Operator Certificate may operate radio-controlled models: | 06-privileges | 3/3 |  |
+| B-001-015-005 | What is the frequency range of the 80-metre amateur radio band in Canada? | 02-explore-80, 03-bands, 04-flash | 3/3 | ✓ ham-sim |
+| B-001-015-006 | What is the frequency range of the 160-metre amateur radio band in Canada? | 02-explore-80, 03-bands, 04-flash | 3/3 | ✓ ham-sim |
+| B-001-015-007 | What is the frequency range of the 40-metre amateur radio band in Canada? | 03-bands, 04-flash | 3/3 | ✓ ham-sim |
+| B-001-015-008 | What is the frequency range of the 20-metre amateur radio band in Canada? | 03-bands, 04-flash | 3/3 | ✓ ham-sim |
+| B-001-015-009 | What is the frequency range of the 15-metre amateur radio band in Canada? | 03-bands, 04-flash, 05-explore-15 | 3/3 | ✓ ham-sim |
+| B-001-015-010 | What is the frequency range of the 10-metre amateur radio band in Canada? | 03-bands, 04-flash | 3/3 | ✓ ham-sim |
+| B-001-015-011 | In Canada, which bands may amateur radio operators use for radio control of models? | 06-privileges | 3/3 |  |
 
 ## 1.16 Bandwidth limits by band
 
 Lab: LAB-01
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-016-001 | What is the maximum authorized bandwidth on the 6-metre and 2-metre bands? | — | 0/3 |  |
-| B-001-016-002 | The maximum bandwidth of an amateur radio station's transmission allowed in the band 28 MHz to 29.7 MHz is: | — | 0/3 |  |
-| B-001-016-003 | Except for one band, what is the allowed bandwidth on amateur radio bands between 7 MHz and 25 MHz? | — | 0/3 |  |
-| B-001-016-004 | The maximum bandwidth of an amateur radio station's transmission allowed in the band 144 MHz to 148 MHz is: | — | 0/3 |  |
-| B-001-016-005 | The maximum bandwidth of an amateur radio station's transmission allowed in the band 50 MHz to 54 MHz is: | — | 0/3 |  |
-| B-001-016-006 | Which of the following amateur radio bands has a maximum allowed bandwidth of less than 6 kHz? | — | 0/3 |  |
-| B-001-016-007 | In which of the following amateur radio bands is single sideband prohibited? | — | 0/3 |  |
-| B-001-016-008 | What precaution must an amateur radio operator take when transmitting near band edges? | — | 0/3 |  |
-| B-001-016-009 | Based on the frequency stated and emission mode, which of the following combinations is prohibited? | — | 0/3 |  |
-| B-001-016-010 | Based on the frequency stated and emission mode, which of the following combinations is prohibited? | — | 0/3 |  |
-| B-001-016-011 | Based on the frequency stated and emission mode, which of the following combinations is prohibited? | — | 0/3 |  |
+| B-001-016-001 | What is the maximum authorized bandwidth on the 6-metre and 2-metre bands? | 03-limits | 3/3 | ✓ ham-sim |
+| B-001-016-002 | The maximum bandwidth of an amateur radio station's transmission allowed in the band 28 MHz to 29.7 MHz is: | 03-limits | 3/3 | ✓ ham-sim |
+| B-001-016-003 | Except for one band, what is the allowed bandwidth on amateur radio bands between 7 MHz and 25 MHz? | 03-limits | 3/3 | ✓ ham-sim |
+| B-001-016-004 | The maximum bandwidth of an amateur radio station's transmission allowed in the band 144 MHz to 148 MHz is: | 03-limits | 3/3 | ✓ ham-sim |
+| B-001-016-005 | The maximum bandwidth of an amateur radio station's transmission allowed in the band 50 MHz to 54 MHz is: | 03-limits | 3/3 | ✓ ham-sim |
+| B-001-016-006 | Which of the following amateur radio bands has a maximum allowed bandwidth of less than 6 kHz? | 02-explore-30m, 03-limits | 3/3 |  |
+| B-001-016-007 | In which of the following amateur radio bands is single sideband prohibited? | 02-explore-30m, 03-limits | 3/3 |  |
+| B-001-016-008 | What precaution must an amateur radio operator take when transmitting near band edges? | 05-combos, 06-explore-edge | 3/3 |  |
+| B-001-016-009 | Based on the frequency stated and emission mode, which of the following combinations is prohibited? | 04-explore-atv, 05-combos | 3/3 |  |
+| B-001-016-010 | Based on the frequency stated and emission mode, which of the following combinations is prohibited? | 05-combos | 3/3 |  |
+| B-001-016-011 | Based on the frequency stated and emission mode, which of the following combinations is prohibited? | 02-explore-30m, 05-combos | 3/3 |  |
 
 ## 1.17 Transmitter power limits
 
 Lab: LAB-04
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-017-001 | What transmitter power should Canadian amateur radio operators use at all times? | — | 0/3 |  |
-| B-001-017-002 | For single sideband (SSB) operation, what is the maximum transmitter peak envelope power (PEP) that an amateur radio station may use if the operator holds an Amateur Radio Operator Certificate with Advanced Qualification? | — | 0/3 |  |
-| B-001-017-003 | You have determined the maximum transmitter power that meets RF exposure and radiated power limits. Where do you verify this power is NOT exceeded? | — | 0/3 |  |
-| B-001-017-004 | For SSB operation on 3750 kHz, what is the maximum transmitter peak envelope power (PEP) that an amateur radio station may use if the operator holds an Amateur Radio Operator Certificate with Basic and Morse code qualifications? | — | 0/3 |  |
-| B-001-017-005 | For SSB operation on 7055 kHz, what is the maximum transmitter peak envelope power (PEP) that an amateur radio station may use if the operator holds an Amateur Radio Operator Certificate with Basic Qualification with Honours? | — | 0/3 |  |
-| B-001-017-006 | What is the maximum effective radiated power (ERP), expressed as peak envelope power (PEP), the holder of an Amateur Radio Operator Certificate with Advanced Qualification may use on 60 metres? | — | 0/3 |  |
-| B-001-017-007 | What is the maximum allowed DC input power to the final RF stage of an amateur radio transmitter when the operator holds an Amateur Radio Operator Certificate with Advanced Qualification? | — | 0/3 |  |
-| B-001-017-008 | On 630 metres and 2200 metres, what key antenna characteristic must be taken into account to comply with power limitations expressed as equivalent isotropically radiated power (EIRP)? | — | 0/3 |  |
-| B-001-017-009 | What maximum DC input power to the transmitter final amplifier stage, may be used by the holder of an Amateur Radio Operator Certificate with Basic Qualification? | — | 0/3 |  |
-| B-001-017-010 | Unless an operator holds an Amateur Radio Operator Certificate with Advanced Qualification, what is the maximum carrier power that an amateur radio station may use on emissions other than SSB? | — | 0/3 |  |
+| B-001-017-001 | What transmitter power should Canadian amateur radio operators use at all times? | 05-minimum | 3/3 |  |
+| B-001-017-002 | For single sideband (SSB) operation, what is the maximum transmitter peak envelope power (PEP) that an amateur radio station may use if the operator holds an Amateur Radio Operator Certificate with Advanced Qualification? | 03-limits, 04-explore-adv, 07-flash | 3/3 | ✓ ham-sim |
+| B-001-017-003 | You have determined the maximum transmitter power that meets RF exposure and radiated power limits. Where do you verify this power is NOT exceeded? | 05-minimum | 3/3 |  |
+| B-001-017-004 | For SSB operation on 3750 kHz, what is the maximum transmitter peak envelope power (PEP) that an amateur radio station may use if the operator holds an Amateur Radio Operator Certificate with Basic and Morse code qualifications? | 03-limits, 07-flash | 3/3 | ✓ ham-sim |
+| B-001-017-005 | For SSB operation on 7055 kHz, what is the maximum transmitter peak envelope power (PEP) that an amateur radio station may use if the operator holds an Amateur Radio Operator Certificate with Basic Qualification with Honours? | 03-limits | 3/3 | ✓ ham-sim |
+| B-001-017-006 | What is the maximum effective radiated power (ERP), expressed as peak envelope power (PEP), the holder of an Amateur Radio Operator Certificate with Advanced Qualification may use on 60 metres? | 03-limits | 3/3 | ✓ ham-sim |
+| B-001-017-007 | What is the maximum allowed DC input power to the final RF stage of an amateur radio transmitter when the operator holds an Amateur Radio Operator Certificate with Advanced Qualification? | 03-limits, 07-flash | 3/3 | ✓ ham-sim |
+| B-001-017-008 | On 630 metres and 2200 metres, what key antenna characteristic must be taken into account to comply with power limitations expressed as equivalent isotropically radiated power (EIRP)? | 05-minimum | 3/3 |  |
+| B-001-017-009 | What maximum DC input power to the transmitter final amplifier stage, may be used by the holder of an Amateur Radio Operator Certificate with Basic Qualification? | 02-explore-basic, 03-limits, 07-flash | 3/3 | ✓ ham-sim |
+| B-001-017-010 | Unless an operator holds an Amateur Radio Operator Certificate with Advanced Qualification, what is the maximum carrier power that an amateur radio station may use on emissions other than SSB? | 03-limits, 06-explore-carrier, 07-flash | 3/3 | ✓ ham-sim |
 
 ## 1.18 Repeaters, beacons and test carriers
 
@@ -347,7 +347,7 @@ Status: not yet authored
 
 ## 1.21 ITU regions and operating abroad
 
-Lab: LAB-01
+Lab: none
 
 Status: not yet authored
 

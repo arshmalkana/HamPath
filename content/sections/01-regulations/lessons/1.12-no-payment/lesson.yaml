@@ -1,0 +1,9 @@
+code: "1.12"
+title: No payment for messages
+est_minutes: 8
+lab_id: LAB-02
+question_ids:
+  - B-001-012-001
+  - B-001-012-002
+  - B-001-012-003
+  - B-001-012-004

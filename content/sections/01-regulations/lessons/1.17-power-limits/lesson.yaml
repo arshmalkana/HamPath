@@ -1,0 +1,51 @@
+code: "1.17"
+title: Transmitter power limits
+est_minutes: 14
+lab_id: LAB-04
+question_ids:
+  - B-001-017-001
+  - B-001-017-002
+  - B-001-017-003
+  - B-001-017-004
+  - B-001-017-005
+  - B-001-017-006
+  - B-001-017-007
+  - B-001-017-008
+  - B-001-017-009
+  - B-001-017-010
+calculations:
+  B-001-017-002:
+    calc: power_limit
+    given:
+      qualification: advanced
+      measure: ssbPep
+  B-001-017-004:
+    calc: power_limit
+    given:
+      qualification: basic
+      measure: ssbPep
+  B-001-017-005:
+    calc: power_limit
+    given:
+      qualification: honours
+      measure: ssbPep
+  B-001-017-006:
+    calc: power_limit
+    given:
+      qualification: advanced
+      measure: sixtyErp
+  B-001-017-007:
+    calc: power_limit
+    given:
+      qualification: advanced
+      measure: dcInput
+  B-001-017-009:
+    calc: power_limit
+    given:
+      qualification: basic
+      measure: dcInput
+  B-001-017-010:
+    calc: power_limit
+    given:
+      qualification: basic
+      measure: carrier

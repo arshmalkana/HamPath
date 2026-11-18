@@ -1,6 +1,13 @@
 "use client";
 import { useState } from "react";
-import { ssbDriveVariables, type SsbDriveConfig, type SsbDriveState } from "@hampath/ham-sim";
+import {
+  MEASURE_NAMES,
+  powerLimitVariables,
+  ssbDriveVariables,
+  type PowerLimitConfig,
+  type SsbDriveConfig,
+  type SsbDriveState,
+} from "@hampath/ham-sim";
 import { AnalogMeter, Knob, Plot, sample } from "@hampath/ui";
 import type { LabBodyProps } from "./registry";
 import { Readouts, SegChoice, fmt, useReport } from "./common";
@@ -20,7 +27,67 @@ const speech = (t: number) => {
 const PROCESS = [0, 0.45, 0.75];
 
 /** LAB-04 Power Limit Calculator. SSB mode (lesson 3.12): microphone gain, processing, ALC and PEP. */
-export function PowerLimitLab({ config, mode, onState }: LabBodyProps) {
+const QUAL_NAMES = { basic: "Basic", honours: "Basic with Honours", advanced: "Advanced" } as const;
+
+function LimitsBody({ config, mode, onState }: LabBodyProps) {
+  const cfg = config as unknown as PowerLimitConfig & { power: number; max: number };
+  const demo = mode === "demo";
+  const [power, setPower] = useState(cfg.power);
+  const v = powerLimitVariables({ power }, cfg)!;
+  useReport(onState, v, { power }, [power]);
+  const limit = v.limit as number;
+  return (
+    <div className="lab">
+      <p className="lab-prompt">
+        {QUAL_NAMES[cfg.qualification]} qualification. {MEASURE_NAMES[cfg.measure]}.
+      </p>
+      <div className="shack-row">
+        <div className="shack-well" style={{ display: "grid", placeItems: "center" }}>
+          <AnalogMeter
+            label="Transmitter power"
+            unit="W"
+            value={power}
+            max={cfg.max}
+            overload={!v.legal}
+            format={(x) => `${Math.round(x)} W`}
+          />
+        </div>
+      </div>
+      <div className="knobs">
+        <Knob
+          label="Power"
+          value={power}
+          min={0}
+          max={cfg.max}
+          step={10}
+          onChange={setPower}
+          format={(x) => `${x} W`}
+          disabled={demo}
+        />
+      </div>
+      <Readouts
+        items={[
+          ["Your setting", `${power} W`],
+          ["Legal limit", `${limit} W`],
+        ]}
+      />
+      <p className="lab-state" role="status">
+        {v.legal
+          ? v.atLimit
+            ? "Exactly at the legal limit. In practice, use the minimum power you need."
+            : "Within the limit."
+          : `Over the ${limit} W limit for your qualification.`}
+      </p>
+    </div>
+  );
+}
+
+/** LAB-04 Power Limit Calculator: SSB drive (3.12) and power limits (1.17). */
+export function PowerLimitLab(props: LabBodyProps) {
+  return (props.config as { mode?: string }).mode === "limits" ? <LimitsBody {...props} /> : <SsbBody {...props} />;
+}
+
+function SsbBody({ config, mode, onState }: LabBodyProps) {
   const cfg = config as unknown as Config;
   const demo = mode === "demo";
   const [mic, setMic] = useState(cfg.mic);

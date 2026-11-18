@@ -1,0 +1,37 @@
+code: "1.16"
+title: Bandwidth limits by band
+est_minutes: 14
+lab_id: LAB-01
+question_ids:
+  - B-001-016-001
+  - B-001-016-002
+  - B-001-016-003
+  - B-001-016-004
+  - B-001-016-005
+  - B-001-016-006
+  - B-001-016-007
+  - B-001-016-008
+  - B-001-016-009
+  - B-001-016-010
+  - B-001-016-011
+calculations:
+  B-001-016-001:
+    calc: bandwidth_limit
+    given:
+      f: 146 MHz
+  B-001-016-002:
+    calc: bandwidth_limit
+    given:
+      f: 28.5 MHz
+  B-001-016-003:
+    calc: bandwidth_limit
+    given:
+      f: 14.2 MHz
+  B-001-016-004:
+    calc: bandwidth_limit
+    given:
+      f: 146 MHz
+  B-001-016-005:
+    calc: bandwidth_limit
+    given:
+      f: 52 MHz

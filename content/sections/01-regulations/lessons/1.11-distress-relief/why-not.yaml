@@ -1,0 +1,41 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-011-001:
+  with anyone who uses international Morse code: Morse code doesn't make any station fair game.
+  with non-amateur radio stations: Non-amateur stations aren't allowed.
+  with any station involved in a real or simulated emergency: Even in emergencies, only amateur stations.
+B-001-011-002:
+  When relaying messages on behalf of government agencies: Relaying for government doesn't permit it.
+  When messages are destined to agencies without amateur radio support: Agencies without amateur support doesn't permit it.
+  When normal communication systems are overloaded, damaged or disrupted: Disrupted systems don't permit out-of-band operation.
+B-001-011-003:
+  you may respond and offer assistance using international Morse code only: Any mode is fine, not only Morse.
+  you may respond and offer assistance after obtaining permission from Innovation, Science and Economic Development Canada: You don't need ISED's permission.
+  you may not respond nor offer assistance: You may respond.
+B-001-011-004:
+  music that is picked up by your microphone: Music may not be broadcast.
+  commercially recorded material: Commercial recordings may not be broadcast.
+  programming that originates from a broadcast undertaking: Broadcast programming may not be rebroadcast.
+B-001-011-005:
+  only use bands for which the operator is authorized: In distress you're not limited to your bands.
+  use any means of radiocommunication, but only on internationally recognized emergency channels: You're not limited to emergency channels.
+  only use Morse code communications on internationally recognized emergency channels: You're not limited to Morse.
+B-001-011-006:
+  Never, only official emergency stations may transmit in a disaster: Amateurs may help.
+  When normal communication systems are working but are not convenient: Inconvenience isn't enough.
+  Only when the local emergency net is activated: You don't need the net to be activated.
+B-001-011-007:
+  2250 watts PEP: There's no 2250 W limit in distress.
+  750 watts carrier power: There's no 750 W limit in distress.
+  1000 watts DC input: There's no 1000 W limit in distress.
+B-001-011-008:
+  Defer communications until net activity is less intense: Just avoid the net frequency; you needn't wait.
+  Limit operation to narrow bandwidth digital modes: Mode isn't the point.
+  Choose another band with a shorter distance reach: Band choice isn't the point.
+B-001-011-009:
+  When data modes are used exclusively: Data modes aren't required.
+  When special authorization has been obtained from Innovation, Science and Economic Development Canada: No special authorization is needed.
+  When operators have an Advanced Qualification: Advanced isn't required.
+B-001-011-010:
+  When the other station is not operating in accordance with the Radiocommunication Regulations: Even if the other station is illegal, you may not interfere.
+  When you both wish to contact the same station: Wanting the same station doesn't allow it.
+  When the other station is interfering with your transmission: Being interfered with doesn't allow you to interfere.

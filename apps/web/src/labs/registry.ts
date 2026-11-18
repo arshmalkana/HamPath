@@ -4,6 +4,8 @@ import { AntennaBuilderLab } from "./AntennaBuilderLab";
 import { BlockDiagramLab } from "./BlockDiagramLab";
 import { ColourCodeLab } from "./ColourCodeLab";
 import { ComponentBenchLab } from "./ComponentBenchLab";
+import { BandPlanLab } from "./BandPlanLab";
+import { CallSignLab } from "./CallSignLab";
 import { DbLadderLab } from "./DbLadderLab";
 import { PhoneticLab } from "./DrillLab";
 import { RepeaterLab } from "./RepeaterLab";
@@ -50,9 +52,9 @@ export interface LabEntry {
 
 /** All 35 labs from SPEC §4. A null component renders the placeholder so lessons still load. */
 export const LAB_REGISTRY: LabEntry[] = [
-  { id: "LAB-01", name: "Band Plan Explorer", component: null },
+  { id: "LAB-01", name: "Band Plan Explorer", component: BandPlanLab },
   { id: "LAB-02", name: "Rules Navigator", component: RulesLab },
-  { id: "LAB-03", name: "Call Sign Builder", component: null },
+  { id: "LAB-03", name: "Call Sign Builder", component: CallSignLab },
   { id: "LAB-04", name: "Power Limit Calculator", component: PowerLimitLab },
   { id: "LAB-05", name: "RF Exposure Zone", component: RfExposureLab },
   { id: "LAB-06", name: "Antenna Permit Planner", component: null },

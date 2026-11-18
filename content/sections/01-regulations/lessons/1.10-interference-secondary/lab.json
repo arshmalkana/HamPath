@@ -1,0 +1,59 @@
+{
+  "lab": "LAB-02",
+  "steps": {
+    "rules-interference": {
+      "title": "Who yields?",
+      "prompt": "Settle all four.",
+      "config": {
+        "intro": "What do the rules say?",
+        "cases": [
+          {
+            "id": "jam",
+            "situation": "A station is operating illegally. May you jam it?",
+            "options": [
+              "Yes",
+              "Never"
+            ],
+            "answer": "Never",
+            "source": "Radiocommunication Act",
+            "why": "Deliberate interference is never acceptable."
+          },
+          {
+            "id": "secondary",
+            "situation": "Amateurs are secondary on a band. A primary user complains.",
+            "options": [
+              "Amateurs must stop interfering",
+              "Equal rights: ignore it"
+            ],
+            "answer": "Amateurs must stop interfering",
+            "why": "Secondary users must not interfere with primary users."
+          },
+          {
+            "id": "equal",
+            "situation": "An Advanced operator wants the frequency a Basic operator is using.",
+            "options": [
+              "Basic must yield",
+              "Equal rights"
+            ],
+            "answer": "Equal rights",
+            "why": "Both have an equal right to the frequency."
+          },
+          {
+            "id": "test",
+            "situation": "May you make test transmissions?",
+            "options": [
+              "Only if they won't interfere with anyone",
+              "Only between midnight and 8 a.m."
+            ],
+            "answer": "Only if they won't interfere with anyone",
+            "source": "RBR-4 Standards",
+            "why": "No interference to amateurs or other services."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All four settled",
+      "success": "No deliberate interference ever, yield to primary users, and share fairly with other amateurs."
+    }
+  }
+}

@@ -314,6 +314,23 @@ export const SpectrumConfigSchema = z.object({
     squelch: z.boolean().optional(),
   }),
 });
+const EmissionSchema = z.enum(["cw", "ft8", "rtty", "ssb", "sstv", "fm", "atv"]);
+export const BandPlanConfigSchema = z.object({
+  f: z.number().positive(),
+  emission: EmissionSchema,
+  emissions: z.array(EmissionSchema).min(2).max(4),
+  range: z.object({ min: z.number().positive(), max: z.number().positive(), step: z.number().positive() }),
+  controls: z.object({ f: z.boolean(), emission: z.boolean() }),
+});
+export const CallSignConfigSchema = z.discriminatedUnion("mode", [
+  z.object({
+    mode: z.literal("build"),
+    region: z.string(),
+    prefixes: z.array(z.string()).min(2).max(4),
+    start: z.object({ prefix: z.string(), digit: z.string(), suffix: z.string() }),
+  }),
+  z.object({ mode: z.literal("timing"), duration: z.number().int().positive().multipleOf(5) }),
+]);
 export const SsbDriveConfigSchema = z.object({
   mode: z.literal("ssb"),
   rated: z.number().positive(),
@@ -603,7 +620,21 @@ export const LAB_SCHEMAS: Record<string, { config: z.ZodType; variables: string[
   "LAB-26": { config: FeedlineConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-26"]! },
   "LAB-27": { config: SwrConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-27"]! },
   "LAB-29": { config: PatternConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-29"]! },
-  "LAB-04": { config: SsbDriveConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-04"]! },
+  "LAB-04": {
+    config: z.union([
+      SsbDriveConfigSchema,
+      z.object({
+        mode: z.literal("limits"),
+        qualification: z.enum(["basic", "honours", "advanced"]),
+        measure: z.enum(["dcInput", "ssbPep", "carrier", "sixtyErp"]),
+        power: z.number().min(0),
+        max: z.number().positive(),
+      }),
+    ]),
+    variables: LAB_GOAL_VARIABLES["LAB-04"]!,
+  },
+  "LAB-01": { config: BandPlanConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-01"]! },
+  "LAB-03": { config: CallSignConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-03"]! },
   "LAB-10": { config: KeyerConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-10"]! },
   "LAB-15": { config: PowerBenchConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-15"]! },
   "LAB-16": { config: InspectorConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-16"]! },

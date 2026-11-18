@@ -71,6 +71,10 @@ import {
   repeaterVariables,
   clockVariables,
   rulesVariables,
+  bandPlanVariables,
+  callSignVariables,
+  idTimingVariables,
+  powerLimitVariables,
 } from "./index.ts";
 
 describe("units", () => {
@@ -750,5 +754,39 @@ describe("section 1 rules navigator", () => {
     };
     expect(rulesVariables({ answers: { a: "No", b: "Yes" } }, c)).toMatchObject({ complete: true, correct: 2 });
     expect(rulesVariables({ answers: { a: "Yes", b: "Yes" } }, c)).toMatchObject({ complete: false, correct: 1 });
+  });
+});
+
+describe("section 1 regulation models", () => {
+  it("checks band, bandwidth, SSB on 30 m and band edges", () => {
+    expect(bandPlanVariables({ f: 3.75, emission: "ssb" })).toMatchObject({ band: 80, legal: true });
+    expect(bandPlanVariables({ f: 10.12, emission: "ssb" })).toMatchObject({ legal: false, modeOk: false });
+    expect(bandPlanVariables({ f: 145, emission: "atv" })).toMatchObject({ legal: false, bwOk: false });
+    expect(bandPlanVariables({ f: 440, emission: "atv" })).toMatchObject({ legal: true });
+    expect(bandPlanVariables({ f: 14.349, emission: "ssb" })).toMatchObject({ edgeOk: false });
+    expect(bandPlanVariables({ f: 14.347, emission: "ssb" })).toMatchObject({ edgeOk: true });
+    expect(bandPlanVariables({ f: 15, emission: "cw" })).toMatchObject({ inBand: false });
+  });
+  it("validates Canadian call signs and identification timing", () => {
+    expect(
+      callSignVariables({ prefix: "VA", digit: "3", suffix: "RAC" }, { mode: "build", region: "Ontario" }),
+    ).toMatchObject({ regionOk: true });
+    expect(
+      callSignVariables({ prefix: "K", digit: "3", suffix: "RAC" }, { mode: "build", region: "Ontario" }),
+    ).toMatchObject({ valid: false });
+    expect(idTimingVariables({ ids: [0, 30, 60, 70] }, { mode: "timing", duration: 70 })).toMatchObject({ idOk: true });
+    expect(idTimingVariables({ ids: [0, 35, 70] }, { mode: "timing", duration: 70 })).toMatchObject({
+      idOk: false,
+      maxGap: 35,
+    });
+  });
+  it("knows the power limits", () => {
+    expect(powerLimitVariables({ power: 560 }, { qualification: "honours", measure: "ssbPep" })).toMatchObject({
+      atLimit: true,
+    });
+    expect(powerLimitVariables({ power: 1001 }, { qualification: "advanced", measure: "dcInput" })).toMatchObject({
+      legal: false,
+    });
+    expect(runCalculation({ calc: "band_edges", given: { band: 15 } }).also![0]!.value).toBeCloseTo(21.45e6);
   });
 });

@@ -1,0 +1,41 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-010-001:
+  Interrupted CW: Interrupted CW isn't a term for interference.
+  Transponder signals: Transponder signals aren't the term.
+  Unidentified transmissions: Unidentified transmissions are a separate offence.
+B-001-010-002:
+  Only if the station is operating illegally: Even against an illegal station, it's not acceptable.
+  Only if the station begins transmitting on a frequency you are using: Arriving second doesn't justify jamming.
+  Only when you are operating within crowded band conditions: Crowded bands don't justify it.
+B-001-010-003:
+  "Nothing special: all users of a frequency band have equal rights to operate": Secondary users don't have equal rights.
+  Amateur radio operators are only allowed to use the frequency band during emergencies: It's not only for emergencies.
+  Amateur radio operators can only use the band briefly for radio testing and adjustment purposes: It's not only for tests.
+B-001-010-004:
+  The station operator with a lesser qualification must yield the frequency to an operator of higher qualification: Qualification doesn't give priority.
+  The station operator with a lower power output must yield the frequency to the station with a higher power output: Power doesn't give priority.
+  Station operators in regions 1 and 3 of the International Telecommunication Union must yield the frequency to stations in region 2: ITU region doesn't give priority.
+B-001-010-005:
+  Intentional interference: Intentional interference is a different idea.
+  Adjacent interference: Adjacent interference isn't the regulatory term.
+  Disruptive interference: Disruptive interference isn't the regulatory term.
+B-001-010-006:
+  Revoke the amateur radio operator's certificate without giving written notice: Revocation needs notice.
+  Delegate the matter to the Canadian Radio-television and Telecommunications Commission: The CRTC doesn't handle this.
+  Convene the parties to arrive at a compromise solution: The Minister orders; it isn't mediation.
+B-001-010-007:
+  7.0 MHz to 7.1 MHz: 7.0-7.1 MHz is primary amateur.
+  144.0 MHz to 148.0 MHz: 144-148 MHz is primary amateur.
+  14.0 MHz to 14.2 MHz: 14.0-14.2 MHz is primary amateur.
+B-001-010-008:
+  144 MHz to 148 MHz: 144-148 MHz is protected.
+  222 MHz to 225 MHz: 222-225 MHz is protected.
+  50 MHz to 54 MHz: 50-54 MHz is protected.
+B-001-010-009:
+  When transmitting in designated sub-bands: Sub-bands don't permit interference.
+  Only between the hours of midnight and 8:00 AM: There's no special testing time.
+  After warning other stations who might be interfered with: Warning others doesn't make interference acceptable.
+B-001-010-010:
+  3.5 MHz to 4.0 MHz: 80 m isn't full of licence-exempt devices.
+  430 MHz to 450 MHz: 70 cm isn't the licence-exempt band.
+  135.7 kHz to 137.8 kHz: 2200 m isn't the licence-exempt band.

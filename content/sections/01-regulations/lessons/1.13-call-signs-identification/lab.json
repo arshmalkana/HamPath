@@ -1,0 +1,45 @@
+{
+  "lab": "LAB-03",
+  "steps": {
+    "build-callsign": {
+      "title": "Build a call sign",
+      "prompt": "Build a valid call sign for Ontario.",
+      "config": {
+        "mode": "build",
+        "region": "Ontario",
+        "prefixes": [
+          "K",
+          "VE",
+          "G",
+          "VA"
+        ],
+        "start": {
+          "prefix": "K",
+          "digit": "1",
+          "suffix": "AB"
+        }
+      },
+      "goal": "regionOk",
+      "goal_text": "Valid Ontario call",
+      "hints": [
+        "Canadian prefixes are VA, VE, VO and VY.",
+        "Ontario is region 3."
+      ],
+      "success": "VA3 or VE3, then two or three letters: an Ontario call sign."
+    },
+    "id-timing": {
+      "title": "When to identify",
+      "prompt": "Mark when you'd give your call sign during this 70-minute contact.",
+      "config": {
+        "mode": "timing",
+        "duration": 70
+      },
+      "goal": "idOk",
+      "goal_text": "Legal identification",
+      "hints": [
+        "Start, end, and no gap over 30 minutes."
+      ],
+      "success": "At the start, at the end, and never more than 30 minutes apart."
+    }
+  }
+}

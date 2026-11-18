@@ -18,6 +18,19 @@ import { blockDiagramVariables, type DiagramConfig, type DiagramState } from "./
 import { spectrumVariables, type SpectrumConfig, type SpectrumState } from "./spectrum.ts";
 import { antennaVariables, patternVariables, type PatternState } from "./antennas.ts";
 import {
+  bandPlanVariables,
+  callSignVariables,
+  idTimingVariables,
+  powerLimitVariables,
+  type BandPlanState,
+  type CallSignConfig,
+  type CallSignState,
+  type IdTimingConfig,
+  type IdTimingState,
+  type PowerLimitConfig,
+  type PowerLimitState,
+} from "./regulations.ts";
+import {
   clockVariables,
   drillVariables,
   repeaterVariables,
@@ -310,7 +323,15 @@ export function labVariables(labId: string, state: unknown, config: Record<strin
       return feedlineVariables(st as unknown as FeedlineState, config as unknown as FeedlineConfig);
     case "LAB-27":
       return swrVariables(st as unknown as SwrState, config as unknown as SwrConfig);
+    case "LAB-01":
+      return bandPlanVariables(st as unknown as BandPlanState);
+    case "LAB-03":
+      if (config.mode === "timing")
+        return idTimingVariables(st as unknown as IdTimingState, config as unknown as IdTimingConfig);
+      return callSignVariables(st as unknown as CallSignState, config as unknown as CallSignConfig);
     case "LAB-04":
+      if (config.mode === "limits")
+        return powerLimitVariables(st as unknown as PowerLimitState, config as unknown as PowerLimitConfig);
       return ssbDriveVariables(st as unknown as SsbDriveState, config as unknown as SsbDriveConfig);
     case "LAB-10":
       if (config.mode === "copy") return drillVariables(st as unknown as DrillState, config as unknown as DrillConfig);
@@ -409,7 +430,23 @@ export const LAB_GOAL_VARIABLES: Record<string, string[]> = {
     "squelched",
     "minSnr",
   ],
-  "LAB-04": ["drive", "alc", "alcOver", "pep", "avg", "processor", "distorted", "splatter", "bandwidth"],
+  "LAB-04": [
+    "drive",
+    "alc",
+    "alcOver",
+    "pep",
+    "avg",
+    "processor",
+    "distorted",
+    "splatter",
+    "bandwidth",
+    "limit",
+    "power",
+    "legal",
+    "atLimit",
+  ],
+  "LAB-01": ["inBand", "band", "bwLimit", "bw", "bwOk", "edgeOk", "modeOk", "legal", "hf"],
+  "LAB-03": ["canadian", "suffixOk", "valid", "regionOk", "atStart", "atEnd", "maxGap", "count", "idOk"],
   "LAB-10": ["keyer", "elements", "correct", "timingError", "clean", "attempted", "total", "done"],
   "LAB-15": [
     "V",

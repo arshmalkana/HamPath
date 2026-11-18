@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-015-001:
+  Any privileges allowed by the additional qualifications: You get only your own privileges, not theirs.
+  All the emission privileges of the additional qualifications, but only the frequency privileges of your qualifications: Emission privileges aren't borrowed either.
+  All the frequency privileges of the additional qualifications, but only the emission privileges of your qualifications: Frequency privileges aren't borrowed either.
+B-001-015-002:
+  Any privileges allowed by the additional qualifications: You use only your own privileges.
+  All the emission privileges of the additional qualifications, but only the frequency privileges of your qualifications: Emission privileges aren't borrowed.
+  All the frequency privileges of the additional qualifications, but only the emission privileges of your qualifications: Frequency privileges aren't borrowed.
+B-001-015-003:
+  You must notify Innovation, Science and Economic Development Canada that you intend to operate on the HF bands: No notification is needed; the qualification is.
+  You must pass a provincial communications examination: There's no provincial exam.
+  You must attend a class to learn about HF communications: A class isn't required.
+B-001-015-004:
+  if the control transmitter does not exceed 15 kHz of occupied bandwidth: Bandwidth isn't the condition.
+  on all amateur radio bands below 30 MHz: Below 30 MHz isn't allowed for models.
+  if only pulse modulation is used: Modulation type isn't the condition.
+B-001-015-005:
+  3.0 MHz to 3.5 MHz: 3.0 to 3.5 MHz is below the band.
+  4.0 MHz to 4.5 MHz: 4.0 to 4.5 MHz is above it.
+  4.5 MHz to 5.0 MHz: 4.5 to 5.0 MHz isn't an amateur band.
+B-001-015-006:
+  1.5 MHz to 2.0 MHz: 1.5 to 2.0 MHz starts too low.
+  2.0 MHz to 2.25 MHz: 2.0 to 2.25 MHz is above the band.
+  2.25 MHz to 2.5 MHz: 2.25 to 2.5 MHz isn't amateur.
+B-001-015-007:
+  6.5 MHz to 6.8 MHz: 6.5 to 6.8 MHz isn't amateur.
+  6.0 MHz to 6.3 MHz: 6.0 to 6.3 MHz isn't amateur.
+  7.7 MHz to 8.0 MHz: 7.7 to 8.0 MHz isn't amateur.
+B-001-015-008:
+  13.500 MHz to 14.000 MHz: 13.5 to 14.0 MHz is below the band.
+  15.000 MHz to 15.750 MHz: 15.0 to 15.75 MHz is broadcast.
+  16.350 MHz to 16.830 MHz: 16.35 to 16.83 MHz isn't amateur.
+B-001-015-009:
+  18.068 MHz to 18.168 MHz: 18.068 to 18.168 MHz is 17 m.
+  14.000 MHz to 14.350 MHz: 14.000 to 14.350 MHz is 20 m.
+  28.000 MHz to 29.700 MHz: 28.000 to 29.700 MHz is 10 m.
+B-001-015-010:
+  24.890 MHz to 24.990 MHz: 24.890 to 24.990 MHz is 12 m.
+  21.000 MHz to 21.450 MHz: 21.000 to 21.450 MHz is 15 m.
+  50.000 MHz to 54.000 MHz: 50 to 54 MHz is 6 m.
+B-001-015-011:
+  50 MHz to 54 MHz only: Not only 6 m.
+  All amateur radio bands: Not below 30 MHz.
+  50 MHz to 54 MHz, 144 MHz to 148 MHz, and 222 MHz to 225 MHz only: All bands above 30 MHz, not just three.

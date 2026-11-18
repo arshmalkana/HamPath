@@ -591,6 +591,11 @@ describe("POST /lab-events: authored labs are verified on the server", () => {
       },
       { answers: { both: "Only you" } },
     ],
+    ["1.13/build-callsign", { prefix: "VE", digit: "3", suffix: "HAM" }, { prefix: "VE", digit: "7", suffix: "HAM" }],
+    ["1.13/id-timing", { ids: [0, 30, 60, 70] }, { ids: [0, 40, 70] }],
+    ["1.16/mode-30m", { f: 10.12, emission: "cw" }, { f: 10.12, emission: "ssb" }],
+    ["1.16/band-edge", { f: 14.347, emission: "ssb" }, { f: 14.349, emission: "ssb" }],
+    ["1.17/limit-basic-dc", { power: 250 }, { power: 260 }],
     // section 4
     [
       "4.01/explore-drive",

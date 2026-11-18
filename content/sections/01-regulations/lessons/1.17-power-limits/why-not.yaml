@@ -1,0 +1,41 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-017-001:
+  400 watts PEP output: 400 W PEP isn't the rule; minimum necessary is.
+  560 watts DC input: 560 W DC input isn't the rule.
+  560 watts PEP output: 560 W PEP is a maximum for SSB, not what to use always.
+B-001-017-002:
+  560 watts: 560 W is the Basic SSB limit.
+  250 watts: 250 W is the Basic DC input limit.
+  190 watts: 190 W is the Basic carrier limit.
+B-001-017-003:
+  At the antenna feed point: Measure at the transmitter or amplifier output, not the antenna.
+  At the power supply terminals: Power supply terminals measure DC, not output.
+  At the antenna tuner output: The tuner output isn't the reference point.
+B-001-017-004:
+  1000 watts: 1000 W is the Advanced DC input limit.
+  1500 watts: 1500 W isn't a Canadian limit.
+  2250 watts: 2250 W needs Advanced.
+B-001-017-005:
+  1000 watts: 1000 W is Advanced DC input.
+  2250 watts: 2250 W needs Advanced.
+  200 watts: 200 W isn't a limit.
+B-001-017-006:
+  250 watts: 250 W isn't the 60 m limit.
+  560 watts: 560 W isn't the 60 m limit.
+  2250 watts: 2250 W isn't allowed on 60 m.
+B-001-017-007:
+  250 watts: 250 W is Basic.
+  1500 watts: 1500 W isn't a Canadian limit.
+  560 watts: 560 W is Basic SSB PEP.
+B-001-017-008:
+  Bandwidth: Bandwidth doesn't affect EIRP.
+  Impedance: Impedance doesn't affect EIRP.
+  Resonance: Resonance doesn't affect EIRP directly.
+B-001-017-009:
+  1000 watts: 1000 W needs Advanced.
+  750 watts: 750 W is Advanced carrier.
+  560 watts: 560 W is SSB PEP.
+B-001-017-010:
+  250 watts: 250 W is DC input.
+  560 watts: 560 W is SSB PEP.
+  750 watts: 750 W is Advanced carrier.

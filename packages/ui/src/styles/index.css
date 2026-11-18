@@ -2582,3 +2582,28 @@ circle.rf-person.rf-safe {
   font-weight: 700;
   color: var(--shack-ink);
 }
+
+/* ================================================================ section 1 labs */
+.band-bar {
+  fill: var(--shack-panel-2);
+  stroke: var(--shack-part);
+  stroke-width: 1.5;
+}
+.band-here {
+  fill: var(--shack-readout);
+  fill-opacity: 0.35;
+  stroke: var(--shack-readout);
+}
+.id-gap {
+  fill: var(--shack-ok);
+  fill-opacity: 0.35;
+}
+.id-gap-bad {
+  fill: var(--shack-fault);
+  fill-opacity: 0.5;
+}
+.callsign-input {
+  max-width: 7em;
+  text-transform: uppercase;
+  font-family: var(--font-outlier);
+}

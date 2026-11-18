@@ -1,0 +1,89 @@
+{
+  "lab": "LAB-11",
+  "steps": {
+    "net-relief": {
+      "title": "Disaster day",
+      "prompt": "Choose what you'd do.",
+      "config": {
+        "setting": "A storm has taken down phones and cell towers across the county. You're VE3HAM.",
+        "turns": [
+          {
+            "situation": "The local emergency coordinator asks if amateurs can help. May you transmit to support relief?",
+            "options": [
+              {
+                "text": "Yes: normal systems are down",
+                "correct": true,
+                "feedback": ""
+              },
+              {
+                "text": "No: only official emergency stations may",
+                "feedback": "Amateurs may help when normal communications are overloaded, damaged or disrupted."
+              },
+              {
+                "text": "Only if the emergency net has been activated",
+                "feedback": "The test is whether normal systems are disrupted."
+              }
+            ]
+          },
+          {
+            "situation": "A fire chief asks you to call the fire department's own radio channel for them.",
+            "options": [
+              {
+                "text": "Explain you can only use the amateur bands",
+                "correct": true,
+                "feedback": ""
+              },
+              {
+                "text": "Do it: it's an emergency",
+                "feedback": "Using frequencies outside the amateur bands is never permitted, even in relief."
+              },
+              {
+                "text": "Do it, but at low power",
+                "feedback": "Power doesn't matter; it's never permitted."
+              }
+            ]
+          },
+          {
+            "situation": "You're not part of the relief net, but want to chat on a frequency next to it.",
+            "options": [
+              {
+                "text": "Go somewhere else and keep clear of the net",
+                "correct": true,
+                "feedback": ""
+              },
+              {
+                "text": "Chat quietly next to the net",
+                "feedback": "Avoid needless transmissions on or near the net frequency."
+              },
+              {
+                "text": "Wait until the net is less busy, then use its frequency",
+                "feedback": "Stay away from the net frequency altogether."
+              }
+            ]
+          },
+          {
+            "situation": "On 20 m, where you have no privileges, you hear an unanswered MAYDAY.",
+            "options": [
+              {
+                "text": "Respond and offer help",
+                "correct": true,
+                "feedback": "In distress almost anything goes; in relief work, the amateur rules still apply."
+              },
+              {
+                "text": "Stay silent: you have no privileges there",
+                "feedback": "You may respond to an unanswered distress call on any band."
+              },
+              {
+                "text": "Ask ISED for permission first",
+                "feedback": "There's no time, and no need: you may respond."
+              }
+            ]
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "Relief handled",
+      "success": "In distress almost anything goes; in relief work, the amateur rules still apply."
+    }
+  }
+}

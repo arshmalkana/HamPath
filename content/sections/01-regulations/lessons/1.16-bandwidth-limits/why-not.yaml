@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-016-001:
+  20 kHz: 20 kHz is the 10 m limit.
+  6 kHz: 6 kHz is the HF limit.
+  5 kHz: 5 kHz isn't a limit here.
+B-001-016-002:
+  6 kHz: 6 kHz is the limit below 28 MHz.
+  30 kHz: 30 kHz is 6 m and 2 m.
+  15 kHz: 15 kHz isn't the limit.
+B-001-016-003:
+  15 kHz: 15 kHz isn't a limit.
+  20 kHz: 20 kHz is 10 m.
+  30 kHz: 30 kHz is 6 m and 2 m.
+B-001-016-004:
+  6 kHz: 6 kHz is HF.
+  20 kHz: 20 kHz is 10 m.
+  15 kHz: 15 kHz isn't the limit.
+B-001-016-005:
+  20 kHz: 20 kHz is 10 m.
+  6 kHz: 6 kHz is HF.
+  15 kHz: 15 kHz isn't the limit.
+B-001-016-006:
+  18.068 MHz to 18.168 MHz: 17 m allows 6 kHz.
+  24.890 MHz to 24.990 MHz: 12 m allows 6 kHz.
+  1.800 MHz to 2.000 MHz: 160 m allows 6 kHz.
+B-001-016-007:
+  18.068 MHz to 18.168 MHz: SSB is allowed on 17 m.
+  24.890 MHz to 24.990 MHz: SSB is allowed on 12 m.
+  7.000 MHz to 7.300 MHz: SSB is allowed on 40 m.
+B-001-016-008:
+  Restrict operation to radiotelegraphy (CW) or digital modes: You may use any mode near the edge if it fits.
+  Make sure that the emission mode is compatible with agreed band plans: Band plans are voluntary; the rule is staying inside the band.
+  Reduce transmitter power: Power doesn't keep you inside the band.
+B-001-016-009:
+  FT8 on 14.074 MHz: FT8 on 14.074 MHz is fine.
+  Morse radiotelegraphy (CW) on 10.145 MHz: CW on 10.145 MHz is fine.
+  Fast-scan television (ATV) on 440 MHz: ATV on 440 MHz is fine.
+B-001-016-010:
+  Slow-scan television (SSTV) on 14.23 MHz: SSTV fits in 6 kHz.
+  Frequency modulation (FM) on 29.60 MHz: FM on 29.6 MHz fits the 20 kHz limit.
+  Single sideband (SSB) on 3.76 MHz: SSB on 3.76 MHz is fine.
+B-001-016-011:
+  Frequency modulation (FM) on 29.6 MHz: FM on 29.6 MHz is fine.
+  Morse radiotelegraphy (CW) on 10.11 MHz: CW on 30 m is fine.
+  FT8 on 10.136 MHz: FT8 on 30 m is fine.

@@ -1,0 +1,49 @@
+{
+  "lab": "LAB-02",
+  "steps": {
+    "rules-payment": {
+      "title": "Payment and privacy",
+      "prompt": "Settle all three.",
+      "config": {
+        "intro": "Allowed, or not?",
+        "cases": [
+          {
+            "id": "gift",
+            "situation": "Accepting a donated antenna for passing a family's messages.",
+            "options": [
+              "Allowed",
+              "Not allowed"
+            ],
+            "answer": "Not allowed",
+            "source": "Radiocommunication Regulations",
+            "why": "No payment of any kind, including equipment."
+          },
+          {
+            "id": "media",
+            "situation": "Telling a reporter what you heard on a police channel.",
+            "options": [
+              "Allowed",
+              "An offence"
+            ],
+            "answer": "An offence",
+            "source": "Radiocommunication Act",
+            "why": "Divulging non-amateur radiocommunications to the media is an offence."
+          },
+          {
+            "id": "amateur",
+            "situation": "Quoting another amateur's transmission in your club newsletter.",
+            "options": [
+              "Allowed",
+              "Not allowed"
+            ],
+            "answer": "Allowed",
+            "why": "Amateur transmissions may be divulged."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All three settled",
+      "success": "Never for payment, and keep other services' traffic private."
+    }
+  }
+}

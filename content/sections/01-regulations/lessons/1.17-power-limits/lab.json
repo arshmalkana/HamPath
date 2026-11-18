@@ -1,0 +1,47 @@
+{
+  "lab": "LAB-04",
+  "steps": {
+    "limit-basic-dc": {
+      "title": "Basic: DC input",
+      "prompt": "Set the maximum DC input to the final stage for a Basic operator.",
+      "config": {
+        "mode": "limits",
+        "qualification": "basic",
+        "measure": "dcInput",
+        "power": 500,
+        "max": 1500
+      },
+      "goal": "atLimit",
+      "goal_text": "At the legal limit",
+      "success": "250 W DC input for Basic. Advanced allows 1000 W."
+    },
+    "limit-adv-ssb": {
+      "title": "Advanced: SSB",
+      "prompt": "Set the maximum SSB peak envelope power for an Advanced operator.",
+      "config": {
+        "mode": "limits",
+        "qualification": "advanced",
+        "measure": "ssbPep",
+        "power": 1000,
+        "max": 2500
+      },
+      "goal": "atLimit",
+      "goal_text": "At the legal limit",
+      "success": "2250 W PEP for Advanced; 560 W for Basic."
+    },
+    "limit-basic-carrier": {
+      "title": "Basic: FM and CW",
+      "prompt": "Set the maximum carrier power for a Basic operator on FM.",
+      "config": {
+        "mode": "limits",
+        "qualification": "basic",
+        "measure": "carrier",
+        "power": 400,
+        "max": 1000
+      },
+      "goal": "atLimit",
+      "goal_text": "At the legal limit",
+      "success": "190 W carrier for emissions other than SSB."
+    }
+  }
+}

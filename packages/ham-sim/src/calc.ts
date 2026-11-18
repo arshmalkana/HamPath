@@ -3,6 +3,14 @@ import { parallelResistance, seriesResistance } from "./resistors.ts";
 import { formatNumber, formatQuantity, parseQuantity, roundSig, type Unit } from "./units.ts";
 import { capacitiveReactance, inductiveReactance, powerRatioToDb, resonantFrequency } from "./wave.ts";
 import {
+  POWER_LIMITS,
+  bandAt,
+  bandByMetres,
+  MEASURE_NAMES,
+  type PowerMeasure,
+  type Qualification,
+} from "./regulations.ts";
+import {
   COLOURS,
   MULTIPLIER_COLOURS,
   colourCodeValue,
@@ -459,6 +467,48 @@ const calculators: Record<string, Calculator> = {
       steps: [
         `${n(count)} antennas: 10 × log(${n(count)}) = ${n(10 * Math.log10(count))} dB more`,
         `${n(g)} + ${n(10 * Math.log10(count))} ≈ ${n(total)} dBi`,
+      ],
+    };
+  },
+
+  /** Edges of an amateur band in Canada (RBR-4), by its name in metres. */
+  band_edges: (s) => {
+    const m = need(val(s.given, "band", ""), "band");
+    const b = bandByMetres(m);
+    if (!b) throw new Error(`No ${m} m band`);
+    return {
+      value: b.lo * 1e6,
+      unit: "Hz",
+      also: [{ value: b.hi * 1e6, unit: "Hz" }],
+      tolerance: 1e-4,
+      steps: [`The ${b.name} band runs from ${b.lo} MHz to ${b.hi} MHz`],
+    };
+  },
+
+  /** Maximum bandwidth (RBR-4) in the band containing a frequency. */
+  bandwidth_limit: (s) => {
+    const f = need(val(s.given, "f", "Hz"), "f") / 1e6;
+    const b = bandAt(f);
+    if (!b) throw new Error(`${f} MHz isn't in an amateur band`);
+    return {
+      value: b.bwKHz * 1000,
+      unit: "Hz",
+      steps: [`${n(f)} MHz is in the ${b.name} band`, `Its maximum bandwidth is ${b.bwKHz} kHz`],
+    };
+  },
+
+  /** Power limits (RBR-4) by qualification and how the power is measured. */
+  power_limit: (s) => {
+    const q = String(s.given.qualification) as Qualification;
+    const m = String(s.given.measure) as PowerMeasure;
+    const table = POWER_LIMITS[q];
+    if (!table || !(m in table)) throw new Error("power_limit needs qualification and measure");
+    const w = table[m];
+    return {
+      value: w,
+      unit: "W",
+      steps: [
+        `${MEASURE_NAMES[m]}, ${q === "advanced" ? "Advanced" : q === "honours" ? "Basic with Honours" : "Basic"} qualification: ${w} W`,
       ],
     };
   },

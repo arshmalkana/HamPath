@@ -1,0 +1,58 @@
+{
+  "lab": "LAB-02",
+  "steps": {
+    "rules-third-party": {
+      "title": "Third parties and visitors",
+      "prompt": "Settle all four.",
+      "config": {
+        "intro": "What do the rules say?",
+        "cases": [
+          {
+            "id": "personal",
+            "situation": "Your unlicensed friend wants to tell a relative in Brazil about a birthday party.",
+            "options": [
+              "Allowed",
+              "Not allowed"
+            ],
+            "answer": "Allowed",
+            "source": "Radiocommunication Regulations",
+            "why": "Personal, non-commercial third-party traffic is allowed."
+          },
+          {
+            "id": "business",
+            "situation": "A neighbour wants you to pass an order to their supplier.",
+            "options": [
+              "Allowed",
+              "Not allowed"
+            ],
+            "answer": "Not allowed",
+            "why": "Third-party traffic must be non-commercial."
+          },
+          {
+            "id": "foreign",
+            "situation": "A foreign station breaks into your friend's conversation.",
+            "options": [
+              "Keep monitoring",
+              "Sign off quickly"
+            ],
+            "answer": "Keep monitoring",
+            "why": "Carry on supervising your friend."
+          },
+          {
+            "id": "objection",
+            "situation": "Which country can't you contact?",
+            "options": [
+              "One that objected to the ITU",
+              "One that isn't in the IARU"
+            ],
+            "answer": "One that objected to the ITU",
+            "why": "A filed objection with the ITU precludes contact."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All four settled",
+      "success": "Personal and non-commercial, with anyone, unless their country objects."
+    }
+  }
+}
