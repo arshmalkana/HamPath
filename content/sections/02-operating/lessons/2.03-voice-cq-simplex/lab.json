@@ -1,0 +1,71 @@
+{
+  "lab": "LAB-07",
+  "steps": {
+    "qso-voice": {
+      "title": "Your first voice contact",
+      "prompt": "Choose what you'd say or do at each turn.",
+      "config": {
+        "setting": "20 m, Saturday afternoon. You're VE3HAM.",
+        "turns": [
+          {
+            "situation": "You've found a clear frequency, 14.230 MHz, and listened for a while: no one's there. Which sideband?",
+            "options": [
+              {
+                "text": "Upper sideband",
+                "correct": true,
+                "feedback": ""
+              },
+              {
+                "text": "Lower sideband",
+                "feedback": "Lower sideband is used on 40 m and below. 20 m uses upper."
+              },
+              {
+                "text": "Double sideband",
+                "feedback": "Amateurs use single sideband for voice on HF."
+              }
+            ]
+          },
+          {
+            "situation": "Time to call CQ.",
+            "options": [
+              {
+                "text": "\"CQ CQ CQ, this is VE3HAM VE3HAM VE3HAM.\"",
+                "correct": true,
+                "feedback": ""
+              },
+              {
+                "text": "\"CQ, this is VE3HAM VE3HAM VE3HAM.\"",
+                "feedback": "Say CQ three times, not once."
+              },
+              {
+                "text": "\"CQ CQ CQ CQ CQ CQ CQ CQ CQ CQ, this is VE3HAM.\"",
+                "feedback": "Ten CQs and one call sign is the wrong way round: CQ three times, your call three times."
+              }
+            ]
+          },
+          {
+            "situation": "\"VE3HAM, this is VE7ABC.\" You have a good contact. Next week you hear VE7ABC again and want to call him.",
+            "options": [
+              {
+                "text": "\"VE7ABC, this is VE3HAM.\"",
+                "correct": true,
+                "feedback": "Their call sign, \"this is\", yours. Have a good contact!"
+              },
+              {
+                "text": "\"VE3HAM calling VE7ABC.\"",
+                "feedback": "Put their call sign first, then \"this is\" and yours."
+              },
+              {
+                "text": "\"CQ CQ CQ VE7ABC.\"",
+                "feedback": "CQ is for any station. To call someone specific, use their call sign."
+              }
+            ]
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "Contact made",
+      "success": "Their call sign, \"this is\", yours. Have a good contact!"
+    }
+  }
+}

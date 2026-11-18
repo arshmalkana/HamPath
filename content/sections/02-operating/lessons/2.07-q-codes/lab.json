@@ -1,0 +1,63 @@
+{
+  "lab": "LAB-09",
+  "steps": {
+    "drill-qcodes": {
+      "title": "Q-code drill",
+      "prompt": "Get seven right.",
+      "config": {
+        "question": "What does this Q code mean?",
+        "target": 7,
+        "items": [
+          {
+            "id": "qrs",
+            "prompt": "QRS",
+            "answer": "Send more slowly"
+          },
+          {
+            "id": "qth",
+            "prompt": "QTH",
+            "answer": "My location is…"
+          },
+          {
+            "id": "qrl",
+            "prompt": "QRL?",
+            "answer": "Is this frequency in use?"
+          },
+          {
+            "id": "qsy",
+            "prompt": "QSY",
+            "answer": "Change frequency"
+          },
+          {
+            "id": "qsb",
+            "prompt": "QSB",
+            "answer": "Your signal is fading"
+          },
+          {
+            "id": "qrz",
+            "prompt": "QRZ?",
+            "answer": "Who is calling me?"
+          },
+          {
+            "id": "qrm",
+            "prompt": "QRM",
+            "answer": "I'm being interfered with"
+          },
+          {
+            "id": "qrn",
+            "prompt": "QRN",
+            "answer": "I'm troubled by static"
+          },
+          {
+            "id": "qrx",
+            "prompt": "QRX",
+            "answer": "I will call you again"
+          }
+        ]
+      },
+      "goal": "done",
+      "goal_text": "Seven right",
+      "success": "You've got the Q codes that come up in every contact."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+code: "2.06"
+title: RST signal reports
+est_minutes: 14
+lab_id: LAB-07
+question_ids:
+  - B-002-006-001
+  - B-002-006-002
+  - B-002-006-003
+  - B-002-006-004
+  - B-002-006-005
+  - B-002-006-006
+  - B-002-006-007
+  - B-002-006-008
+  - B-002-006-009
+  - B-002-006-010
+  - B-002-006-011
+calculations:
+  B-002-006-007:
+    calc: db
+    given:
+      P: 100 W
+      db: -6
+    find: P
+  B-002-006-008:
+    calc: db
+    given:
+      db: 6
+    find: ratio

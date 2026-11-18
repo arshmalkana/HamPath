@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-002-005-001:
+  Send the letters "CQ" three times, followed by the word "DE," followed by your call sign once: Your call sign once isn't enough.
+  Send the letters "CQ" ten times, followed by the word "DE," followed by your call sign once: Ten CQs and one call sign is the wrong balance.
+  Send the letters "CQ" until someone answers: Calling until someone answers isn't the format.
+B-002-005-002:
+  Send your call sign four times: Just your call sign doesn't say who you're answering.
+  Send the other station's call sign once, followed by the word "DE," followed by your call sign four times: Their call once and yours four times isn't the standard.
+  Send your call sign followed by your name, station location and a signal report: Name and report come after the contact is made.
+B-002-005-003:
+  At the customary speed for the band: There's no customary speed for a band.
+  At the highest speed your keyer will operate: Too fast and you can't copy the reply.
+  At the highest speed at which you can control the keyer: Send at a speed you can receive, not just control.
+B-002-005-004:
+  Call on the quarter-hour: It isn't about quarter-hours.
+  An antenna is being tested: It isn't an antenna test.
+  The frequency is in use: It doesn't mean the frequency is in use.
+B-002-005-005:
+  Received all correctly: '"Received all correctly" is R.'
+  Calling any station: Calling any station is CQ.
+  Directional Emissions: DE isn't about emissions.
+B-002-005-006:
+  End of message: End of message is AR.
+  Called station only reply: Called station only is KN.
+  All received correctly: All received is R.
+B-002-005-007:
+  Calling any station: Calling any station is CQ.
+  Go ahead: Go ahead is K.
+  Best regards: Best regards is 73.
+B-002-005-008:
+  Long distance: Long distance is DX.
+  Love and kisses: Love and kisses is 88.
+  Go ahead: Go ahead is K.
+B-002-005-009:
+  Automatic keyers are used instead of hand keys: Keyers aren't what QSK means.
+  An operator must activate a manual send/receive switch before and after every transmission: QSK removes the need for a manual switch.
+  Stations wishing to break in must send the Morse code signal "BK": BK is a different signal.
+B-002-005-010:
+  5 Hz to 50 Hz: 5 to 50 Hz is too close.
+  1 kHz to 3 kHz: 1 to 3 kHz is SSB spacing.
+  3 kHz to 6 kHz: 3 to 6 kHz is far too much for CW.
+B-002-005-011:
+  End of message: End of message is AR.
+  Called station only reply: Called station only is KN.
+  Repeat all: Repeat is a different request.

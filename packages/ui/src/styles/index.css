@@ -2517,3 +2517,50 @@ circle.rf-person.rf-safe {
   background: var(--shack-lamp);
   color: var(--shack-lamp-ink);
 }
+
+/* ================================================================ section 2 operating labs */
+.scenario-log {
+  display: grid;
+  gap: var(--space-xs);
+  margin: 0;
+  padding-left: 1.6em;
+}
+.scenario-log li {
+  color: var(--shack-ink-2);
+}
+.scenario-situation {
+  margin: 0;
+  color: var(--shack-ink);
+}
+.scenario-said {
+  margin: 0;
+  color: var(--shack-readout);
+  font-family: var(--font-outlier);
+}
+.scenario-options {
+  display: grid;
+  gap: var(--space-xs);
+}
+.scenario-option {
+  text-align: left;
+  height: auto;
+  min-height: var(--control-h);
+  padding-block: var(--space-2xs);
+}
+.drill-card {
+  display: grid;
+  gap: var(--space-xs);
+  justify-items: start;
+}
+.drill-prompt {
+  margin: 0;
+  font-family: var(--font-outlier);
+  font-size: 2rem;
+  color: var(--shack-readout);
+}
+.drill-code {
+  margin: 0;
+  font-family: var(--font-outlier);
+  color: var(--shack-readout);
+  letter-spacing: 0.1em;
+}

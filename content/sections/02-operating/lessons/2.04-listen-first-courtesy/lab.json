@@ -1,0 +1,107 @@
+{
+  "lab": "LAB-07",
+  "steps": {
+    "qso-courtesy": {
+      "title": "A good neighbour",
+      "prompt": "Choose what you'd do at each turn.",
+      "config": {
+        "setting": "80 m, Tuesday evening. You want to check in to the 3.760 MHz net.",
+        "turns": [
+          {
+            "situation": "You've just switched on the radio. What do you do first?",
+            "options": [
+              {
+                "text": "Listen to make sure the frequency isn't in use",
+                "correct": true,
+                "feedback": ""
+              },
+              {
+                "text": "Ask \"Is this frequency in use?\" straight away",
+                "feedback": "Listen first. Asking can still interrupt someone you couldn't hear yet."
+              },
+              {
+                "text": "Turn up the power so you'll be heard",
+                "feedback": "More power doesn't come first; listening does."
+              }
+            ]
+          },
+          {
+            "situation": "You need to adjust your antenna tuner before checking in to the net on 3.760.",
+            "options": [
+              {
+                "text": "Tune on 3.764, about 4 kHz away",
+                "correct": true,
+                "feedback": ""
+              },
+              {
+                "text": "Tune on 3.761, 1 kHz away",
+                "feedback": "1 kHz is right on top of the net's audio. Go 3 to 5 kHz away."
+              },
+              {
+                "text": "Tune on the net frequency",
+                "feedback": "Never tune up on top of a net."
+              }
+            ]
+          },
+          {
+            "situation": "After the net, a local station says you're 20 dB over S9.",
+            "options": [
+              {
+                "text": "Turn the power down to what's needed",
+                "correct": true,
+                "feedback": ""
+              },
+              {
+                "text": "Turn on the speech processor",
+                "feedback": "You're already very strong. Use less power."
+              },
+              {
+                "text": "Carry on as you are",
+                "feedback": "Use the minimum power necessary."
+              }
+            ]
+          },
+          {
+            "situation": "You're chatting on 3.745 when someone says a net starts here in five minutes.",
+            "options": [
+              {
+                "text": "Move to another frequency",
+                "correct": true,
+                "feedback": ""
+              },
+              {
+                "text": "Keep talking; you were here first",
+                "feedback": "As a courtesy, move. No one owns a frequency."
+              },
+              {
+                "text": "Turn up your power",
+                "feedback": "Move instead."
+              }
+            ]
+          },
+          {
+            "situation": "Later, propagation changes and another contact starts bleeding over yours.",
+            "options": [
+              {
+                "text": "Move to another frequency",
+                "correct": true,
+                "feedback": "Listen first, power down, and move when you need to. That's good operating."
+              },
+              {
+                "text": "Tell them to move, since you were first",
+                "feedback": "No one owns a frequency. The easy fix is to move."
+              },
+              {
+                "text": "Turn up your power",
+                "feedback": "That only makes it worse for everyone."
+              }
+            ]
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "Good neighbour",
+      "success": "Listen first, power down, and move when you need to. That's good operating."
+    }
+  }
+}

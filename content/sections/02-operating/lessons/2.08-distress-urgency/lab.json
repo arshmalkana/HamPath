@@ -1,0 +1,107 @@
+{
+  "lab": "LAB-11",
+  "steps": {
+    "net-distress": {
+      "title": "An emergency on the air",
+      "prompt": "Choose what you'd do.",
+      "config": {
+        "setting": "You're VE3HAM, mobile on the highway, chatting on the local repeater.",
+        "turns": [
+          {
+            "situation": "A car leaves the road ahead and rolls. The driver isn't moving. Your friend is mid-transmission on the repeater.",
+            "options": [
+              {
+                "text": "In the next break, give your call sign and say what's happened",
+                "correct": true,
+                "feedback": ""
+              },
+              {
+                "text": "Say \"EMERGENCY\" three times over them",
+                "feedback": "Wait for the break between transmissions, then give your call sign and situation."
+              },
+              {
+                "text": "Say \"HELP\" until someone answers",
+                "feedback": "Break in between transmissions with your call sign and the situation."
+              }
+            ]
+          },
+          {
+            "situation": "There's no repeater coverage now, and life is at risk. You call on a simplex frequency. What signal do you send, by voice?",
+            "options": [
+              {
+                "text": "\"MAYDAY MAYDAY MAYDAY\"",
+                "correct": true,
+                "feedback": ""
+              },
+              {
+                "text": "\"SOS SOS SOS\"",
+                "feedback": "SOS is the Morse distress signal. On voice it's MAYDAY."
+              },
+              {
+                "text": "\"Emergency, emergency\"",
+                "feedback": "The voice distress signal is MAYDAY, three times."
+              }
+            ]
+          },
+          {
+            "situation": "Another day: you're stranded on a logging road with a flat tire and no spare. You're safe, but you need help. What priority is your call?",
+            "options": [
+              {
+                "text": "Urgent",
+                "correct": true,
+                "feedback": ""
+              },
+              {
+                "text": "Distress",
+                "feedback": "Distress is for immediate danger to life. This is urgent."
+              },
+              {
+                "text": "Welfare",
+                "feedback": "Welfare is a routine check on someone. You need help: urgent."
+              }
+            ]
+          },
+          {
+            "situation": "On 40 m, mid-contact, a weak station breaks in: \"MAYDAY, boat taking on water.\"",
+            "options": [
+              {
+                "text": "Acknowledge, and find out their location and what help they need",
+                "correct": true,
+                "feedback": ""
+              },
+              {
+                "text": "Move to another frequency to give them a clear channel",
+                "feedback": "They've reached you. Acknowledge them and find out what's needed."
+              },
+              {
+                "text": "Carry on; you were there first",
+                "feedback": "Distress traffic comes before everything."
+              }
+            ]
+          },
+          {
+            "situation": "You can't reach the boat yourself.",
+            "options": [
+              {
+                "text": "Contact the authorities and keep listening",
+                "correct": true,
+                "feedback": "Break in properly, use MAYDAY for life-threatening distress, and pass it on to the people who can help."
+              },
+              {
+                "text": "Log it and move on",
+                "feedback": "Contact the authorities and keep listening in case you're needed."
+              },
+              {
+                "text": "Tell every other station to stop transmitting",
+                "feedback": "The right step is to contact the authorities and stand by."
+              }
+            ]
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "Emergency handled",
+      "success": "Break in properly, use MAYDAY for life-threatening distress, and pass it on to the people who can help."
+    }
+  }
+}

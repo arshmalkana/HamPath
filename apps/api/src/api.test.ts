@@ -538,6 +538,41 @@ describe("POST /lab-events: authored labs are verified on the server", () => {
     ["8.04/case-harmonic", { diagnosis: "harmonics", cure: "lpfTx" }, { diagnosis: "harmonics", cure: "hpfTv" }],
     ["8.05/explore-notch", { type: "notch", f1: 14.3 }, { type: "lowpass", f1: 14.0 }],
     ["8.05/explore-bandpass", { type: "bandpass", f1: 12, f2: 16 }, { type: "bandpass", f1: 10, f2: 20 }],
+    // section 2
+    ["2.01/explore-offset", { offset: -600, tone: 100 }, { offset: 0, tone: 100 }],
+    ["2.01/explore-tone", { offset: -600, tone: 100 }, { offset: -600, tone: 88.5 }],
+    ["2.03/qso-voice", { picks: [0, 0, 0] }, { picks: [0, 1, 0] }],
+    ["2.08/net-distress", { picks: [0, 0, 0, 0, 0] }, { picks: [0, 0, 0, 0] }],
+    [
+      "2.07/drill-qcodes",
+      {
+        answers: {
+          qrs: "Send more slowly",
+          qth: "My location is…",
+          qrl: "Is this frequency in use?",
+          qsy: "Change frequency",
+          qsb: "Your signal is fading",
+          qrz: "Who is calling me?",
+          qrm: "I'm being interfered with",
+        },
+      },
+      { answers: { qrs: "Change frequency", qth: "My location is…" } },
+    ],
+    [
+      "2.05/copy-prosigns",
+      {
+        answers: {
+          cq: "Calling any station",
+          de: "From",
+          k: "Any station please reply",
+          r: "All received",
+          dx: "Distant station",
+        },
+      },
+      { answers: { cq: "From" } },
+    ],
+    ["2.09/explore-longpath", { heading: 70, local: 7 }, { heading: 250, local: 7 }],
+    ["2.09/explore-utc", { heading: 0, local: 13 }, { heading: 0, local: 1 }],
     // section 4
     [
       "4.01/explore-drive",

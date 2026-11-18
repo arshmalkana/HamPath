@@ -5,6 +5,9 @@ import { BlockDiagramLab } from "./BlockDiagramLab";
 import { ColourCodeLab } from "./ColourCodeLab";
 import { ComponentBenchLab } from "./ComponentBenchLab";
 import { DbLadderLab } from "./DbLadderLab";
+import { PhoneticLab } from "./DrillLab";
+import { RepeaterLab } from "./RepeaterLab";
+import { EmergencyNetLab, QsoLab } from "./ScenarioLab";
 import { FilterLab } from "./FilterLab";
 import { InterferenceLab } from "./InterferenceLab";
 import { IonosphereLab } from "./IonosphereLab";
@@ -52,11 +55,11 @@ export const LAB_REGISTRY: LabEntry[] = [
   { id: "LAB-04", name: "Power Limit Calculator", component: PowerLimitLab },
   { id: "LAB-05", name: "RF Exposure Zone", component: RfExposureLab },
   { id: "LAB-06", name: "Antenna Permit Planner", component: null },
-  { id: "LAB-07", name: "Virtual QSO Simulator", component: null },
-  { id: "LAB-08", name: "Repeater Lab", component: null },
-  { id: "LAB-09", name: "Phonetic & Q-Code Trainer", component: null },
+  { id: "LAB-07", name: "Virtual QSO Simulator", component: QsoLab },
+  { id: "LAB-08", name: "Repeater Lab", component: RepeaterLab },
+  { id: "LAB-09", name: "Phonetic & Q-Code Trainer", component: PhoneticLab },
   { id: "LAB-10", name: "Morse Trainer", component: MorseLab },
-  { id: "LAB-11", name: "Emergency Net Scenario", component: null },
+  { id: "LAB-11", name: "Emergency Net Scenario", component: EmergencyNetLab },
   { id: "LAB-12", name: "World Map & Clock", component: WorldClockLab },
   { id: "LAB-13", name: "Block-Diagram Builder", component: BlockDiagramLab },
   { id: "LAB-14", name: "Mode Spectrum Lab", component: SpectrumLab },

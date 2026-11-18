@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-002-007-001:
+  Interference from static: Static is QRN.
+  Send "RST" report: QRS isn't a request for a report.
+  Radio station location is ...: Location is QTH.
+B-002-007-002:
+  Stop sending: Stop sending is QRT.
+  My name is ...: Your name isn't a Q code here.
+  Time here is ...: Time isn't QTH.
+B-002-007-003:
+  QRV?: QRV? asks if you're ready.
+  QRU?: QRU? asks if there's a message.
+  QRZ?: QRZ? asks who is calling.
+B-002-007-004:
+  Use more power: More power is QRO.
+  Send faster: Send faster is QRQ.
+  Send more slowly: Send more slowly is QRS.
+B-002-007-005:
+  I am busy: I am busy is QRL.
+  I have no message: No message is QRU.
+  I am confirming contact: Confirming contact is QSL.
+B-002-007-006:
+  QSL?: QSL? asks for confirmation.
+  QRL?: QRL? asks if the frequency is in use.
+  QRT?: QRT means stop sending.
+B-002-007-007:
+  I am troubled by static: Static is QRN.
+  Your signals are fading: Fading is QSB.
+  I am busy: Busy is QRL.
+B-002-007-008:
+  I am busy: Busy is QRL.
+  I will call you: I will call you is QRX.
+  I am being interfered with: Interference is QRM.
+B-002-007-009:
+  QRM: QRM is interference.
+  QRL: QRL is busy, or the frequency is in use.
+  QRN: QRN is static.
+B-002-007-010:
+  QRK?: QRK? asks about readability.
+  QRP?: QRP? asks to reduce power.
+  QRM?: QRM? asks about interference.
+B-002-007-011:
+  QRZ: QRZ asks who is calling.
+  QRS: QRS asks to send slower.
+  QRT: QRT means stop sending.

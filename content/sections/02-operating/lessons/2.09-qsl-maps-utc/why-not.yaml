@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-002-009-001:
+  A notice of an apparent infraction from Innovation, Science and Economic Development Canada: ISED notices aren't QSL cards.
+  A postcard reminding you when your certificate will expire: Licence reminders aren't QSL cards.
+  A letter or postcard from an amateur radio operator: "Any postcard isn't a QSL: it's proof of a specific contact."
+B-002-009-002:
+  A map projection displaying Maidenhead grid squares: Grid squares are a separate map type.
+  A map projection centred on the magnetic North Pole: Centred on the magnetic pole isn't it.
+  A map projection centred on the geographic North Pole: Centred on the geographic pole is a polar map.
+B-002-009-003:
+  Your antenna azimuth stated in compass degrees: Azimuth is a bearing, not a grid square.
+  The number of contacts you have made: Contact count isn't your grid square.
+  The elevation of your station in thirty-metre increments: Elevation isn't your grid square.
+B-002-009-004:
+  45 degrees: 45° is far off.
+  90 degrees: 90° is at right angles, not the opposite way.
+  270 degrees: 270° is the same as 90° the other way.
+B-002-009-005:
+  A letter detailing contact date, time, frequency, mode and power: A detailed letter isn't the accepted method.
+  A radiogram sent over amateur radio traffic nets: Radiograms aren't contact confirmations.
+  A brief email or text message: Email and texts aren't the accepted method.
+B-002-009-006:
+  Point your antenna 90 degrees west of the current bearing: 90° west isn't the long path.
+  Point your antenna 90 degrees east of the current bearing: 90° east isn't the long path.
+  Point your antenna further south: Further south isn't the long path.
+B-002-009-007:
+  A logbook is important for recording contacts for operating awards: Logs are important for awards.
+  A well-kept logbook preserves your fondest amateur radio memories for years: Logs do preserve memories.
+  A logbook is important for handling neighbour interference complaints: Logs do help with interference complaints.
+B-002-009-008:
+  To allow computing the radiation angle to any location: It doesn't compute radiation angles.
+  To associate distances with optimal ionospheric region: It doesn't choose ionospheric regions.
+  To show the azimuth to meteor showers throughout the year: It isn't for meteor showers.
+B-002-009-009:
+  Geneva, Switzerland: Geneva isn't the prime meridian.
+  Ottawa, Canada: Ottawa isn't the prime meridian.
+  Boulder, United States of America: Boulder isn't the prime meridian.
+B-002-009-010:
+  1 AM (tomorrow): 19 − 6 is 13:00 today, not 1 AM tomorrow.
+  7 PM: 7 PM is UTC, not local.
+  7 AM (tomorrow): Subtract 6, don't add 12.
+B-002-009-011:
+  Provide received signal reports of your transmissions: They don't give signal reports.
+  Provide forecasts of band conditions: They don't forecast band conditions.
+  Provide amateur radio bulletins: They don't send amateur bulletins.

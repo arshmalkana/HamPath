@@ -5,6 +5,7 @@ export * from "./shack/SevenSegment.tsx";
 export * from "./shack/ToggleSwitch.tsx";
 export * from "./shack/Waterfall.tsx";
 export * from "./shack/WorldMap.tsx";
+export * from "./shack/AzimuthalMap.tsx";
 export * from "./useDragDrop.ts";
 export * from "./shack/ShackScene.tsx";
 export * from "./shack/Plot.tsx";

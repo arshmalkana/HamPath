@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-002-001-001:
+  Say the other operator's name, then your call sign three times: "Names and calling three times aren't the format: their call sign, then yours."
+  Say, "breaker, breaker": '"Breaker, breaker" is CB talk, not amateur practice.'
+  Say the call sign of the station you want to contact three times: Calling three times isn't needed; say their call sign once, then yours.
+B-002-001-002:
+  To link amateur radio stations with the telephone system: Telephone patching is a side feature, not the main purpose.
+  To retransmit weather information during severe storm warnings: Weather broadcasts aren't a repeater's main job.
+  To make local information available 24 hours a day: A repeater relays stations; it isn't an information service.
+B-002-001-003:
+  A band plan detailing modes and frequency segments within a band: That's a band plan.
+  The selection of simplex frequencies used by individual operators: Coordination is about repeaters, not individual simplex choices.
+  A part of the planning prior to a contest: It isn't contest planning.
+B-002-001-004:
+  It hands over control to each user in turns: It doesn't hand over control in turns.
+  It logs repeater transmit time to predict when a repeater will fail: It doesn't predict failures.
+  It tells how long someone has been using a repeater: It doesn't measure usage; it cuts off long transmissions.
+B-002-001-005:
+  A tone used by repeaters to mark the end of a transmission: An end-of-transmission tone is a courtesy beep.
+  A signal used for telemetry by amateur radio satellites: It isn't satellite telemetry.
+  A signal used for radio control of model craft: It isn't for model control.
+B-002-001-006:
+  Say "break, break," then say the station's call sign: '"Break, break" signals an urgent interruption.'
+  Say "CQ" three times, then say the station's call sign: CQ is for calling anyone, not a known station.
+  Wait for the station to call "CQ," then answer it: You don't have to wait for a CQ.
+B-002-001-007:
+  To check the SWR of the repeater: SWR has nothing to do with pausing.
+  To reach for pencil and paper for third-party communications: Third-party paperwork isn't the reason.
+  To give the repeater time to respond: Repeaters respond almost instantly; the pause lets others in.
+B-002-001-008:
+  To keep long-distance charges down: There are no long-distance charges.
+  To reduce the bandwidth used by the repeater: Short transmissions don't reduce bandwidth.
+  To avoid exceeding the repeater's memory storage: Repeaters don't store your voice.
+B-002-001-009:
+  Wait for the end of a transmission and start calling the desired party: Calling the person straight away cuts across the conversation.
+  Shout "break, break!" to show that you're eager to join the conversation: Shouting "break" means an emergency.
+  Increase power to override whoever is talking: Overpowering others is never right.
+B-002-001-010:
+  What is your 10-20?: 10-codes aren't amateur practice.
+  Locations are not normally broadcast over the radio: Locations are shared all the time.
+  What is your 10-85?: 10-codes aren't amateur practice.
+B-002-001-011:
+  800 kHz: 800 kHz isn't the 2 m standard.
+  1000 kHz: 1000 kHz isn't the 2 m standard.
+  400 kHz: 400 kHz isn't the 2 m standard.

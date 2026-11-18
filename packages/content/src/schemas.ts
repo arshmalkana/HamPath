@@ -321,11 +321,41 @@ export const SsbDriveConfigSchema = z.object({
   processor: z.union([z.literal(0), z.literal(1), z.literal(2)]),
   controls: z.object({ mic: z.boolean(), processor: z.boolean() }),
 });
-export const KeyerConfigSchema = z.object({
-  mode: z.literal("keyer"),
-  target: z.string().regex(/^[A-Z0-9]+$/),
-  keyer: z.boolean(),
-  controls: z.object({ keyer: z.boolean() }),
+const DrillItemSchema = z.strictObject({ id: z.string(), prompt: z.string(), answer: z.string() });
+const drillShape = {
+  question: z.string(),
+  items: z.array(DrillItemSchema).min(4),
+  target: z.number().int().min(1),
+};
+const drillRefine = (c: { items: { id: string }[]; target: number }) =>
+  new Set(c.items.map((i) => i.id)).size === c.items.length && c.target <= c.items.length;
+export const KeyerConfigSchema = z.discriminatedUnion("mode", [
+  z.object({
+    mode: z.literal("keyer"),
+    target: z.string().regex(/^[A-Z0-9]+$/),
+    keyer: z.boolean(),
+    controls: z.object({ keyer: z.boolean() }),
+  }),
+  z.object({ mode: z.literal("copy"), morse: z.object({ wpm: z.number().min(5).max(40) }), ...drillShape }).refine(drillRefine, "unique ids; target ≤ items"),
+]);
+export const DrillConfigSchema = z.object(drillShape).refine(drillRefine, "unique ids; target ≤ items");
+const ScenarioOptionSchema = z.strictObject({ text: z.string(), correct: z.boolean().optional(), feedback: z.string() });
+export const ScenarioConfigSchema = z.object({
+  setting: z.string(),
+  turns: z
+    .array(
+      z.strictObject({ situation: z.string(), options: z.array(ScenarioOptionSchema).min(2).max(5) }).refine((t) => t.options.filter((o) => o.correct).length === 1, "exactly one correct option per turn"),
+    )
+    .min(1),
+});
+export const RepeaterConfigSchema = z.object({
+  output: z.number().positive(),
+  offset: z.number(),
+  tone: z.number().positive().nullable(),
+  hearsDirect: z.boolean().optional(),
+  start: z.object({ offset: z.number(), tone: z.number().positive().nullable(), reverse: z.boolean().optional() }),
+  tones: z.array(z.number().min(0)).min(2),
+  controls: z.object({ offset: z.boolean(), tone: z.boolean(), reverse: z.boolean() }),
 });
 const Supply = z.enum(["battery", "linear", "switching", "unregulated"]);
 export const PowerBenchConfigSchema = z.object({
@@ -482,6 +512,18 @@ export const VhfConfigSchema = z.object({
 const LonLatSchema = z.tuple([z.number().min(-180).max(180), z.number().min(-90).max(90)]);
 export const WorldClockConfigSchema = z.discriminatedUnion("mode", [
   z.object({
+    mode: z.literal("clock"),
+    from: LonLatSchema,
+    to: LonLatSchema,
+    fromLabel: z.string(),
+    toLabel: z.string(),
+    utc: z.number().min(0).max(24),
+    offset: z.number().min(-12).max(14),
+    heading: z.number().min(0).max(359),
+    local: z.number().min(0).max(24),
+    controls: z.object({ heading: z.boolean(), local: z.boolean() }),
+  }),
+  z.object({
     mode: z.literal("propagation"),
     date: z.string(),
     from: LonLatSchema,
@@ -537,6 +579,10 @@ export const LAB_SCHEMAS: Record<string, { config: z.ZodType; variables: string[
   "LAB-13": { config: DiagramConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-13"]! },
   "LAB-14": { config: SpectrumConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-14"]! },
   "LAB-28": { config: AntennaConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-28"]! },
+  "LAB-07": { config: ScenarioConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-07"]! },
+  "LAB-11": { config: ScenarioConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-11"]! },
+  "LAB-09": { config: DrillConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-09"]! },
+  "LAB-08": { config: RepeaterConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-08"]! },
   "LAB-33": { config: InterferenceConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-33"]! },
   "LAB-34": { config: FilterConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-34"]! },
   "LAB-30": { config: IonosphereConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-30"]! },

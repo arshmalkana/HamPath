@@ -15,15 +15,31 @@
   lessons: ["1.24", "3.21"]
   default_config: { source: "a 50 W transmitter into a 13 dBi UHF beam", power: 50, gainDbi: 13, limit: 2, distance: 1, controls: { distance: { min: 0.5, max: 20, step: 0.5 } } }
 - { id: LAB-06, name: Antenna Permit Planner, component: null, lessons: ["1.23"] }
-- { id: LAB-07, name: Virtual QSO Simulator, component: null, lessons: ["2.03", "2.04", "2.06", "2.09"] }
-- { id: LAB-08, name: Repeater Lab, component: null, lessons: ["1.18", "2.01"] }
-- { id: LAB-09, name: Phonetic & Q-Code Trainer, component: null, lessons: ["2.02", "2.07"] }
+- id: LAB-07
+  name: Virtual QSO Simulator
+  component: QsoLab
+  lessons: ["2.03", "2.04", "2.06"]
+  default_config: {}
+- id: LAB-08
+  name: Repeater Lab
+  component: RepeaterLab
+  lessons: ["1.18", "2.01"]
+  default_config: { output: 146.94, offset: -600, tone: 100, hearsDirect: false, start: { offset: 0, tone: null }, tones: [0, 88.5, 100, 110.9, 123], controls: { offset: true, tone: true, reverse: false } }
+- id: LAB-09
+  name: Phonetic & Q-Code Trainer
+  component: PhoneticLab
+  lessons: ["2.02", "2.07"]
+  default_config: {}
 - id: LAB-10
   name: Morse Trainer
   component: MorseLab
   lessons: ["2.05", "3.14"]
   default_config: { mode: keyer, target: K, keyer: false, controls: { keyer: true } }
-- { id: LAB-11, name: Emergency Net Scenario, component: null, lessons: ["1.11", "2.08"] }
+- id: LAB-11
+  name: Emergency Net Scenario
+  component: EmergencyNetLab
+  lessons: ["1.11", "2.08"]
+  default_config: {}
 - id: LAB-12
   name: World Map & Clock
   component: WorldClockLab

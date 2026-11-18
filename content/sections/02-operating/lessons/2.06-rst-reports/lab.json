@@ -1,0 +1,89 @@
+{
+  "lab": "LAB-07",
+  "steps": {
+    "qso-reports": {
+      "title": "Give the reports",
+      "prompt": "Pick the right report each time.",
+      "config": {
+        "setting": "20 m and the local repeater. You're VE3HAM.",
+        "turns": [
+          {
+            "situation": "SSB: you copy VE2XYZ perfectly. Your S-meter reads S7. Your report?",
+            "options": [
+              {
+                "text": "\"You're 5 7.\"",
+                "correct": true,
+                "feedback": ""
+              },
+              {
+                "text": "\"You're 5 9.\"",
+                "feedback": "S7 is moderately strong, not S9."
+              },
+              {
+                "text": "\"You're 3 7.\"",
+                "feedback": "You copy perfectly: readability 5."
+              }
+            ]
+          },
+          {
+            "situation": "CW: perfectly readable, moderately strong, and a perfect tone.",
+            "options": [
+              {
+                "text": "RST 579",
+                "correct": true,
+                "feedback": ""
+              },
+              {
+                "text": "RST 559",
+                "feedback": "Moderately strong is 7; 5 is fair."
+              },
+              {
+                "text": "RST 379",
+                "feedback": "Perfectly readable is 5."
+              }
+            ]
+          },
+          {
+            "situation": "On the repeater, a station 80 km away asks how they sound.",
+            "options": [
+              {
+                "text": "Report their signal and audio as heard through the repeater",
+                "correct": true,
+                "feedback": ""
+              },
+              {
+                "text": "Read your S-meter on the repeater output",
+                "feedback": "That's the repeater's signal, not theirs."
+              },
+              {
+                "text": "Read your S-meter on the repeater input",
+                "feedback": "You may not hear them on the input at all. Report what you hear through the repeater."
+              }
+            ]
+          },
+          {
+            "situation": "A very faint SSB signal you can barely detect and can't understand.",
+            "options": [
+              {
+                "text": "\"You're 1 1.\"",
+                "correct": true,
+                "feedback": "Readability, strength, tone: you can give a report for anything you hear."
+              },
+              {
+                "text": "\"You're 3 3.\"",
+                "feedback": "3 3 is readable with considerable difficulty. You can't read this at all."
+              },
+              {
+                "text": "\"You're 5 1.\"",
+                "feedback": "5 is perfectly readable, which this isn't."
+              }
+            ]
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All reports right",
+      "success": "Readability, strength, tone: you can give a report for anything you hear."
+    }
+  }
+}

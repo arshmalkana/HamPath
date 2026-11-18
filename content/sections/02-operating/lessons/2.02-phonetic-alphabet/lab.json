@@ -1,0 +1,78 @@
+{
+  "lab": "LAB-09",
+  "steps": {
+    "drill-phonetics": {
+      "title": "Phonetic drill",
+      "prompt": "Get eight right.",
+      "config": {
+        "question": "What's the ITU phonetic word for this letter?",
+        "target": 8,
+        "items": [
+          {
+            "id": "A",
+            "prompt": "A",
+            "answer": "Alfa"
+          },
+          {
+            "id": "B",
+            "prompt": "B",
+            "answer": "Bravo"
+          },
+          {
+            "id": "D",
+            "prompt": "D",
+            "answer": "Delta"
+          },
+          {
+            "id": "E",
+            "prompt": "E",
+            "answer": "Echo"
+          },
+          {
+            "id": "G",
+            "prompt": "G",
+            "answer": "Golf"
+          },
+          {
+            "id": "I",
+            "prompt": "I",
+            "answer": "India"
+          },
+          {
+            "id": "L",
+            "prompt": "L",
+            "answer": "Lima"
+          },
+          {
+            "id": "P",
+            "prompt": "P",
+            "answer": "Papa"
+          },
+          {
+            "id": "R",
+            "prompt": "R",
+            "answer": "Romeo"
+          },
+          {
+            "id": "V",
+            "prompt": "V",
+            "answer": "Victor"
+          },
+          {
+            "id": "K",
+            "prompt": "K",
+            "answer": "Kilo"
+          },
+          {
+            "id": "M",
+            "prompt": "M",
+            "answer": "Mike"
+          }
+        ]
+      },
+      "goal": "done",
+      "goal_text": "Eight right",
+      "success": "You can spell your call sign so anyone can copy it."
+    }
+  }
+}

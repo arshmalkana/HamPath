@@ -1,0 +1,52 @@
+{
+  "lab": "LAB-10",
+  "steps": {
+    "copy-prosigns": {
+      "title": "What does it mean?",
+      "prompt": "Get five right.",
+      "config": {
+        "mode": "copy",
+        "morse": {
+          "wpm": 15
+        },
+        "question": "Play the signal. What does it mean?",
+        "target": 5,
+        "items": [
+          {
+            "id": "cq",
+            "prompt": "CQ",
+            "answer": "Calling any station"
+          },
+          {
+            "id": "de",
+            "prompt": "DE",
+            "answer": "From"
+          },
+          {
+            "id": "k",
+            "prompt": "K",
+            "answer": "Any station please reply"
+          },
+          {
+            "id": "r",
+            "prompt": "R",
+            "answer": "All received"
+          },
+          {
+            "id": "dx",
+            "prompt": "DX",
+            "answer": "Distant station"
+          },
+          {
+            "id": "s73",
+            "prompt": "73",
+            "answer": "Best regards"
+          }
+        ]
+      },
+      "goal": "done",
+      "goal_text": "Five right",
+      "success": "CQ, DE, K, R, DX and 73: the core of every CW contact."
+    }
+  }
+}

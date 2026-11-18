@@ -18,6 +18,20 @@ import { blockDiagramVariables, type DiagramConfig, type DiagramState } from "./
 import { spectrumVariables, type SpectrumConfig, type SpectrumState } from "./spectrum.ts";
 import { antennaVariables, patternVariables, type PatternState } from "./antennas.ts";
 import {
+  clockVariables,
+  drillVariables,
+  repeaterVariables,
+  scenarioVariables,
+  type ClockConfig,
+  type ClockState,
+  type DrillConfig,
+  type DrillState,
+  type RepeaterConfig,
+  type RepeaterState,
+  type ScenarioConfig,
+  type ScenarioState,
+} from "./operating.ts";
+import {
   filterVariables,
   interferenceVariables,
   type FilterConfig,
@@ -276,7 +290,15 @@ export function labVariables(labId: string, state: unknown, config: Record<strin
     case "LAB-32":
       return vhfVariables(st as unknown as VhfState);
     case "LAB-12":
+      if (config.mode === "clock") return clockVariables(st as unknown as ClockState, config as unknown as ClockConfig);
       return mapPathVariables(st as unknown as MapPathState, config as unknown as MapPathConfig);
+    case "LAB-07":
+    case "LAB-11":
+      return scenarioVariables(st as unknown as ScenarioState, config as unknown as ScenarioConfig);
+    case "LAB-09":
+      return drillVariables(st as unknown as DrillState, config as unknown as DrillConfig);
+    case "LAB-08":
+      return repeaterVariables(st as unknown as RepeaterState, config as unknown as RepeaterConfig);
     case "LAB-29":
       return patternVariables(st as unknown as PatternState);
     case "LAB-26":
@@ -286,6 +308,7 @@ export function labVariables(labId: string, state: unknown, config: Record<strin
     case "LAB-04":
       return ssbDriveVariables(st as unknown as SsbDriveState, config as unknown as SsbDriveConfig);
     case "LAB-10":
+      if (config.mode === "copy") return drillVariables(st as unknown as DrillState, config as unknown as DrillConfig);
       return keyerVariables(st as unknown as KeyerState, config as unknown as KeyerConfig);
     case "LAB-15":
       return powerBenchVariables(st as unknown as PowerBenchState, config as unknown as PowerBenchConfig);
@@ -382,7 +405,7 @@ export const LAB_GOAL_VARIABLES: Record<string, string[]> = {
     "minSnr",
   ],
   "LAB-04": ["drive", "alc", "alcOver", "pep", "avg", "processor", "distorted", "splatter", "bandwidth"],
-  "LAB-10": ["keyer", "elements", "correct", "timingError", "clean"],
+  "LAB-10": ["keyer", "elements", "correct", "timingError", "clean", "attempted", "total", "done"],
   "LAB-15": [
     "V",
     "Ah",
@@ -447,7 +470,28 @@ export const LAB_GOAL_VARIABLES: Record<string, string[]> = {
   ],
   "LAB-31": ["year", "ssn", "sfi", "muf", "open10", "open20", "open6"],
   "LAB-32": ["horizon", "reach", "ducting", "es", "auroraLink", "meteorLink", "north", "band"],
-  "LAB-12": ["utc", "midHour", "muf", "owf", "open", "absorbed", "aboveMuf", "distance", "bearing", "f"],
+  "LAB-12": [
+    "utc",
+    "midHour",
+    "muf",
+    "owf",
+    "open",
+    "absorbed",
+    "aboveMuf",
+    "distance",
+    "bearing",
+    "f",
+    "shortBearing",
+    "longBearing",
+    "aimedShort",
+    "aimedLong",
+    "netLocal",
+    "localOk",
+  ],
+  "LAB-07": ["passed", "total", "complete"],
+  "LAB-11": ["passed", "total", "complete"],
+  "LAB-09": ["correct", "attempted", "total", "done"],
+  "LAB-08": ["txFreq", "inputFreq", "onInput", "toneOk", "accessed", "reverse", "hearsDirect"],
   "LAB-29": ["gainDbi", "gainDbd", "isotropic", "vertical", "matched", "received", "forward"],
   "LAB-26": ["Z0", "vf", "lossDb", "delivered", "length", "f", "balanced", "commonMode"],
   "LAB-27": ["swr", "stationSwr", "rigSwr", "reflected", "matched", "power", "foldback", "f0", "fault"],

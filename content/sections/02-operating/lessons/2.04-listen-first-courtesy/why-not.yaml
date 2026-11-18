@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-002-004-001:
+  Check your antenna for resonance at the selected frequency: Resonance doesn't come before listening.
+  Make sure the SWR on your transmission line is high enough: You want low SWR, and listening comes first anyway.
+  Increase power to ensure someone will hear you: Increasing power isn't the first step.
+B-002-004-002:
+  Turn on your speech processor: A processor makes you even louder.
+  Bypass your antenna tuner: Bypassing the tuner isn't the fix.
+  None, continue with your contact: Use only the power you need.
+B-002-004-003:
+  1 kHz away from the net frequency: 1 kHz away is still on top of the net.
+  On the net frequency: Never tune on the net frequency.
+  On the band's centre frequency: The band centre may be busy too; just move 3 to 5 kHz.
+B-002-004-004:
+  Choose an unoccupied frequency: Even an unoccupied frequency gets a signal from you; a dummy load sends nothing out.
+  Use a non-resonant antenna: A non-resonant antenna still radiates.
+  Use a resonant antenna: "A resonant antenna radiates best: the opposite of what you want."
+B-002-004-005:
+  To give comparative signal reports: A dummy load can't give signal reports.
+  It is faster to tune: It isn't about speed.
+  To reduce output power: It doesn't reduce your output; it absorbs it.
+B-002-004-006:
+  Reduce your output power and start the net as usual: Starting over the existing contact is rude.
+  Increase your power output so that net participants will be able to hear you over the existing activity: Overpowering others is never right.
+  Cancel the net for that day: Cancelling isn't needed; ask, or move.
+B-002-004-007:
+  Increase your power output to ensure that all net participants can hear you: Overpowering the net is wrong.
+  Transmit as long as possible on the frequency so that no other stations may use it: Hogging the frequency is wrong.
+  Turn off your radio: You don't need to switch off; just move.
+B-002-004-008:
+  Tell the interfering stations to change frequency, since you were there first: No one owns a frequency.
+  Report the interference to your Section Manager at Radio Amateurs of Canada (RAC): This isn't something to report.
+  Increase your output power: More power makes it worse.
+B-002-004-009:
+  150 Hz to 500 Hz: 150 to 500 Hz is CW spacing.
+  Approximately 6 kHz: 6 kHz is more than needed.
+  Approximately 10 kHz: 10 kHz wastes spectrum.
+B-002-004-010:
+  A schedule of operating restrictions within a band prescribed by Innovation, Science and Economic Development Canada: Band plans are voluntary, not ISED restrictions.
+  A plan devised by a club for the effective use of a frequency band during a contest: It isn't a contest plan.
+  A schedule of additional band allocations for recommendation to the International Telecommunication Union: It isn't a list of new allocations.
+B-002-004-011:
+  ask if the frequency is occupied: Asking first can interrupt someone you couldn't hear.
+  make an announcement on the frequency indicating that you intend to make a call: Announcing first can interrupt too; listen first.
+  decrease your receiver's volume: Turning the volume down doesn't help you listen.

@@ -65,6 +65,11 @@ import {
   interferenceVariables,
   filterResponse,
   filterVariables,
+  scenarioVariables,
+  drillVariables,
+  drillChoices,
+  repeaterVariables,
+  clockVariables,
 } from "./index.ts";
 
 describe("units", () => {
@@ -678,5 +683,58 @@ describe("section 8 interference models", () => {
     const cfg = { wanted: [7, 14], interferers: [88, 100] };
     expect(filterVariables({ type: "lowpass", f1: 30 }, cfg)).toMatchObject({ ok: true });
     expect(filterVariables({ type: "highpass", f1: 30 }, cfg)).toMatchObject({ ok: false });
+  });
+});
+
+describe("section 2 operating models", () => {
+  const turns = [
+    {
+      situation: "a",
+      options: [
+        { text: "x", correct: true, feedback: "" },
+        { text: "y", feedback: "" },
+      ],
+    },
+    {
+      situation: "b",
+      options: [
+        { text: "x", feedback: "" },
+        { text: "y", correct: true, feedback: "" },
+      ],
+    },
+  ];
+  it("passes scenario turns only in order", () => {
+    expect(scenarioVariables({ picks: [0, 1] }, { turns })).toMatchObject({ passed: 2, complete: true });
+    expect(scenarioVariables({ picks: [1, 1] }, { turns })).toMatchObject({ passed: 0, complete: false });
+  });
+  it("counts drill answers against the trusted deck and offers the right answer among the choices", () => {
+    const c = {
+      target: 2,
+      items: [
+        { id: "a", prompt: "A", answer: "Alfa" },
+        { id: "b", prompt: "B", answer: "Bravo" },
+        { id: "c", prompt: "C", answer: "Charlie" },
+        { id: "d", prompt: "D", answer: "Delta" },
+      ],
+    };
+    expect(drillVariables({ answers: { a: "Alfa", b: "Bravo" } }, c)).toMatchObject({ correct: 2, done: true });
+    expect(drillVariables({ answers: { a: "Bravo" } }, c)).toMatchObject({ correct: 0, attempted: 1 });
+    for (let i = 0; i < 4; i++) {
+      const ch = drillChoices(c, i);
+      expect(ch).toContain(c.items[i]!.answer);
+      expect(new Set(ch).size).toBe(ch.length);
+    }
+  });
+  it("opens a repeater only on its input with the right tone", () => {
+    const c = { output: 146.94, offset: -600, tone: 100 };
+    expect(repeaterVariables({ offset: -600, tone: 100 }, c)).toMatchObject({ accessed: true });
+    expect(repeaterVariables({ offset: 600, tone: 100 }, c)).toMatchObject({ accessed: false });
+    expect(repeaterVariables({ offset: -600, tone: null }, c)).toMatchObject({ accessed: false, onInput: true });
+  });
+  it("finds the long path and converts UTC", () => {
+    const c = { from: [-75.7, 45.4] as [number, number], to: [174.8, -36.8] as [number, number], utc: 19, offset: -6 };
+    const v = clockVariables({ heading: 0, local: 13 }, c)!;
+    expect(v.longBearing as number).toBeCloseTo(((v.shortBearing as number) + 180) % 360);
+    expect(v).toMatchObject({ localOk: true, netLocal: 13 });
   });
 });

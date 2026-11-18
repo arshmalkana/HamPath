@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-002-006-001:
+  Transmitter power: RST doesn't describe transmitter power.
+  Sunspot activity: Sunspots have nothing to do with RST.
+  Ionospheric conditions: It describes the received signal, not the ionosphere.
+B-002-006-002:
+  Recovery, signal strength, tempo: R is readability, not recovery.
+  Recovery, signal speed, tone: R is readability and S is strength.
+  Readability, signal speed, tempo: S is strength and T is tone, not speed and tempo.
+B-002-006-003:
+  Your signal is readable with considerable difficulty: Considerable difficulty would be R3.
+  Your signal is perfectly readable with near pure tone: There's no tone in a voice report.
+  Your signal is perfectly readable, but weak: Weak would be S3, not S7.
+B-002-006-004:
+  Your signal is unreadable, very weak in strength: Unreadable would be 1.
+  The station is located at latitude 33 degrees: RST isn't a latitude.
+  The contact is serial number 33: RST isn't a serial number.
+B-002-006-005:
+  The bandwidth of your signal is 20 decibels above linearity: It isn't about bandwidth.
+  Repeat your transmission on a frequency 20 kHz higher: It isn't a frequency instruction.
+  Your signal strength has increased by a factor of 100: It describes a level over S9, not a change in strength.
+B-002-006-006:
+  Your S-meter reading on the repeater output frequency: The output reading is the repeater's signal.
+  Your S-meter reading on the repeater input frequency: You may not hear them on the input.
+  The readability and strength of the repeater signal: That's the repeater's signal, not the station's.
+B-002-006-007:
+  75 watts: 75 W is only about 1 dB less.
+  50 watts: "50 W is 3 dB less: half an S-unit."
+  33 watts: 33 W is about 5 dB less.
+B-002-006-008:
+  5 times: 5 times is about 7 dB.
+  3 times: 3 times is about 5 dB.
+  2 times: "2 times is 3 dB: half an S-unit."
+B-002-006-009:
+  Your signal is perfectly readable, weak strength, and with perfect tone: 7 is moderately strong, not weak.
+  Your signal is fairly readable, fair strength, and with perfect tone: Readability 5 is perfect, not fair.
+  Your signal is barely readable, moderately strong, and with a faint ripple: Readability 5 is perfect, and tone 9 has no ripple.
+B-002-006-010:
+  Your signal is very readable, very strong, and with perfect tone: 4 is quite readable, not very readable, and 5 is fair, not very strong.
+  Your signal is barely readable, very weak, and with perfect tone: 4 isn't barely readable and 5 isn't very weak.
+  Your signal is moderately readable, very weak, and with hum on the tone: Tone 9 is perfect, with no hum.
+B-002-006-011:
+  Your signal is 11 dB over S9: It isn't dB over S9.
+  Your signal is moderately readable with moderate strength: 1 1 is the lowest, not moderate.
+  Your signal is very readable and very strong: 1 1 is the lowest, not very readable.

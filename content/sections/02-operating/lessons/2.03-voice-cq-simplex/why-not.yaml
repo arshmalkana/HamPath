@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-002-003-001:
+  Say "CQ" once, followed by "this is," followed by your call sign spoken three times: Once isn't enough; say CQ three times.
+  Say "CQ" at least five times, followed by "this is," followed by your call sign spoken once: Five CQs and your call once is the wrong balance.
+  Say "CQ" at least ten times, followed by "this is," followed by your call sign spoken once: Ten CQs is far too many, and your call needs saying three times.
+B-002-003-002:
+  Say the other station's call sign at least five times, followed by "this is," then your call sign twice: Five times their call and twice yours wastes time.
+  Say the other station's call sign at least three times, followed by "this is," and your call sign at least five times: Far too many repeats.
+  Say your call sign twice, followed by "calling," then the other station's call sign: Their call sign goes first, then "this is" and yours.
+B-002-003-003:
+  Transmitting and receiving over a wide area: That's wide-area coverage, not simplex.
+  Transmitting on one frequency and receiving on another: Separate transmit and receive frequencies is duplex, as with repeaters.
+  Transmitting one-way communications: One-way transmission is broadcasting.
+B-002-003-004:
+  When the most reliable communications are needed: The most reliable path may need the repeater.
+  When an emergency telephone call is needed: Phone patches use repeaters.
+  When you are travelling and need some local information: Local information is a reason to use a repeater.
+B-002-003-005:
+  Because greater output power is permitted on VHF and UHF: Power limits aren't higher on VHF and UHF.
+  Because HF transmissions are not propagated locally: HF does propagate locally, by ground wave.
+  Because signals are stronger on VHF and UHF frequencies: Signals aren't inherently stronger on VHF/UHF.
+B-002-003-006:
+  Some frequencies cannot accommodate simplex operation: Any channel can carry simplex.
+  Implanted medical devices share the same spectrum: Medical devices aren't the concern here.
+  Some frequencies are designated for narrow band FM and others for wideband FM: FM width isn't why you choose carefully.
+B-002-003-007:
+  By asking a third station to confirm it receives you both: A third station doesn't prove you can hear each other.
+  By checking if you can clearly receive a more distant repeater: A distant repeater tells you nothing about this path.
+  By asking the other station to move 10 kHz away to test the path: Moving 10 kHz doesn't test the direct path.
+B-002-003-008:
+  Because the repeater's output power may overload your receiver: The repeater's power isn't the concern.
+  Because there are more repeater operators than simplex operators: Numbers of operators aren't the reason.
+  Because changing the repeater's frequency requires the authorization of Innovation, Science and Economic Development Canada: Changing your own frequency needs no authorization.
+B-002-003-009:
+  Lower: Lower sideband is used below 10 MHz.
+  Independent: Independent sideband isn't used for amateur voice.
+  Double: Double sideband isn't used.
+B-002-003-010:
+  Independent: Independent sideband isn't used.
+  Double: Double sideband isn't used.
+  Upper: Upper sideband is used above 10 MHz; 3755 kHz is LSB.
+B-002-003-011:
+  '"CQ, CQ, CQ" followed by the call sign of the desired station': CQ is for any station, not a specific one.
+  Your call sign, followed by "calling" and the call sign of the desired station: Their call sign comes first, then "this is" and yours.
+  Your call sign repeated twice, the word "for" and the call sign of the desired station: That isn't the standard format.

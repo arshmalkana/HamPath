@@ -1,4 +1,4 @@
-import { geoCircle, geoEquirectangular, geoGraticule10, geoPath } from "d3-geo";
+import { geoAzimuthalEquidistant, geoCircle, geoEquirectangular, geoGraticule10, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
 import type { FeatureCollection } from "geojson";
 import type { Topology } from "topojson-specification";
@@ -38,5 +38,20 @@ export function worldPaths(width: number, height: number, date: Date) {
     night: path(night) ?? "",
     grid: path(geoGraticule10()) ?? "",
     project: (lon: number, lat: number) => projection([lon, lat]) ?? [0, 0],
+  };
+}
+
+/** Azimuthal equidistant projection centred on a station (pure, server-safe). */
+export function azimuthalPaths(size: number, center: [number, number]) {
+  const projection = geoAzimuthalEquidistant()
+    .rotate([-center[0], -center[1]])
+    .clipAngle(179.9)
+    .fitSize([size - 8, size - 8], { type: "Sphere" })
+    .translate([size / 2, size / 2]);
+  const path = geoPath(projection);
+  return {
+    land: path(land()) ?? "",
+    grid: path(geoGraticule10()) ?? "",
+    project: (lon: number, lat: number) => projection([lon, lat]) ?? [size / 2, size / 2],
   };
 }

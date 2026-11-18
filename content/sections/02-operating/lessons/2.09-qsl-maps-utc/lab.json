@@ -1,0 +1,67 @@
+{
+  "lab": "LAB-12",
+  "steps": {
+    "explore-longpath": {
+      "title": "The long path",
+      "prompt": "Point the beam along the long path to New Zealand.",
+      "config": {
+        "mode": "clock",
+        "from": [
+          -75.7,
+          45.4
+        ],
+        "to": [
+          174.8,
+          -36.8
+        ],
+        "fromLabel": "Ottawa",
+        "toLabel": "Auckland",
+        "utc": 12,
+        "offset": -5,
+        "heading": 0,
+        "local": 7,
+        "controls": {
+          "heading": true,
+          "local": false
+        }
+      },
+      "goal": "aimedLong",
+      "goal_text": "On the long path",
+      "hints": [
+        "Add 180° to the short-path bearing."
+      ],
+      "success": "180° from the short path: the signal goes the other way round the world."
+    },
+    "explore-utc": {
+      "title": "When is the net?",
+      "prompt": "Set your local clock to the net's start time.",
+      "config": {
+        "mode": "clock",
+        "from": [
+          -104.6,
+          50.4
+        ],
+        "to": [
+          -0.1,
+          51.5
+        ],
+        "fromLabel": "Regina",
+        "toLabel": "London",
+        "utc": 19,
+        "offset": -6,
+        "heading": 0,
+        "local": 19,
+        "controls": {
+          "heading": false,
+          "local": true
+        }
+      },
+      "goal": "localOk",
+      "goal_text": "Right local time",
+      "hints": [
+        "UTC − 6: subtract six hours."
+      ],
+      "success": "19:00 − 6 h = 13:00, 1 PM."
+    }
+  }
+}

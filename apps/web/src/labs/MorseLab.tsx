@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { MORSE, keyerVariables, type KeyerConfig, type KeyerState } from "@hampath/ham-sim";
 import type { LabBodyProps } from "./registry";
 import { Readouts, SegChoice, useReport } from "./common";
+import { DrillBody } from "./DrillLab";
 
 interface Config extends KeyerConfig {
   mode: "keyer";
@@ -45,7 +46,12 @@ function useSidetone() {
 }
 
 /** LAB-10 Morse Trainer. Keyer mode (lesson 3.14): straight key versus electronic keyer. */
-export function MorseLab({ config, mode, onState }: LabBodyProps) {
+/** LAB-10 Morse Trainer: keyer mode (3.14) or copy mode (2.05). */
+export function MorseLab(props: LabBodyProps) {
+  return (props.config as { mode?: string }).mode === "copy" ? <DrillBody {...props} /> : <KeyerBody {...props} />;
+}
+
+function KeyerBody({ config, mode, onState }: LabBodyProps) {
   const cfg = config as unknown as Config;
   const demo = mode === "demo";
   const [keyer, setKeyer] = useState(cfg.keyer);

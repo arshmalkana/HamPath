@@ -1,0 +1,91 @@
+{
+  "lab": "LAB-08",
+  "steps": {
+    "explore-offset": {
+      "title": "Hit the input",
+      "prompt": "Set the offset so you transmit on the repeater's input.",
+      "config": {
+        "output": 146.94,
+        "offset": -600,
+        "tone": 100,
+        "start": {
+          "offset": 0,
+          "tone": 100
+        },
+        "tones": [
+          0,
+          88.5,
+          100,
+          110.9,
+          123
+        ],
+        "controls": {
+          "offset": true,
+          "tone": false,
+          "reverse": false
+        }
+      },
+      "goal": "accessed",
+      "goal_text": "Repeater opens",
+      "hints": [
+        "On 2 m the input is 600 kHz away from the output."
+      ],
+      "success": "146.940 − 0.600 = 146.340 MHz: the repeater's input."
+    },
+    "explore-tone": {
+      "title": "The tone",
+      "prompt": "This repeater needs a 100.0 Hz CTCSS tone.",
+      "config": {
+        "output": 146.94,
+        "offset": -600,
+        "tone": 100,
+        "start": {
+          "offset": -600,
+          "tone": null
+        },
+        "tones": [
+          0,
+          88.5,
+          100,
+          110.9,
+          123
+        ],
+        "controls": {
+          "offset": false,
+          "tone": true,
+          "reverse": false
+        }
+      },
+      "goal": "accessed",
+      "goal_text": "Repeater opens",
+      "success": "With the tone present, the repeater opens its audio and retransmits you."
+    },
+    "explore-reverse": {
+      "title": "Do you need the repeater?",
+      "prompt": "Listen on the repeater's input to check if you can hear your friend directly.",
+      "config": {
+        "output": 146.94,
+        "offset": -600,
+        "tone": 100,
+        "hearsDirect": true,
+        "start": {
+          "offset": -600,
+          "tone": 100,
+          "reverse": false
+        },
+        "tones": [
+          0,
+          100
+        ],
+        "controls": {
+          "offset": false,
+          "tone": false,
+          "reverse": true
+        }
+      },
+      "goal": "hearsDirect",
+      "goal_text": "Direct path found",
+      "success": "You can hear them on the input frequency, so you could talk simplex and free up the repeater."
+    }
+  }
+}

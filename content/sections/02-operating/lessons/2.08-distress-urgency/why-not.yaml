@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-002-008-001:
+  Never: "You may: in a life-threatening distress situation."
+  Only at specific times (at 15 and 30 minutes after the hour): There's no special schedule.
+  Only in case of a severe weather watch: A weather watch isn't distress.
+B-002-008-002:
+  Distress: Distress is for immediate danger to life.
+  Safety: Safety messages are warnings, like weather.
+  Welfare: Welfare is a routine check on someone.
+B-002-008-003:
+  SOS: SOS is Morse.
+  EMERGENCY: "\"Emergency\" isn't the international signal."
+  HELP: "\"Help\" isn't the international signal."
+B-002-008-004:
+  CQD: CQD is an obsolete signal.
+  QRRR: QRRR isn't the distress signal.
+  MAYDAY: MAYDAY is the voice signal.
+B-002-008-005:
+  Say "EMERGENCY" three times: Wait for a break, then give your call sign and situation.
+  Say "SOS," then your call sign: SOS is Morse, and you still need to break in properly.
+  Say "HELP" as many times as it takes to get someone to answer: That isn't how to break in.
+B-002-008-006:
+  So you will comply with the rules: No rule requires it.
+  So you may operate in contests where AC power is not allowed: Contests aren't the reason.
+  So you may use your station while mobile: Mobile operation isn't the reason.
+B-002-008-007:
+  An extra antenna: An extra antenna is useful, but batteries are crucial.
+  A portable amplifier: An amplifier drains batteries faster.
+  A microphone headset for hands-free operation: A headset is a convenience.
+B-002-008-008:
+  A parabolic dish: A dish is for microwaves.
+  A three-element Yagi: A Yagi is heavy and slow to set up.
+  A three-element quad: A quad is heavy and fragile.
+B-002-008-009:
+  Continue your communication because you were on frequency first: Distress takes priority over your contact.
+  Change to a different frequency so the station in distress may have a clear channel to call for assistance: They've already reached you; respond.
+  Immediately cease all transmissions because stations in distress have emergency rights to the frequency: Help them; don't just go silent.
+B-002-008-010:
+  no other messages: Distress comes before all other messages.
+  a government priority message: Distress comes before government priority messages too.
+  a safety message: Distress comes before safety messages.
+B-002-008-011:
+  enter the details in the logbook and take no further action: Logging it isn't enough.
+  take no action: Doing nothing isn't acceptable.
+  tell all other stations to cease transmitting: Silencing everyone isn't your call.
