@@ -19,7 +19,11 @@
 - { id: LAB-16, name: Safe Shack Inspector, component: null, lessons: ["3.18", "3.19", "3.20", "3.21"] }
 - { id: LAB-17, name: Component Bench, component: null, lessons: ["4.01", "4.02", "4.03", "4.04", "4.05"] }
 - { id: LAB-18, name: Resistor Colour Code, component: null, lessons: ["4.06"] }
-- { id: LAB-19, name: Unit Slider, component: null, lessons: ["5.01"] }
+- id: LAB-19
+  name: Unit Slider
+  component: UnitSliderLab
+  lessons: ["5.01"]
+  default_config: { quantity: "1 kHz", unit: Hz, startExp: 0 }
 - id: LAB-20
   name: Ohm's Law Circuit Builder
   component: OhmsLawLab
@@ -34,11 +38,40 @@
       R: { min: 1, max: 100, step: 1 }
       switch: true
     show: { ammeter: true, voltmeter: true, power: false }
-- { id: LAB-21, name: AC Scope, component: null, lessons: ["5.07", "5.10"] }
-- { id: LAB-22, name: dB Ladder, component: null, lessons: ["5.08", "6.09"] }
-- { id: LAB-23, name: Transformer Lab, component: null, lessons: ["5.11"] }
-- { id: LAB-24, name: Resonance Tuner, component: null, lessons: ["5.12"] }
-- { id: LAB-25, name: Meter Lab, component: null, lessons: ["5.13"] }
+- id: LAB-21
+  name: AC Scope
+  component: ScopeLab
+  lessons: ["5.07", "5.10"]
+  default_config: { f: 1000, fMin: 20, fMax: 30000000, view: wave, harmonic: false, phase: 0, controls: { f: true, harmonic: false, phase: false, component: false } }
+- id: LAB-22
+  name: dB Ladder
+  component: DbLadderLab
+  lessons: ["5.08", "6.09"]
+  default_config: { P0: 100, stages: [{ label: Amplifier, db: 0, min: -20, max: 20 }], controls: { P0: false } }
+- id: LAB-23
+  name: Transformer Lab
+  component: TransformerLab
+  lessons: ["5.11"]
+  default_config: { Np: 250, Ns: 500, Vp: 120, Rload: 100, controls: { Np: { min: 50, max: 1000, step: 50 }, Ns: { min: 50, max: 1000, step: 50 }, Vp: false, Rload: false } }
+- id: LAB-24
+  name: Resonance Tuner
+  component: ResonanceLab
+  lessons: ["5.12"]
+  default_config: { L: 0.000005, C: 0.0000000001, R: 2, circuit: series, f: 7000000, controls: { L: true, C: true, f: true, circuit: false } }
+- id: LAB-25
+  name: Meter Lab
+  component: MeterLab
+  lessons: ["5.13"]
+  default_config:
+    topology: single
+    E: 12
+    resistors: [100]
+    closed: true
+    build: true
+    preplaced: { source: battery, load: resistor }
+    tray: [ammeter, voltmeter]
+    controls: { E: { min: 0, max: 12, step: 0.5 }, R: false, switch: true }
+    show: { ammeter: true, voltmeter: true, power: false }
 - { id: LAB-26, name: Feedline Lab, component: null, lessons: ["6.01", "6.02", "6.03", "6.04"] }
 - { id: LAB-27, name: SWR Bridge & Tuner, component: null, lessons: ["6.05", "6.06"] }
 - { id: LAB-28, name: Antenna Builder, component: null, lessons: ["3.09", "6.08", "6.10", "6.11", "6.12", "6.13"] }

@@ -1,0 +1,18 @@
+---
+type: predict
+title: Double the voltage, then what?
+teaches:
+  - B-005-006-006
+interaction:
+  kind: predict
+  prompt: The voltage across two resistors in series is doubled. What happens to the total power?
+  choices:
+    - text: It doubles
+      feedback: "Current doubles too, and power is voltage × current: 2 × 2 = 4."
+    - text: It increases four times
+      correct: true
+      feedback: Right. Twice the voltage drives twice the current, and P = E × I goes up 2 × 2 = 4 times.
+    - text: It halves
+      feedback: More voltage can't mean less power through the same resistors.
+---
+Then check it against the lab: 5 V gave 1.25 W, and 10 V gave 5 W.

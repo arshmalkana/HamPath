@@ -1912,3 +1912,208 @@ a.lesson-tile[data-done="true"] {
   font-size: var(--text-sm);
   text-align: center;
 }
+
+/* ================================================================ lab plots and section-5 labs */
+.plot {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.plot-screen {
+  fill: var(--shack-readout-ground);
+}
+.plot-grid {
+  stroke: var(--shack-grid);
+  stroke-width: 1;
+}
+.plot-tick {
+  fill: var(--shack-muted);
+  font-family: var(--font-outlier);
+  font-size: 10px;
+}
+.plot-axis {
+  fill: var(--shack-ink-2);
+  font-family: var(--font-body);
+  font-size: 11px;
+}
+.plot-line {
+  fill: none;
+  stroke-width: 2.25;
+  stroke-linejoin: round;
+}
+.plot-line-a {
+  stroke: var(--shack-lamp);
+}
+.plot-line-b {
+  stroke: var(--shack-readout);
+}
+.plot-line-c {
+  stroke: var(--shack-needle);
+}
+.plot-marker {
+  stroke: var(--shack-ink-2);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+.plot-marker-label {
+  fill: var(--shack-ink);
+  font-family: var(--font-outlier);
+  font-size: 11px;
+}
+.readouts-row {
+  display: grid;
+  gap: var(--space-xs);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+  margin: 0;
+}
+.readout-cell {
+  display: grid;
+  gap: var(--space-3xs);
+  padding: var(--space-xs);
+  border-radius: var(--radius-control);
+  background: var(--shack-panel-2);
+  border: 1px solid var(--shack-rule);
+}
+.readout-cell dt {
+  font-size: var(--text-sm);
+  color: var(--shack-ink-2);
+}
+.readout-cell dd {
+  margin: 0;
+}
+.knobs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  align-items: flex-start;
+}
+.prefix-ruler {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: var(--space-2xs);
+}
+.prefix-stop {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3xs);
+  padding: var(--space-xs) 0;
+  border-radius: var(--radius-control);
+  border: 1px solid var(--shack-rule);
+  background: var(--shack-panel-2);
+  color: var(--shack-ink-2);
+  font-family: var(--font-outlier);
+  cursor: pointer;
+  transition: border-color var(--dur-micro) var(--ease-out);
+}
+.prefix-stop:hover {
+  border-color: var(--shack-muted);
+}
+.prefix-stop[aria-checked="true"] {
+  border-color: var(--shack-lamp);
+  color: var(--shack-ink);
+  background: var(--shack-well);
+}
+.prefix-name {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+}
+.big-readout {
+  font-family: var(--font-outlier);
+  font-size: var(--text-3xl);
+  color: var(--shack-readout);
+  background: var(--shack-readout-ground);
+  border-radius: 6px;
+  padding: var(--space-xs) var(--space-md);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.ladder {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-xs);
+}
+.ladder-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 7rem);
+  gap: var(--space-sm);
+  align-items: center;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-control);
+  background: var(--shack-panel-2);
+  border: 1px solid var(--shack-rule);
+}
+.ladder-label {
+  color: var(--shack-ink);
+  font-weight: 700;
+}
+.ladder-power {
+  font-family: var(--font-outlier);
+  color: var(--shack-readout);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+.stepper-btn {
+  min-width: var(--control-h);
+  min-height: var(--control-h);
+  border-radius: var(--radius-control);
+  border: 1px solid var(--shack-rule);
+  background: var(--shack-well);
+  color: var(--shack-ink);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  cursor: pointer;
+  transition: border-color var(--dur-micro) var(--ease-out);
+}
+.stepper-btn:hover:not(:disabled) {
+  border-color: var(--shack-muted);
+}
+.stepper-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.stepper-value {
+  min-width: 5.5rem;
+  text-align: center;
+  font-family: var(--font-outlier);
+  color: var(--shack-readout);
+  font-variant-numeric: tabular-nums;
+}
+.seg-choice {
+  display: inline-flex;
+  border-radius: var(--radius-control);
+  border: 1px solid var(--shack-rule);
+  overflow: hidden;
+}
+.seg-choice button {
+  min-height: var(--control-h);
+  padding: 0 var(--space-md);
+  background: var(--shack-panel-2);
+  color: var(--shack-ink-2);
+  border: 0;
+  font-weight: 700;
+  cursor: pointer;
+}
+.seg-choice button[aria-checked="true"] {
+  background: var(--shack-lamp);
+  color: var(--shack-lamp-ink);
+}
+.seg-choice button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: -3px;
+}
+.xfmr-coil {
+  fill: none;
+  stroke: var(--shack-wire);
+  stroke-width: 3;
+}
+.xfmr-core {
+  stroke: var(--shack-muted);
+  stroke-width: 4;
+}

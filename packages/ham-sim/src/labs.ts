@@ -1,4 +1,18 @@
 import type { Vars } from "./goal.ts";
+import {
+  combineVariables,
+  dbLadderVariables,
+  resonanceVariables,
+  scopeVariables,
+  transformerVariables,
+  unitSliderVariables,
+  type CombineState,
+  type DbLadderState,
+  type ResonanceState,
+  type ScopeState,
+  type TransformerState,
+  type UnitSliderState,
+} from "./lab-models.ts";
 import { solveCircuit, type Topology } from "./resistors.ts";
 
 /**
@@ -98,15 +112,49 @@ export function readOhmsLab(s: OhmsLabState): OhmsReading {
 export function ohmsLabVariables(s: OhmsLabState): Vars {
   const r = readOhmsLab(s);
   const board = s.board ?? CORRECT_BOARD;
+  // Series/parallel networks report circuit totals: total current, voltage across the network,
+  // total resistance and total power. (The breadboard reading describes a single resistor.)
+  const net =
+    s.topology === "single"
+      ? null
+      : solveCircuit({ topology: s.topology, E: s.E, resistors: s.resistors, closed: s.closed });
   return {
     E: s.E,
-    I: r.I,
-    V: r.V,
-    R: r.R,
-    P: r.P,
+    I: net ? net.I : r.I,
+    V: net ? (s.closed ? s.E : 0) : r.V,
+    R: net ? net.R : r.R,
+    P: net ? net.P : r.P,
     closed: s.closed,
     built: r.built,
     metered: board.across === "voltmeter",
+    count: s.resistors.length,
+    ...perResistor(s),
+  };
+}
+
+/** I1..I4 and V1..V4: current through and voltage across each resistor (series and parallel circuits). */
+function perResistor(s: OhmsLabState): Vars {
+  const c = solveCircuit({ topology: s.topology, E: s.E, resistors: s.resistors, closed: s.closed });
+  const out: Vars = {};
+  c.resistors.forEach((r, i) => {
+    out[`I${i + 1}`] = r.I;
+    out[`V${i + 1}`] = r.E;
+  });
+  return out;
+}
+
+/** LAB-25 Meter Lab: the same breadboard, judged on where the meters went. */
+export function meterLabVariables(s: OhmsLabState): Vars {
+  const v = ohmsLabVariables(s);
+  const board = s.board ?? CORRECT_BOARD;
+  const r = readOhmsLab(s);
+  return {
+    ...v,
+    metersCorrect: board.series === "ammeter" && board.across === "voltmeter",
+    blownFuse: r.fault === "ammeter-across-load",
+    blocked: r.fault === "voltmeter-in-series",
+    ammeter: r.ammeter ?? -1,
+    voltmeter: r.voltmeter ?? -1,
   };
 }
 
@@ -139,10 +187,29 @@ function isOhmsState(x: unknown): x is OhmsLabState {
 }
 
 /** Goal variables for a lab's reported state, or null if the lab/state is unknown or malformed. */
-export function labVariables(labId: string, state: unknown): Vars | null {
+/**
+ * Goal variables for a lab's reported state, or null if the lab or state is unknown or malformed.
+ * `config` is the lesson step's config (from the database, never from the browser): labs whose
+ * goals depend on fixed values (e.g. the quantity in LAB-19) read them from here.
+ */
+export function labVariables(labId: string, state: unknown, config: Record<string, unknown> = {}): Vars | null {
+  const st = (state ?? {}) as Record<string, unknown>;
   switch (labId) {
     case "LAB-20":
+      if (config.mode === "combine") return combineVariables(st as unknown as CombineState);
       return isOhmsState(state) ? ohmsLabVariables(state) : null;
+    case "LAB-25":
+      return isOhmsState(state) ? meterLabVariables(state) : null;
+    case "LAB-19":
+      return unitSliderVariables(st as unknown as UnitSliderState, config as { quantity?: string; unit?: string });
+    case "LAB-21":
+      return scopeVariables(st as unknown as ScopeState);
+    case "LAB-22":
+      return dbLadderVariables(st as unknown as DbLadderState);
+    case "LAB-23":
+      return transformerVariables(st as unknown as TransformerState);
+    case "LAB-24":
+      return resonanceVariables(st as unknown as ResonanceState);
     default:
       return null;
   }
@@ -150,5 +217,46 @@ export function labVariables(labId: string, state: unknown): Vars | null {
 
 /** Variables each implemented lab exposes to goal expressions (content validation uses this). */
 export const LAB_GOAL_VARIABLES: Record<string, string[]> = {
-  "LAB-20": ["E", "I", "V", "R", "P", "closed", "built", "metered"],
+  "LAB-20": [
+    "E",
+    "I",
+    "V",
+    "R",
+    "P",
+    "closed",
+    "built",
+    "metered",
+    "count",
+    "I1",
+    "I2",
+    "I3",
+    "I4",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "total",
+    "ratio",
+    "series",
+  ],
+  "LAB-25": [
+    "E",
+    "I",
+    "V",
+    "R",
+    "P",
+    "closed",
+    "built",
+    "metered",
+    "metersCorrect",
+    "blownFuse",
+    "blocked",
+    "ammeter",
+    "voltmeter",
+  ],
+  "LAB-19": ["exp", "base", "mantissa"],
+  "LAB-21": ["f", "T", "wavelength", "harmonic", "phase", "XL", "XC", "audio", "hf"],
+  "LAB-22": ["P0", "db", "ratio", "Pout"],
+  "LAB-23": ["ratio", "Vs", "Is", "Ip", "Pout", "Pin", "Zp", "stepUp"],
+  "LAB-24": ["f0", "f", "XL", "XC", "Z", "Q", "bandwidth", "atResonance", "parallel"],
 };

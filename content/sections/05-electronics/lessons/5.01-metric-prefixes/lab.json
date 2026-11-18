@@ -1,0 +1,36 @@
+{
+  "lab": "LAB-19",
+  "steps": {
+    "explore-khz": {
+      "title": "Slide the prefix",
+      "prompt": "The dial reads 3.525 MHz. Slide to kHz and read the same frequency in kilohertz.",
+      "config": {
+        "quantity": "3.525 MHz",
+        "unit": "Hz",
+        "startExp": 6
+      },
+      "goal": "exp == 3",
+      "goal_text": "Shown in kHz",
+      "hints": [
+        "kilo is one stop to the left of mega.",
+        "Pick the kHz stop."
+      ],
+      "success": "3 525 kHz. One step down the ladder: the decimal point moved three places right."
+    },
+    "explore-mv": {
+      "title": "Down to milli",
+      "prompt": "Show 2 volts in millivolts.",
+      "config": {
+        "quantity": "2 V",
+        "unit": "V",
+        "startExp": 0
+      },
+      "goal": "exp == -3",
+      "goal_text": "Shown in mV",
+      "hints": [
+        "milli is one stop below the base unit."
+      ],
+      "success": "2 000 mV. Millivolts are smaller, so you need more of them."
+    }
+  }
+}

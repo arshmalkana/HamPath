@@ -1,6 +1,12 @@
 import type { ComponentType } from "react";
 import type { Vars } from "@hampath/ham-sim";
+import { DbLadderLab } from "./DbLadderLab";
+import { MeterLab } from "./MeterLab";
 import { OhmsLawLab } from "./OhmsLawLab";
+import { ResonanceLab } from "./ResonanceLab";
+import { ScopeLab } from "./ScopeLab";
+import { TransformerLab } from "./TransformerLab";
+import { UnitSliderLab } from "./UnitSliderLab";
 
 export type LabMode = "explore" | "sandbox" | "demo";
 
@@ -39,13 +45,13 @@ export const LAB_REGISTRY: LabEntry[] = [
   { id: "LAB-16", name: "Safe Shack Inspector", component: null },
   { id: "LAB-17", name: "Component Bench", component: null },
   { id: "LAB-18", name: "Resistor Colour Code", component: null },
-  { id: "LAB-19", name: "Unit Slider", component: null },
+  { id: "LAB-19", name: "Unit Slider", component: UnitSliderLab },
   { id: "LAB-20", name: "Ohm's Law Circuit Builder", component: OhmsLawLab },
-  { id: "LAB-21", name: "AC Scope", component: null },
-  { id: "LAB-22", name: "dB Ladder", component: null },
-  { id: "LAB-23", name: "Transformer Lab", component: null },
-  { id: "LAB-24", name: "Resonance Tuner", component: null },
-  { id: "LAB-25", name: "Meter Lab", component: null },
+  { id: "LAB-21", name: "AC Scope", component: ScopeLab },
+  { id: "LAB-22", name: "dB Ladder", component: DbLadderLab },
+  { id: "LAB-23", name: "Transformer Lab", component: TransformerLab },
+  { id: "LAB-24", name: "Resonance Tuner", component: ResonanceLab },
+  { id: "LAB-25", name: "Meter Lab", component: MeterLab },
   { id: "LAB-26", name: "Feedline Lab", component: null },
   { id: "LAB-27", name: "SWR Bridge & Tuner", component: null },
   { id: "LAB-28", name: "Antenna Builder", component: null },

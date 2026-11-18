@@ -1,0 +1,59 @@
+{
+  "lab": "LAB-20",
+  "steps": {
+    "explore-parallel": {
+      "title": "Add branches",
+      "prompt": "Add 100 Ω resistors in parallel until there are four. Watch the total current.",
+      "config": {
+        "topology": "parallel",
+        "E": 12,
+        "resistors": [
+          100
+        ],
+        "closed": true,
+        "controls": {
+          "E": false,
+          "R": false,
+          "switch": false,
+          "count": {
+            "min": 1,
+            "max": 4
+          }
+        }
+      },
+      "goal": "count == 4",
+      "goal_text": "Four branches",
+      "hints": [
+        "Use the + button next to Resistors."
+      ],
+      "success": "480 mA: each branch takes 120 mA and the battery supplies them all. Total resistance fell to 25 Ω."
+    },
+    "explore-series": {
+      "title": "Add resistors in a row",
+      "prompt": "Add 10 Ω resistors in series until there are four. What happens to the total resistance?",
+      "config": {
+        "topology": "series",
+        "E": 12,
+        "resistors": [
+          10
+        ],
+        "closed": true,
+        "controls": {
+          "E": false,
+          "R": false,
+          "switch": false,
+          "count": {
+            "min": 1,
+            "max": 4
+          }
+        }
+      },
+      "goal": "count == 4",
+      "goal_text": "Four in series",
+      "hints": [
+        "Use the + button next to Resistors."
+      ],
+      "success": "40 Ω: they simply add. A fifth would make 50 Ω."
+    }
+  }
+}

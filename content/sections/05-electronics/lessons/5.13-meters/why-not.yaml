@@ -1,0 +1,41 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-005-013-001:
+  In series with the circuit: In series a voltmeter would block the current; it goes across the circuit.
+  In quadrature with the circuit: Quadrature isn't a way of connecting a meter.
+  In phase with the circuit: In phase isn't a way of connecting a meter.
+B-005-013-002:
+  In quadrature with the circuit: Quadrature isn't a way of connecting a meter.
+  In phase with the circuit: In phase isn't a way of connecting a meter.
+  In parallel with the circuit: In parallel an ammeter shorts the circuit; it goes in series.
+B-005-013-003:
+  Resistance, capacitance and inductance: Measuring L and C needs a dedicated LC meter.
+  Resistance and reactance: Reactance needs AC measurements; a multimeter does V, A and Ω.
+  SWR and power: SWR and power need an SWR meter or wattmeter.
+B-005-013-004:
+  An ohmmeter: An ohmmeter measures resistance, with the power off.
+  A wattmeter: A wattmeter measures power, not current.
+  A voltmeter: A voltmeter measures voltage.
+B-005-013-005:
+  A low value resistance: A low resistance across the part would load the circuit; that's an ammeter's behaviour.
+  An open circuit: It draws a tiny current, so it isn't a true open circuit.
+  A perfect conductor: A perfect conductor across the part would short it.
+B-005-013-006:
+  A perfect conductor: No real meter is a perfect conductor, though a good ammeter comes close.
+  An additional load: It shouldn't load the circuit; it's designed to be a very low resistance.
+  A high value resistance: A high resistance in series would starve the circuit; that's a voltmeter's behaviour.
+B-005-013-007:
+  Wavemeter: A wavemeter measures frequency.
+  Field-strength meter: A field-strength meter shows relative signal strength, not power directly.
+  Ammeter: An ammeter measures current, not RF power.
+B-005-013-008:
+  a wattmeter: A wattmeter measures power.
+  an ohmmeter: An ohmmeter measures resistance.
+  an ammeter: An ammeter measures current.
+B-005-013-009:
+  Wavemeter: A wavemeter measures frequency.
+  Wattmeter: A wattmeter measures power.
+  Voltmeter: A voltmeter measures voltage.
+B-005-013-010:
+  Precision: Precision is how repeatable readings are.
+  Resolution: Resolution is the smallest change the display can show.
+  Stability: Stability is how well readings hold over time.

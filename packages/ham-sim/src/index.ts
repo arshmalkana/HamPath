@@ -6,3 +6,4 @@ export * from "./goal.ts";
 export * from "./calc.ts";
 export * from "./labs.ts";
 export * from "./morse.ts";
+export * from "./lab-models.ts";

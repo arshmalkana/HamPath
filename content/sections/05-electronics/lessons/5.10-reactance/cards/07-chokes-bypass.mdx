@@ -1,0 +1,22 @@
+---
+type: concept
+title: Chokes and bypass capacitors
+teaches:
+  - B-005-010-007
+  - B-005-010-008
+  - B-005-010-009
+  - B-005-010-010
+exam_fact: An RF choke has high reactance at RF and low reactance at low frequencies. A bypass capacitor has low reactance at RF and high reactance at audio.
+interaction:
+  kind: reveal
+  prompt: Tap a part.
+  items:
+    - label: Ferrite choke
+      text: High reactance at radio frequencies blocks RF; low reactance at low frequencies lets power and audio through.
+    - label: Bypass capacitor
+      text: Low reactance at RF shunts the interference to ground; high reactance at audio leaves the audio alone.
+---
+Interference cures use both behaviours:
+
+- A coil on a **ferrite core** has **high reactance at radio frequencies**, so it blocks an offending RF signal. At low frequencies its **reactance is low**, so the signals meant to flow through it hardly notice it.
+- A **bypass capacitor** has **low reactance at RF**, so it diverts RF to ground, and **high reactance at audio frequencies**, so the audio circuit barely sees it.

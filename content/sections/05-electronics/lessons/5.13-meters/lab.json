@@ -1,0 +1,23 @@
+{
+  "lab": "LAB-25",
+  "steps": {
+    "explore-place": {
+      "title": "Wire in the meters",
+      "prompt": "Put the ammeter and voltmeter where they belong, with the switch closed.",
+      "config": {
+        "E": 12,
+        "resistors": [
+          100
+        ],
+        "closed": true
+      },
+      "goal": "metersCorrect && closed",
+      "goal_text": "Both meters reading correctly",
+      "hints": [
+        "Current must flow through the ammeter.",
+        "The voltmeter goes across the resistor."
+      ],
+      "success": "Ammeter in the loop, voltmeter across the resistor: 120 mA and 12 V, and the meters don't disturb the circuit."
+    }
+  }
+}

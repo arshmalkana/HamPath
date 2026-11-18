@@ -1,0 +1,18 @@
+---
+type: predict
+title: The hot resistor
+teaches:
+  - B-005-003-009
+interaction:
+  kind: predict
+  prompt: A resistor in a circuit gets very hot and starts to burn. What is it handling too much of?
+  choices:
+    - text: Voltage
+      feedback: Voltage alone doesn't heat anything; heat comes from energy used per second.
+    - text: Power
+      correct: true
+      feedback: Right. Every watt a resistor dissipates becomes heat. Too many watts and it burns.
+    - text: Resistance
+      feedback: Resistance is a fixed property of the part, not something it can have too much of.
+---
+Predict, then check.

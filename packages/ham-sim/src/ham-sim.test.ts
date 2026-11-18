@@ -17,6 +17,15 @@ import {
   CORRECT_BOARD,
   toMorse,
   morseTiming,
+  unitSliderVariables,
+  combineVariables,
+  scopeVariables,
+  bandName,
+  dbLadderVariables,
+  transformerVariables,
+  resonanceVariables,
+  meterLabVariables,
+  ohmsLabVariables,
 } from "./index.ts";
 
 describe("units", () => {
@@ -189,5 +198,84 @@ describe("Morse", () => {
     // PARIS is 50 dot units including the trailing word gap (7); without it, 43.
     const { total } = morseTiming("PARIS", 20);
     expect(total).toBeCloseTo(43 * (1.2 / 20), 6);
+  });
+});
+
+describe("section 5 lab models", () => {
+  it("LAB-19 unit slider restates the configured quantity", () => {
+    expect(unitSliderVariables({ exp: 3 }, { quantity: "3.525 MHz", unit: "Hz" })).toMatchObject({
+      exp: 3,
+      mantissa: 3525,
+    });
+    expect(unitSliderVariables({ exp: 2 }, { quantity: "3.525 MHz", unit: "Hz" })).toBeNull();
+  });
+  it("LAB-20 combiner: capacitors do the opposite of coils", () => {
+    expect(combineVariables({ kind: "L", arrangement: "series", values: [0.012, 0.012] })!.total).toBeCloseTo(0.024);
+    expect(combineVariables({ kind: "L", arrangement: "parallel", values: [0.02, 0.02] })!.total).toBeCloseTo(0.01);
+    expect(combineVariables({ kind: "C", arrangement: "series", values: [20e-6, 20e-6] })!.total).toBeCloseTo(10e-6);
+    expect(combineVariables({ kind: "C", arrangement: "parallel", values: [24e-6, 24e-6] })!.ratio).toBeCloseTo(2);
+  });
+  it("LAB-21 scope: period, wavelength, reactance", () => {
+    const v = scopeVariables({ f: 7.125e6, harmonic: false, phase: 0, L: 10e-6 })!;
+    expect(v.T).toBeCloseTo(1 / 7.125e6);
+    expect(v.wavelength).toBeCloseTo(42.1, 1);
+    expect(v.hf).toBe(true);
+    expect(v.XL).toBeCloseTo(2 * Math.PI * 7.125e6 * 10e-6);
+    expect(bandName(7.125e6)).toBe("HF");
+  });
+  it("LAB-22 dB ladder", () => {
+    expect(dbLadderVariables({ P0: 2, stages: [9] })!.Pout).toBeCloseTo(15.9, 1);
+    expect(dbLadderVariables({ P0: 100, stages: [-3, -3] })!.Pout).toBeCloseTo(25.1, 1);
+  });
+  it("LAB-23 transformer: power in = power out", () => {
+    const v = transformerVariables({ Np: 1000, Ns: 100, Vp: 120, Rload: 2.4 })!;
+    expect(v.Vs).toBeCloseTo(12);
+    expect(v.Is).toBeCloseTo(5);
+    expect(v.Ip).toBeCloseTo(0.5);
+    expect(v.Pin).toBeCloseTo(v.Pout as number);
+  });
+  it("LAB-24 resonance: series dips, parallel peaks at f0", () => {
+    const base = { L: 5e-6, C: 100e-12, R: 2 };
+    const f0 = resonanceVariables({ ...base, circuit: "series", f: 7e6 })!.f0 as number;
+    const s = resonanceVariables({ ...base, circuit: "series", f: f0 })!;
+    const p = resonanceVariables({ ...base, circuit: "parallel", f: f0 })!;
+    expect(s.atResonance).toBe(true);
+    expect(s.Z).toBeCloseTo(2, 3);
+    expect(p.Z as number).toBeGreaterThan(10_000);
+  });
+  it("LAB-25 meter lab judges meter placement", () => {
+    const st = { topology: "single" as const, E: 12, resistors: [100], closed: true };
+    expect(meterLabVariables({ ...st, board: CORRECT_BOARD })).toMatchObject({
+      metersCorrect: true,
+      ammeter: 0.12,
+      voltmeter: 12,
+    });
+    expect(
+      meterLabVariables({
+        ...st,
+        board: { source: "battery", load: "resistor", series: "voltmeter", across: "ammeter" },
+      }),
+    ).toMatchObject({ metersCorrect: false, blocked: true });
+  });
+  it("labVariables passes config through and rejects unknown labs", () => {
+    expect(labVariables("LAB-19", { exp: -3 }, { quantity: "2 V", unit: "V" })).toMatchObject({ mantissa: 2000 });
+    expect(
+      labVariables("LAB-20", { kind: "R", arrangement: "parallel", values: [100, 100] }, { mode: "combine" }),
+    ).toMatchObject({ total: 50 });
+  });
+});
+
+describe("LAB-20 networks report circuit totals", () => {
+  it("series: total power, not the first resistor's", () => {
+    const v = ohmsLabVariables({ topology: "series", E: 44.5, resistors: [500, 500], closed: true });
+    expect(v.P).toBeCloseTo(1.98, 2);
+    expect(v.P1).toBeUndefined();
+    expect(v.V1).toBeCloseTo(22.25);
+    expect(v.R).toBe(1000);
+  });
+  it("parallel: total current", () => {
+    expect(
+      ohmsLabVariables({ topology: "parallel", E: 12, resistors: [100, 100, 100, 100], closed: true }).I,
+    ).toBeCloseTo(0.48);
   });
 });

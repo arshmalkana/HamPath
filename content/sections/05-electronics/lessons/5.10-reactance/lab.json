@@ -1,0 +1,51 @@
+{
+  "lab": "LAB-21",
+  "steps": {
+    "explore-coil": {
+      "title": "A coil across the spectrum",
+      "prompt": "Raise the frequency until the 10 µH coil's reactance passes 1000 Ω.",
+      "config": {
+        "f": 100000,
+        "fMin": 1000,
+        "fMax": 30000000,
+        "view": "reactance",
+        "component": "L",
+        "L": 0.00001,
+        "controls": {
+          "f": true,
+          "component": false
+        }
+      },
+      "goal": "XL >= 1000",
+      "goal_text": "XL above 1 kΩ",
+      "hints": [
+        "Reactance rises with frequency for a coil. Turn right.",
+        "Around 16 MHz."
+      ],
+      "success": "Higher frequency, higher reactance: XL = 2πfL."
+    },
+    "explore-cap": {
+      "title": "A capacitor across the spectrum",
+      "prompt": "Find a frequency where the 10 nF capacitor's reactance is below 10 Ω.",
+      "config": {
+        "f": 10000,
+        "fMin": 1000,
+        "fMax": 30000000,
+        "view": "reactance",
+        "component": "C",
+        "C": 1e-8,
+        "controls": {
+          "f": true,
+          "component": false
+        }
+      },
+      "goal": "XC <= 10",
+      "goal_text": "XC below 10 Ω",
+      "hints": [
+        "A capacitor's reactance falls as frequency rises.",
+        "Above about 1.6 MHz."
+      ],
+      "success": "The capacitor all but disappears at RF, while at audio frequencies it opposes strongly."
+    }
+  }
+}

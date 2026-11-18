@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-005-011-001:
+  0.48 amperes: That's 120 ÷ 250, upside down. I = P ÷ E = 250 ÷ 120 ≈ 2.1 A.
+  1.4 amperes: 1.4 A doesn't follow from 250 ÷ 120.
+  3.1 amperes: "3.1 A is too much: 250 W ÷ 120 V ≈ 2.1 A."
+B-005-011-002:
+  By using the correct magnetic coupling between windings: Coupling matters, but the impedance change comes from different voltages and currents in each winding.
+  By allowing the difference to be dissipated in core losses: Core losses waste power; they don't transform impedance.
+  By matching winding resistance to impedance: Winding resistance isn't what sets the impedance ratio.
+B-005-011-003:
+  2.5 amperes: "Voltage drops by 10, so current rises by 10: 5 A, not 2.5 A."
+  25 amperes: 25 A would be a ÷50 voltage ratio.
+  50 amperes: 50 A would be a ÷100 voltage ratio.
+B-005-011-004:
+  480 V: 480 V would need four times the turns.
+  620 V: 620 V doesn't follow from any simple ratio here.
+  60 V: 60 V is stepping down; 500 turns is more than 250, so it steps up.
+B-005-011-005:
+  inversely proportional to the diameter of the conductor: The field depends on current, not on the wire's diameter.
+  directly proportional to the diameter of the conductor: Diameter doesn't set field strength; current does.
+  inversely proportional to the voltage on the conductor: It's current, not voltage, that sets the magnetic field.
+B-005-011-006:
+  the current through the coil is DC: Steady DC induces no voltage at all.
+  current is going through its least rate of change: Least change means least induced voltage.
+  the magnetic field around the coil is not changing: No changing field means no induced voltage.
+B-005-011-007:
+  0.5 amperes: 0.5 A is 5 ÷ 10, upside down. I = 10 W ÷ 5 V = 2 A.
+  1 ampere: 1 A would be only 5 W at 5 V.
+  5 amperes: 5 A would be 25 W at 5 V.
+B-005-011-008:
+  2500 mA: 2500 mA would be a ratio of 50, not 5.
+  10 mA: 10 mA is dividing by 5; the primary of a step-up carries more current, not less.
+  0.25 mA: "That's a thousand times too small: 250 mA."
+B-005-011-009:
+  When the wires are close and at right angles: Right angles minimise coupling.
+  When the wires are separated and parallel: Separation weakens coupling.
+  When the wires are separated and at right angles: Separated and at right angles is the least coupling of all.
+B-005-011-010:
+  copper: Copper isn't magnetic.
+  aluminum: Aluminum isn't magnetic.
+  brass: Brass isn't magnetic.
+B-005-011-011:
+  Noisy operation: Noise can come from vibration but doesn't prove energy loss the way heat does.
+  Large secondary current: Large secondary current is normal in a step-down transformer.
+  High primary voltage: High primary voltage is normal; heat is the sign of loss.

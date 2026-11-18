@@ -1,0 +1,55 @@
+code: "5.06"
+title: Power calculations and resistor ratings
+est_minutes: 11
+lab_id: LAB-20
+question_ids:
+  - B-005-006-001
+  - B-005-006-002
+  - B-005-006-003
+  - B-005-006-004
+  - B-005-006-005
+  - B-005-006-006
+  - B-005-006-007
+  - B-005-006-008
+  - B-005-006-009
+  - B-005-006-010
+  - B-005-006-011
+calculations:
+  B-005-006-002:
+    calc: electrical
+    given:
+      E: 12
+      I: 5
+    find: P
+  B-005-006-003:
+    calc: electrical
+    given:
+      E: 12
+      I: 500 mA
+    find: P
+  B-005-006-004:
+    calc: power_rating
+    given:
+      ratings:
+        - 1
+        - 1
+  B-005-006-005:
+    calc: power_rating
+    given:
+      ratings:
+        - 1
+        - 1
+  B-005-006-008:
+    calc: electrical
+    given:
+      P: 30
+      E: 12
+    find: I
+  B-005-006-009:
+    calc: resistors
+    given:
+      series:
+        - 10
+        - 10
+      E: 10
+    find: P

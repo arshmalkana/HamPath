@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-005-006-001:
+  For better response time: Response time isn't why you'd pick a bigger body.
+  For higher conductance: Same resistance means the same conductance.
+  For less impedance in the circuit: Same resistance means the same impedance at DC.
+B-005-006-002:
+  17 watts: That's 12 + 5. Power is 12 V × 5 A = 60 W.
+  2.4 watts: "That's 12 ÷ 5. Power multiplies: 60 W."
+  6 watts: "Ten times too small: 12 × 5 = 60 W."
+B-005-006-003:
+  24 watts: That treats 500 mA as 2 A. 500 mA = 0.5 A, so 12 × 0.5 = 6 W.
+  60 watts: That treats 500 mA as 5 A. 12 × 0.5 = 6 W.
+  600 watts: "That uses 500 mA as 50 A. Convert first: 12 V × 0.5 A = 6 W."
+B-005-006-004:
+  1 watt: Equal resistors share power equally, so two 1 W parts handle 2 W.
+  0.5 watts: Each can handle 1 W; together that's 2 W, not less.
+  4 watts: Each is limited to 1 W, so the most is 2 W in total.
+B-005-006-005:
+  0.5 watts: "Two equal resistors in parallel share the power: 1 W + 1 W = 2 W."
+  1 watt: Parallel doesn't reduce the total rating; each still handles 1 W.
+  4 watts: "The total can't exceed the sum of the ratings: 2 W."
+B-005-006-006:
+  Decrease to half: More voltage through the same resistors means more power, not less.
+  Double: Current doubles too, so power goes up 2 × 2 = 4 times.
+  Decrease to one quarter: Power can't fall when voltage rises across the same resistance.
+B-005-006-007:
+  Two 5-watt 100-ohm resistors in series: Two 100 Ω in series make 200 Ω, not 50 Ω.
+  Two 2-watt 25-ohm resistors in series: "Two 25 Ω in series make 50 Ω, but each 2 W resistor would carry 2.5 W: overloaded."
+  Ten quarter-watt 500-ohm resistors in parallel: Ten 500 Ω in parallel make 50 Ω, but 10 × ¼ W is only 2.5 W.
+B-005-006-008:
+  18 amperes: "That's 30 − 12. Current is power ÷ voltage: 30 ÷ 12 = 2.5 A."
+  4.8 amperes: That's 12 × 0.4. I = P ÷ E = 30 ÷ 12 = 2.5 A.
+  0.4 amperes: That's 12 ÷ 30, upside down. I = 30 ÷ 12 = 2.5 A.
+B-005-006-009:
+  2 watts: "Two 10 Ω in series make 20 Ω: I = 0.5 A, and P = 10 V × 0.5 A = 5 W."
+  20 watts: "That uses only one resistor (10 V ÷ 10 Ω = 1 A, 10 W) and doubles it. In series: 5 W."
+  0.5 watts: "Ten times too small: 10 V × 0.5 A = 5 W."
+B-005-006-010:
+  Same resistance but lesser power rating: Two 100 Ω in parallel give 50 Ω, the same, and the power rating doubles.
+  Greater resistance and same power rating: Two in parallel give exactly 50 Ω, not more.
+  Lesser resistance and same power rating: Two 100 Ω in parallel give exactly 50 Ω, and the rating doubles.
+B-005-006-011:
+  calculated according to physical size and tolerance rating: Size helps, but the rating comes from how much heat it can shed; tolerance has nothing to do with it.
+  expressed in joules: Ratings are in watts, not joules.
+  variable in steps of one hundred: Ratings come in standard values like ¼, ½, 1, 2 and 5 W, not steps of 100.

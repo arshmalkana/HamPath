@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-005-012-001:
+  inductive reactance is the only opposition in the circuit: At resonance both reactances are present; they cancel each other.
+  the circuit contains no resistance: Real circuits always have some resistance; resonance is about XL = XC.
+  resistance is equal to the reactance: Resonance compares the two reactances, not resistance.
+B-005-012-002:
+  Low impedance: Low impedance is a series circuit at resonance.
+  Impedance equal to reactance of the circuit: The reactances cancel, so it isn't equal to either one.
+  Impedance equal to resistance of the circuit: The parallel circuit's impedance is high, far above its resistance.
+B-005-012-003:
+  Quality factor: Q describes how sharp the response is, not the range itself.
+  Shape factor: Shape factor compares bandwidths at two levels.
+  Response curve: The response curve is the whole graph; the range is the bandwidth.
+B-005-012-004:
+  Resistor and transistor: A tuned circuit needs L and C; a transistor isn't part of it.
+  Capacitor and resistor: C and R make a filter but don't resonate.
+  Diode and transistor: Neither part stores energy the way L and C do.
+B-005-012-005:
+  maximum frequency: There's no 'maximum frequency' here; the peak is at the resonant frequency.
+  inductive frequency: Not a standard term; it's the resonant frequency.
+  reactive frequency: Not a standard term; it's the resonant frequency.
+B-005-012-006:
+  low impedance: Low impedance is series resonance.
+  low mutual inductance: Mutual inductance is between two coils, not this circuit's resonance.
+  high mutual inductance: Mutual inductance is between two coils, not this circuit's resonance.
+B-005-012-007:
+  high impedance: High impedance is parallel resonance.
+  low mutual inductance: Mutual inductance isn't involved.
+  high mutual inductance: Mutual inductance isn't involved.
+B-005-012-008:
+  increase the area of plates in the capacitor: Bigger plates increase C and lower the resonant frequency.
+  insert Mylar sheets between the plates of the capacitor: Mylar is a dielectric; it raises C and lowers the frequency.
+  wind more turns on the coil: More turns increase L and lower the frequency.
+B-005-012-009:
+  filter direct current: Blocking DC is a capacitor's job, not resonance.
+  amplify audio signals: Amplifying is a transistor's job.
+  adjust voltage levels: Adjusting voltage is a regulator's or transformer's job.
+B-005-012-010:
+  inductive reactance is the only opposition in the circuit: At resonance both reactances are present.
+  the circuit contains no resistance: Some resistance always remains.
+  resistance is equal to the reactance: Resonance compares reactances, not resistance.
+B-005-012-011:
+  It is limited by inductive reactance: At resonance the reactances cancel, so neither limits the current.
+  It is limited by capacitive reactance: At resonance the reactances cancel, so neither limits the current.
+  It reaches minimum: Series resonance gives maximum current, not minimum.

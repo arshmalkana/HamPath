@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { LAB_GOAL_VARIABLES } from "@hampath/ham-sim";
+import { CALCULATORS, LAB_GOAL_VARIABLES } from "@hampath/ham-sim";
 import { LESSON_CODE_RE, QUESTION_ID_RE } from "./ids.ts";
 
 const questionId = z.string().regex(QUESTION_ID_RE, "question id like B-005-004-001");
@@ -29,9 +29,12 @@ export const LabCatalogueSchema = z.array(
 );
 export type LabCatalogue = z.infer<typeof LabCatalogueSchema>;
 
+const calcValue = z.union([z.string(), z.number()]);
 export const CalcSpecSchema = z.strictObject({
-  calc: z.enum(["ohm", "power"]),
-  given: z.record(z.string(), z.union([z.string(), z.number()])),
+  calc: z.enum(CALCULATORS as [string, ...string[]]),
+  given: z.record(z.string(), z.union([calcValue, z.array(calcValue)])),
+  find: z.string().optional(),
+  unit: z.enum(["V", "A", "Ω", "W", "Hz", "F", "H", "m", "s", ""]).optional(),
 });
 
 export const LessonSchema = z.strictObject({
@@ -168,9 +171,16 @@ export type LabFile = z.infer<typeof LabFileSchema>;
 
 const RangeControl = z.strictObject({ min: z.number(), max: z.number(), step: z.number().positive() });
 
+const PartKind = z.enum(["battery", "resistor", "ammeter", "voltmeter"]);
+const SocketBoard = z.partialRecord(z.enum(["source", "series", "load", "across"]), PartKind.nullable());
+
 /** LAB-20 Ohm's Law Circuit Builder config (after merging step config onto default_config). */
 export const OhmsLabConfig = z.strictObject({
+  mode: z.literal("circuit").optional(),
   topology: z.enum(["single", "series", "parallel"]),
+  preplaced: SocketBoard.optional(),
+  tray: z.array(PartKind).optional(),
+  ratingW: z.number().positive().optional(),
   E: z.number().min(0),
   resistors: z.array(z.number().positive()).min(1).max(4),
   closed: z.boolean(),
@@ -182,13 +192,68 @@ export const OhmsLabConfig = z.strictObject({
     switch: z.boolean(),
     /** Let the learner type exact values with SI prefixes ("10m", "2.2k"). */
     typed: z.boolean().optional(),
+    /** Series/parallel: let the learner add or remove resistors. */
+    count: z.strictObject({ min: z.number().int().min(1), max: z.number().int().max(4) }).optional(),
   }),
   show: z.strictObject({ ammeter: z.boolean(), voltmeter: z.boolean(), power: z.boolean() }),
 });
 
+/** LAB-20 combiner mode: R, L or C in series or parallel. */
+export const CombineLabConfig = z.object({
+  mode: z.literal("combine"),
+  kind: z.enum(["R", "L", "C"]),
+  arrangement: z.enum(["series", "parallel"]),
+  values: z.array(z.number().positive()).min(1).max(4),
+  controls: z.object({ kind: z.boolean(), arrangement: z.boolean(), values: z.boolean() }),
+});
+
+const UnitEnum = z.enum(["V", "A", "Ω", "W", "Hz", "F", "H", "m", "s"]);
+const RangeOrLocked = z.union([RangeControl, z.literal(false)]);
+
+export const UnitSliderConfig = z.object({ quantity: z.string(), unit: UnitEnum, startExp: z.number().int().optional() });
+export const ScopeConfig = z.object({
+  f: z.number().positive(),
+  fMin: z.number().positive(),
+  fMax: z.number().positive(),
+  view: z.enum(["wave", "reactance"]),
+  harmonic: z.boolean().optional(),
+  phase: z.number().optional(),
+  component: z.enum(["L", "C"]).optional(),
+  L: z.number().positive().optional(),
+  C: z.number().positive().optional(),
+  controls: z.object({ f: z.boolean(), harmonic: z.boolean().optional(), phase: z.boolean().optional(), component: z.boolean().optional() }),
+});
+export const DbLadderConfig = z.object({
+  P0: z.number().positive(),
+  stages: z.array(z.object({ label: z.string(), db: z.number(), min: z.number().optional(), max: z.number().optional(), locked: z.boolean().optional() })).max(6),
+  controls: z.object({ P0: RangeOrLocked.optional() }).optional(),
+  smeter: z.object({ start: z.number() }).optional(),
+});
+export const TransformerConfig = z.object({
+  Np: z.number().positive(),
+  Ns: z.number().positive(),
+  Vp: z.number().positive(),
+  Rload: z.number().positive(),
+  controls: z.object({ Np: RangeOrLocked, Ns: RangeOrLocked, Vp: RangeOrLocked, Rload: RangeOrLocked }),
+});
+export const ResonanceConfig = z.object({
+  L: z.number().positive(),
+  C: z.number().positive(),
+  R: z.number().min(0),
+  circuit: z.enum(["series", "parallel"]),
+  f: z.number().positive(),
+  controls: z.object({ L: z.boolean(), C: z.boolean(), f: z.boolean(), circuit: z.boolean() }),
+});
+
 /** Config schema and the variables a goal may reference, per implemented lab. */
 export const LAB_SCHEMAS: Record<string, { config: z.ZodType; variables: string[] }> = {
-  "LAB-20": { config: OhmsLabConfig, variables: LAB_GOAL_VARIABLES["LAB-20"]! },
+  "LAB-19": { config: UnitSliderConfig, variables: LAB_GOAL_VARIABLES["LAB-19"]! },
+  "LAB-20": { config: z.union([CombineLabConfig, OhmsLabConfig]), variables: LAB_GOAL_VARIABLES["LAB-20"]! },
+  "LAB-21": { config: ScopeConfig, variables: LAB_GOAL_VARIABLES["LAB-21"]! },
+  "LAB-22": { config: DbLadderConfig, variables: LAB_GOAL_VARIABLES["LAB-22"]! },
+  "LAB-23": { config: TransformerConfig, variables: LAB_GOAL_VARIABLES["LAB-23"]! },
+  "LAB-24": { config: ResonanceConfig, variables: LAB_GOAL_VARIABLES["LAB-24"]! },
+  "LAB-25": { config: OhmsLabConfig, variables: LAB_GOAL_VARIABLES["LAB-25"]! },
 };
 
 export const LessonTitlesSchema = z.record(lessonCode, z.string().min(1));

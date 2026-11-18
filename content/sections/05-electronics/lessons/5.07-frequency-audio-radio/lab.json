@@ -1,0 +1,45 @@
+{
+  "lab": "LAB-21",
+  "steps": {
+    "explore-freq": {
+      "title": "Sweep the frequency",
+      "prompt": "Turn the frequency up until you reach the top of the audio range, about 20 kHz.",
+      "config": {
+        "f": 1000,
+        "fMin": 20,
+        "fMax": 30000000,
+        "view": "wave",
+        "controls": {
+          "f": true
+        }
+      },
+      "goal": "approx(f, 20000, 0.1)",
+      "goal_text": "About 20 kHz",
+      "hints": [
+        "Turn right. Each click is a small step on a log scale.",
+        "Stop when the band readout is near the edge of audio."
+      ],
+      "success": "About 20 kHz: the top of human hearing. The period is now only 50 microseconds."
+    },
+    "explore-harmonic": {
+      "title": "Twice the frequency",
+      "prompt": "Switch on the second harmonic of this 2 kHz tone.",
+      "config": {
+        "f": 2000,
+        "fMin": 20,
+        "fMax": 30000000,
+        "view": "wave",
+        "controls": {
+          "f": false,
+          "harmonic": true
+        }
+      },
+      "goal": "harmonic",
+      "goal_text": "Harmonic on",
+      "hints": [
+        "Use the Second harmonic switch."
+      ],
+      "success": "The dashed trace swings twice per cycle of the 2 kHz wave: 4 kHz, the second harmonic."
+    }
+  }
+}

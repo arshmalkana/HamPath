@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-005-002-001:
+  Gold, silver and wood: Wood is an insulator, not a conductor.
+  Copper, aluminum and paper: Paper is an insulator. Copper and aluminum conduct; paper doesn't.
+  Copper, gold and mica: Mica is an insulator; it's used to separate conductors.
+B-005-002-002:
+  Plastic, wood and carbon: Carbon conducts (it's used in resistors), so this isn't a list of insulators.
+  Teflon, mica and aluminum: Aluminum is a good conductor.
+  Wood, copper and porcelain: Copper is a conductor, so this list isn't all insulators.
+B-005-002-003:
+  Voltage: Voltage is the push that drives charge, not the flow itself.
+  Resistance: Resistance opposes the flow; it isn't the flow.
+  Capacitance: Capacitance is the ability to store charge.
+B-005-002-004:
+  Carbon: Carbon conducts poorly compared with metals.
+  Silicon: Silicon is a semiconductor, far worse than copper.
+  Aluminum: Aluminum conducts well, but copper conducts better.
+B-005-002-005:
+  Insulator: An insulator blocks current.
+  Semiconductor: A semiconductor conducts only partly, and only under some conditions.
+  Dielectric: A dielectric is an insulator, like the material between capacitor plates.
+B-005-002-006:
+  Low reluctance: Reluctance is opposition to magnetic flux, not to current.
+  Low capacitance: Capacitance is about storing charge, not conducting.
+  Low admittance: Admittance is the AC opposite of impedance; the exam's answer for DC conduction is low resistance.
+B-005-002-007:
+  impedance: Impedance uses the symbol Z.
+  reluctance: Reluctance relates to magnetic circuits, not this symbol.
+  reactance: Reactance uses the symbol X.
+B-005-002-008:
+  Reactance: Reactance is AC opposition from coils and capacitors, not 1 ÷ R.
+  Reluctance: Reluctance is magnetic opposition.
+  Permeability: Permeability is how easily a material carries magnetic flux.
+B-005-002-009:
+  Any point in a circuit that has zero voltage: A point with zero voltage is a ground or reference point, not a drop.
+  The difference in voltage at the output terminals of a transformer: That describes a transformer's output, not a voltage drop.
+  The voltage output of a step-down transformer: A step-down transformer's output is just a lower voltage, not a drop across a component.
+B-005-002-010:
+  voltage: Applied voltage doesn't change a conductor's resistance; temperature does.
+  current: Current alone doesn't change it, except by heating the wire, which is temperature again.
+  humidity: Humidity doesn't change a metal conductor's resistance.
+B-005-002-011:
+  Polarization: Polarization describes the orientation of a radio wave.
+  Directivity: Directivity describes how an antenna concentrates signal in one direction.
+  Phase: Phase is timing between AC waveforms, not DC current direction.

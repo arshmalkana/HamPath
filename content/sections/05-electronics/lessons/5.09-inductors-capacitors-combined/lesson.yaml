@@ -1,0 +1,41 @@
+code: "5.09"
+title: Inductors and capacitors in series and parallel
+est_minutes: 10
+lab_id: LAB-20
+question_ids:
+  - B-005-009-001
+  - B-005-009-002
+  - B-005-009-003
+  - B-005-009-004
+  - B-005-009-005
+  - B-005-009-006
+  - B-005-009-007
+  - B-005-009-008
+  - B-005-009-009
+  - B-005-009-010
+  - B-005-009-011
+calculations:
+  B-005-009-008:
+    calc: inductors
+    given:
+      series:
+        - 12 mH
+        - 12 mH
+  B-005-009-009:
+    calc: inductors
+    given:
+      parallel:
+        - 20 mH
+        - 20 mH
+  B-005-009-010:
+    calc: capacitors
+    given:
+      series:
+        - 20 µF
+        - 20 µF
+  B-005-009-011:
+    calc: capacitors
+    given:
+      parallel:
+        - 24 µF
+        - 24 µF

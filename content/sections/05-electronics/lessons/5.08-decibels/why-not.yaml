@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-005-008-001:
+  6 dB higher: 6 dB is four times the power.
+  12 dB higher: 12 dB is sixteen times the power.
+  1 dB higher: 1 dB is only about 1.26 times.
+B-005-008-002:
+  Divide the original power by 1.5: Dividing by 1.5 is about −1.8 dB.
+  Divide the original power by 3: Dividing by 3 is about −4.8 dB.
+  Divide the original power by 4: Dividing by 4 is −6 dB.
+B-005-008-003:
+  Multiply the original power by 3: × 3 is about 4.8 dB.
+  Multiply the original power by 2: × 2 is 3 dB; 6 dB is twice that, × 4.
+  Multiply the original power by 1.5: × 1.5 is under 2 dB.
+B-005-008-004:
+  S9 plus 3 dB: "200 W → 20 W is −10 dB, not −7 dB: the report drops all the way to S9."
+  S9 minus 10 dB: "That would be −20 dB (÷100). ÷10 is −10 dB: S9."
+  S9 plus 5 dB: "That's only a 5 dB drop. A tenth of the power is −10 dB: S9."
+B-005-008-005:
+  S9 plus 5 dB: "A tenth of the power is −10 dB, not −15: S9 + 10 dB."
+  S9 plus 3 dB: That's a 17 dB drop. −10 dB leaves S9 + 10 dB.
+  S9: That's a 20 dB drop. 150 → 15 W is ÷10, −10 dB.
+B-005-008-006:
+  To describe a waveform on an oscilloscope: Oscilloscopes show voltage against time; the decibel is a ratio.
+  To describe very high frequency radio waves: The decibel isn't about any particular frequency range.
+  To measure a single side band signal: It can describe any signal, not only single sideband.
+B-005-008-007:
+  10 dB: 10 dB is ten times the power.
+  6 dB: 6 dB is four times.
+  1 dB: 1 dB is only about 1.26 times. Doubling is 3 dB.
+B-005-008-008:
+  30 dB: 30 dB is × 1000; 5 → 50 W is only × 10.
+  45 dB: 45 isn't the dB value; it's 50 − 5 in watts.
+  20 dB: 20 dB is × 100; this is × 10, so 10 dB.
+B-005-008-009:
+  11 watts: "dB don't add to watts: 2 W + 9 dB is 2 × 8 = 16 W."
+  20 watts: "20 W would be +10 dB. 9 dB is × 8: 16 W."
+  18 watts: "18 W isn't a power of 2 times 2 W; 9 dB = 3 doublings: 16 W."
+B-005-008-010:
+  50 watts: "50 W is −3 dB. −6 dB halves twice: 25 W."
+  17 watts: 17 W would be nearly −8 dB.
+  33 watts: 33 W is about −5 dB. −6 dB gives 25 W.
+B-005-008-011:
+  1 W: "1 W is −20 dB (÷100). You need −30 dB: 0.1 W."
+  10 W: 10 W is only −10 dB.
+  33.3 W: "33.3 W is under −5 dB. ÷1000 is needed: 0.1 W."

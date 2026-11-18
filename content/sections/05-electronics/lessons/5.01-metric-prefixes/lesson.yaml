@@ -1,0 +1,67 @@
+code: "5.01"
+title: Metric prefixes and unit conversions
+est_minutes: 9
+lab_id: LAB-19
+question_ids:
+  - B-005-001-001
+  - B-005-001-002
+  - B-005-001-003
+  - B-005-001-004
+  - B-005-001-005
+  - B-005-001-006
+  - B-005-001-007
+  - B-005-001-008
+  - B-005-001-009
+  - B-005-001-010
+  - B-005-001-011
+calculations:
+  B-005-001-001:
+    calc: quantity
+    given:
+      x: 3.525 MHz
+    unit: Hz
+  B-005-001-002:
+    calc: quantity
+    given:
+      x: 3000 mA
+    unit: A
+  B-005-001-003:
+    calc: quantity
+    given:
+      x: 1 kHz
+    unit: Hz
+  B-005-001-004:
+    calc: quantity
+    given:
+      x: 1 000 000 pF
+    unit: F
+  B-005-001-005:
+    calc: quantity
+    given:
+      x: 500 mW
+    unit: W
+  B-005-001-006:
+    calc: quantity
+    given:
+      x: 1 kΩ
+    unit: Ω
+  B-005-001-007:
+    calc: quantity
+    given:
+      x: 7040 kHz
+    unit: Hz
+  B-005-001-008:
+    calc: quantity
+    given:
+      x: 0.25 A
+    unit: A
+  B-005-001-009:
+    calc: quantity
+    given:
+      x: 2 V
+    unit: V
+  B-005-001-011:
+    calc: quantity
+    given:
+      x: 10 000 µH
+    unit: H

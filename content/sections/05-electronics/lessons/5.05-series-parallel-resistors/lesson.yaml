@@ -1,0 +1,54 @@
+code: "5.05"
+title: Series and parallel resistors
+est_minutes: 11
+lab_id: LAB-20
+question_ids:
+  - B-005-005-001
+  - B-005-005-002
+  - B-005-005-003
+  - B-005-005-004
+  - B-005-005-005
+  - B-005-005-006
+  - B-005-005-007
+  - B-005-005-008
+  - B-005-005-009
+  - B-005-005-010
+  - B-005-005-011
+calculations:
+  B-005-005-002:
+    calc: resistors
+    given:
+      parallel:
+        - 100
+        - 100
+        - 100
+        - 100
+      E: 12
+    find: I
+  B-005-005-004:
+    calc: resistors
+    given:
+      parallel:
+        - 1000
+        - 1000
+      E: 12
+    find: I
+  B-005-005-006:
+    calc: resistors
+    given:
+      series:
+        - 10
+        - 10
+        - 10
+        - 10
+        - 10
+    find: R
+  B-005-005-009:
+    calc: resistors
+    given:
+      parallel:
+        - 68
+        - 68
+        - 68
+        - 68
+    find: R

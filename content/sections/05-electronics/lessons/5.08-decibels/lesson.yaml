@@ -1,0 +1,68 @@
+code: "5.08"
+title: Decibels
+est_minutes: 12
+lab_id: LAB-22
+question_ids:
+  - B-005-008-001
+  - B-005-008-002
+  - B-005-008-003
+  - B-005-008-004
+  - B-005-008-005
+  - B-005-008-006
+  - B-005-008-007
+  - B-005-008-008
+  - B-005-008-009
+  - B-005-008-010
+  - B-005-008-011
+calculations:
+  B-005-008-001:
+    calc: db
+    given:
+      ratio: 2
+    find: db
+  B-005-008-002:
+    calc: db
+    given:
+      db: -3
+    find: divisor
+  B-005-008-003:
+    calc: db
+    given:
+      db: 6
+    find: ratio
+  B-005-008-005:
+    calc: smeter
+    given:
+      over: 20
+      P1: 150
+      P2: 15
+  B-005-008-007:
+    calc: db
+    given:
+      P1: 1
+      P2: 2
+    find: db
+  B-005-008-008:
+    calc: db
+    given:
+      P1: 5
+      P2: 50
+    find: db
+  B-005-008-009:
+    calc: db
+    given:
+      P: 2
+      db: 9
+    find: P
+  B-005-008-010:
+    calc: db
+    given:
+      P: 100
+      db: -6
+    find: P
+  B-005-008-011:
+    calc: db
+    given:
+      P: 100
+      db: -30
+    find: P

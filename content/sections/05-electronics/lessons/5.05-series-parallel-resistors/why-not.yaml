@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-005-005-001:
+  It equals the average of the branch current through each resistor: Currents add up; they aren't averaged.
+  It decreases as more parallel resistors are added to the circuit: Adding a branch adds another path, so total current rises, not falls.
+  It is the sum of each resistor's voltage drop multiplied by the total number of resistors: Branch voltages are all the same; the total current is the sum of the branch currents.
+B-005-005-002:
+  48 mA: "That's one-tenth of the answer. Four 100 Ω in parallel is 25 Ω: 12 ÷ 25 = 480 mA."
+  120 mA: That's the current through just one branch (12 ÷ 100). Four branches give 480 mA.
+  240 mA: That's two branches. Four branches at 120 mA each give 480 mA.
+B-005-005-003:
+  It is greater than the largest resistor: Greater than the largest is true for series, not parallel.
+  It equals the average of the resistors: The total isn't an average; in parallel it's below the smallest.
+  It equals the square root of the sum of the resistors: There's no square-root rule. Parallel total is less than the smallest resistor.
+B-005-005-004:
+  12 milliamperes: "That's one 1000 Ω resistor alone (12 ÷ 1000). Two in parallel draw twice that: 24 mA."
+  60 milliamperes: Two 1000 Ω in parallel make 500 Ω, so 12 ÷ 500 = 24 mA, not 60 mA.
+  120 milliamperes: That's ten times too much. 12 V ÷ 500 Ω = 0.024 A = 24 mA.
+B-005-005-005:
+  less than the resistance of any one resistor: Less than any one resistor is true for parallel, not series.
+  equal to the highest resistance present: In series every resistance adds; the total exceeds even the highest.
+  equal to the lowest resistance present: The total in series is more than the lowest, and more than the highest too.
+B-005-005-006:
+  5 ohms: "That's one resistor divided by... nothing. In series they add: 5 × 10 = 50 Ω."
+  10 ohms: That's one resistor. Five in series add up to 50 Ω.
+  2 ohms: That's 10 Ω ÷ 5, the parallel answer. In series they add.
+B-005-005-007:
+  Six 22-ohm resistors: Six 22 Ω in series make 132 Ω, not 120 Ω.
+  Two 240-ohm resistors: Two 240 Ω in series make 480 Ω (in parallel they'd make 120 Ω, but the question says series).
+  Five 100-ohm resistors: Five 100 Ω in series make 500 Ω.
+B-005-005-008:
+  10 / R: "Upside down: the total must still be in ohms and smaller than R."
+  10 x R: Ten times R is ten in series, not parallel.
+  10 + R: Resistances never add a plain count; in parallel equal ones give R ÷ 10.
+B-005-005-009:
+  12 ohms: 68 ÷ 4 = 17, not 12.
+  34 ohms: That's two in parallel (68 ÷ 2). Four give 17 Ω.
+  272 ohms: "That's four in series (4 × 68). In parallel: 68 ÷ 4 = 17 Ω."
+B-005-005-010:
+  the voltage across "B" is twice that across "A": Parallel branches all have the same voltage across them.
+  the voltage across "A" is twice that across "B": Parallel branches all have the same voltage across them.
+  '"B" has half the resistance of "A"': "Upside down: twice the current means half the resistance, so A has half of B's."
+B-005-005-011:
+  source voltage divided by the value of one of the resistive elements: Dividing by one element's value gives only that branch's current.
+  source voltage divided by the sum of the resistive elements: Dividing by the sum treats them as series. Parallel currents add.
+  current in any one of the parallel branches: One branch's current is only part of the total.

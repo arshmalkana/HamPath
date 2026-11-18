@@ -1,0 +1,50 @@
+code: "5.11"
+title: Transformers
+est_minutes: 11
+lab_id: LAB-23
+question_ids:
+  - B-005-011-001
+  - B-005-011-002
+  - B-005-011-003
+  - B-005-011-004
+  - B-005-011-005
+  - B-005-011-006
+  - B-005-011-007
+  - B-005-011-008
+  - B-005-011-009
+  - B-005-011-010
+  - B-005-011-011
+calculations:
+  B-005-011-001:
+    calc: electrical
+    given:
+      P: 250
+      E: 120
+    find: I
+  B-005-011-003:
+    calc: transformer
+    given:
+      Vp: 120
+      Vs: 12
+      Ip: 0.5
+    find: Is
+  B-005-011-004:
+    calc: transformer
+    given:
+      Np: 250
+      Ns: 500
+      Vp: 120
+    find: Vs
+  B-005-011-007:
+    calc: electrical
+    given:
+      P: 10
+      E: 5
+    find: I
+  B-005-011-008:
+    calc: transformer
+    given:
+      Np: 1
+      Ns: 5
+      Is: 50 mA
+    find: Ip

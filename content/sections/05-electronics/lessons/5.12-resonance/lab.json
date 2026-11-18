@@ -1,0 +1,53 @@
+{
+  "lab": "LAB-24",
+  "steps": {
+    "explore-series": {
+      "title": "Tune a series circuit",
+      "prompt": "Turn the signal frequency until the series circuit is at resonance.",
+      "config": {
+        "L": 0.000005,
+        "C": 1e-10,
+        "R": 2,
+        "circuit": "series",
+        "f": 4000000,
+        "controls": {
+          "L": false,
+          "C": false,
+          "f": true,
+          "circuit": false
+        }
+      },
+      "goal": "atResonance",
+      "goal_text": "At resonance",
+      "hints": [
+        "Watch for the dip in impedance.",
+        "Around 7.1 MHz."
+      ],
+      "success": "At 7.1 MHz XL = XC: impedance drops to just the 2 Ω of resistance, so current is greatest."
+    },
+    "explore-parallel": {
+      "title": "Tune a parallel circuit",
+      "prompt": "Now find resonance in the parallel circuit.",
+      "config": {
+        "L": 0.000005,
+        "C": 1e-10,
+        "R": 2,
+        "circuit": "parallel",
+        "f": 12000000,
+        "controls": {
+          "L": false,
+          "C": false,
+          "f": true,
+          "circuit": false
+        }
+      },
+      "goal": "atResonance",
+      "goal_text": "At resonance",
+      "hints": [
+        "Watch for the peak.",
+        "Same frequency as before."
+      ],
+      "success": "Same 7.1 MHz, but now the impedance peaks: a parallel tuned circuit is high impedance at resonance."
+    }
+  }
+}

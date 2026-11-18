@@ -1,0 +1,37 @@
+{
+  "lab": "LAB-20",
+  "steps": {
+    "explore-power": {
+      "title": "Use energy faster",
+      "prompt": "Turn the battery up until the resistor is using the most power it can in this circuit.",
+      "config": {
+        "E": 3,
+        "resistors": [
+          100
+        ],
+        "closed": true,
+        "controls": {
+          "E": {
+            "min": 0,
+            "max": 12,
+            "step": 0.5
+          },
+          "R": false,
+          "switch": false
+        },
+        "show": {
+          "ammeter": true,
+          "voltmeter": true,
+          "power": true
+        }
+      },
+      "goal": "approx(P, 1.44)",
+      "goal_text": "Power at its maximum",
+      "hints": [
+        "More voltage means more current and more power.",
+        "Turn it to 12 V."
+      ],
+      "success": "1.44 W: 12 V × 0.12 A. Double the voltage and the power goes up four times, because the current doubles too."
+    }
+  }
+}

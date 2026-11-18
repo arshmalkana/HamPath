@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-005-003-001:
+  Current: Current is the flow of charge, not the rate energy is used.
+  Voltage: Voltage is the push, not the rate of energy use.
+  Resistance: Resistance opposes current; it isn't a rate of energy use.
+B-005-003-002:
+  The 60-watt bulb: 60 W is less than 100 W, so it uses energy more slowly.
+  The 50-watt bulb: 50 W uses energy at half the rate of the 100-watt bulb.
+  The 40-watt bulb: 40 W is the lowest rate of the four.
+B-005-003-003:
+  The ampere: The ampere is the unit of current.
+  The volt: The volt is the unit of voltage.
+  The ohm: The ohm is the unit of resistance.
+B-005-003-004:
+  A short circuit: A short circuit draws too much current, not none.
+  A reactive circuit: A reactive circuit (with coils or capacitors) still draws current.
+  A closed circuit: "A closed circuit is a working one: current flows."
+B-005-003-005:
+  A dead circuit: A dead circuit has no power; it draws nothing.
+  A closed circuit: A closed circuit draws its normal current.
+  An open circuit: An open circuit draws no current at all.
+B-005-003-006:
+  volts: Volts measure voltage.
+  amperes: Amperes measure current.
+  ohms: Ohms measure resistance.
+B-005-003-007:
+  Inductance and capacitance: Inductance × capacitance sets a resonant frequency, not power.
+  Voltage and inductance: Voltage × inductance isn't power.
+  Resistance and capacitance: Resistance × capacitance gives a time constant, not power.
+B-005-003-008:
+  Volts and farads: Volts × farads isn't watts (it's charge).
+  Farads and henries: Farads and henries are capacitance and inductance.
+  Amperes and henries: Amperes × henries isn't watts.
+B-005-003-009:
+  voltage: Voltage alone doesn't create heat; power (energy per second) does.
+  resistance: Resistance is fixed by the part; the problem is the power it's asked to dissipate.
+  current: "Current matters, but heat is power: the exam's answer is power."
+B-005-003-010:
+  The circuit is designed for direct current (DC): Continuity isn't about DC versus AC.
+  The circuit is supplied with backup power: Backup power isn't what continuity means.
+  The circuit is rated for continuous operation: Continuous duty ratings are a different idea.
+B-005-003-011:
+  An open circuit: An open circuit draws no current, so it can't blow a fuse.
+  A resonant circuit: A resonant circuit is a tuned circuit, not a fault.
+  A closed circuit: A closed circuit is normal operation; it only blows a fuse if the current is too high, which is a short.

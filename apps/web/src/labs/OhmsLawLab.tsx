@@ -14,6 +14,8 @@ import {
   type Topology,
 } from "@hampath/ham-sim";
 import { AnalogMeter, Knob, ToggleSwitch, autoRange, useDragDrop } from "@hampath/ui";
+import { CombinerLab } from "./CombinerLab";
+import { NetworkLab } from "./NetworkLab";
 import type { LabBodyProps } from "./registry";
 
 type Range = { min: number; max: number; step: number };
@@ -23,6 +25,11 @@ interface OhmsConfig {
   resistors: number[];
   closed: boolean;
   build?: boolean;
+  /** Parts already on the board when building (LAB-25 Meter Lab pre-wires the battery and resistor). */
+  preplaced?: Board;
+  /** Parts offered in the tray (default: all four). */
+  tray?: PartKind[];
+  mode?: "circuit" | "combine";
   controls: { E: Range | false; R: Range | false; switch: boolean; typed?: boolean };
   show: { ammeter: boolean; voltmeter: boolean; power: boolean };
 }
@@ -124,13 +131,21 @@ function TrayIcon({ kind }: { kind: PartKind }) {
 }
 
 /** LAB-20 Ohm's Law Circuit Builder. */
-export function OhmsLawLab({ config, mode, onState }: LabBodyProps) {
+/** LAB-20 Ohm's Law Circuit Builder: single-resistor breadboard, series/parallel networks, or the R/L/C combiner. */
+export function OhmsLawLab(props: LabBodyProps) {
+  const cfg = props.config as unknown as OhmsConfig;
+  if (cfg.mode === "combine") return <CombinerLab {...props} />;
+  if (cfg.topology && cfg.topology !== "single") return <NetworkLab {...props} />;
+  return <SingleCircuitLab {...props} />;
+}
+
+function SingleCircuitLab({ config, mode, onState }: LabBodyProps) {
   const cfg = config as unknown as OhmsConfig;
   const demo = mode === "demo";
   const [E, setE] = useState(cfg.E);
   const [R, setR] = useState(cfg.resistors[0] ?? 100);
   const [closed, setClosed] = useState(cfg.closed);
-  const [board, setBoard] = useState<Board>(cfg.build ? {} : CORRECT_BOARD);
+  const [board, setBoard] = useState<Board>(cfg.build ? { ...(cfg.preplaced ?? {}) } : CORRECT_BOARD);
   const [message, setMessage] = useState<string>("");
   const [announce, setAnnounce] = useState("");
   const liveId = useId();
@@ -181,7 +196,7 @@ export function OhmsLawLab({ config, mode, onState }: LabBodyProps) {
 
   const removeFrom = (s: Socket) => {
     const part = board[s];
-    if (!part || !cfg.build || demo) return;
+    if (!part || !cfg.build || demo || (cfg.tray && !cfg.tray.includes(part))) return;
     setBoard((b) => ({ ...b, [s]: null }));
     setMessage(`${PART_NAMES[part]} back in the tray.`);
   };
@@ -254,7 +269,7 @@ export function OhmsLawLab({ config, mode, onState }: LabBodyProps) {
             Parts tray: drag a part onto the board, or select it and then select a socket.
           </p>
           <div className="tray" role="group" aria-labelledby={`${liveId}-tray`}>
-            {(["battery", "resistor", "ammeter", "voltmeter"] as PartKind[]).map((p) => (
+            {(cfg.tray ?? (["battery", "resistor", "ammeter", "voltmeter"] as PartKind[])).map((p) => (
               <button
                 key={p}
                 type="button"

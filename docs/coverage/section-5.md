@@ -8,61 +8,61 @@
 
 Lab: LAB-19
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-005-001-001 | If a dial marked in megahertz shows a reading of 3.525 MHz, what would it show if it were marked in kilohertz? | — | 0/3 |  |
-| B-005-001-002 | If an ammeter marked in amperes is used to measure a 3000-milliampere current, what reading would it show? | — | 0/3 |  |
-| B-005-001-003 | How many hertz is 1 kHz? | — | 0/3 |  |
-| B-005-001-004 | How many microfarads is 1 000 000 picofarads? | — | 0/3 |  |
-| B-005-001-005 | If you have a hand-held transceiver that puts out 500 milliwatts, how many watts would this be? | — | 0/3 |  |
-| B-005-001-006 | A kilohm is: | — | 0/3 |  |
-| B-005-001-007 | How many megahertz is 7040 kHz? | — | 0/3 |  |
-| B-005-001-008 | A current of one quarter ampere may be written as: | — | 0/3 |  |
-| B-005-001-009 | How many millivolts equal two volts? | — | 0/3 |  |
-| B-005-001-010 | How can a frequency in megahertz be stated in gigahertz? | — | 0/3 |  |
-| B-005-001-011 | How many millihenries equal 10 000 microhenries? | — | 0/3 |  |
+| B-005-001-001 | If a dial marked in megahertz shows a reading of 3.525 MHz, what would it show if it were marked in kilohertz? | 02-explore-khz, 05-direction | 3/3 | ✓ ham-sim |
+| B-005-001-002 | If an ammeter marked in amperes is used to measure a 3000-milliampere current, what reading would it show? | 03-explore-mv, 06-milli, 08-worked | 3/3 | ✓ ham-sim |
+| B-005-001-003 | How many hertz is 1 kHz? | 04-ladder, 09-flash | 3/3 | ✓ ham-sim |
+| B-005-001-004 | How many microfarads is 1 000 000 picofarads? | 07-micro-pico, 09-flash | 3/3 | ✓ ham-sim |
+| B-005-001-005 | If you have a hand-held transceiver that puts out 500 milliwatts, how many watts would this be? | 06-milli | 3/3 | ✓ ham-sim |
+| B-005-001-006 | A kilohm is: | 04-ladder, 09-flash | 3/3 | ✓ ham-sim |
+| B-005-001-007 | How many megahertz is 7040 kHz? | 02-explore-khz, 05-direction | 3/3 | ✓ ham-sim |
+| B-005-001-008 | A current of one quarter ampere may be written as: | 06-milli | 3/3 | ✓ ham-sim |
+| B-005-001-009 | How many millivolts equal two volts? | 03-explore-mv, 06-milli | 3/3 | ✓ ham-sim |
+| B-005-001-010 | How can a frequency in megahertz be stated in gigahertz? | 04-ladder, 05-direction, 09-flash | 3/3 |  |
+| B-005-001-011 | How many millihenries equal 10 000 microhenries? | 07-micro-pico | 3/3 | ✓ ham-sim |
 
 ## 5.02 Conductors, insulators and current
 
 Lab: LAB-20
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-005-002-001 | Which of these groups lists three good electrical conductors? | — | 0/3 |  |
-| B-005-002-002 | Which of these groups lists three good electrical insulators? | — | 0/3 |  |
-| B-005-002-003 | What do we call the flow of electric charge in a circuit? | — | 0/3 |  |
-| B-005-002-004 | What is the best conductor among the following materials? | — | 0/3 |  |
-| B-005-002-005 | Which of these types of materials readily allows the flow of electric current? | — | 0/3 |  |
-| B-005-002-006 | What electrical property causes an object to conduct electricity very well? | — | 0/3 |  |
-| B-005-002-007 | The letter "R" is the symbol for: | — | 0/3 |  |
-| B-005-002-008 | What is the inverse of resistance? | — | 0/3 |  |
-| B-005-002-009 | What is a voltage drop? | — | 0/3 |  |
-| B-005-002-010 | The resistance of a conductor changes with: | — | 0/3 |  |
-| B-005-002-011 | Which term describes the direction of current in a DC circuit? | — | 0/3 |  |
+| B-005-002-001 | Which of these groups lists three good electrical conductors? | 04-conductors | 3/3 |  |
+| B-005-002-002 | Which of these groups lists three good electrical insulators? | 04-conductors | 3/3 |  |
+| B-005-002-003 | What do we call the flow of electric charge in a circuit? | 02-explore-flow, 08-flash | 3/3 |  |
+| B-005-002-004 | What is the best conductor among the following materials? | 04-conductors | 3/3 |  |
+| B-005-002-005 | Which of these types of materials readily allows the flow of electric current? | 04-conductors | 3/3 |  |
+| B-005-002-006 | What electrical property causes an object to conduct electricity very well? | 05-resistance | 3/3 |  |
+| B-005-002-007 | The letter "R" is the symbol for: | 05-resistance, 08-flash | 3/3 |  |
+| B-005-002-008 | What is the inverse of resistance? | 05-resistance, 08-flash | 3/3 |  |
+| B-005-002-009 | What is a voltage drop? | 03-explore-drop, 07-drop-polarity | 3/3 |  |
+| B-005-002-010 | The resistance of a conductor changes with: | 06-temperature | 3/3 |  |
+| B-005-002-011 | Which term describes the direction of current in a DC circuit? | 07-drop-polarity | 3/3 |  |
 
 ## 5.03 Electrical power
 
 Lab: LAB-20
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-005-003-001 | What term describes the rate at which electrical energy is used? | — | 0/3 |  |
-| B-005-003-002 | If you have light bulbs marked 40 watts, 50 watts, 60 watts and 100 watts, which one will consume electrical energy at the highest rate? | — | 0/3 |  |
-| B-005-003-003 | What is the basic unit of electrical power? | — | 0/3 |  |
-| B-005-003-004 | A circuit consists of a battery and load resistor. What circuit malfunction would cause no current to be drawn from the battery? | — | 0/3 |  |
-| B-005-003-005 | Which electrical circuit draws too much current? | — | 0/3 |  |
-| B-005-003-006 | Power is expressed in: | — | 0/3 |  |
-| B-005-003-007 | Which of the following two quantities should be multiplied together to find power? | — | 0/3 |  |
-| B-005-003-008 | Which two electrical units multiplied together give the unit "watts"? | — | 0/3 |  |
-| B-005-003-009 | A resistor in a circuit becomes very hot and starts to burn. This is because the resistor is dissipating too much: | — | 0/3 |  |
-| B-005-003-010 | When speaking of electrical circuits, what does the term "continuity" mean? | — | 0/3 |  |
-| B-005-003-011 | You have acquired a transceiver and connected it to a power supply. When you switch on the power supply, its fuse blows immediately. What circuit malfunction caused the fuse to blow? | — | 0/3 |  |
+| B-005-003-001 | What term describes the rate at which electrical energy is used? | 02-explore-power, 03-power | 3/3 |  |
+| B-005-003-002 | If you have light bulbs marked 40 watts, 50 watts, 60 watts and 100 watts, which one will consume electrical energy at the highest rate? | 03-power | 3/3 |  |
+| B-005-003-003 | What is the basic unit of electrical power? | 03-power, 07-flash | 3/3 |  |
+| B-005-003-004 | A circuit consists of a battery and load resistor. What circuit malfunction would cause no current to be drawn from the battery? | 06-circuits | 3/3 |  |
+| B-005-003-005 | Which electrical circuit draws too much current? | 06-circuits | 3/3 |  |
+| B-005-003-006 | Power is expressed in: | 03-power, 07-flash | 3/3 |  |
+| B-005-003-007 | Which of the following two quantities should be multiplied together to find power? | 02-explore-power, 04-formula | 3/3 |  |
+| B-005-003-008 | Which two electrical units multiplied together give the unit "watts"? | 04-formula, 07-flash | 3/3 |  |
+| B-005-003-009 | A resistor in a circuit becomes very hot and starts to burn. This is because the resistor is dissipating too much: | 05-predict-heat | 3/3 |  |
+| B-005-003-010 | When speaking of electrical circuits, what does the term "continuity" mean? | 06-circuits | 3/3 |  |
+| B-005-003-011 | You have acquired a transceiver and connected it to a power supply. When you switch on the power supply, its fuse blows immediately. What circuit malfunction caused the fuse to blow? | 06-circuits | 3/3 |  |
 
 ## 5.04 Ohm's Law
 
@@ -88,178 +88,178 @@ Status: authored
 
 Lab: LAB-20
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-005-005-001 | In a parallel circuit with a voltage source and several branch resistors, how is the total current related to the current in the branch resistors? | — | 0/3 |  |
-| B-005-005-002 | You connect four 100-ohm resistors in parallel across a 12-volt battery. How many milliamperes of current are drawn from the battery? | — | 0/3 |  |
-| B-005-005-003 | Several resistors of various values are connected in parallel. How does the total resistance of the combination compare to the individual resistors? | — | 0/3 |  |
-| B-005-005-004 | Two 1000-ohm resistors are connected in parallel across a 12-volt battery. What is the total current? | — | 0/3 |  |
-| B-005-005-005 | The total resistance of resistors connected in series is: | — | 0/3 |  |
-| B-005-005-006 | What is the total resistance of five 10-ohm resistors in series? | — | 0/3 |  |
-| B-005-005-007 | Which of these series combination of resistors would replace a single 120-ohm resistor? | — | 0/3 |  |
-| B-005-005-008 | If ten resistors of equal value "R" are wired in parallel, what formula yields the total resistance? | — | 0/3 |  |
-| B-005-005-009 | What is the total resistance of four 68-ohm resistors wired in parallel? | — | 0/3 |  |
-| B-005-005-010 | Two resistors are in parallel. Resistor "A" carries twice the current of resistor "B," which means that: | — | 0/3 |  |
-| B-005-005-011 | The total current in a parallel circuit is equal to the: | — | 0/3 |  |
+| B-005-005-001 | In a parallel circuit with a voltage source and several branch resistors, how is the total current related to the current in the branch resistors? | 02-explore-parallel, 06-currents | 3/3 |  |
+| B-005-005-002 | You connect four 100-ohm resistors in parallel across a 12-volt battery. How many milliamperes of current are drawn from the battery? | 02-explore-parallel, 07-worked | 3/3 | ✓ ham-sim |
+| B-005-005-003 | Several resistors of various values are connected in parallel. How does the total resistance of the combination compare to the individual resistors? | 05-parallel | 3/3 |  |
+| B-005-005-004 | Two 1000-ohm resistors are connected in parallel across a 12-volt battery. What is the total current? | 07-worked | 3/3 | ✓ ham-sim |
+| B-005-005-005 | The total resistance of resistors connected in series is: | 03-explore-series, 04-series | 3/3 |  |
+| B-005-005-006 | What is the total resistance of five 10-ohm resistors in series? | 03-explore-series, 04-series | 3/3 | ✓ ham-sim |
+| B-005-005-007 | Which of these series combination of resistors would replace a single 120-ohm resistor? | 04-series | 3/3 |  |
+| B-005-005-008 | If ten resistors of equal value "R" are wired in parallel, what formula yields the total resistance? | 05-parallel | 3/3 |  |
+| B-005-005-009 | What is the total resistance of four 68-ohm resistors wired in parallel? | 05-parallel, 08-numeric | 3/3 | ✓ ham-sim |
+| B-005-005-010 | Two resistors are in parallel. Resistor "A" carries twice the current of resistor "B," which means that: | 06-currents | 3/3 |  |
+| B-005-005-011 | The total current in a parallel circuit is equal to the: | 02-explore-parallel, 06-currents | 3/3 |  |
 
 ## 5.06 Power calculations and resistor ratings
 
 Lab: LAB-20
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-005-006-001 | Why would a large size resistor be used instead of a smaller one of the same resistance? | — | 0/3 |  |
-| B-005-006-002 | A load requires 12 volts DC at 5 amperes. What is the minimum required power transformer rating? | — | 0/3 |  |
-| B-005-006-003 | What is the DC input power of a transmitter operating at 12 volts and drawing 500 milliamperes? | — | 0/3 |  |
-| B-005-006-004 | When two 500-ohm 1-watt resistors are connected in series, the maximum total power that can be dissipated by the resistors is: | — | 0/3 |  |
-| B-005-006-005 | When two 500-ohm 1-watt resistors are connected in parallel, they can dissipate a maximum total power of: | — | 0/3 |  |
-| B-005-006-006 | If the voltage applied to two resistors in series is doubled, how much will the total power change? | — | 0/3 |  |
-| B-005-006-007 | Which of these combinations of resistors could make up a 50-ohm dummy load capable of safely dissipating 5 watts? | — | 0/3 |  |
-| B-005-006-008 | How much current is drawn by a 12-volt, 30-watt light bulb? | — | 0/3 |  |
-| B-005-006-009 | What is the power consumption of two 10-ohm resistors connected in series with a 10-volt battery? | — | 0/3 |  |
-| B-005-006-010 | What is the advantage of replacing a 50-ohm resistor with a parallel combination of two 100-ohm resistors of the same power rating? | — | 0/3 |  |
-| B-005-006-011 | Resistor wattage ratings are: | — | 0/3 |  |
+| B-005-006-001 | Why would a large size resistor be used instead of a smaller one of the same resistance? | 04-rating | 3/3 |  |
+| B-005-006-002 | A load requires 12 volts DC at 5 amperes. What is the minimum required power transformer rating? | 05-calc | 3/3 | ✓ ham-sim |
+| B-005-006-003 | What is the DC input power of a transmitter operating at 12 volts and drawing 500 milliamperes? | 05-calc | 3/3 | ✓ ham-sim |
+| B-005-006-004 | When two 500-ohm 1-watt resistors are connected in series, the maximum total power that can be dissipated by the resistors is: | 02-explore-rating, 06-sharing | 3/3 | ✓ ham-sim |
+| B-005-006-005 | When two 500-ohm 1-watt resistors are connected in parallel, they can dissipate a maximum total power of: | 06-sharing | 3/3 | ✓ ham-sim |
+| B-005-006-006 | If the voltage applied to two resistors in series is doubled, how much will the total power change? | 03-explore-double, 07-predict-double | 3/3 |  |
+| B-005-006-007 | Which of these combinations of resistors could make up a 50-ohm dummy load capable of safely dissipating 5 watts? | 08-worked | 3/3 |  |
+| B-005-006-008 | How much current is drawn by a 12-volt, 30-watt light bulb? | 05-calc | 3/3 | ✓ ham-sim |
+| B-005-006-009 | What is the power consumption of two 10-ohm resistors connected in series with a 10-volt battery? | 03-explore-double, 08-worked | 3/3 | ✓ ham-sim |
+| B-005-006-010 | What is the advantage of replacing a 50-ohm resistor with a parallel combination of two 100-ohm resistors of the same power rating? | 06-sharing | 3/3 |  |
+| B-005-006-011 | Resistor wattage ratings are: | 02-explore-rating, 04-rating | 3/3 |  |
 
 ## 5.07 Frequency, audio and radio waves
 
-Lab: LAB-01
+Lab: LAB-21
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-005-007-001 | What is the term for the number of times per second an alternating current completes a positive to negative cycle? | — | 0/3 |  |
-| B-005-007-002 | What approximate range of frequencies can most humans hear? | — | 0/3 |  |
-| B-005-007-003 | Why is the range of frequencies from 20 Hz to 20 kHz termed audio frequencies? | — | 0/3 |  |
-| B-005-007-004 | Electrical energy at a frequency of 7125 kHz is in what frequency range? | — | 0/3 |  |
-| B-005-007-005 | What is the name for the distance an AC signal travels during one complete cycle? | — | 0/3 |  |
-| B-005-007-006 | What happens to a signal's wavelength as its frequency increases? | — | 0/3 |  |
-| B-005-007-007 | What happens to a signal's frequency as its wavelength gets shorter? | — | 0/3 |  |
-| B-005-007-008 | What does 60 hertz (Hz) mean? | — | 0/3 |  |
-| B-005-007-009 | Two AC waveforms have the same frequency, but their cycles do not begin at the same instant. What term describes that timing difference? | — | 0/3 |  |
-| B-005-007-010 | What is the shape of the waveform of the electricity supplied from a household receptacle? | — | 0/3 |  |
-| B-005-007-011 | A signal is composed of a fundamental frequency of 2 kHz and another of 4 kHz. What name is given to the 4 kHz signal? | — | 0/3 |  |
+| B-005-007-001 | What is the term for the number of times per second an alternating current completes a positive to negative cycle? | 02-explore-freq, 04-frequency | 3/3 |  |
+| B-005-007-002 | What approximate range of frequencies can most humans hear? | 02-explore-freq, 05-audio | 3/3 |  |
+| B-005-007-003 | Why is the range of frequencies from 20 Hz to 20 kHz termed audio frequencies? | 05-audio | 3/3 |  |
+| B-005-007-004 | Electrical energy at a frequency of 7125 kHz is in what frequency range? | 06-bands | 3/3 |  |
+| B-005-007-005 | What is the name for the distance an AC signal travels during one complete cycle? | 07-wavelength | 3/3 |  |
+| B-005-007-006 | What happens to a signal's wavelength as its frequency increases? | 07-wavelength | 3/3 |  |
+| B-005-007-007 | What happens to a signal's frequency as its wavelength gets shorter? | 07-wavelength | 3/3 |  |
+| B-005-007-008 | What does 60 hertz (Hz) mean? | 02-explore-freq, 04-frequency | 3/3 |  |
+| B-005-007-009 | Two AC waveforms have the same frequency, but their cycles do not begin at the same instant. What term describes that timing difference? | 08-phase-harmonic | 3/3 |  |
+| B-005-007-010 | What is the shape of the waveform of the electricity supplied from a household receptacle? | 04-frequency | 3/3 |  |
+| B-005-007-011 | A signal is composed of a fundamental frequency of 2 kHz and another of 4 kHz. What name is given to the 4 kHz signal? | 03-explore-harmonic, 08-phase-harmonic | 3/3 |  |
 
 ## 5.08 Decibels
 
 Lab: LAB-22
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-005-008-001 | A two-times increase in power results in a change of how many dB? | — | 0/3 |  |
-| B-005-008-002 | What change in transmitter power results in a 3 dB decrease? | — | 0/3 |  |
-| B-005-008-003 | What change in transmitter power results in a 6 dB increase? | — | 0/3 |  |
-| B-005-008-004 | If a signal transmitted with a power of 200 watts is received with an S-meter reading of "10 dB over S9," what would be the new reading if power was reduced to 20 watts? | — | 0/3 |  |
-| B-005-008-005 | If a signal transmitted with a power of 150 watts is received with an S-meter reading of "20 dB over S9," what would be the new reading if power was reduced to 15 watts? | — | 0/3 |  |
-| B-005-008-006 | What is the "decibel" used for? | — | 0/3 |  |
-| B-005-008-007 | The power output from a transmitter increases from 1 watt to 2 watts. How many decibels does that increase represent? | — | 0/3 |  |
-| B-005-008-008 | The power of a transmitter is increased from 5 watts to 50 watts by a linear amplifier. The power gain, expressed in dB, is: | — | 0/3 |  |
-| B-005-008-009 | You add a 9 dB gain amplifier to your 2-watt hand-held. What is the power output of the combination? | — | 0/3 |  |
-| B-005-008-010 | The power of your transmitter is 100 watts and your transmission line introduces a loss of 6 dB. How much power is delivered to the antenna? | — | 0/3 |  |
-| B-005-008-011 | A local amateur radio operator reports receiving your 100-watt 2-metre simplex transmission with an S-meter reading of "30 dB over S9." What power could you use to reduce that reading to S9? | — | 0/3 |  |
+| B-005-008-001 | A two-times increase in power results in a change of how many dB? | 02-explore-double, 05-ratio | 3/3 | ✓ ham-sim |
+| B-005-008-002 | What change in transmitter power results in a 3 dB decrease? | 05-ratio | 3/3 | ✓ ham-sim |
+| B-005-008-003 | What change in transmitter power results in a 6 dB increase? | 06-ladder | 3/3 | ✓ ham-sim |
+| B-005-008-004 | If a signal transmitted with a power of 200 watts is received with an S-meter reading of "10 dB over S9," what would be the new reading if power was reduced to 20 watts? | 04-explore-smeter, 08-smeter | 3/3 |  |
+| B-005-008-005 | If a signal transmitted with a power of 150 watts is received with an S-meter reading of "20 dB over S9," what would be the new reading if power was reduced to 15 watts? | 04-explore-smeter, 08-smeter | 3/3 | ✓ ham-sim |
+| B-005-008-006 | What is the "decibel" used for? | 05-ratio | 3/3 |  |
+| B-005-008-007 | The power output from a transmitter increases from 1 watt to 2 watts. How many decibels does that increase represent? | 02-explore-double, 05-ratio | 3/3 | ✓ ham-sim |
+| B-005-008-008 | The power of a transmitter is increased from 5 watts to 50 watts by a linear amplifier. The power gain, expressed in dB, is: | 06-ladder | 3/3 | ✓ ham-sim |
+| B-005-008-009 | You add a 9 dB gain amplifier to your 2-watt hand-held. What is the power output of the combination? | 06-ladder | 3/3 | ✓ ham-sim |
+| B-005-008-010 | The power of your transmitter is 100 watts and your transmission line introduces a loss of 6 dB. How much power is delivered to the antenna? | 03-explore-loss, 07-worked | 3/3 | ✓ ham-sim |
+| B-005-008-011 | A local amateur radio operator reports receiving your 100-watt 2-metre simplex transmission with an S-meter reading of "30 dB over S9." What power could you use to reduce that reading to S9? | 08-smeter | 3/3 | ✓ ham-sim |
 
 ## 5.09 Inductors and capacitors in series and parallel
 
 Lab: LAB-20
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-005-009-001 | If two equal-value inductors are connected in series, what is their total inductance? | — | 0/3 |  |
-| B-005-009-002 | If two equal-value inductors are connected in parallel, what is their total inductance? | — | 0/3 |  |
-| B-005-009-003 | If two equal-value capacitors are connected in series, what is their total capacitance? | — | 0/3 |  |
-| B-005-009-004 | If two equal-value capacitors are connected in parallel, what is their total capacitance? | — | 0/3 |  |
-| B-005-009-005 | You are constructing an air-core inductor using a coil of wire. What parameters determine its inductance? | — | 0/3 |  |
-| B-005-009-006 | A capacitor is made of two identical metal plates separated by air. What parameters determine its capacitance? | — | 0/3 |  |
-| B-005-009-007 | What precaution must you take when using polarized electrolytic capacitors? | — | 0/3 |  |
-| B-005-009-008 | If you wire two 12-millihenry chokes in series, what is the inductance of the combination? | — | 0/3 |  |
-| B-005-009-009 | If you wire two 20-millihenry inductors in parallel, what is the inductance of the combination? | — | 0/3 |  |
-| B-005-009-010 | If you wire two 20-microfarad capacitors in series, what is the capacity of the combination? | — | 0/3 |  |
-| B-005-009-011 | If you wire two 24-microfarad capacitors in parallel, what is the capacity of the combination? | — | 0/3 |  |
+| B-005-009-001 | If two equal-value inductors are connected in series, what is their total inductance? | 02-explore-coils, 04-inductors | 3/3 |  |
+| B-005-009-002 | If two equal-value inductors are connected in parallel, what is their total inductance? | 02-explore-coils, 04-inductors | 3/3 |  |
+| B-005-009-003 | If two equal-value capacitors are connected in series, what is their total capacitance? | 03-explore-caps, 05-capacitors | 3/3 |  |
+| B-005-009-004 | If two equal-value capacitors are connected in parallel, what is their total capacitance? | 03-explore-caps, 05-capacitors | 3/3 |  |
+| B-005-009-005 | You are constructing an air-core inductor using a coil of wire. What parameters determine its inductance? | 06-construction | 3/3 |  |
+| B-005-009-006 | A capacitor is made of two identical metal plates separated by air. What parameters determine its capacitance? | 06-construction | 3/3 |  |
+| B-005-009-007 | What precaution must you take when using polarized electrolytic capacitors? | 07-electrolytic | 3/3 |  |
+| B-005-009-008 | If you wire two 12-millihenry chokes in series, what is the inductance of the combination? | 02-explore-coils, 04-inductors | 3/3 | ✓ ham-sim |
+| B-005-009-009 | If you wire two 20-millihenry inductors in parallel, what is the inductance of the combination? | 02-explore-coils, 04-inductors | 3/3 | ✓ ham-sim |
+| B-005-009-010 | If you wire two 20-microfarad capacitors in series, what is the capacity of the combination? | 03-explore-caps, 05-capacitors | 3/3 | ✓ ham-sim |
+| B-005-009-011 | If you wire two 24-microfarad capacitors in parallel, what is the capacity of the combination? | 03-explore-caps, 05-capacitors | 3/3 | ✓ ham-sim |
 
 ## 5.10 Reactance
 
 Lab: LAB-21
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-005-010-001 | How does an inductor react to AC? | — | 0/3 |  |
-| B-005-010-002 | How does a capacitor react to AC? | — | 0/3 |  |
-| B-005-010-003 | The reactance of capacitors increases as: | — | 0/3 |  |
-| B-005-010-004 | What is the term for the opposition to alternating current caused by the combined effect of reactance and resistance? | — | 0/3 |  |
-| B-005-010-005 | What term equals the ratio of AC voltage to AC current in a system or circuit? | — | 0/3 |  |
-| B-005-010-006 | What circuit parameter change causes an inductor's reactance to increase? | — | 0/3 |  |
-| B-005-010-007 | What property allows a coil wound on a ferrite core to mitigate the effects of an offending radio signal? | — | 0/3 |  |
-| B-005-010-008 | What property allows a bypass capacitor in an audio circuit to divert an interfering RF signal? | — | 0/3 |  |
-| B-005-010-009 | What property allows an RF bypass capacitor to have little effect on an audio circuit? | — | 0/3 |  |
-| B-005-010-010 | What property allows an RF choke coil to have little effect on signals meant to flow through the coil? | — | 0/3 |  |
-| B-005-010-011 | In general, the reactance of inductors increases with: | — | 0/3 |  |
+| B-005-010-001 | How does an inductor react to AC? | 02-explore-coil, 04-inductive | 3/3 |  |
+| B-005-010-002 | How does a capacitor react to AC? | 03-explore-cap, 05-capacitive | 3/3 |  |
+| B-005-010-003 | The reactance of capacitors increases as: | 03-explore-cap, 05-capacitive | 3/3 |  |
+| B-005-010-004 | What is the term for the opposition to alternating current caused by the combined effect of reactance and resistance? | 06-impedance | 3/3 |  |
+| B-005-010-005 | What term equals the ratio of AC voltage to AC current in a system or circuit? | 06-impedance | 3/3 |  |
+| B-005-010-006 | What circuit parameter change causes an inductor's reactance to increase? | 02-explore-coil, 04-inductive | 3/3 |  |
+| B-005-010-007 | What property allows a coil wound on a ferrite core to mitigate the effects of an offending radio signal? | 07-chokes-bypass | 3/3 |  |
+| B-005-010-008 | What property allows a bypass capacitor in an audio circuit to divert an interfering RF signal? | 07-chokes-bypass | 3/3 |  |
+| B-005-010-009 | What property allows an RF bypass capacitor to have little effect on an audio circuit? | 07-chokes-bypass | 3/3 |  |
+| B-005-010-010 | What property allows an RF choke coil to have little effect on signals meant to flow through the coil? | 07-chokes-bypass | 3/3 |  |
+| B-005-010-011 | In general, the reactance of inductors increases with: | 02-explore-coil, 04-inductive | 3/3 |  |
 
 ## 5.11 Transformers
 
 Lab: LAB-23
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-005-011-001 | A transformer with a 120-volt primary voltage supplies 250 watts to a transmitter. Neglecting losses, what is the approximate primary current? | — | 0/3 |  |
-| B-005-011-002 | How can a transformer with two windings change impedance? | — | 0/3 |  |
-| B-005-011-003 | A transformer with a single 12-volt secondary draws 0.5 amperes through its 120-volt primary. Assuming no losses, what current is drawn from the secondary? | — | 0/3 |  |
-| B-005-011-004 | The primary winding of a transformer has 250 turns, and the secondary has 500 turns. If the input voltage is 120 volts, what is the secondary voltage? | — | 0/3 |  |
-| B-005-011-005 | The strength of the magnetic field around a conductor in air is: | — | 0/3 |  |
-| B-005-011-006 | Maximum induced voltage in a coil occurs when: | — | 0/3 |  |
-| B-005-011-007 | A transformer primary winding consumes 10 watts. Neglecting losses, if the secondary voltage is 5 volts, what is the secondary current? | — | 0/3 |  |
-| B-005-011-008 | A step-up transformer with a primary to secondary turns ratio of 1:5 delivers 50 milliamperes to a load. Assuming 100% efficiency, what is the primary current? | — | 0/3 |  |
-| B-005-011-009 | When is coupling (induction) between two wires maximum? | — | 0/3 |  |
-| B-005-011-010 | A permanent magnet would most likely be made from: | — | 0/3 |  |
-| B-005-011-011 | What confirms the fact that the transfer of energy from the primary to the secondary of a transformer is not perfect? | — | 0/3 |  |
+| B-005-011-001 | A transformer with a 120-volt primary voltage supplies 250 watts to a transmitter. Neglecting losses, what is the approximate primary current? | 05-power, 08-worked | 3/3 | ✓ ham-sim |
+| B-005-011-002 | How can a transformer with two windings change impedance? | 03-explore-current, 06-impedance | 3/3 |  |
+| B-005-011-003 | A transformer with a single 12-volt secondary draws 0.5 amperes through its 120-volt primary. Assuming no losses, what current is drawn from the secondary? | 03-explore-current, 05-power | 3/3 | ✓ ham-sim |
+| B-005-011-004 | The primary winding of a transformer has 250 turns, and the secondary has 500 turns. If the input voltage is 120 volts, what is the secondary voltage? | 02-explore-stepup, 04-ratio | 3/3 | ✓ ham-sim |
+| B-005-011-005 | The strength of the magnetic field around a conductor in air is: | 07-magnetism | 3/3 |  |
+| B-005-011-006 | Maximum induced voltage in a coil occurs when: | 07-magnetism | 3/3 |  |
+| B-005-011-007 | A transformer primary winding consumes 10 watts. Neglecting losses, if the secondary voltage is 5 volts, what is the secondary current? | 05-power | 3/3 | ✓ ham-sim |
+| B-005-011-008 | A step-up transformer with a primary to secondary turns ratio of 1:5 delivers 50 milliamperes to a load. Assuming 100% efficiency, what is the primary current? | 05-power | 3/3 | ✓ ham-sim |
+| B-005-011-009 | When is coupling (induction) between two wires maximum? | 07-magnetism | 3/3 |  |
+| B-005-011-010 | A permanent magnet would most likely be made from: | 07-magnetism | 3/3 |  |
+| B-005-011-011 | What confirms the fact that the transfer of energy from the primary to the secondary of a transformer is not perfect? | 07-magnetism | 3/3 |  |
 
 ## 5.12 Resonance and tuned circuits
 
 Lab: LAB-24
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-005-012-001 | Resonance is the condition that exists when: | — | 0/3 |  |
-| B-005-012-002 | At resonance, what impedance does a parallel tuned circuit exhibit? | — | 0/3 |  |
-| B-005-012-003 | While the resonant frequency of a tuned circuit is a single frequency, the effect of resonance is significant over a certain range of frequencies. What is this range called? | — | 0/3 |  |
-| B-005-012-004 | What two components are required to form a tuned circuit? | — | 0/3 |  |
-| B-005-012-005 | When a parallel coil-capacitor combination is supplied with AC of different frequencies, there will be one frequency where the impedance will be highest. This is the: | — | 0/3 |  |
-| B-005-012-006 | In a parallel-resonant circuit at resonance, the circuit has: | — | 0/3 |  |
-| B-005-012-007 | In a series resonant circuit at resonance, the circuit has: | — | 0/3 |  |
-| B-005-012-008 | A coil and an air-spaced capacitor are arranged to form a resonant circuit. The resonant frequency will remain the same if we: | — | 0/3 |  |
-| B-005-012-009 | Resonant circuits in a receiver are used to: | — | 0/3 |  |
-| B-005-012-010 | Resonance is the condition that exists when: | — | 0/3 |  |
-| B-005-012-011 | What happens to current when a series RLC circuit is tuned to the frequency of the source? | — | 0/3 |  |
+| B-005-012-001 | Resonance is the condition that exists when: | 02-explore-series, 04-resonance | 3/3 |  |
+| B-005-012-002 | At resonance, what impedance does a parallel tuned circuit exhibit? | 03-explore-parallel, 05-series-parallel | 3/3 |  |
+| B-005-012-003 | While the resonant frequency of a tuned circuit is a single frequency, the effect of resonance is significant over a certain range of frequencies. What is this range called? | 06-bandwidth | 3/3 |  |
+| B-005-012-004 | What two components are required to form a tuned circuit? | 04-resonance | 3/3 |  |
+| B-005-012-005 | When a parallel coil-capacitor combination is supplied with AC of different frequencies, there will be one frequency where the impedance will be highest. This is the: | 03-explore-parallel, 05-series-parallel | 3/3 |  |
+| B-005-012-006 | In a parallel-resonant circuit at resonance, the circuit has: | 03-explore-parallel, 05-series-parallel | 3/3 |  |
+| B-005-012-007 | In a series resonant circuit at resonance, the circuit has: | 02-explore-series, 05-series-parallel | 3/3 |  |
+| B-005-012-008 | A coil and an air-spaced capacitor are arranged to form a resonant circuit. The resonant frequency will remain the same if we: | 06-bandwidth | 3/3 |  |
+| B-005-012-009 | Resonant circuits in a receiver are used to: | 06-bandwidth | 3/3 |  |
+| B-005-012-010 | Resonance is the condition that exists when: | 04-resonance | 3/3 |  |
+| B-005-012-011 | What happens to current when a series RLC circuit is tuned to the frequency of the source? | 02-explore-series, 05-series-parallel | 3/3 |  |
 
 ## 5.13 Meters and measurements
 
 Lab: LAB-25
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-005-013-001 | How is a voltmeter usually connected to a circuit under test? | — | 0/3 |  |
-| B-005-013-002 | How is an ammeter usually connected to a circuit under test? | — | 0/3 |  |
-| B-005-013-003 | What does a multimeter measure? | — | 0/3 |  |
-| B-005-013-004 | What is the correct instrument to measure the final power amplifier current? | — | 0/3 |  |
-| B-005-013-005 | When measuring the voltage across a circuit component, what does the voltmeter appear to be in the circuit? | — | 0/3 |  |
-| B-005-013-006 | When measuring current drawn from a DC power supply, what does the ammeter placed in the circuit appear as? | — | 0/3 |  |
-| B-005-013-007 | What instrument can provide a direct measurement of power at the output of a transmitter? | — | 0/3 |  |
-| B-005-013-008 | Potential difference is measured by means of: | — | 0/3 |  |
-| B-005-013-009 | What instrument is used to measure electrical current? | — | 0/3 |  |
-| B-005-013-010 | What term describes the ability of an instrument to display values that are true to reality? | — | 0/3 |  |
+| B-005-013-001 | How is a voltmeter usually connected to a circuit under test? | 02-explore-place, 03-voltmeter | 3/3 |  |
+| B-005-013-002 | How is an ammeter usually connected to a circuit under test? | 02-explore-place, 04-ammeter | 3/3 |  |
+| B-005-013-003 | What does a multimeter measure? | 05-instruments | 3/3 |  |
+| B-005-013-004 | What is the correct instrument to measure the final power amplifier current? | 04-ammeter, 06-flash | 3/3 |  |
+| B-005-013-005 | When measuring the voltage across a circuit component, what does the voltmeter appear to be in the circuit? | 02-explore-place, 03-voltmeter | 3/3 |  |
+| B-005-013-006 | When measuring current drawn from a DC power supply, what does the ammeter placed in the circuit appear as? | 02-explore-place, 04-ammeter | 3/3 |  |
+| B-005-013-007 | What instrument can provide a direct measurement of power at the output of a transmitter? | 05-instruments | 3/3 |  |
+| B-005-013-008 | Potential difference is measured by means of: | 03-voltmeter, 06-flash | 3/3 |  |
+| B-005-013-009 | What instrument is used to measure electrical current? | 04-ammeter, 06-flash | 3/3 |  |
+| B-005-013-010 | What term describes the ability of an instrument to display values that are true to reality? | 05-instruments | 3/3 |  |
 

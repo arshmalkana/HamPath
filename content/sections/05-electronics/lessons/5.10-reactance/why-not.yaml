@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-005-010-001:
+  As the amplitude of the applied AC increases, the reactance decreases: Amplitude doesn't change reactance; frequency does.
+  As the amplitude of the applied AC increases, the reactance increases: Amplitude doesn't change reactance; frequency does.
+  As the frequency of the applied AC increases, the reactance decreases: "Backwards: a coil's reactance rises with frequency."
+B-005-010-002:
+  As the frequency of the applied AC increases, the reactance increases: That's a coil. A capacitor's reactance falls as frequency rises.
+  As the amplitude of the applied AC increases, the reactance increases: Amplitude doesn't affect reactance.
+  As the amplitude of the applied AC increases, the reactance decreases: Amplitude doesn't affect reactance.
+B-005-010-003:
+  applied voltage increases: Applied voltage doesn't change reactance.
+  applied voltage decreases: Applied voltage doesn't change reactance.
+  frequency increases: "Backwards: capacitive reactance falls as frequency rises."
+B-005-010-004:
+  Reluctance: Reluctance is magnetic opposition.
+  Admittance: Admittance is the inverse of impedance.
+  Conductance: Conductance is the inverse of resistance.
+B-005-010-005:
+  Resistance: Resistance alone doesn't include reactance; the AC ratio is impedance.
+  Reactance: Reactance is only part of it; the full ratio is impedance.
+  Conductance: Conductance is the inverse of resistance.
+B-005-010-006:
+  A decrease in frequency: Lower frequency lowers a coil's reactance.
+  An increase in current: Current doesn't change reactance.
+  An increase in voltage: Voltage doesn't change reactance.
+B-005-010-007:
+  Low reactance at radio frequencies: Low reactance at RF would let the interference straight through.
+  Low reactance at audio frequencies: Audio isn't the target; the choke must block RF.
+  High reactance at audio frequencies: High reactance at audio would block the audio you want.
+B-005-010-008:
+  High reactance at radio frequencies: High reactance at RF would block the path to ground; it needs low reactance at RF.
+  Low reactance at audio frequencies: Low reactance at audio would short the audio out too.
+  High reactance at audio frequencies: High reactance at audio is true but it's low RF reactance that diverts the RF.
+B-005-010-009:
+  Low reactance at radio frequencies: Low reactance at RF is what diverts RF; the question is why audio is unaffected.
+  High reactance at radio frequencies: High reactance at RF would stop it working as a bypass.
+  Low reactance at audio frequencies: Low reactance at audio would short the audio signal.
+B-005-010-010:
+  High reactance at low frequencies: High reactance at low frequencies would block the wanted signals.
+  Low reactance at high frequencies: Low reactance at high frequencies would let RF through, defeating the choke.
+  High reactance at high frequencies: High reactance at high frequencies is how it blocks RF; the question is why wanted signals pass.
+B-005-010-011:
+  decreasing AC frequency: Lower frequency lowers inductive reactance.
+  decreasing applied voltage: Voltage doesn't change reactance.
+  increasing applied voltage: Voltage doesn't change reactance.

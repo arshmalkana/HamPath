@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-005-009-001:
+  Half the value of one inductor: "Half is parallel. In series, equal inductors add: twice one."
+  The value of one inductor times 4: Two equal inductors in series add to twice, not four times.
+  The value of one inductor divided by 4: Dividing by 4 isn't any combination of two inductors.
+B-005-009-002:
+  Twice the value of one inductor: Twice is series. Parallel halves it.
+  The value of one inductor times 4: Four times would need more than two inductors in series.
+  The value of one inductor divided by 4: Two in parallel give half, not a quarter.
+B-005-009-003:
+  Twice the value of one capacitor: Twice is capacitors in parallel. In series they give half.
+  The value of one capacitor times 4: Four times isn't possible with two capacitors.
+  The value of one capacitor divided by 4: A quarter isn't right for two equal capacitors; series gives half.
+B-005-009-004:
+  Half the value of either capacitor: "Half is capacitors in series. In parallel they add: twice."
+  The value of one capacitor times 4: Four times isn't possible with two capacitors.
+  The value of one capacitor divided by 4: A quarter isn't right; parallel capacitors add.
+B-005-009-005:
+  Coil diameter, coil length and operating frequency: Inductance doesn't depend on the operating frequency.
+  Type of wire, coil length and number of turns of wire: Wire type affects losses, not inductance.
+  Coil diameter, coil orientation and number of turns of wire: Which way the coil faces doesn't set its inductance.
+B-005-009-006:
+  Operating frequency and spacing between the plates: Frequency doesn't change a capacitor's value.
+  Type of metal and spacing between the plates: Plate metal doesn't matter; area and spacing do.
+  Surface area of the plates and applied voltage: Applied voltage doesn't change capacitance.
+B-005-009-007:
+  Do not parallel with capacitors other than electrolytics: Mixing types in parallel is allowed.
+  Use them exclusively at radio frequencies: Electrolytics are mostly used at low and audio frequencies, not exclusively at RF.
+  Do not use them in series combinations: They can be used in series combinations; the rule is never reverse them.
+B-005-009-008:
+  6 millihenries: "6 mH is two in parallel. In series they add: 24 mH."
+  48 millihenries: 48 mH would be four 12 mH coils in series.
+  3 millihenries: 3 mH would be four in parallel.
+B-005-009-009:
+  40 millihenries: "40 mH is two in series. In parallel: 10 mH."
+  80 millihenries: 80 mH would be four in series.
+  5 millihenries: 5 mH would be four in parallel.
+B-005-009-010:
+  40 microfarads: "40 µF is two in parallel. In series capacitors halve: 10 µF."
+  80 microfarads: 80 µF would need four in parallel.
+  5 microfarads: 5 µF would be four in series.
+B-005-009-011:
+  12 microfarads: "12 µF is two in series. In parallel capacitors add: 48 µF."
+  96 microfarads: 96 µF would need four in parallel.
+  4 microfarads: 4 µF isn't any combination of two 24 µF parts.

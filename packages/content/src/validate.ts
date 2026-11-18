@@ -1,5 +1,5 @@
 import path from "node:path";
-import { approxEqual, goalVariables, parseAnswerValue, runCalculation } from "@hampath/ham-sim";
+import { answerMatches, goalVariables, runCalculation } from "@hampath/ham-sim";
 import type { ParsedBank } from "./bank.ts";
 import { lessonCode } from "./ids.ts";
 import { LAB_SCHEMAS } from "./schemas.ts";
@@ -145,15 +145,8 @@ export function validateContent(bank: ParsedBank, tree: ContentTree, opts: { str
       if (spec) {
         try {
           const sol = runCalculation(spec);
-          const expected = parseAnswerValue(q.optionsEn[0], sol.unit);
-          const distractorHit = q.optionsEn.slice(1).find((o) => {
-            const v = parseAnswerValue(o, sol.unit);
-            return v !== null && approxEqual(v, sol.value);
-          });
-          if (expected === null) {
-            calc = "failed";
-            errors.push(`${q.id}: correct answer "${q.optionsEn[0]}" is not numeric`);
-          } else if (!approxEqual(expected, sol.value)) {
+          const distractorHit = q.optionsEn.slice(1).find((o) => answerMatches(o, sol.value, sol.unit));
+          if (!answerMatches(q.optionsEn[0], sol.value, sol.unit)) {
             calc = "failed";
             errors.push(`${q.id}: ham-sim gives ${sol.value} ${sol.unit}, bank answer is "${q.optionsEn[0]}" (CI check 3)`);
           } else if (distractorHit) {

@@ -1,0 +1,58 @@
+{
+  "lab": "LAB-23",
+  "steps": {
+    "explore-stepup": {
+      "title": "Step it up",
+      "prompt": "With 250 primary turns on 120 V, set the secondary to give 240 V.",
+      "config": {
+        "Np": 250,
+        "Ns": 250,
+        "Vp": 120,
+        "Rload": 100,
+        "controls": {
+          "Np": false,
+          "Ns": {
+            "min": 50,
+            "max": 1000,
+            "step": 50
+          },
+          "Vp": false,
+          "Rload": false
+        }
+      },
+      "goal": "approx(Vs, 240)",
+      "goal_text": "240 V out",
+      "hints": [
+        "Twice the voltage needs twice the turns."
+      ],
+      "success": "500 turns: a 1 : 2 ratio doubles the voltage."
+    },
+    "explore-current": {
+      "title": "Voltage down, current up",
+      "prompt": "1000 primary turns on 120 V. Set the secondary for 12 V, then compare primary and secondary current.",
+      "config": {
+        "Np": 1000,
+        "Ns": 500,
+        "Vp": 120,
+        "Rload": 2.4,
+        "controls": {
+          "Np": false,
+          "Ns": {
+            "min": 50,
+            "max": 1000,
+            "step": 50
+          },
+          "Vp": false,
+          "Rload": false
+        }
+      },
+      "goal": "approx(Vs, 12)",
+      "goal_text": "12 V out",
+      "hints": [
+        "12 V is a tenth of 120 V.",
+        "100 turns."
+      ],
+      "success": "100 turns: voltage ÷ 10, current × 10. 0.5 A in, 5 A out, 60 W either side."
+    }
+  }
+}

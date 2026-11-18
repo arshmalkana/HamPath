@@ -29,7 +29,7 @@ export function learnRoutes(app: FastifyInstance, pool: Pool) {
       goal_expr: string | null;
       lesson_id: string;
       card_order: number | null;
-      config_json: { build?: boolean };
+      config_json: { build?: boolean } & Record<string, unknown>;
     }>(
       `SELECT ls.lab_id, ls.goal_expr, ls.lesson_id, ls.config_json,
               (SELECT min(c.sort_order) FROM card c WHERE c.lab_step_id = ls.id) AS card_order
@@ -44,7 +44,7 @@ export function learnRoutes(app: FastifyInstance, pool: Pool) {
       const reported = body.payload.state as Record<string, unknown> | undefined;
       const state =
         step.config_json.build && reported && reported.board === undefined ? { ...reported, board: {} } : reported;
-      const vars = labVariables(step.lab_id, state);
+      const vars = labVariables(step.lab_id, state, step.config_json);
       verified = Boolean(vars && step.goal_expr && evaluateGoal(step.goal_expr, vars));
     }
     await pool.query(`INSERT INTO lab_event (user_id, lab_step_id, event, payload) VALUES ($1,$2,$3,$4)`, [

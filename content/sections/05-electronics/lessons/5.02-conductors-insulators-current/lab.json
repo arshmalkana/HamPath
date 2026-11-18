@@ -1,0 +1,55 @@
+{
+  "lab": "LAB-20",
+  "steps": {
+    "explore-flow": {
+      "title": "Close the loop",
+      "prompt": "Close the switch and watch the ammeter.",
+      "config": {
+        "E": 6,
+        "resistors": [
+          30
+        ],
+        "closed": false,
+        "controls": {
+          "E": false,
+          "R": false,
+          "switch": true
+        }
+      },
+      "goal": "closed && I > 0",
+      "goal_text": "Current flowing",
+      "hints": [
+        "Use the switch control under the circuit."
+      ],
+      "success": "The loop is complete, so charge flows. That flow is current."
+    },
+    "explore-drop": {
+      "title": "Voltage drops along the way",
+      "prompt": "Turn the battery up to 12 V. How is it shared between R1 and R2?",
+      "config": {
+        "topology": "series",
+        "E": 6,
+        "resistors": [
+          40,
+          80
+        ],
+        "closed": true,
+        "controls": {
+          "E": {
+            "min": 0,
+            "max": 12,
+            "step": 1
+          },
+          "R": false,
+          "switch": false
+        }
+      },
+      "goal": "E == 12",
+      "goal_text": "Battery at 12 V",
+      "hints": [
+        "Turn the battery voltage knob all the way up."
+      ],
+      "success": "4 V drops across R1 and 8 V across R2: the bigger resistor takes the bigger share, and the drops add up to 12 V."
+    }
+  }
+}

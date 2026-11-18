@@ -1,0 +1,83 @@
+{
+  "lab": "LAB-22",
+  "steps": {
+    "explore-double": {
+      "title": "Double the power",
+      "prompt": "Set the amplifier's gain so 100 W becomes 200 W.",
+      "config": {
+        "P0": 100,
+        "stages": [
+          {
+            "label": "Amplifier",
+            "db": 0,
+            "min": 0,
+            "max": 12
+          }
+        ],
+        "controls": {
+          "P0": false
+        }
+      },
+      "goal": "approx(Pout, 200)",
+      "goal_text": "200 W out",
+      "hints": [
+        "Try a few dB at a time.",
+        "3 dB."
+      ],
+      "success": "+3 dB doubles the power: 100 W → 200 W."
+    },
+    "explore-loss": {
+      "title": "Lose it in the feedline",
+      "prompt": "Set the feedline loss so only 25 W of your 100 W reaches the antenna.",
+      "config": {
+        "P0": 100,
+        "stages": [
+          {
+            "label": "Feedline loss",
+            "db": 0,
+            "min": -12,
+            "max": 0
+          }
+        ],
+        "controls": {
+          "P0": false
+        }
+      },
+      "goal": "approx(Pout, 25, 0.03)",
+      "goal_text": "25 W at the antenna",
+      "hints": [
+        "Each −3 dB halves the power.",
+        "Two halvings: −6 dB."
+      ],
+      "success": "−6 dB: half, then half again. 100 W → 25 W."
+    },
+    "explore-smeter": {
+      "title": "Back to S9",
+      "prompt": "Cut your power until the report falls from S9 + 10 dB to S9.",
+      "config": {
+        "P0": 200,
+        "stages": [
+          {
+            "label": "Power reduction",
+            "db": 0,
+            "min": -20,
+            "max": 0
+          }
+        ],
+        "controls": {
+          "P0": false
+        },
+        "smeter": {
+          "start": 10
+        }
+      },
+      "goal": "db == -10",
+      "goal_text": "Report at S9",
+      "hints": [
+        "You need to lose 10 dB.",
+        "−10 dB is ÷10: 20 W."
+      ],
+      "success": "20 W gives S9: a tenth of the power is −10 dB."
+    }
+  }
+}

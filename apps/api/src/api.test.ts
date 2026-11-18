@@ -377,3 +377,57 @@ describe("POST /admin/import-bank", () => {
     expect(byToken.status).toBe(422);
   });
 });
+
+describe("POST /lab-events: section 5 labs are verified on the server", () => {
+  const cases: [string, unknown, unknown][] = [
+    // [lab step, state that meets the goal, state that doesn't]
+    ["5.01/explore-khz", { exp: 3 }, { exp: 6 }],
+    [
+      "5.09/explore-coils",
+      { kind: "L", arrangement: "parallel", values: [0.012, 0.012] },
+      { kind: "L", arrangement: "series", values: [0.012, 0.012] },
+    ],
+    ["5.08/explore-double", { P0: 100, stages: [3] }, { P0: 100, stages: [1] }],
+    ["5.11/explore-stepup", { Np: 250, Ns: 500, Vp: 120, Rload: 100 }, { Np: 250, Ns: 300, Vp: 120, Rload: 100 }],
+    [
+      "5.12/explore-series",
+      { L: 5e-6, C: 100e-12, R: 2, circuit: "series", f: 7.118e6 },
+      { L: 5e-6, C: 100e-12, R: 2, circuit: "series", f: 4e6 },
+    ],
+    [
+      "5.10/explore-coil",
+      { f: 20e6, harmonic: false, phase: 0, L: 10e-6, C: 0 },
+      { f: 1e6, harmonic: false, phase: 0, L: 10e-6, C: 0 },
+    ],
+    [
+      "5.13/explore-place",
+      {
+        topology: "single",
+        E: 12,
+        resistors: [100],
+        closed: true,
+        board: { source: "battery", load: "resistor", series: "ammeter", across: "voltmeter" },
+      },
+      {
+        topology: "single",
+        E: 12,
+        resistors: [100],
+        closed: true,
+        board: { source: "battery", load: "resistor", series: "voltmeter", across: "ammeter" },
+      },
+    ],
+    [
+      "5.06/explore-rating",
+      { topology: "series", E: 44.5, resistors: [500, 500], closed: true },
+      { topology: "series", E: 30, resistors: [500, 500], closed: true },
+    ],
+  ];
+  it.each(cases)("%s", async (step, good, bad) => {
+    const call = browser();
+    await call("POST", "/auth/guest");
+    const yes = await call("POST", "/lab-events", { lab_step_id: step, event: "goal_met", payload: { state: good } });
+    const no = await call("POST", "/lab-events", { lab_step_id: step, event: "goal_met", payload: { state: bad } });
+    expect(yes.json.goal_verified).toBe(true);
+    expect(no.json.goal_verified).toBe(false);
+  });
+});

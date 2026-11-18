@@ -7,3 +7,4 @@ export * from "./shack/Waterfall.tsx";
 export * from "./shack/WorldMap.tsx";
 export * from "./useDragDrop.ts";
 export * from "./shack/ShackScene.tsx";
+export * from "./shack/Plot.tsx";

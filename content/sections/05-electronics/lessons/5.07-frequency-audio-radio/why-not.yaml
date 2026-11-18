@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-005-007-001:
+  Speed: Speed is how fast a wave travels, not how many cycles per second.
+  Pulse rate: Pulse rate describes pulses, not AC cycles.
+  Phase: Phase is the timing between two waves.
+B-005-007-002:
+  20 Hz to 30 000 Hz: Most people top out near 20 kHz, not 30 kHz.
+  200 Hz to 200 000 Hz: Hearing starts near 20 Hz and ends near 20 kHz, not 200 kHz.
+  300 Hz to 3 000 Hz: 300 Hz to 3 kHz is the narrow range used for voice in SSB, not the full range of hearing.
+B-005-007-003:
+  Because this is the speaker response range of a modern SSB receiver: Receiver speaker response doesn't define audio.
+  Because sound can be in this range but it's too low for RF signals: RF and audio are different things; audio is defined by hearing.
+  Because RF signals in this range can be directly converted to sound: RF can't be converted to sound just because of its frequency; audio means audible.
+B-005-007-004:
+  Low Frequency (LF): LF is 30 to 300 kHz; 7.125 MHz is far higher.
+  Medium frequency (MF): MF ends at 3 MHz; 7.125 MHz is above it.
+  Very High Frequency (VHF): VHF starts at 30 MHz; 7.125 MHz is below it.
+B-005-007-005:
+  Wave speed: Wave speed is how fast it travels, not the distance per cycle.
+  Waveform: Waveform is the shape of the wave.
+  Wave spread: Wave spread isn't a defined term here.
+B-005-007-006:
+  It increases: Higher frequency means shorter wavelength, not longer.
+  It decreases proportionally to frequency squared: They're inversely proportional, not related by the square.
+  It increases proportionally to frequency squared: Wavelength gets shorter, and not by a square law.
+B-005-007-007:
+  It decreases: Shorter wavelength means higher frequency.
+  It decreases proportionally to frequency squared: There's no square law; frequency rises in simple proportion.
+  It increases proportionally to frequency squared: Frequency rises, but in simple proportion, not by the square.
+B-005-007-008:
+  6000 metres per second: Hertz counts cycles per second, not metres per second.
+  60 metres per second: Hertz counts cycles, not metres.
+  6000 cycles per second: 60 Hz is 60 cycles, not 6000.
+B-005-007-009:
+  Polarity: Polarity is about DC direction or + and −.
+  Offset: Offset usually means a DC shift or a frequency shift.
+  Delta: Delta just means a difference; the term for timing between waves is phase.
+B-005-007-010:
+  Complex wave: A complex wave has many frequencies mixed; mains power is a clean sine.
+  Modified square wave: Some inverters make modified square waves; the grid supplies a sine wave.
+  Pulse wave: Mains power isn't pulses.
+B-005-007-011:
+  Alias: An alias is a false frequency created by sampling.
+  Sub-harmonic: A sub-harmonic is below the fundamental, not twice it.
+  Intermodulation: Intermodulation is a new frequency from mixing two signals, not a simple multiple.

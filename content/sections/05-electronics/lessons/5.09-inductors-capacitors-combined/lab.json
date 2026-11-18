@@ -1,0 +1,53 @@
+{
+  "lab": "LAB-20",
+  "steps": {
+    "explore-coils": {
+      "title": "Two coils",
+      "prompt": "Two 12 mH coils in series. Rewire them so the total is half of one coil.",
+      "config": {
+        "mode": "combine",
+        "kind": "L",
+        "arrangement": "series",
+        "values": [
+          0.012,
+          0.012
+        ],
+        "controls": {
+          "kind": false,
+          "arrangement": true,
+          "values": false
+        }
+      },
+      "goal": "approx(ratio, 0.5)",
+      "goal_text": "Half of one coil",
+      "hints": [
+        "Try the other wiring."
+      ],
+      "success": "Parallel: 6 mH, half of one coil. In series they made 24 mH, twice one coil."
+    },
+    "explore-caps": {
+      "title": "Two capacitors",
+      "prompt": "Two 24 µF capacitors in series. Rewire them to get twice the capacitance of one.",
+      "config": {
+        "mode": "combine",
+        "kind": "C",
+        "arrangement": "series",
+        "values": [
+          0.000024,
+          0.000024
+        ],
+        "controls": {
+          "kind": false,
+          "arrangement": true,
+          "values": false
+        }
+      },
+      "goal": "approx(ratio, 2)",
+      "goal_text": "Twice one capacitor",
+      "hints": [
+        "Capacitors do the opposite of coils."
+      ],
+      "success": "Parallel: 48 µF. Capacitors add in parallel; in series they made 12 µF, half of one."
+    }
+  }
+}
