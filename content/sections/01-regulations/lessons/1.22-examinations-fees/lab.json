@@ -1,0 +1,60 @@
+{
+  "lab": "LAB-02",
+  "steps": {
+    "rules-exams": {
+      "title": "Exam rules",
+      "prompt": "Settle all four.",
+      "config": {
+        "intro": "What do the exam rules say?",
+        "cases": [
+          {
+            "id": "ised",
+            "situation": "What does an exam at an ISED office cost?",
+            "options": [
+              "Nothing",
+              "$5 per qualification",
+              "$20 per visit"
+            ],
+            "answer": "Nothing",
+            "source": "ISED",
+            "why": "ISED charges nothing for qualification exams."
+          },
+          {
+            "id": "examiner",
+            "situation": "May an accredited examiner charge you?",
+            "options": [
+              "Yes, to recover costs",
+              "No, never",
+              "Exactly $20"
+            ],
+            "answer": "Yes, to recover costs",
+            "why": "Examiners may recover their costs."
+          },
+          {
+            "id": "exempt",
+            "situation": "May a disabled candidate skip part of the exam?",
+            "options": [
+              "Yes",
+              "No, but it can be given orally or tailored"
+            ],
+            "answer": "No, but it can be given orally or tailored",
+            "why": "Accommodation, not exemption."
+          },
+          {
+            "id": "interpreter",
+            "situation": "May a candidate bring an interpreter?",
+            "options": [
+              "Yes",
+              "No, but an oral exam may be given"
+            ],
+            "answer": "No, but an oral exam may be given",
+            "why": "No interpreters; an oral exam is possible."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All four settled",
+      "success": "Free at ISED, cost recovery with examiners, and accommodation without exemption."
+    }
+  }
+}

@@ -1,0 +1,17 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-018-001:
+  Satellite control station: A satellite control station commands a satellite.
+  Remote-control station: A remote-control station controls another station.
+  Beacon station: A beacon transmits one way; it doesn't retransmit.
+B-001-018-002:
+  if the final RF amplifier output is kept under 5 watts: Power isn't the condition.
+  for CW communication: CW is keyed, not a steady unmodulated carrier.
+  for holding a frequency until a net begins: Holding a frequency isn't allowed.
+B-001-018-003:
+  29.700 MHz: 29.700 MHz is the top of the band.
+  50 MHz: 50 MHz isn't the lowest.
+  144 MHz: 144 MHz isn't the lowest.
+B-001-018-004:
+  28.000 MHz to 29.700 MHz: 28.000 to 29.700 MHz is the whole of 10 m.
+  53 MHz to 54 MHz: 53 to 54 MHz isn't the lowest.
+  145 MHz to 148 MHz: 145 to 148 MHz isn't the lowest.

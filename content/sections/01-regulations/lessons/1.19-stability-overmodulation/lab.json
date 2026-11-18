@@ -1,0 +1,33 @@
+{
+  "lab": "LAB-14",
+  "steps": {
+    "modulation-100": {
+      "title": "Back to 100%",
+      "prompt": "Bring the deviation back to 100% of the 5 kHz channel standard.",
+      "config": {
+        "mode": "fm",
+        "filter": 20000,
+        "tune": 0,
+        "deviation": 8000,
+        "expectedDeviation": 5000,
+        "filters": [
+          20000
+        ],
+        "controls": {
+          "modes": false,
+          "filter": false,
+          "tune": false,
+          "agc": false,
+          "deviation": {
+            "min": 0,
+            "max": 8000,
+            "step": 500
+          }
+        }
+      },
+      "goal": "!overdeviated && audio >= 0.9",
+      "goal_text": "Back at 100%",
+      "success": "At 5 kHz deviation you're at 100%: full audio, no splatter."
+    }
+  }
+}

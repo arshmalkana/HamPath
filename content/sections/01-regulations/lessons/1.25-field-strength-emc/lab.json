@@ -1,0 +1,69 @@
+{
+  "lab": "LAB-33",
+  "steps": {
+    "case-stereo": {
+      "title": "Case 12: the stereo",
+      "prompt": "Diagnose, then decide who acts.",
+      "config": {
+        "title": "Case file: the stereo next door",
+        "story": "Your neighbour's stereo (associated equipment) buzzes when you transmit. An ISED measurement on their premises found your field strength well below the immunity criteria.",
+        "evidence": [
+          "Your field strength there is below ISED's criteria.",
+          "You're operating within your power limits.",
+          "It stops when you stop transmitting."
+        ],
+        "sound": "ssb-rect",
+        "caption": "Distorted speech from the stereo speakers whenever you transmit.",
+        "cause": "immunity",
+        "cure": "ownerFixes",
+        "causes": [
+          "immunity",
+          "fieldHigh",
+          "harmonics",
+          "splatter"
+        ],
+        "cures": [
+          "reduceField",
+          "ownerFixes",
+          "lpfTx",
+          "micGain"
+        ]
+      },
+      "goal": "solved",
+      "goal_text": "Case closed",
+      "success": "Below the criteria, so under EMCAB-2 the stereo's lack of immunity is the cause. Ferrite and filters on the stereo are the fix, and you can help."
+    },
+    "case-tv": {
+      "title": "Case 13: the TV",
+      "prompt": "Diagnose, then decide who acts.",
+      "config": {
+        "title": "Case file: the television",
+        "story": "Another neighbour's TV breaks up when you transmit. This time the measured field strength on their premises is above the immunity criteria.",
+        "evidence": [
+          "Your field strength there is above ISED's criteria.",
+          "Your antenna is right beside their house.",
+          "You're within your power limit."
+        ],
+        "sound": "overload",
+        "caption": "The TV picture and sound break up every time you transmit.",
+        "cause": "fieldHigh",
+        "cure": "reduceField",
+        "causes": [
+          "immunity",
+          "fieldHigh",
+          "intermod",
+          "desense"
+        ],
+        "cures": [
+          "ownerFixes",
+          "reduceField",
+          "hpfTv",
+          "keying"
+        ]
+      },
+      "goal": "solved",
+      "goal_text": "Case closed",
+      "success": "Above the criteria, so your transmission is the cause: reduce your field strength there, with less power or a better antenna location."
+    }
+  }
+}

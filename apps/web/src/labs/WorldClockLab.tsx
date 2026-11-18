@@ -2,6 +2,9 @@
 import { useMemo, useState } from "react";
 import {
   clockVariables,
+  rulesVariables,
+  type RulesConfig,
+  type RulesState,
   greatCircle,
   mapPathVariables,
   type ClockConfig,
@@ -117,13 +120,59 @@ function ClockBody({ config, mode, onState }: LabBodyProps) {
   );
 }
 
-/** LAB-12 World Map & Clock: propagation mode (7.06) and clock mode (2.09). */
-export function WorldClockLab(props: LabBodyProps) {
-  return (props.config as { mode?: string }).mode === "clock" ? (
-    <ClockBody {...props} />
-  ) : (
-    <PropagationBody {...props} />
+interface ItuConfig extends RulesConfig {
+  mode: "itu";
+  places: { id: string; lon: number; lat: number }[];
+}
+
+function ItuBody({ config, mode, onState }: LabBodyProps) {
+  const cfg = config as unknown as ItuConfig;
+  const demo = mode === "demo";
+  const [answers, setAnswers] = useState<RulesState["answers"]>({});
+  const v = rulesVariables({ answers }, cfg)!;
+  useReport(onState, v, { answers }, [answers]);
+  const date = useMemo(() => new Date("2026-06-21T12:00:00Z"), []);
+  return (
+    <div className="lab">
+      <div className="shack-well">
+        <WorldMap
+          date={date}
+          label="World map with the places to classify"
+          markers={cfg.places.map((p) => ({ lon: p.lon, lat: p.lat, label: cfg.cases.find((k) => k.id === p.id)?.situation ?? p.id }))}
+        />
+      </div>
+      <ul className="inspect-list">
+        {cfg.cases.map((k) => {
+          const got = answers[k.id];
+          const right = got ? got === k.answer : null;
+          return (
+            <li key={k.id} className="inspect-item shack-well" data-state={right === null ? undefined : right ? "right" : "wrong"}>
+              <p className="inspect-label">{k.situation}</p>
+              <div className="chip-row" role="group" aria-label={k.situation}>
+                {k.options.map((o) => (
+                  <button key={o} type="button" className="chip" aria-pressed={got === o} disabled={demo || right === true} onClick={() => setAnswers((a) => ({ ...a, [k.id]: o }))}>
+                    {o}
+                  </button>
+                ))}
+              </div>
+              {right !== null && (
+                <p className="inspect-why" role="status">
+                  {right ? `Right. ${k.why}` : "Not quite."}
+                </p>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+      <Readouts items={[["Placed", `${v.correct} of ${v.total}`]]} />
+    </div>
   );
+}
+
+/** LAB-12 World Map & Clock: propagation (7.06), clock (2.09) and ITU regions (1.21). */
+export function WorldClockLab(props: LabBodyProps) {
+  const m = (props.config as { mode?: string }).mode;
+  return m === "clock" ? <ClockBody {...props} /> : m === "itu" ? <ItuBody {...props} /> : <PropagationBody {...props} />;
 }
 
 function PropagationBody({ config, mode, onState }: LabBodyProps) {

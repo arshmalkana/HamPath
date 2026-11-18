@@ -1,0 +1,9 @@
+code: "1.25"
+title: Field strength and EMC complaints
+est_minutes: 12
+lab_id: LAB-33
+question_ids:
+  - B-001-025-001
+  - B-001-025-002
+  - B-001-025-003
+  - B-001-025-004

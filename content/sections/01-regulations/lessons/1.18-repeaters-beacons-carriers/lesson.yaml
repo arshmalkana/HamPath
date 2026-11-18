@@ -1,0 +1,9 @@
+code: "1.18"
+title: Repeaters, beacons and test carriers
+est_minutes: 10
+lab_id: LAB-08
+question_ids:
+  - B-001-018-001
+  - B-001-018-002
+  - B-001-018-003
+  - B-001-018-004

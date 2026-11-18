@@ -17,6 +17,8 @@ export const CAUSES = {
   clicks: "Key clicks (poor keying waveform)",
   splatter: "Splatter (overmodulation)",
   commonmode: "Common-mode current on the feedline",
+  immunity: "The equipment lacks immunity (your field is below the criteria)",
+  fieldHigh: "Your field strength exceeds the immunity criteria",
 } as const;
 export type Cause = keyof typeof CAUSES;
 
@@ -33,6 +35,8 @@ export const CURES = {
   keying: "Check the keying filter and later stages",
   micGain: "Turn down the microphone gain",
   lessPower: "Use less power",
+  ownerFixes: "The equipment owner improves its immunity (filters, shielding)",
+  reduceField: "You reduce your field strength there (power, antenna placement)",
 } as const;
 export type Cure = keyof typeof CURES;
 

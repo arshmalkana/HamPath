@@ -1,0 +1,47 @@
+{
+  "lab": "LAB-06",
+  "steps": {
+    "permit-process": {
+      "title": "Whose process?",
+      "prompt": "Choose the process you must follow for a 20 m tower here.",
+      "config": {
+        "scene": "Your town has no antenna consultation process of its own.",
+        "localProcess": false,
+        "start": {
+          "height": 20,
+          "choice": "none"
+        },
+        "controls": {
+          "height": false,
+          "choice": true
+        }
+      },
+      "goal": "processOk",
+      "goal_text": "Right process",
+      "success": "No local process, so ISED's default process applies: written notice and a 30-day comment period."
+    },
+    "permit-height": {
+      "title": "How tall without consultation?",
+      "prompt": "Lower the tower to the tallest height that's still excluded.",
+      "config": {
+        "scene": "This town's process has no extra exemptions, so ISED's exclusion applies.",
+        "localProcess": true,
+        "localExemptHeight": null,
+        "start": {
+          "height": 25,
+          "choice": "none"
+        },
+        "controls": {
+          "height": true,
+          "choice": false
+        }
+      },
+      "goal": "excluded && height >= 14.5",
+      "goal_text": "Tallest excluded height",
+      "hints": [
+        "ISED excludes amateur antenna structures under 15 m."
+      ],
+      "success": "Just under 15 m: below ISED's exclusion height, so no consultation is needed."
+    }
+  }
+}

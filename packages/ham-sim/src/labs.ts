@@ -20,6 +20,9 @@ import { antennaVariables, patternVariables, type PatternState } from "./antenna
 import {
   bandPlanVariables,
   callSignVariables,
+  permitVariables,
+  type PermitConfig,
+  type PermitState,
   idTimingVariables,
   powerLimitVariables,
   type BandPlanState,
@@ -80,6 +83,8 @@ import {
   keyerVariables,
   powerBenchVariables,
   rfExposureVariables,
+  sc6Variables,
+  type Sc6State,
   ssbDriveVariables,
   type InspectorConfig,
   type InspectorState,
@@ -306,6 +311,7 @@ export function labVariables(labId: string, state: unknown, config: Record<strin
     case "LAB-32":
       return vhfVariables(st as unknown as VhfState);
     case "LAB-12":
+      if (config.mode === "itu") return rulesVariables(st as unknown as RulesState, config as unknown as RulesConfig);
       if (config.mode === "clock") return clockVariables(st as unknown as ClockState, config as unknown as ClockConfig);
       return mapPathVariables(st as unknown as MapPathState, config as unknown as MapPathConfig);
     case "LAB-07":
@@ -340,7 +346,10 @@ export function labVariables(labId: string, state: unknown, config: Record<strin
       return powerBenchVariables(st as unknown as PowerBenchState, config as unknown as PowerBenchConfig);
     case "LAB-16":
       return inspectorVariables(st as unknown as InspectorState, config as unknown as InspectorConfig);
+    case "LAB-06":
+      return permitVariables(st as unknown as PermitState, config as unknown as PermitConfig);
     case "LAB-05":
+      if (config.mode === "sc6") return sc6Variables(st as unknown as Sc6State);
       return rfExposureVariables(st as unknown as RfExposureState, config as unknown as RfExposureConfig);
     case "LAB-17":
       return benchVariables(st as unknown as BenchState);
@@ -463,7 +472,7 @@ export const LAB_GOAL_VARIABLES: Record<string, string[]> = {
     "chirp",
   ],
   "LAB-16": ["correct", "wrong", "total", "hazards", "hazardsFound", "complete"],
-  "LAB-05": ["S", "d", "limit", "ratio", "safe", "safeDistance"],
+  "LAB-05": ["S", "d", "limit", "ratio", "safe", "safeDistance", "f", "lowest", "controlled"],
   "LAB-28": [
     "reflecting",
     "directing",
@@ -528,8 +537,8 @@ export const LAB_GOAL_VARIABLES: Record<string, string[]> = {
     "aimedShort",
     "aimedLong",
     "netLocal",
-    "localOk",
-  ],
+    "localOk", "correct", "total", "complete"],
+  "LAB-06": ["height", "excluded", "processOk", "exemptBelow"],
   "LAB-07": ["passed", "total", "complete"],
   "LAB-11": ["passed", "total", "complete"],
   "LAB-09": ["correct", "attempted", "total", "done"],

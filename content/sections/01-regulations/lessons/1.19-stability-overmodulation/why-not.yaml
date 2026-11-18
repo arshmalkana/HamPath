@@ -1,0 +1,25 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-019-001:
+  It shall remain within 2 parts per million, one hour after power up: 2 parts per million isn't the Canadian rule.
+  It must not drift more than 10 Hz from a governmental time signal broadcast service: 10 Hz from a time signal isn't the rule.
+  It shall remain within 0.05% from -30 to +40 degrees Celsius ambient temperature: 0.05% over temperature isn't the rule.
+B-001-019-002:
+  CW: CW has no voice modulation to overdo.
+  RTTY: RTTY isn't a voice mode.
+  FM: FM overdeviation matters, but the rule names SSB.
+B-001-019-003:
+  Excessive compression: Compression isn't the named problem.
+  Inadequate pre-emphasis: Pre-emphasis isn't the named problem.
+  Inadequate audio filtering: Audio filtering isn't the named problem.
+B-001-019-004:
+  75%: 75% is below the maximum.
+  50%: 50% is below the maximum.
+  90%: 90% is below the maximum.
+B-001-019-005:
+  RF power: RF power isn't the universal requirement.
+  SWR: SWR isn't required.
+  Modulation: Modulation isn't required for all modes.
+B-001-019-006:
+  90%: 90% is below the maximum.
+  75%: 75% is below the maximum.
+  50%: 50% is below the maximum.

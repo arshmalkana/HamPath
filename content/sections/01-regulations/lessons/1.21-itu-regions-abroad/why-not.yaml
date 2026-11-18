@@ -1,0 +1,37 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-021-001:
+  Region 4: There's no Region 4.
+  Region 3: Region 3 is Asia-Pacific.
+  Region 1: Region 1 is Europe and Africa.
+B-001-021-002:
+  Those applicable in International Telecommunication Union region 2: In Florida you follow US rules, not the general Region 2 limits.
+  Those applicable in International Telecommunication Union region 3: Region 3 isn't involved.
+  Those applicable in International Telecommunication Union region 1: Region 1 isn't involved.
+B-001-021-003:
+  Those applicable to Canadian amateur radio operators: Canadian limits don't apply in US waters.
+  Those applicable in International Telecommunication Union region 1: Region 1 isn't involved.
+  Those applicable in International Telecommunication Union region 2: In US waters, US rules apply rather than general Region 2 limits.
+B-001-021-004:
+  Region 1: Region 1 is Europe and Africa.
+  Region 2: Region 2 is the Americas.
+  Region 4: There's no Region 4.
+B-001-021-005:
+  Region 2: Region 2 is the Americas.
+  Region 3: Region 3 is Asia-Pacific.
+  Region 4: There's no Region 4.
+B-001-021-006:
+  Basic with Honours: Honours isn't enough for CEPT.
+  Basic with Morse code: Basic with Morse isn't enough.
+  Basic: Basic isn't enough.
+B-001-021-007:
+  Transmit their Canadian call sign, followed by "stroke," followed by the visited country's prefix: The prefix goes first, not after your call.
+  Transmit their Canadian call sign: The prefix must be added.
+  Transmit their Canadian call sign, followed by "stroke," followed by the name of the country being visited: It's the country's prefix, not its name.
+B-001-021-008:
+  Basic with Honours: Honours isn't required.
+  Basic with Morse code: Morse isn't required.
+  Advanced: Advanced isn't required.
+B-001-021-009:
+  Transmit the prefix for the US call area being visited, followed by "portable" or "mobile" as appropriate, followed by their Canadian call sign: The US prefix goes after your call, not before.
+  Transmit their Canadian call sign: You must add portable or mobile and the call area.
+  Transmit their Canadian call sign, followed by the city and state where they are visiting: City and state aren't the format.

@@ -75,6 +75,8 @@ import {
   callSignVariables,
   idTimingVariables,
   powerLimitVariables,
+  permitVariables,
+  sc6Limit,
 } from "./index.ts";
 
 describe("units", () => {
@@ -788,5 +790,21 @@ describe("section 1 regulation models", () => {
       legal: false,
     });
     expect(runCalculation({ calc: "band_edges", given: { band: 15 } }).also![0]!.value).toBeCloseTo(21.45e6);
+  });
+});
+
+describe("section 1 batch 3 models", () => {
+  it("decides when antenna consultation applies and whose process", () => {
+    expect(permitVariables({ height: 20, choice: "ised" }, { localProcess: false })).toMatchObject({ processOk: true, excluded: false });
+    expect(permitVariables({ height: 20, choice: "ised" }, { localProcess: true })).toMatchObject({ processOk: false });
+    expect(permitVariables({ height: 14, choice: "none" }, { localProcess: true })).toMatchObject({ processOk: true, excluded: true });
+  });
+  it("has Safety Code 6 limits continuous, and lowest from 48 to 300 MHz", () => {
+    expect(sc6Limit(20)).toBeCloseTo(sc6Limit(20.0001), 3);
+    expect(sc6Limit(48)).toBeCloseTo(1.291, 2);
+    expect(sc6Limit(300)).toBeCloseTo(1.291, 2);
+    expect(sc6Limit(146)).toBeLessThan(sc6Limit(14));
+    expect(sc6Limit(146)).toBeLessThan(sc6Limit(1000));
+    expect(sc6Limit(146, "controlled")).toBeGreaterThan(sc6Limit(146));
   });
 });

@@ -4,6 +4,7 @@ import { AntennaBuilderLab } from "./AntennaBuilderLab";
 import { BlockDiagramLab } from "./BlockDiagramLab";
 import { ColourCodeLab } from "./ColourCodeLab";
 import { ComponentBenchLab } from "./ComponentBenchLab";
+import { AntennaPermitLab } from "./AntennaPermitLab";
 import { BandPlanLab } from "./BandPlanLab";
 import { CallSignLab } from "./CallSignLab";
 import { DbLadderLab } from "./DbLadderLab";
@@ -57,7 +58,7 @@ export const LAB_REGISTRY: LabEntry[] = [
   { id: "LAB-03", name: "Call Sign Builder", component: CallSignLab },
   { id: "LAB-04", name: "Power Limit Calculator", component: PowerLimitLab },
   { id: "LAB-05", name: "RF Exposure Zone", component: RfExposureLab },
-  { id: "LAB-06", name: "Antenna Permit Planner", component: null },
+  { id: "LAB-06", name: "Antenna Permit Planner", component: AntennaPermitLab },
   { id: "LAB-07", name: "Virtual QSO Simulator", component: QsoLab },
   { id: "LAB-08", name: "Repeater Lab", component: RepeaterLab },
   { id: "LAB-09", name: "Phonetic & Q-Code Trainer", component: PhoneticLab },

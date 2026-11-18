@@ -1,0 +1,11 @@
+code: "1.19"
+title: Frequency stability and overmodulation
+est_minutes: 10
+lab_id: LAB-14
+question_ids:
+  - B-001-019-001
+  - B-001-019-002
+  - B-001-019-003
+  - B-001-019-004
+  - B-001-019-005
+  - B-001-019-006

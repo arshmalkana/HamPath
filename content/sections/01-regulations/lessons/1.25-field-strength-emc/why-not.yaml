@@ -1,0 +1,17 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-025-001:
+  You are transmitting at or below your maximum permitted power: Being within your power limit doesn't decide it.
+  The malfunction stops when you stop transmitting: Stopping when you stop doesn't decide it.
+  The field strength of your emissions, on your neighbour's premises, is above Innovation, Science and Economic Development Canada's specified immunity criteria: Above the criteria would make your transmission the cause.
+B-001-025-002:
+  You are transmitting at or below your maximum permitted power: Being within your power limit doesn't decide it.
+  The malfunction continues when you stop transmitting: If it continues when you stop, it isn't you at all.
+  The field strength of your emissions, on your neighbour's premises, is below Innovation, Science and Economic Development Canada's specified immunity criteria: Below the criteria would point to the TV's immunity.
+B-001-025-003:
+  Broadcast receivers: Broadcast receivers are a separate category.
+  Radio-sensitive equipment: Radio-sensitive equipment uses radio to work.
+  Low-immunity equipment: Low-immunity equipment isn't the EMCAB-2 term.
+B-001-025-004:
+  Associated equipment: Associated equipment isn't radio apparatus; a garage door opener is.
+  Broadcast equipment: It isn't broadcast equipment.
+  Low-immunity equipment: Low-immunity isn't the EMCAB-2 term.

@@ -382,6 +382,7 @@ export const RepeaterConfigSchema = z.object({
   hearsDirect: z.boolean().optional(),
   start: z.object({ offset: z.number(), tone: z.number().positive().nullable(), reverse: z.boolean().optional() }),
   tones: z.array(z.number().min(0)).min(2),
+  offsets: z.array(z.number()).min(2).max(4).optional(),
   controls: z.object({ offset: z.boolean(), tone: z.boolean(), reverse: z.boolean() }),
 });
 const Supply = z.enum(["battery", "linear", "switching", "unregulated"]);
@@ -412,6 +413,12 @@ export const InspectorConfigSchema = z.object({
     .array(z.strictObject({ id: z.string(), label: z.string(), hazard: z.boolean(), why: z.string() }))
     .min(2)
     .refine((xs) => new Set(xs.map((x) => x.id)).size === xs.length, "item ids must be unique"),
+});
+export const Sc6ConfigSchema = z.object({
+  mode: z.literal("sc6"),
+  f: z.number().positive(),
+  environment: z.enum(["uncontrolled", "controlled"]),
+  controls: z.object({ f: z.boolean(), environment: z.boolean() }),
 });
 export const RfExposureConfigSchema = z.object({
   source: z.string(),
@@ -537,7 +544,20 @@ export const VhfConfigSchema = z.object({
   }),
 });
 const LonLatSchema = z.tuple([z.number().min(-180).max(180), z.number().min(-90).max(90)]);
+export const PermitConfigSchema = z.object({
+  scene: z.string(),
+  localProcess: z.boolean(),
+  localExemptHeight: z.number().positive().nullable().optional(),
+  start: z.object({ height: z.number().positive(), choice: z.enum(["none", "municipal", "ised"]) }),
+  controls: z.object({ height: z.boolean(), choice: z.boolean() }),
+});
 export const WorldClockConfigSchema = z.discriminatedUnion("mode", [
+  z.object({
+    mode: z.literal("itu"),
+    intro: z.string().optional(),
+    places: z.array(z.object({ id: z.string(), lon: z.number(), lat: z.number() })).min(1),
+    cases: z.array(z.strictObject({ id: z.string(), situation: z.string(), options: z.array(z.string()).min(2), answer: z.string(), source: z.string().optional(), why: z.string() })).min(1),
+  }),
   z.object({
     mode: z.literal("clock"),
     from: LonLatSchema,
@@ -564,8 +584,8 @@ export const WorldClockConfigSchema = z.discriminatedUnion("mode", [
     controls: z.object({ utc: z.boolean(), f: z.boolean() }),
   }),
 ]);
-const CauseSchema = z.enum(["overload", "desense", "intermod", "rectification", "harmonics", "spurious", "parasitic", "clicks", "splatter", "commonmode"]);
-const CureSchema = z.enum(["hpfTv", "lpfTx", "ferrite", "phoneFilter", "cmChoke", "rxFilter", "separate", "cover", "keying", "micGain", "lessPower"]);
+const CauseSchema = z.enum(["overload", "desense", "intermod", "rectification", "harmonics", "spurious", "parasitic", "clicks", "splatter", "commonmode", "immunity", "fieldHigh"]);
+const CureSchema = z.enum(["hpfTv", "lpfTx", "ferrite", "phoneFilter", "cmChoke", "rxFilter", "separate", "cover", "keying", "micGain", "lessPower", "ownerFixes", "reduceField"]);
 export const InterferenceConfigSchema = z
   .object({
     title: z.string(),
@@ -638,7 +658,8 @@ export const LAB_SCHEMAS: Record<string, { config: z.ZodType; variables: string[
   "LAB-10": { config: KeyerConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-10"]! },
   "LAB-15": { config: PowerBenchConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-15"]! },
   "LAB-16": { config: InspectorConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-16"]! },
-  "LAB-05": { config: RfExposureConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-05"]! },
+  "LAB-06": { config: PermitConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-06"]! },
+  "LAB-05": { config: z.union([Sc6ConfigSchema, RfExposureConfigSchema]), variables: LAB_GOAL_VARIABLES["LAB-05"]! },
   "LAB-17": { config: BenchConfig, variables: LAB_GOAL_VARIABLES["LAB-17"]! },
   "LAB-18": { config: ColourCodeConfig, variables: LAB_GOAL_VARIABLES["LAB-18"]! },
   "LAB-19": { config: UnitSliderConfig, variables: LAB_GOAL_VARIABLES["LAB-19"]! },

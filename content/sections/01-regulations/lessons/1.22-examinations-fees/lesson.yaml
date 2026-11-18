@@ -1,0 +1,10 @@
+code: "1.22"
+title: Examinations and fees
+est_minutes: 8
+lab_id: LAB-02
+question_ids:
+  - B-001-022-001
+  - B-001-022-002
+  - B-001-022-003
+  - B-001-022-004
+  - B-001-022-005

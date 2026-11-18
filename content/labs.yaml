@@ -26,7 +26,11 @@
   component: RfExposureLab
   lessons: ["1.24", "3.21"]
   default_config: { source: "a 50 W transmitter into a 13 dBi UHF beam", power: 50, gainDbi: 13, limit: 2, distance: 1, controls: { distance: { min: 0.5, max: 20, step: 0.5 } } }
-- { id: LAB-06, name: Antenna Permit Planner, component: null, lessons: ["1.23"] }
+- id: LAB-06
+  name: Antenna Permit Planner
+  component: AntennaPermitLab
+  lessons: ["1.23"]
+  default_config: { scene: "Planning a tower.", localProcess: false, start: { height: 10, choice: none }, controls: { height: true, choice: true } }
 - id: LAB-07
   name: Virtual QSO Simulator
   component: QsoLab
@@ -55,7 +59,7 @@
 - id: LAB-12
   name: World Map & Clock
   component: WorldClockLab
-  lessons: ["2.09", "7.06"]
+  lessons: ["1.21", "2.09", "7.06"]
   default_config: { mode: propagation, date: "2026-03-20T00:00:00Z", from: [-75.7, 45.4], to: [-0.1, 51.5], fromLabel: Ottawa, toLabel: London, sfi: 150, utc: 12, f: 14, bands: [3.5, 7, 14, 21, 28], controls: { utc: true, f: false } }
 - id: LAB-13
   name: Block-Diagram Builder
@@ -65,7 +69,7 @@
 - id: LAB-14
   name: Mode Spectrum Lab
   component: SpectrumLab
-  lessons: ["3.10", "3.11", "3.12", "3.13", "3.15"]
+  lessons: ["1.19", "3.10", "3.11", "3.12", "3.13", "3.15"]
   default_config: { mode: ssb, filter: 2400, tune: 0, agc: false, filters: [250, 500, 2400, 6000, 15000], waterfall: false, qrm: null, controls: { modes: false, filter: true, tune: false, agc: false } }
 - id: LAB-15
   name: Power Bench

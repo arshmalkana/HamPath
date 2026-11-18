@@ -190,3 +190,28 @@ export function idTimingVariables(s: IdTimingState, c: IdTimingConfig): Vars | n
   if (ids.length < 2) maxGap = c.duration;
   return { atStart, atEnd, maxGap, count: ids.length, idOk: atStart && atEnd && maxGap <= ID_INTERVAL_MIN };
 }
+
+// ---- Antenna structures (CPC-2-0-03) ----------------------------------------------------------
+
+/** Amateur antenna structures under this height (m) are excluded from public consultation by ISED. */
+export const ISED_EXCLUSION_HEIGHT_M = 15;
+
+export interface PermitConfig {
+  /** Does the local land-use authority have its own consultation process? */
+  localProcess: boolean;
+  /** Height (m) the local process exempts, if any. */
+  localExemptHeight?: number | null;
+}
+export interface PermitState {
+  height: number;
+  /** The process you'd follow. */
+  choice: "none" | "municipal" | "ised";
+}
+
+export function permitVariables(s: PermitState, c: PermitConfig): Vars | null {
+  if (!finite(s?.height) || !c || typeof c.localProcess !== "boolean") return null;
+  const exempt = c.localProcess && c.localExemptHeight ? Math.max(c.localExemptHeight, ISED_EXCLUSION_HEIGHT_M) : ISED_EXCLUSION_HEIGHT_M;
+  const excluded = s.height < exempt;
+  const required = excluded ? "none" : c.localProcess ? "municipal" : "ised";
+  return { height: s.height, excluded, processOk: s.choice === required, exemptBelow: exempt };
+}

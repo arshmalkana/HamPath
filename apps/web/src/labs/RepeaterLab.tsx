@@ -9,6 +9,8 @@ interface Config extends RepeaterConfig {
   start: RepeaterState;
   /** Tones offered (Hz); 0 = no tone. */
   tones: number[];
+  /** Offsets offered (kHz); default −600, simplex, +600. */
+  offsets?: number[];
   controls: { offset: boolean; tone: boolean; reverse: boolean };
 }
 
@@ -75,11 +77,7 @@ export function RepeaterLab({ config, mode, onState }: LabBodyProps) {
             value={String(s.offset) as "0"}
             onChange={(x) => set("offset", Number(x))}
             disabled={demo}
-            options={[
-              { value: "-600" as "0", label: "−600 kHz" },
-              { value: "0", label: "Simplex" },
-              { value: "600" as "0", label: "+600 kHz" },
-            ]}
+            options={(cfg.offsets ?? [-600, 0, 600]).map((o) => ({ value: String(o) as "0", label: o === 0 ? "Simplex" : `${o > 0 ? "+" : "−"}${Math.abs(o)} kHz` }))}
           />
         )}
         {cfg.controls.tone && (

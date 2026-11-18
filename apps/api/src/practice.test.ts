@@ -1,7 +1,7 @@
 import type { FastifyInstance } from "fastify";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { readBlueprint } from "@hampath/content";
-import { createPool } from "@hampath/db";
+import { readBlueprint, readContentTree } from "@hampath/content";
+import { createPool, loadContent } from "@hampath/db";
 import { buildApp } from "./app.ts";
 import { readinessScore, streakFromDays } from "./routes/dashboard.ts";
 
@@ -54,6 +54,16 @@ async function answerKey() {
 }
 
 describe("minimal lessons for every topic", () => {
+  // Every lesson is authored now, so load content without 1.19 to exercise the generated
+  // minimal lesson, then put the full content back for the other suites.
+  beforeAll(async () => {
+    const tree = readContentTree();
+    await loadContent(pool, { ...tree, lessons: tree.lessons.filter((l) => l.yaml.code !== "1.19") });
+  });
+  afterAll(async () => {
+    await loadContent(pool);
+  });
+
   it("serves an intro card and the full Check for a lesson with no authored content", async () => {
     const { json } = await browser()("GET", "/lessons/1.19");
     expect(json).toMatchObject({ code: "1.19", authored: false, title: "Frequency stability and overmodulation" });

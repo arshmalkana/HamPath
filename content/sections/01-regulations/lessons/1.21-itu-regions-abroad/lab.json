@@ -1,0 +1,115 @@
+{
+  "lab": "LAB-12",
+  "steps": {
+    "itu-regions": {
+      "title": "Which region?",
+      "prompt": "Place all six.",
+      "config": {
+        "mode": "itu",
+        "places": [
+          {
+            "id": "ca",
+            "lon": -75.7,
+            "lat": 45.4
+          },
+          {
+            "id": "jp",
+            "lon": 139.7,
+            "lat": 35.7
+          },
+          {
+            "id": "fr",
+            "lon": 2.35,
+            "lat": 48.85
+          },
+          {
+            "id": "au",
+            "lon": 151.2,
+            "lat": -33.9
+          },
+          {
+            "id": "ke",
+            "lon": 36.8,
+            "lat": -1.3
+          },
+          {
+            "id": "br",
+            "lon": -47.9,
+            "lat": -15.8
+          }
+        ],
+        "cases": [
+          {
+            "id": "ca",
+            "situation": "Canada",
+            "options": [
+              "Region 1",
+              "Region 2",
+              "Region 3"
+            ],
+            "answer": "Region 2",
+            "why": "The Americas are Region 2."
+          },
+          {
+            "id": "jp",
+            "situation": "Japan",
+            "options": [
+              "Region 1",
+              "Region 2",
+              "Region 3"
+            ],
+            "answer": "Region 3",
+            "why": "Japan is Region 3."
+          },
+          {
+            "id": "fr",
+            "situation": "France",
+            "options": [
+              "Region 1",
+              "Region 2",
+              "Region 3"
+            ],
+            "answer": "Region 1",
+            "why": "Europe is Region 1."
+          },
+          {
+            "id": "au",
+            "situation": "Australia",
+            "options": [
+              "Region 1",
+              "Region 2",
+              "Region 3"
+            ],
+            "answer": "Region 3",
+            "why": "Australia is Region 3."
+          },
+          {
+            "id": "ke",
+            "situation": "Kenya",
+            "options": [
+              "Region 1",
+              "Region 2",
+              "Region 3"
+            ],
+            "answer": "Region 1",
+            "why": "Africa is Region 1."
+          },
+          {
+            "id": "br",
+            "situation": "Brazil",
+            "options": [
+              "Region 1",
+              "Region 2",
+              "Region 3"
+            ],
+            "answer": "Region 2",
+            "why": "South America is Region 2."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All six placed",
+      "success": "Region 1: Europe and Africa. Region 2: the Americas. Region 3: Asia-Pacific."
+    }
+  }
+}

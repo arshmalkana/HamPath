@@ -1,0 +1,48 @@
+{
+  "lab": "LAB-02",
+  "steps": {
+    "rules-international": {
+      "title": "International rules",
+      "prompt": "Settle all three.",
+      "config": {
+        "intro": "Contacts with other countries: what do the rules say?",
+        "cases": [
+          {
+            "id": "content",
+            "situation": "Chatting with a Japanese amateur about your antenna and the weather.",
+            "options": [
+              "Allowed",
+              "Not allowed"
+            ],
+            "answer": "Allowed",
+            "why": "Amateur purposes and personal remarks are allowed."
+          },
+          {
+            "id": "objection",
+            "situation": "A country has registered an objection with the ITU.",
+            "options": [
+              "You may not contact it",
+              "Contact is still allowed"
+            ],
+            "answer": "You may not contact it",
+            "why": "Contacts are permitted unless an administration objects."
+          },
+          {
+            "id": "who",
+            "situation": "Besides Canadian law, whose radio regulations bind you?",
+            "options": [
+              "The ITU",
+              "Radio Amateurs of Canada",
+              "Your province"
+            ],
+            "answer": "The ITU",
+            "why": "The ITU's Radio Regulations apply to Canadian amateurs."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All three settled",
+      "success": "Personal and amateur topics, with any country that hasn't objected, under ITU rules too."
+    }
+  }
+}

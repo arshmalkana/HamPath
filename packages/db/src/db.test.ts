@@ -22,7 +22,7 @@ describe("seed", () => {
       "SELECT code, title, lab_id FROM lesson WHERE code IN ('5.04', '1.19', '6.05') ORDER BY code",
     );
     expect(rows).toEqual([
-      { code: "1.19", title: "Frequency stability and overmodulation", lab_id: null },
+      { code: "1.19", title: "Frequency stability and overmodulation", lab_id: "LAB-14" },
       { code: "5.04", title: "Ohm's Law", lab_id: "LAB-20" },
       { code: "6.05", title: "Standing wave ratio", lab_id: "LAB-27" },
     ]);

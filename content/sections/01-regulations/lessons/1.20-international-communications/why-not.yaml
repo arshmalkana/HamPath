@@ -1,0 +1,21 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-020-001:
+  Messages of any type, if the foreign country allows third-party communications with Canada: Third-party agreements don't allow any type of message.
+  Messages that are not religious, political, or patriotic in nature: The test is amateur or personal, not religion or politics.
+  Messages of any type: Not any type of message.
+B-001-020-002:
+  commercial communications are brief: Commercial messages aren't allowed at all.
+  international communications are carried out within the power limitations of the foreign administration: Power limits are your own country's.
+  third parties are charged a nominal sum for their messages: Third parties may never be charged.
+B-001-020-003:
+  Certification requirements in the amateur radio service are prescribed in the Radio Regulations: Certification isn't prescribed by the ITU.
+  Radiocommunications between certified amateur radio operators are always permitted even if a country objects: Objections do prevent contacts.
+  Amateur radio operators may recover reasonable costs from transmitting third-party messages: Costs may not be recovered for messages.
+B-001-020-004:
+  Administrations shall not make proficiency in Morse code a requirement: The ITU doesn't ban Morse requirements.
+  Amateur radio operators must demonstrate proficiency in Morse code before using it on international communications: There's no ITU proficiency rule for international contacts.
+  Current regulations make no reference to proficiency in Morse code: The regulations do mention it.
+B-001-020-005:
+  Provincial or territorial government communications department: Provinces don't regulate radio.
+  Radio Amateurs of Canada (RAC): RAC doesn't issue regulations.
+  International Amateur Radio Union: The IARU doesn't issue regulations.

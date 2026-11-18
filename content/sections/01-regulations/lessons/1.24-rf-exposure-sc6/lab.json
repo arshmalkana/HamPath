@@ -1,0 +1,40 @@
+{
+  "lab": "LAB-05",
+  "steps": {
+    "sc6-lowest": {
+      "title": "Where are the limits lowest?",
+      "prompt": "Find a frequency where the general-public limit is at its lowest.",
+      "config": {
+        "mode": "sc6",
+        "f": 2000,
+        "environment": "uncontrolled",
+        "controls": {
+          "f": true,
+          "environment": false
+        }
+      },
+      "goal": "lowest",
+      "goal_text": "Lowest-limit range",
+      "hints": [
+        "Somewhere between 48 and 300 MHz."
+      ],
+      "success": "48 to 300 MHz: the body absorbs RF most here, so the limits are lowest."
+    },
+    "sc6-environment": {
+      "title": "Controlled environments",
+      "prompt": "Switch to a controlled environment and compare the limit.",
+      "config": {
+        "mode": "sc6",
+        "f": 146,
+        "environment": "uncontrolled",
+        "controls": {
+          "f": false,
+          "environment": true
+        }
+      },
+      "goal": "controlled",
+      "goal_text": "Controlled environment",
+      "success": "Higher limits where people know about the exposure; lower ones for the general public."
+    }
+  }
+}

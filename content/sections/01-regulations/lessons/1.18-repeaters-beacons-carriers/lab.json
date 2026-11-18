@@ -1,0 +1,38 @@
+{
+  "lab": "LAB-08",
+  "steps": {
+    "repeater-10m": {
+      "title": "A 10 m repeater",
+      "prompt": "Set the offset so you transmit on this repeater's input.",
+      "config": {
+        "output": 29.62,
+        "offset": -100,
+        "tone": null,
+        "start": {
+          "offset": 0,
+          "tone": null
+        },
+        "tones": [
+          0,
+          100
+        ],
+        "offsets": [
+          -100,
+          0,
+          100
+        ],
+        "controls": {
+          "offset": true,
+          "tone": false,
+          "reverse": false
+        }
+      },
+      "goal": "accessed",
+      "goal_text": "Repeater opens",
+      "hints": [
+        "10 m repeaters use a 100 kHz offset. The input is below the output."
+      ],
+      "success": "29.620 − 0.100 = 29.520 MHz. Both are inside 29.500 to 29.700 MHz."
+    }
+  }
+}

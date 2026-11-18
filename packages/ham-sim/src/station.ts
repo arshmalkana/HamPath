@@ -216,3 +216,32 @@ export function rfExposureVariables(s: RfExposureState, c: RfExposureConfig): Va
     safeDistance: safeDistance(c.power, c.gainDbi, c.limit),
   };
 }
+
+// ---- Safety Code 6 reference levels (power density) -------------------------------------------
+
+/**
+ * Health Canada Safety Code 6 (2015) power-density reference levels, W/m², for the uncontrolled
+ * (general public) environment; the controlled environment is five times higher here. Below
+ * 10 MHz SC6 gives field-strength limits only, so the 10 MHz value is held. To be checked against
+ * the current Safety Code 6 by a licensed reviewer.
+ */
+export function sc6Limit(fMHz: number, environment: "uncontrolled" | "controlled" = "uncontrolled"): number {
+  let s: number;
+  if (fMHz <= 20) s = 2;
+  else if (fMHz < 48) s = 8.944 / Math.sqrt(fMHz);
+  else if (fMHz <= 300) s = 1.291;
+  else if (fMHz <= 6000) s = 0.02619 * fMHz ** 0.6834;
+  else s = 10;
+  return environment === "controlled" ? s * 5 : s;
+}
+
+export interface Sc6State {
+  f: number;
+  environment: "uncontrolled" | "controlled";
+}
+
+export function sc6Variables(s: Sc6State): Vars | null {
+  if (!finite(s?.f) || s.f <= 0) return null;
+  const limit = sc6Limit(s.f, s.environment);
+  return { f: s.f, limit, lowest: s.environment !== "controlled" && s.f >= 48 && s.f <= 300, controlled: s.environment === "controlled" };
+}

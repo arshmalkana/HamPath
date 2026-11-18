@@ -1,0 +1,41 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-024-001:
+  Canadian Standards Association: The CSA doesn't publish SC6.
+  Environment Canada: Environment Canada doesn't publish it.
+  National Research Council: The NRC doesn't publish it.
+B-001-024-002:
+  It lists all RF frequency allocations for interference protection: It doesn't list allocations.
+  It sets transmitter power limits for interference protection: It doesn't set transmitter power limits.
+  It sets antenna height limits for aircraft protection: It isn't about aircraft.
+B-001-024-003:
+  300 MHz to 3000 MHz: 300 to 3000 MHz has higher limits.
+  Above 1500 MHz: Above 1500 MHz has higher limits.
+  3 MHz to 30 MHz: 3 to 30 MHz has higher limits.
+B-001-024-004:
+  There are more transmitters operating in this range: The number of transmitters isn't the reason.
+  There are fewer transmitters operating in this range: The number of transmitters isn't the reason.
+  Most transmissions in this range are for a longer time: Transmission length isn't the reason.
+B-001-024-005:
+  5 watts: 5 W isn't specified.
+  7 watts: 7 W isn't specified.
+  8 watts: 8 W isn't specified.
+B-001-024-006:
+  Fixed and portable transmitters: Fixed and portable isn't the division.
+  Transmitters below 30 MHz and above 30 MHz: Above and below 30 MHz isn't the division.
+  Commercial and private transmitters: Commercial and private isn't the division.
+B-001-024-007:
+  Nausea: Nausea isn't the established effect.
+  Numbness: Numbness isn't the established effect.
+  Skin redness: Skin redness isn't the established effect.
+B-001-024-008:
+  Antenna gain, distance, transmitter power and frequency all influence exposure to radio energy: "That's correct: all those factors influence exposure."
+  Safety Code 6 uses different units for magnetic field strength and electric field strength: "That's correct: different units for E and H."
+  Safety Code 6 specifies lower exposure limits for the general public in uncontrolled areas than for controlled areas: "That's correct: lower limits for the general public."
+B-001-024-009:
+  Broadcast transmitters: Broadcast transmitters aren't exempt.
+  Portable transmitters: Portables aren't exempt.
+  Low power transmitters (less than 10 watts): Low-power transmitters aren't exempt.
+B-001-024-010:
+  Safety Code 6 sets limits for contact currents that could be drawn from ungrounded or poorly grounded objects: "That's correct: SC6 limits contact currents."
+  Safety Code 6 sets limits for induced currents, electrical field strength and magnetic field strength from electromagnetic radiation: "That's correct: SC6 limits induced currents and fields."
+  Safety Code 6 sets limits for allowable rates at which RF energy is absorbed in the body (specific absorption rate): "That's correct: SC6 limits SAR."

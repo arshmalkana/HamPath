@@ -5,6 +5,7 @@ import {
   readContentTree,
   validateContent,
   BANK_PATH,
+  type ContentTree,
 } from "@hampath/content";
 import { readFileSync } from "node:fs";
 import { tx, type Pool } from "../pool.ts";
@@ -24,10 +25,10 @@ export class ContentInvalidError extends Error {
 /**
  * Load authored lessons from content/ (cards, lab steps, calculations, Why not? notes) into
  * PostgreSQL. Refuses to load content that fails the CI checks. Idempotent: cards and lab
- * steps are upserted by stable key and stale ones removed.
+ * steps are upserted by stable key and stale ones removed. Pass a tree to load something other
+ * than content/ (tests use this to exercise the minimal-lesson path).
  */
-export async function loadContent(pool: Pool): Promise<ContentLoadResult> {
-  const tree = readContentTree();
+export async function loadContent(pool: Pool, tree: ContentTree = readContentTree()): Promise<ContentLoadResult> {
   const validation = validateContent(parseBank(readFileSync(BANK_PATH)), tree);
   if (validation.errors.length) throw new ContentInvalidError(validation.errors);
 

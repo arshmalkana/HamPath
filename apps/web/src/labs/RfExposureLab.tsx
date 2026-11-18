@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { powerDensity, rfExposureVariables, type RfExposureConfig } from "@hampath/ham-sim";
-import { Knob, Plot, sample } from "@hampath/ui";
+import { powerDensity, rfExposureVariables, sc6Limit, sc6Variables, type RfExposureConfig, type Sc6State } from "@hampath/ham-sim";
+import { Knob, Plot, ToggleSwitch, sample } from "@hampath/ui";
 import type { LabBodyProps } from "./registry";
 import { Readouts, fmt, useReport } from "./common";
 
@@ -14,8 +14,68 @@ interface Config extends RfExposureConfig {
 
 const wm2 = (x: number) => `${x >= 10 ? x.toFixed(0) : x >= 1 ? x.toFixed(1) : x.toFixed(2)} W/m²`;
 
-/** LAB-05 RF Exposure Zone: power density falls with the square of distance. */
-export function RfExposureLab({ config, mode, onState }: LabBodyProps) {
+const fq = (f: number) => (f >= 1000 ? `${Number((f / 1000).toPrecision(3))} GHz` : `${Number(f.toPrecision(3))} MHz`);
+
+function Sc6Body({ config, mode, onState }: LabBodyProps) {
+  const cfg = config as unknown as Sc6State & { controls: { f: boolean; environment: boolean } };
+  const demo = mode === "demo";
+  const [s, setS] = useState<Sc6State>({ f: cfg.f, environment: cfg.environment });
+  const v = sc6Variables(s)!;
+  useReport(onState, v, s as unknown as Record<string, unknown>, [s]);
+  const curve = sample((f) => sc6Limit(f, s.environment), 10, 6000, 300, true);
+  return (
+    <div className="lab">
+      <div className="shack-well">
+        <Plot
+          label={`Safety Code 6 power-density limit against frequency, ${s.environment} environment. At ${fq(s.f)} the limit is ${wm2(v.limit as number)}.`}
+          series={[{ points: curve, tone: "b" }]}
+          xDomain={[10, 6000]}
+          xLog
+          yDomain={[0, s.environment === "controlled" ? 55 : 11]}
+          xTicks={[10, 48, 300, 6000]}
+          formatX={fq}
+          yTicks={[0, s.environment === "controlled" ? 50 : 10]}
+          formatY={(y) => `${y} W/m²`}
+          xLabel="frequency"
+          yLabel="limit"
+          markers={[{ x: s.f, label: wm2(v.limit as number) }]}
+        />
+      </div>
+      <div className="knobs">
+        {cfg.controls.f && (
+          <Knob
+            label="Frequency"
+            value={Math.round(Math.log10(s.f) * 20)}
+            min={20}
+            max={75}
+            step={1}
+            onChange={(x) => setS((c) => ({ ...c, f: Number((10 ** (x / 20)).toPrecision(3)) }))}
+            format={(x) => fq(Number((10 ** (x / 20)).toPrecision(3)))}
+            disabled={demo}
+          />
+        )}
+        {cfg.controls.environment && (
+          <ToggleSwitch label="Controlled environment" checked={s.environment === "controlled"} onChange={(x) => setS((c) => ({ ...c, environment: x ? "controlled" : "uncontrolled" }))} disabled={demo} />
+        )}
+      </div>
+      <Readouts items={[["Frequency", fq(s.f)], ["Limit", wm2(v.limit as number)], ["Environment", s.environment]]} />
+      <p className="lab-state" role="status">
+        {v.lowest
+          ? "48 to 300 MHz: the lowest limits, because the human body absorbs RF energy most in this range."
+          : s.environment === "controlled"
+            ? "Controlled environments (people aware of the exposure) have higher limits than uncontrolled ones (the general public)."
+            : "Safety Code 6, from Health Canada, sets RF exposure limits for the human body."}
+      </p>
+    </div>
+  );
+}
+
+/** LAB-05 RF Exposure Zone: Safety Code 6 limits (1.24) and inverse-square distance (3.21). */
+export function RfExposureLab(props: LabBodyProps) {
+  return (props.config as { mode?: string }).mode === "sc6" ? <Sc6Body {...props} /> : <DistanceBody {...props} />;
+}
+
+function DistanceBody({ config, mode, onState }: LabBodyProps) {
   const cfg = config as unknown as Config;
   const demo = mode === "demo";
   const [distance, setDistance] = useState(cfg.distance);
