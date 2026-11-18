@@ -150,3 +150,29 @@ export function clockVariables(s: ClockState, c: ClockConfig): Vars | null {
     localOk: Math.abs(s.local - netLocal) < 1e-6,
   };
 }
+
+// ---- LAB-02 Rules Navigator ----------------------------------------------------------------------
+
+export interface RulesCase {
+  id: string;
+  situation: string;
+  options: string[];
+  answer: string;
+  /** Which document settles it, shown after answering. */
+  source?: string;
+  why: string;
+}
+export interface RulesConfig {
+  cases: RulesCase[];
+}
+export interface RulesState {
+  /** case id → the option chosen (the latest pick). */
+  answers: Record<string, string>;
+}
+
+export function rulesVariables(s: RulesState, c: RulesConfig): Vars | null {
+  if (!c || !Array.isArray(c.cases) || c.cases.length === 0) return null;
+  const a = s?.answers ?? {};
+  const correct = c.cases.filter((k) => a[k.id] === k.answer).length;
+  return { correct, total: c.cases.length, complete: correct === c.cases.length };
+}

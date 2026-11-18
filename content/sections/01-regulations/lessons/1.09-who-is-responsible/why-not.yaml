@@ -1,0 +1,37 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-009-001:
+  Only the station owner who is the holder of an Amateur Radio Operator Certificate: The control operator is responsible too.
+  The person who owns the station equipment: Ownership alone isn't the whole answer.
+  Only the control operator: The owner is responsible too.
+B-001-009-002:
+  You: The owner shares responsibility.
+  The station owner, unless the station logbook shows you as the control operator: The logbook doesn't shift it all to you.
+  The station owner: You share responsibility.
+B-001-009-003:
+  You must allow another amateur radio operator to operate your station upon request: You needn't let anyone operate.
+  You must be present whenever the station is operated: You needn't be present if a qualified operator is.
+  You must notify Innovation, Science and Economic Development Canada if another amateur radio operator acts as the control operator: ISED doesn't need notice.
+B-001-009-004:
+  Any person over 21 years of age with a Basic Qualification: Age isn't the rule.
+  Any person over 21 years of age with Basic and Morse code qualifications: Age isn't the rule.
+  Any person over 21 years of age: Qualifications matter, not age.
+B-001-009-005:
+  A control operator is not needed: A control operator is needed.
+  Whenever the station receiver is operated: Receiving doesn't need one.
+  Only when training another amateur radio operator: Not only when training.
+B-001-009-006:
+  Anywhere in the same building as the transmitter: The same building isn't enough.
+  At the station's entrance, to control entry to the room: The entrance isn't the control point.
+  Anywhere within 50 km of the station location: 50 km away isn't at the control point.
+B-001-009-007:
+  They must not use your equipment without your permission: Permission isn't the point; qualifications are.
+  They must first know how to use the right abbreviations and Q signals: Knowing abbreviations doesn't qualify them.
+  They must first know the right frequencies and emission modes for transmitting: Knowing frequencies doesn't qualify them.
+B-001-009-008:
+  permit anyone to take part in communications only if prior written permission is received from Innovation, Science and Economic Development Canada: No written permission is needed.
+  permit anyone to use the station without restrictions: Anyone without restrictions isn't allowed.
+  permit anyone to use the station and take part in communications: They need supervision and presence.
+B-001-009-009:
+  When the person has been briefed over the telephone by a person holding appropriate qualifications: A phone briefing isn't supervision in person.
+  When the person is actively enrolled in an amateur radio course: A course enrolment isn't a qualification.
+  When the person holds a valid licence in the land mobile or maritime services: Another service's licence doesn't count.

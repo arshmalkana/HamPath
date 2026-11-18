@@ -1,0 +1,61 @@
+{
+  "lab": "LAB-02",
+  "steps": {
+    "rules-qualifications": {
+      "title": "Which qualification?",
+      "prompt": "Settle all four.",
+      "config": {
+        "intro": "What's the minimum qualification for each?",
+        "cases": [
+          {
+            "id": "kit",
+            "situation": "Building a commercial transceiver kit.",
+            "options": [
+              "Basic",
+              "Basic and Advanced"
+            ],
+            "answer": "Basic",
+            "source": "RBR-4 Standards",
+            "why": "Kits of professional design need only Basic."
+          },
+          {
+            "id": "repeater",
+            "situation": "Installing a single-band voice repeater.",
+            "options": [
+              "Basic",
+              "Basic and Advanced"
+            ],
+            "answer": "Basic and Advanced",
+            "source": "RBR-4 Standards",
+            "why": "Installing any repeater needs Advanced."
+          },
+          {
+            "id": "club",
+            "situation": "Installing the club station.",
+            "options": [
+              "Basic",
+              "Basic and Advanced"
+            ],
+            "answer": "Basic and Advanced",
+            "source": "RBR-4 Standards",
+            "why": "Club stations need Advanced."
+          },
+          {
+            "id": "homebrew",
+            "situation": "Operating an amplifier you designed yourself.",
+            "options": [
+              "Basic",
+              "Basic and Advanced"
+            ],
+            "answer": "Basic and Advanced",
+            "source": "RBR-4 Standards",
+            "why": "Non-commercial transmitters and amplifiers need Advanced."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All four settled",
+      "success": "Kits and cross-band repeaters: Basic. Repeaters, club stations, homebrew and remote control: Advanced."
+    }
+  }
+}

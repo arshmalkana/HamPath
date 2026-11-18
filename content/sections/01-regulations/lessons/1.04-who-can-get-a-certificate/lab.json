@@ -1,0 +1,58 @@
+{
+  "lab": "LAB-02",
+  "steps": {
+    "rules-eligibility": {
+      "title": "Can they get one?",
+      "prompt": "Settle all four.",
+      "config": {
+        "intro": "Can each person get an Amateur Radio Operator Certificate?",
+        "cases": [
+          {
+            "id": "age",
+            "situation": "A 10-year-old who passed the Basic exam.",
+            "options": [
+              "Yes",
+              "No: too young"
+            ],
+            "answer": "Yes",
+            "why": "There's no age limit."
+          },
+          {
+            "id": "address",
+            "situation": "A visitor on a work permit with a valid Canadian address who passed Basic.",
+            "options": [
+              "Yes",
+              "No: must be a citizen"
+            ],
+            "answer": "Yes",
+            "source": "Radiocommunication Regulations",
+            "why": "A valid address in Canada is the requirement, not citizenship."
+          },
+          {
+            "id": "exam",
+            "situation": "Someone who passed the Morse code test but not Basic.",
+            "options": [
+              "Yes",
+              "No: Basic must be passed first"
+            ],
+            "answer": "No: Basic must be passed first",
+            "why": "The certificate is issued on passing Basic."
+          },
+          {
+            "id": "order",
+            "situation": "A Basic holder wants Morse code before Advanced.",
+            "options": [
+              "Fine: any order",
+              "No: Advanced comes first"
+            ],
+            "answer": "Fine: any order",
+            "why": "Additional qualifications can be taken in any order."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All four settled",
+      "success": "Pass Basic, have a Canadian address: that's it."
+    }
+  }
+}

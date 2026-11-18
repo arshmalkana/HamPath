@@ -1,0 +1,29 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-004-001:
+  70 years or younger: There's no upper age limit.
+  18 years or older: There's no minimum age of 18.
+  14 years or older: There's no minimum age of 14.
+B-001-004-002:
+  A practical test: There's no practical test.
+  Morse code: Morse code is optional.
+  Advanced Qualification: Advanced comes after Basic.
+B-001-004-003:
+  Canadian Restricted Operator Certificate - Maritime (ROC-M): The ROC-M doesn't qualify.
+  Canadian Restricted Operator's Certificate - Maritime Commercial (ROC-MC): The ROC-MC doesn't qualify.
+  Canadian Restricted Operator Certificate - Aeronautical (ROC-A): The ROC-A doesn't qualify.
+B-001-004-004:
+  Morse code after passing the Advanced: Morse doesn't need Advanced first.
+  Morse code after passing the Basic with Honours: Honours isn't a prerequisite for Morse.
+  Advanced after passing Morse code: Advanced doesn't need Morse first.
+B-001-004-005:
+  12 wpm: 12 wpm was an old standard.
+  7 wpm: 7 wpm isn't the standard.
+  15 wpm: 15 wpm isn't the standard.
+B-001-004-006:
+  Aeronautical service: It doesn't cover aeronautical.
+  Maritime service: It doesn't cover maritime.
+  Land mobile service: It doesn't cover land mobile.
+B-001-004-007:
+  Be a Canadian citizen: Citizenship isn't required.
+  Be a Canadian citizen or permanent resident: Permanent residence isn't required.
+  Be at least 14 years of age and a Canadian citizen or permanent resident: There's no age or citizenship requirement.

@@ -7,6 +7,7 @@ import { ComponentBenchLab } from "./ComponentBenchLab";
 import { DbLadderLab } from "./DbLadderLab";
 import { PhoneticLab } from "./DrillLab";
 import { RepeaterLab } from "./RepeaterLab";
+import { RulesLab } from "./RulesLab";
 import { EmergencyNetLab, QsoLab } from "./ScenarioLab";
 import { FilterLab } from "./FilterLab";
 import { InterferenceLab } from "./InterferenceLab";
@@ -50,7 +51,7 @@ export interface LabEntry {
 /** All 35 labs from SPEC §4. A null component renders the placeholder so lessons still load. */
 export const LAB_REGISTRY: LabEntry[] = [
   { id: "LAB-01", name: "Band Plan Explorer", component: null },
-  { id: "LAB-02", name: "Rules Navigator", component: null },
+  { id: "LAB-02", name: "Rules Navigator", component: RulesLab },
   { id: "LAB-03", name: "Call Sign Builder", component: null },
   { id: "LAB-04", name: "Power Limit Calculator", component: PowerLimitLab },
   { id: "LAB-05", name: "RF Exposure Zone", component: RfExposureLab },

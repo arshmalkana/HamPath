@@ -348,6 +348,16 @@ export const ScenarioConfigSchema = z.object({
     )
     .min(1),
 });
+export const RulesConfigSchema = z.object({
+  intro: z.string(),
+  cases: z
+    .array(
+      z
+        .strictObject({ id: z.string(), situation: z.string(), options: z.array(z.string()).min(2).max(5), answer: z.string(), source: z.string().optional(), why: z.string() })
+        .refine((k) => k.options.includes(k.answer), "answer must be one of the options"),
+    )
+    .min(1),
+});
 export const RepeaterConfigSchema = z.object({
   output: z.number().positive(),
   offset: z.number(),
@@ -579,6 +589,7 @@ export const LAB_SCHEMAS: Record<string, { config: z.ZodType; variables: string[
   "LAB-13": { config: DiagramConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-13"]! },
   "LAB-14": { config: SpectrumConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-14"]! },
   "LAB-28": { config: AntennaConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-28"]! },
+  "LAB-02": { config: RulesConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-02"]! },
   "LAB-07": { config: ScenarioConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-07"]! },
   "LAB-11": { config: ScenarioConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-11"]! },
   "LAB-09": { config: DrillConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-09"]! },

@@ -2564,3 +2564,21 @@ circle.rf-person.rf-safe {
   color: var(--shack-readout);
   letter-spacing: 0.1em;
 }
+
+/* ================================================================ LAB-02 rules navigator */
+.rules-ladder {
+  display: grid;
+  gap: var(--space-2xs);
+  margin: 0;
+  padding-left: 1.6em;
+}
+.rules-ladder li {
+  color: var(--shack-ink-2);
+}
+.rules-ladder li[data-cited] .rules-doc {
+  color: var(--shack-lamp);
+}
+.rules-doc {
+  font-weight: 700;
+  color: var(--shack-ink);
+}

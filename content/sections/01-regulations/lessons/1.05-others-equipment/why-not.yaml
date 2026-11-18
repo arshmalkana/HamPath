@@ -1,0 +1,25 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-005-001:
+  Pending the granting of a radio authorization, if the apparatus covers amateur radio and commercial bands: Pending a licence isn't enough; they must already hold the authorization.
+  Pending the granting of an Amateur Radio Operator Certificate if the apparatus covers amateur radio bands only: Pending a certificate isn't enough.
+  Pending the granting of an authorization if the apparatus is certified and crystal controlled: Pending doesn't count, crystal control or not.
+B-001-005-002:
+  Only if an amateur radio operator with an Advanced Qualification performs the modification: Your Advanced doesn't replace their certificate.
+  Only if the other person holds an Advanced Qualification: They need a certificate; it needn't be Advanced.
+  Only if the other person holds a Basic with Honours Qualification: Honours isn't the requirement.
+B-001-005-003:
+  Only the other person must hold an Amateur Radio Operator Certificate: You need one too.
+  Only you must hold an Amateur Radio Operator Certificate: They need one too.
+  The other person must be enrolled in an amateur radio certification course: A course enrolment isn't a certificate.
+B-001-005-004:
+  only if the final power input does not exceed 100 watts: Power isn't the condition.
+  only if the station is for use on one of the VHF bands: Band isn't the condition.
+  only if the DC power input to the final stage does not exceed 200 watts: Power isn't the condition.
+B-001-005-005:
+  Only the other person must hold an Amateur Radio Operator Certificate: You need one too.
+  Only you must hold an Amateur Radio Operator Certificate: They need one too.
+  The other person must be enrolled in an amateur radio certification course: A course enrolment isn't a certificate.
+B-001-005-006:
+  Only the other person must hold an Amateur Radio Operator Certificate: You need one too.
+  Only you must hold an Amateur Radio Operator Certificate: They need one too.
+  The other person must be enrolled in an amateur radio certification course: A course enrolment isn't a certificate.

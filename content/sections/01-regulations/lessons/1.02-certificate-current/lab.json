@@ -1,0 +1,64 @@
+{
+  "lab": "LAB-02",
+  "steps": {
+    "rules-certificate": {
+      "title": "Keeping it current",
+      "prompt": "Settle all four.",
+      "config": {
+        "intro": "You've just passed. What do the rules say?",
+        "cases": [
+          {
+            "id": "valid",
+            "situation": "How long is your certificate valid?",
+            "options": [
+              "One year",
+              "Five years",
+              "Life"
+            ],
+            "answer": "Life",
+            "source": "Radiocommunication Regulations",
+            "why": "It doesn't expire."
+          },
+          {
+            "id": "move",
+            "situation": "You move across town. When must you tell ISED?",
+            "options": [
+              "Within 30 days",
+              "Within 14 days of operating",
+              "No need in the same province"
+            ],
+            "answer": "Within 30 days",
+            "source": "RBR-4 Standards",
+            "why": "Any mailing address change, within 30 days."
+          },
+          {
+            "id": "inspector",
+            "situation": "A radio inspector asks to see your certificate. You have…",
+            "options": [
+              "12 hours",
+              "48 hours",
+              "72 hours"
+            ],
+            "answer": "48 hours",
+            "source": "Radiocommunication Regulations",
+            "why": "48 hours to produce it or a copy."
+          },
+          {
+            "id": "fee",
+            "situation": "What does your first certificate cost?",
+            "options": [
+              "Nothing",
+              "$10",
+              "$32"
+            ],
+            "answer": "Nothing",
+            "why": "The first certificate is free."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All four settled",
+      "success": "For life, 30 days to report a move, 48 hours for an inspector, and free to start."
+    }
+  }
+}

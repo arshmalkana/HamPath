@@ -8,150 +8,150 @@
 
 Lab: LAB-02
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-001-001 | Which document assigns the authority to make Canadian regulations governing radiocommunications? | — | 0/3 |  |
-| B-001-001-002 | Which document assigns the authority to publish Standards for the Operation of Radio Stations in the Amateur Radio Service in Canada? | — | 0/3 |  |
-| B-001-001-003 | Which department is responsible for the administration of the Radiocommunication Act? | — | 0/3 |  |
-| B-001-001-004 | Which document defines the Canadian "amateur radio service"? | — | 0/3 |  |
+| B-001-001-001 | Which document assigns the authority to make Canadian regulations governing radiocommunications? | 02-explore, 03-stack, 04-flash | 3/3 |  |
+| B-001-001-002 | Which document assigns the authority to publish Standards for the Operation of Radio Stations in the Amateur Radio Service in Canada? | 02-explore, 03-stack, 04-flash | 3/3 |  |
+| B-001-001-003 | Which department is responsible for the administration of the Radiocommunication Act? | 02-explore, 03-stack, 04-flash | 3/3 |  |
+| B-001-001-004 | Which document defines the Canadian "amateur radio service"? | 02-explore, 03-stack, 04-flash | 3/3 |  |
 
 ## 1.02 Your certificate and keeping it current
 
 Lab: LAB-02
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-002-001 | What must you do within 30 days of a mailing address change? | — | 0/3 |  |
-| B-001-002-002 | An Amateur Radio Operator Certificate is valid for: | — | 0/3 |  |
-| B-001-002-003 | Whenever a change of address is made: | — | 0/3 |  |
-| B-001-002-004 | The Amateur Radio Operator Certificate: | — | 0/3 |  |
-| B-001-002-005 | A radio inspector asks to see your Amateur Radio Operator Certificate, or a copy thereof. Per the regulations, how many hours are you given to comply? | — | 0/3 |  |
-| B-001-002-006 | What is the fee for a first Amateur Radio Operator Certificate? | — | 0/3 |  |
-| B-001-002-007 | The Amateur Radio Operator Certificate should be: | — | 0/3 |  |
-| B-001-002-008 | What is the fee to issue a replacement call sign with a new prefix, due to a change in address to a new province or territory? | — | 0/3 |  |
-| B-001-002-009 | What is the fee for changing an existing call sign (including changing to a two-letter call sign)? | — | 0/3 |  |
+| B-001-002-001 | What must you do within 30 days of a mailing address change? | 02-explore, 04-address, 05-flash | 3/3 |  |
+| B-001-002-002 | An Amateur Radio Operator Certificate is valid for: | 02-explore, 03-certificate | 3/3 |  |
+| B-001-002-003 | Whenever a change of address is made: | 04-address | 3/3 |  |
+| B-001-002-004 | The Amateur Radio Operator Certificate: | 03-certificate | 3/3 |  |
+| B-001-002-005 | A radio inspector asks to see your Amateur Radio Operator Certificate, or a copy thereof. Per the regulations, how many hours are you given to comply? | 02-explore, 03-certificate, 05-flash | 3/3 |  |
+| B-001-002-006 | What is the fee for a first Amateur Radio Operator Certificate? | 02-explore, 04-address, 05-flash | 3/3 |  |
+| B-001-002-007 | The Amateur Radio Operator Certificate should be: | 03-certificate | 3/3 |  |
+| B-001-002-008 | What is the fee to issue a replacement call sign with a new prefix, due to a change in address to a new province or territory? | 04-address, 05-flash | 3/3 |  |
+| B-001-002-009 | What is the fee for changing an existing call sign (including changing to a two-letter call sign)? | 04-address, 05-flash | 3/3 |  |
 
 ## 1.03 Penalties and prohibited transmissions
 
 Lab: LAB-02
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-003-001 | Transmissions outside of amateur radio bands: | — | 0/3 |  |
-| B-001-003-002 | What is the term in the regulations that defines if an amateur radio operator falsely transmits the word "MAYDAY" when there isn't an emergency? | — | 0/3 |  |
-| B-001-003-003 | Transmitting a false or fraudulent distress signal or message is prohibited. The person found guilty is liable to what penalty? | — | 0/3 |  |
-| B-001-003-004 | Which government document states the offences and penalties relating to radiocommunications? | — | 0/3 |  |
-| B-001-003-005 | Which of the following is NOT correct? The Minister of Innovation, Science and Industry may suspend an Amateur Radio Operator Certificate: | — | 0/3 |  |
-| B-001-003-006 | Which of the following statements is NOT correct? | — | 0/3 |  |
-| B-001-003-007 | When is an amateur radio operator permitted to transmit false information? | — | 0/3 |  |
-| B-001-003-008 | Interfering with, or obstructing any radio communication, without lawful cause, is prohibited. The person found guilty is liable to what penalty? | — | 0/3 |  |
+| B-001-003-001 | Transmissions outside of amateur radio bands: | 02-explore, 03-offences | 3/3 |  |
+| B-001-003-002 | What is the term in the regulations that defines if an amateur radio operator falsely transmits the word "MAYDAY" when there isn't an emergency? | 03-offences | 3/3 |  |
+| B-001-003-003 | Transmitting a false or fraudulent distress signal or message is prohibited. The person found guilty is liable to what penalty? | 02-explore, 03-offences | 3/3 |  |
+| B-001-003-004 | Which government document states the offences and penalties relating to radiocommunications? | 03-offences | 3/3 |  |
+| B-001-003-005 | Which of the following is NOT correct? The Minister of Innovation, Science and Industry may suspend an Amateur Radio Operator Certificate: | 04-powers | 3/3 |  |
+| B-001-003-006 | Which of the following statements is NOT correct? | 04-powers | 3/3 |  |
+| B-001-003-007 | When is an amateur radio operator permitted to transmit false information? | 02-explore, 03-offences | 3/3 |  |
+| B-001-003-008 | Interfering with, or obstructing any radio communication, without lawful cause, is prohibited. The person found guilty is liable to what penalty? | 02-explore, 03-offences | 3/3 |  |
 
 ## 1.04 Who can get a certificate
 
 Lab: LAB-02
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-004-001 | How old must you be to hold an Amateur Radio Operator Certificate with Basic Qualification? | — | 0/3 |  |
-| B-001-004-002 | Which examination must be passed before an Amateur Radio Operator Certificate is issued? | — | 0/3 |  |
-| B-001-004-003 | Holders of which one of the following certificates may be issued an Amateur Radio Operator Certificate? | — | 0/3 |  |
-| B-001-004-004 | After an Amateur Radio Operator Certificate with Basic Qualification is issued, the holder may be examined for additional qualifications in the following order: | — | 0/3 |  |
-| B-001-004-005 | What sending and receiving speed, in words per minute (wpm), must you achieve to be granted the Morse code Qualification? | — | 0/3 |  |
-| B-001-004-006 | You hold an Amateur Radio Operator Certificate with Advanced Qualification. Besides the amateur radio service, in what other service does this authorization allow you to operate a station? | — | 0/3 |  |
-| B-001-004-007 | What conditions must candidates for amateur radio certification meet? | — | 0/3 |  |
+| B-001-004-001 | How old must you be to hold an Amateur Radio Operator Certificate with Basic Qualification? | 02-explore, 03-who | 3/3 |  |
+| B-001-004-002 | Which examination must be passed before an Amateur Radio Operator Certificate is issued? | 02-explore, 03-who | 3/3 |  |
+| B-001-004-003 | Holders of which one of the following certificates may be issued an Amateur Radio Operator Certificate? | 03-who | 3/3 |  |
+| B-001-004-004 | After an Amateur Radio Operator Certificate with Basic Qualification is issued, the holder may be examined for additional qualifications in the following order: | 03-who | 3/3 |  |
+| B-001-004-005 | What sending and receiving speed, in words per minute (wpm), must you achieve to be granted the Morse code Qualification? | 03-who | 3/3 |  |
+| B-001-004-006 | You hold an Amateur Radio Operator Certificate with Advanced Qualification. Besides the amateur radio service, in what other service does this authorization allow you to operate a station? | 04-other | 3/3 |  |
+| B-001-004-007 | What conditions must candidates for amateur radio certification meet? | 02-explore, 03-who | 3/3 |  |
 
 ## 1.05 Operating for other people's equipment
 
 Lab: LAB-02
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-005-001 | Under what circumstances can an amateur radio operator with an Advanced Qualification install, place in operation, modify or repair radio apparatus on behalf of another person? | — | 0/3 |  |
-| B-001-005-002 | Under what circumstances can an amateur radio operator reprogram a land mobile transmitter on behalf of another person for use on 2 metres? | — | 0/3 |  |
-| B-001-005-003 | What regulatory requirement must be met to allow you to install an amateur radio transmitter on behalf of another person? | — | 0/3 |  |
-| B-001-005-004 | An amateur radio operator with Basic and Morse code qualifications may install an amateur radio station for another person: | — | 0/3 |  |
-| B-001-005-005 | What regulatory requirement must be met to allow you to repair an amateur radio transmitter on behalf of another person? | — | 0/3 |  |
-| B-001-005-006 | What regulatory requirement must be met to allow you to place an amateur radio transmitter in service on behalf of another person? | — | 0/3 |  |
+| B-001-005-001 | Under what circumstances can an amateur radio operator with an Advanced Qualification install, place in operation, modify or repair radio apparatus on behalf of another person? | 04-advanced | 3/3 |  |
+| B-001-005-002 | Under what circumstances can an amateur radio operator reprogram a land mobile transmitter on behalf of another person for use on 2 metres? | 02-explore, 03-both | 3/3 |  |
+| B-001-005-003 | What regulatory requirement must be met to allow you to install an amateur radio transmitter on behalf of another person? | 02-explore, 03-both | 3/3 |  |
+| B-001-005-004 | An amateur radio operator with Basic and Morse code qualifications may install an amateur radio station for another person: | 02-explore, 03-both | 3/3 |  |
+| B-001-005-005 | What regulatory requirement must be met to allow you to repair an amateur radio transmitter on behalf of another person? | 02-explore, 03-both | 3/3 |  |
+| B-001-005-006 | What regulatory requirement must be met to allow you to place an amateur radio transmitter in service on behalf of another person? | 03-both | 3/3 |  |
 
 ## 1.06 Who you may talk to, and supervision
 
 Lab: LAB-02
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-006-001 | An amateur radio station with a maximum power output of 2 watts: | — | 0/3 |  |
-| B-001-006-002 | An amateur radio station may be used to communicate with: | — | 0/3 |  |
-| B-001-006-003 | Under what circumstances is an amateur radio operator permitted to use an amplifier to amplify the output of a licence-exempt transmitter? | — | 0/3 |  |
-| B-001-006-004 | When is it permissible to use amateur radio equipment, with or without modification, to transmit outside amateur radio bands? | — | 0/3 |  |
-| B-001-006-005 | Which of the following statements is NOT correct? A person may operate radio apparatus, authorized in the amateur radio service: | — | 0/3 |  |
-| B-001-006-006 | Some VHF and UHF FM radios purchased for use in the amateur radio service can also be programmed to communicate on frequencies used for the land mobile service. Under what conditions is this permissible? | — | 0/3 |  |
+| B-001-006-001 | An amateur radio station with a maximum power output of 2 watts: | 04-low-power | 3/3 |  |
+| B-001-006-002 | An amateur radio station may be used to communicate with: | 02-explore, 03-similar | 3/3 |  |
+| B-001-006-003 | Under what circumstances is an amateur radio operator permitted to use an amplifier to amplify the output of a licence-exempt transmitter? | 02-explore, 04-low-power | 3/3 |  |
+| B-001-006-004 | When is it permissible to use amateur radio equipment, with or without modification, to transmit outside amateur radio bands? | 02-explore, 03-similar | 3/3 |  |
+| B-001-006-005 | Which of the following statements is NOT correct? A person may operate radio apparatus, authorized in the amateur radio service: | 03-similar | 3/3 |  |
+| B-001-006-006 | Some VHF and UHF FM radios purchased for use in the amateur radio service can also be programmed to communicate on frequencies used for the land mobile service. Under what conditions is this permissible? | 02-explore, 03-similar | 3/3 |  |
 
 ## 1.07 Prohibited content and business use
 
 Lab: LAB-02
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-007-001 | Which of the following topics is prohibited on an amateur radio club net? | — | 0/3 |  |
-| B-001-007-002 | When is an amateur radio operator allowed to broadcast information to the general public? | — | 0/3 |  |
-| B-001-007-003 | Which of the following statements is NOT correct? | — | 0/3 |  |
-| B-001-007-004 | Which of the following one-way communications may NOT be transmitted in the amateur radio service? | — | 0/3 |  |
-| B-001-007-005 | Under what condition are you permitted to use a new digital encoding technique that you developed to transmit data over amateur radio bands? | — | 0/3 |  |
-| B-001-007-006 | When may an amateur radio station transmit an encoded message? | — | 0/3 |  |
-| B-001-007-007 | What are the restrictions on the use of abbreviations or procedural signals in the amateur radio service? | — | 0/3 |  |
-| B-001-007-008 | What should you do to keep your amateur radio station from retransmitting music or signals from a non-amateur radio station? | — | 0/3 |  |
-| B-001-007-009 | The transmission of a secret code by the operator of an amateur radio station: | — | 0/3 |  |
-| B-001-007-010 | An amateur radio operator may be engaged in communications including the transmission of: | — | 0/3 |  |
-| B-001-007-011 | In the amateur radio service, business communications: | — | 0/3 |  |
+| B-001-007-001 | Which of the following topics is prohibited on an amateur radio club net? | 02-explore, 03-business | 3/3 |  |
+| B-001-007-002 | When is an amateur radio operator allowed to broadcast information to the general public? | 02-explore, 03-business | 3/3 |  |
+| B-001-007-003 | Which of the following statements is NOT correct? | 03-business | 3/3 |  |
+| B-001-007-004 | Which of the following one-way communications may NOT be transmitted in the amateur radio service? | 03-business | 3/3 |  |
+| B-001-007-005 | Under what condition are you permitted to use a new digital encoding technique that you developed to transmit data over amateur radio bands? | 04-codes | 3/3 |  |
+| B-001-007-006 | When may an amateur radio station transmit an encoded message? | 02-explore, 04-codes | 3/3 |  |
+| B-001-007-007 | What are the restrictions on the use of abbreviations or procedural signals in the amateur radio service? | 04-codes | 3/3 |  |
+| B-001-007-008 | What should you do to keep your amateur radio station from retransmitting music or signals from a non-amateur radio station? | 04-codes | 3/3 |  |
+| B-001-007-009 | The transmission of a secret code by the operator of an amateur radio station: | 04-codes | 3/3 |  |
+| B-001-007-010 | An amateur radio operator may be engaged in communications including the transmission of: | 03-business | 3/3 |  |
+| B-001-007-011 | In the amateur radio service, business communications: | 02-explore, 03-business | 3/3 |  |
 
 ## 1.08 Where you may operate and station types
 
 Lab: LAB-02
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-008-001 | Where may holders of an Amateur Radio Operator Certificate operate an amateur radio station in Canada? | — | 0/3 |  |
-| B-001-008-002 | Which type of station may transmit one-way communications? | — | 0/3 |  |
-| B-001-008-003 | What minimum qualifications must an amateur radio operator hold to assemble commercially available transmitter kits of professional design? | — | 0/3 |  |
-| B-001-008-004 | What minimum qualifications must an amateur radio operator hold to install a repeater operating on a single band in a voice mode? | — | 0/3 |  |
-| B-001-008-005 | What minimum qualifications must an amateur radio operator hold to install an amateur radio club station? | — | 0/3 |  |
-| B-001-008-006 | What minimum qualifications must an amateur radio operator hold to install or operate a transmitter or RF amplifier that is neither professionally designed nor commercially manufactured for use in the amateur radio service? | — | 0/3 |  |
-| B-001-008-007 | What minimum qualifications must an amateur radio operator hold to operate cross-band repeaters? | — | 0/3 |  |
-| B-001-008-008 | What minimum qualifications must an amateur radio operator hold to remotely operate a transmitter, including changing frequency, emission mode or output power? | — | 0/3 |  |
+| B-001-008-001 | Where may holders of an Amateur Radio Operator Certificate operate an amateur radio station in Canada? | 03-where | 3/3 |  |
+| B-001-008-002 | Which type of station may transmit one-way communications? | 03-where | 3/3 |  |
+| B-001-008-003 | What minimum qualifications must an amateur radio operator hold to assemble commercially available transmitter kits of professional design? | 02-explore, 04-quals, 05-flash | 3/3 |  |
+| B-001-008-004 | What minimum qualifications must an amateur radio operator hold to install a repeater operating on a single band in a voice mode? | 02-explore, 04-quals, 05-flash | 3/3 |  |
+| B-001-008-005 | What minimum qualifications must an amateur radio operator hold to install an amateur radio club station? | 02-explore, 04-quals, 05-flash | 3/3 |  |
+| B-001-008-006 | What minimum qualifications must an amateur radio operator hold to install or operate a transmitter or RF amplifier that is neither professionally designed nor commercially manufactured for use in the amateur radio service? | 02-explore, 04-quals, 05-flash | 3/3 |  |
+| B-001-008-007 | What minimum qualifications must an amateur radio operator hold to operate cross-band repeaters? | 04-quals, 05-flash | 3/3 |  |
+| B-001-008-008 | What minimum qualifications must an amateur radio operator hold to remotely operate a transmitter, including changing frequency, emission mode or output power? | 04-quals, 05-flash | 3/3 |  |
 
 ## 1.09 Who is responsible for a station
 
 Lab: LAB-02
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-001-009-001 | Who is responsible for the operation of an amateur radio station? | — | 0/3 |  |
-| B-001-009-002 | If you transmit from another amateur radio station, who is responsible for its operation? | — | 0/3 |  |
-| B-001-009-003 | What is your responsibility as a station owner? | — | 0/3 |  |
-| B-001-009-004 | Who may be the control operator of an amateur radio station? | — | 0/3 |  |
-| B-001-009-005 | When must an amateur radio station have a control operator? | — | 0/3 |  |
-| B-001-009-006 | When an amateur radio station is transmitting, where must its control operator be? | — | 0/3 |  |
-| B-001-009-007 | Why can't family members without qualifications transmit using your amateur radio station if they are alone with your equipment? | — | 0/3 |  |
-| B-001-009-008 | The owner of an amateur radio station may: | — | 0/3 |  |
-| B-001-009-009 | Under what circumstances can a person who does NOT have an Amateur Radio Operator Certificate operate an amateur radio station? | — | 0/3 |  |
+| B-001-009-001 | Who is responsible for the operation of an amateur radio station? | 02-explore, 03-responsible | 3/3 |  |
+| B-001-009-002 | If you transmit from another amateur radio station, who is responsible for its operation? | 02-explore, 03-responsible | 3/3 |  |
+| B-001-009-003 | What is your responsibility as a station owner? | 03-responsible | 3/3 |  |
+| B-001-009-004 | Who may be the control operator of an amateur radio station? | 03-responsible | 3/3 |  |
+| B-001-009-005 | When must an amateur radio station have a control operator? | 03-responsible | 3/3 |  |
+| B-001-009-006 | When an amateur radio station is transmitting, where must its control operator be? | 03-responsible | 3/3 |  |
+| B-001-009-007 | Why can't family members without qualifications transmit using your amateur radio station if they are alone with your equipment? | 02-explore, 04-supervision | 3/3 |  |
+| B-001-009-008 | The owner of an amateur radio station may: | 04-supervision | 3/3 |  |
+| B-001-009-009 | Under what circumstances can a person who does NOT have an Amateur Radio Operator Certificate operate an amateur radio station? | 02-explore, 04-supervision | 3/3 |  |
 
 ## 1.10 Interference and secondary allocations
 
@@ -174,7 +174,7 @@ Status: not yet authored
 
 ## 1.11 Distress, emergencies and relief operations
 
-Lab: LAB-02
+Lab: LAB-11
 
 Status: not yet authored
 

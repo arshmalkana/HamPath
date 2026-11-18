@@ -1,0 +1,25 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-006-001:
+  need not be authorized by Innovation, Science and Economic Development Canada: It still needs authorization.
+  need not be authorized in isolated areas only: Isolated areas aren't exempt.
+  is exempt from regulatory control: Low power isn't exempt from regulation.
+B-001-006-002:
+  any stations which are identified for special contests: Contests don't open contact with any station.
+  Armed Forces stations during contests and exercises: Armed Forces stations aren't under similar authorizations.
+  any station transmitting in amateur radio bands: Not every station on the band is an amateur.
+B-001-006-003:
+  When emissions will be outside amateur radio frequency allocations: It's never permitted.
+  Only for short test transmissions: It's never permitted, short or not.
+  When other users will not be interfered with: It's never permitted, interference or not.
+B-001-006-004:
+  When the control operator holds an Advanced Qualification: Advanced doesn't allow it.
+  When the operator already owns licensed equipment for such frequencies: Owning other licensed gear doesn't allow it.
+  When transmissions are limited to licence-exempt frequencies: Licence-exempt frequencies aren't open to amateur transmitters.
+B-001-006-005:
+  only if the person complies with the Standards for the Operation of Radio Stations in the Amateur Radio Service: That's a correct condition.
+  only if the apparatus is maintained to the performance standards set by Innovation, Science and Economic Development Canada regulations and policies: That's a correct condition.
+  except for the amplification of the output power of licence-exempt radio apparatus operating outside authorized amateur radio service allocations: That's a correct condition.
+B-001-006-006:
+  The radio operator has a Restricted Operator's Certificate: A Restricted Operator's Certificate isn't the condition.
+  The equipment has an RF power output of 2 watts or less: Low power doesn't make it legal.
+  The equipment is used in remote areas north of 60 degrees latitude: Location doesn't make it legal.

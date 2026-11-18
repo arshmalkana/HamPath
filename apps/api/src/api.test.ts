@@ -121,10 +121,10 @@ describe("GET /lessons/:id", () => {
     expect(orders.size).toBeGreaterThan(1);
   });
 
-  it("serves unauthored lessons with their questions and 404s unknown ones", async () => {
+  it("serves any lesson with its questions and 404s unknown ones", async () => {
     const call = browser();
     const { json } = await call("GET", "/lessons/1.01");
-    expect(json).toMatchObject({ code: "1.01", authored: false, title: "Who makes the rules" });
+    expect(json).toMatchObject({ code: "1.01", title: "Who makes the rules" });
     expect(json.questions).toHaveLength(4);
     expect((await call("GET", "/lessons/9.99")).status).toBe(404);
     expect((await call("GET", "/lessons/nonsense")).status).toBe(404);
@@ -573,6 +573,24 @@ describe("POST /lab-events: authored labs are verified on the server", () => {
     ],
     ["2.09/explore-longpath", { heading: 70, local: 7 }, { heading: 250, local: 7 }],
     ["2.09/explore-utc", { heading: 0, local: 13 }, { heading: 0, local: 1 }],
+    // section 1
+    [
+      "1.02/rules-certificate",
+      { answers: { valid: "Life", move: "Within 30 days", inspector: "48 hours", fee: "Nothing" } },
+      { answers: { valid: "Five years", move: "Within 30 days", inspector: "48 hours", fee: "Nothing" } },
+    ],
+    [
+      "1.09/rules-responsible",
+      {
+        answers: {
+          both: "Both of you",
+          family: "Not allowed",
+          supervised: "Allowed",
+          rx: "No: only when transmitting",
+        },
+      },
+      { answers: { both: "Only you" } },
+    ],
     // section 4
     [
       "4.01/explore-drive",

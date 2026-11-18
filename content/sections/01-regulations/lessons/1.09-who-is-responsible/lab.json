@@ -1,0 +1,59 @@
+{
+  "lab": "LAB-02",
+  "steps": {
+    "rules-responsible": {
+      "title": "Who's responsible?",
+      "prompt": "Settle all four.",
+      "config": {
+        "intro": "You own the station. What do the rules say?",
+        "cases": [
+          {
+            "id": "both",
+            "situation": "A visiting amateur operates your station. Who's responsible?",
+            "options": [
+              "Only you",
+              "Only them",
+              "Both of you"
+            ],
+            "answer": "Both of you",
+            "source": "RBR-4 Standards",
+            "why": "The owner and the control operator share responsibility."
+          },
+          {
+            "id": "family",
+            "situation": "Your unlicensed teenager uses the radio while you're out.",
+            "options": [
+              "Allowed",
+              "Not allowed"
+            ],
+            "answer": "Not allowed",
+            "why": "Without a certificate they need your supervision and presence."
+          },
+          {
+            "id": "supervised",
+            "situation": "A friend with no certificate talks on the air with you beside them, supervising.",
+            "options": [
+              "Allowed",
+              "Not allowed"
+            ],
+            "answer": "Allowed",
+            "why": "Allowed under supervision and in the presence of a qualified operator."
+          },
+          {
+            "id": "rx",
+            "situation": "Does the station need a control operator when you're only listening?",
+            "options": [
+              "Yes",
+              "No: only when transmitting"
+            ],
+            "answer": "No: only when transmitting",
+            "why": "A control operator is needed whenever the station transmits."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All four settled",
+      "success": "Owner and control operator share it; unqualified people only with a qualified operator present."
+    }
+  }
+}

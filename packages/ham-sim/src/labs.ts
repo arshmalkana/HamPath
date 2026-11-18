@@ -21,6 +21,7 @@ import {
   clockVariables,
   drillVariables,
   repeaterVariables,
+  rulesVariables,
   scenarioVariables,
   type ClockConfig,
   type ClockState,
@@ -28,6 +29,8 @@ import {
   type DrillState,
   type RepeaterConfig,
   type RepeaterState,
+  type RulesConfig,
+  type RulesState,
   type ScenarioConfig,
   type ScenarioState,
 } from "./operating.ts";
@@ -295,6 +298,8 @@ export function labVariables(labId: string, state: unknown, config: Record<strin
     case "LAB-07":
     case "LAB-11":
       return scenarioVariables(st as unknown as ScenarioState, config as unknown as ScenarioConfig);
+    case "LAB-02":
+      return rulesVariables(st as unknown as RulesState, config as unknown as RulesConfig);
     case "LAB-09":
       return drillVariables(st as unknown as DrillState, config as unknown as DrillConfig);
     case "LAB-08":
@@ -491,6 +496,7 @@ export const LAB_GOAL_VARIABLES: Record<string, string[]> = {
   "LAB-07": ["passed", "total", "complete"],
   "LAB-11": ["passed", "total", "complete"],
   "LAB-09": ["correct", "attempted", "total", "done"],
+  "LAB-02": ["correct", "total", "complete"],
   "LAB-08": ["txFreq", "inputFreq", "onInput", "toneOk", "accessed", "reverse", "hearsDirect"],
   "LAB-29": ["gainDbi", "gainDbd", "isotropic", "vertical", "matched", "received", "forward"],
   "LAB-26": ["Z0", "vf", "lossDb", "delivered", "length", "f", "balanced", "commonMode"],

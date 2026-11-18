@@ -1,0 +1,17 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-001-001:
+  The Broadcasting Act: The Broadcasting Act covers broadcasting, not radiocommunication rules.
+  The Standards for the Operation of Radio Stations in the Amateur Radio Service: The Standards are published under the Act; they don't give the authority.
+  The International Telecommunication Union's Radio Regulations: The ITU Radio Regulations are international, not Canadian law-making authority.
+B-001-001-002:
+  The Radiocommunication Regulations: The Regulations are made under the Act; they don't give this authority.
+  The Broadcasting Act: The Broadcasting Act covers broadcasters.
+  The International Telecommunication Union's Radio Regulations: The ITU doesn't authorize Canadian publications.
+B-001-001-003:
+  Transport Canada: Transport Canada doesn't administer radio.
+  Communications Security Establishment Canada: CSE is a security agency.
+  National Defence: National Defence doesn't administer the Act.
+B-001-001-004:
+  The Radiocommunication Act: The Act gives authority; the Regulations define the service.
+  The Standards for the Operation of Radio Stations in the Amateur Radio Service: The Standards set operating rules; they don't define the service.
+  The Radio Systems Policies: Radio Systems Policies don't define the amateur service.

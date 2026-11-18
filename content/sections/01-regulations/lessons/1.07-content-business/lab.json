@@ -1,0 +1,58 @@
+{
+  "lab": "LAB-02",
+  "steps": {
+    "rules-content": {
+      "title": "Allowed on the air?",
+      "prompt": "Settle all four.",
+      "config": {
+        "intro": "Allowed on the amateur bands?",
+        "cases": [
+          {
+            "id": "club",
+            "situation": "A club net discussing the club's emergency plan.",
+            "options": [
+              "Allowed",
+              "Not allowed"
+            ],
+            "answer": "Allowed",
+            "why": "Emergency planning is fine; business planning isn't."
+          },
+          {
+            "id": "sales",
+            "situation": "A member selling equipment from their shop on the net.",
+            "options": [
+              "Allowed",
+              "Not allowed"
+            ],
+            "answer": "Not allowed",
+            "source": "RBR-4 Standards",
+            "why": "Business communications are never permitted."
+          },
+          {
+            "id": "broadcast",
+            "situation": "Broadcasting a public weather bulletin for everyone listening.",
+            "options": [
+              "Allowed",
+              "Not allowed"
+            ],
+            "answer": "Not allowed",
+            "why": "Amateurs may never broadcast to the general public."
+          },
+          {
+            "id": "cipher",
+            "situation": "Sending data with an encoding you published openly online.",
+            "options": [
+              "Allowed",
+              "Not allowed"
+            ],
+            "answer": "Allowed",
+            "why": "It's not secret: it's in the public domain."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All four settled",
+      "success": "No business, no broadcasting, nothing secret."
+    }
+  }
+}

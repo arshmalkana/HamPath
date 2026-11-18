@@ -1,0 +1,65 @@
+{
+  "lab": "LAB-02",
+  "steps": {
+    "rules-documents": {
+      "title": "Which document?",
+      "prompt": "Settle all four.",
+      "config": {
+        "intro": "Where does each power or definition come from?",
+        "cases": [
+          {
+            "id": "regs",
+            "situation": "The authority to make Canadian radio regulations comes from…",
+            "options": [
+              "The Radiocommunication Act",
+              "The Broadcasting Act",
+              "The ITU Radio Regulations"
+            ],
+            "answer": "The Radiocommunication Act",
+            "source": "Radiocommunication Act",
+            "why": "The Act is the root of every other rule."
+          },
+          {
+            "id": "stds",
+            "situation": "The authority to publish the amateur Standards (RBR-4) comes from…",
+            "options": [
+              "The Radiocommunication Regulations",
+              "The Radiocommunication Act",
+              "The Broadcasting Act"
+            ],
+            "answer": "The Radiocommunication Act",
+            "source": "Radiocommunication Act",
+            "why": "The Act gives the Minister power to publish standards."
+          },
+          {
+            "id": "admin",
+            "situation": "The department that administers the Act is…",
+            "options": [
+              "Transport Canada",
+              "National Defence",
+              "Innovation, Science and Economic Development Canada"
+            ],
+            "answer": "Innovation, Science and Economic Development Canada",
+            "source": "ISED",
+            "why": "ISED runs spectrum management in Canada."
+          },
+          {
+            "id": "define",
+            "situation": "The \"amateur radio service\" is defined in…",
+            "options": [
+              "The Radiocommunication Regulations",
+              "The Radiocommunication Act",
+              "The amateur Standards (RBR-4)"
+            ],
+            "answer": "The Radiocommunication Regulations",
+            "source": "Radiocommunication Regulations",
+            "why": "The Regulations define the services, including amateur radio."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All four settled",
+      "success": "Act at the top, Regulations below it, Standards for the details, ISED administering it all."
+    }
+  }
+}

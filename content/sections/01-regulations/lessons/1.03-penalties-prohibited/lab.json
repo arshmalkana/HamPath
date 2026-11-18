@@ -1,0 +1,62 @@
+{
+  "lab": "LAB-02",
+  "steps": {
+    "rules-penalties": {
+      "title": "What's an offence?",
+      "prompt": "Settle all four.",
+      "config": {
+        "intro": "Allowed, or an offence under the Act?",
+        "cases": [
+          {
+            "id": "outside",
+            "situation": "A quick test transmission just outside the band edge, at under 1 W.",
+            "options": [
+              "Allowed",
+              "Prohibited"
+            ],
+            "answer": "Prohibited",
+            "source": "Radiocommunication Act",
+            "why": "Outside the amateur bands is prohibited at any power."
+          },
+          {
+            "id": "joke",
+            "situation": "Giving a wrong location for a club event as a joke.",
+            "options": [
+              "Allowed",
+              "Never permitted"
+            ],
+            "answer": "Never permitted",
+            "why": "False information is never permitted."
+          },
+          {
+            "id": "mayday",
+            "situation": "The maximum penalty for a false distress call is…",
+            "options": [
+              "$1000 fine",
+              "Up to $5000, up to a year in prison, or both",
+              "Two years in prison"
+            ],
+            "answer": "Up to $5000, up to a year in prison, or both",
+            "source": "Radiocommunication Act",
+            "why": "Set out in the Radiocommunication Act."
+          },
+          {
+            "id": "jam",
+            "situation": "Deliberately interfering with a contact, without lawful cause, carries…",
+            "options": [
+              "A $10,000 fine",
+              "Up to $5000, up to a year in prison, or both",
+              "A warning only"
+            ],
+            "answer": "Up to $5000, up to a year in prison, or both",
+            "source": "Radiocommunication Act",
+            "why": "The same penalty as a false distress message."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All four settled",
+      "success": "Stay in the bands, never send false information, and never interfere on purpose."
+    }
+  }
+}

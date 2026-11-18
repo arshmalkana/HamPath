@@ -1,0 +1,33 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-003-001:
+  must be identified with your call sign: Identifying doesn't make out-of-band transmissions legal.
+  are permitted when using less than 1 watt: Low power doesn't make it legal.
+  are permitted for short tests only: Short tests aren't allowed outside the bands.
+B-001-003-002:
+  An encrypted message: It isn't encrypted; it's false.
+  An emergency test transmission: A fake MAYDAY isn't a test.
+  A privileged communication: It isn't privileged; it's fraudulent.
+B-001-003-003:
+  A fine of $10 000: The fine is up to $5000, not $10,000.
+  A prison term of two years: The prison term is up to one year.
+  A fine not exceeding $1 000: The fine can be up to $5000.
+B-001-003-004:
+  The Broadcasting Act: The Broadcasting Act covers broadcasters.
+  The Radiocommunication Regulations: The Regulations don't set the penalties; the Act does.
+  The Radio Systems Policies: Radio Systems Policies don't set penalties.
+B-001-003-005:
+  where the holder has contravened the Radiocommunication Act, its regulations, or the terms and conditions of the certificate: That's a correct reason for suspension.
+  where the certificate was obtained through misrepresentation: That's a correct reason for suspension.
+  where the holder has failed to comply with a request to pay fees or interest due: That's a correct reason for suspension.
+B-001-003-006:
+  Where entry is refused, and is necessary to perform their duties under the Radiocommunication Act, a radio inspector may obtain a warrant: "That statement is correct: an inspector may obtain a warrant."
+  In executing a warrant, a radio inspector shall not use force, unless accompanied by a peace officer, and force is authorized: "That statement is correct: force only with a peace officer, and authorized."
+  The person responsible for a dwelling entered by a radio inspector shall provide the inspector the requested information: "That statement is correct: the person must provide the information."
+B-001-003-007:
+  To play a practical joke, for example, giving incorrect location of an amateur radio event: Practical jokes don't make false information allowed.
+  To conceal their identity when responding to inappropriate on-air conduct: Concealing identity with false information isn't allowed.
+  To exaggerate the scope of an emergency to obtain help more rapidly: Exaggerating an emergency is still false information.
+B-001-003-008:
+  A fine of $10 000: The fine is up to $5000, not $10,000.
+  A prison term of two years: The prison term is up to one year.
+  A fine not exceeding $1 000: The fine can be up to $5000.

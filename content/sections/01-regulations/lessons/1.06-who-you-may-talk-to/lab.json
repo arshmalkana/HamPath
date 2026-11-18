@@ -1,0 +1,59 @@
+{
+  "lab": "LAB-02",
+  "steps": {
+    "rules-who": {
+      "title": "Allowed or not?",
+      "prompt": "Settle all four.",
+      "config": {
+        "intro": "You're a licensed amateur. Is each of these allowed?",
+        "cases": [
+          {
+            "id": "military",
+            "situation": "Calling an Armed Forces station during an exercise.",
+            "options": [
+              "Allowed",
+              "Not allowed"
+            ],
+            "answer": "Not allowed",
+            "why": "Talk only to stations under similar authorizations."
+          },
+          {
+            "id": "amp",
+            "situation": "Adding an amplifier to a licence-exempt FRS radio.",
+            "options": [
+              "Allowed",
+              "Not allowed"
+            ],
+            "answer": "Not allowed",
+            "source": "RBR-4 Standards",
+            "why": "Never permitted."
+          },
+          {
+            "id": "marine",
+            "situation": "Transmitting on a marine channel with your amateur handheld.",
+            "options": [
+              "Allowed",
+              "Not allowed"
+            ],
+            "answer": "Not allowed",
+            "why": "Amateur equipment isn't certified outside the amateur bands."
+          },
+          {
+            "id": "lmr",
+            "situation": "Using your radio on land mobile frequencies; it's certified and licensed for land mobile.",
+            "options": [
+              "Allowed",
+              "Not allowed"
+            ],
+            "answer": "Allowed",
+            "source": "ISED",
+            "why": "Allowed because it's certified and licensed for that service."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All four settled",
+      "success": "Amateurs talk to amateurs, inside the amateur bands."
+    }
+  }
+}

@@ -70,6 +70,7 @@ import {
   drillChoices,
   repeaterVariables,
   clockVariables,
+  rulesVariables,
 } from "./index.ts";
 
 describe("units", () => {
@@ -736,5 +737,18 @@ describe("section 2 operating models", () => {
     const v = clockVariables({ heading: 0, local: 13 }, c)!;
     expect(v.longBearing as number).toBeCloseTo(((v.shortBearing as number) + 180) % 360);
     expect(v).toMatchObject({ localOk: true, netLocal: 13 });
+  });
+});
+
+describe("section 1 rules navigator", () => {
+  it("settles cases only with the trusted answers", () => {
+    const c = {
+      cases: [
+        { id: "a", situation: "", options: ["Yes", "No"], answer: "No", why: "" },
+        { id: "b", situation: "", options: ["Yes", "No"], answer: "Yes", why: "" },
+      ],
+    };
+    expect(rulesVariables({ answers: { a: "No", b: "Yes" } }, c)).toMatchObject({ complete: true, correct: 2 });
+    expect(rulesVariables({ answers: { a: "Yes", b: "Yes" } }, c)).toMatchObject({ complete: false, correct: 1 });
   });
 });

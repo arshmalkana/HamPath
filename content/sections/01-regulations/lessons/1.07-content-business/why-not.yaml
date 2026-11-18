@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-001-007-001:
+  Recreation planning: Recreation planning is fine.
+  Code practice planning: Code practice planning is fine.
+  Emergency planning: Emergency planning is fine.
+B-001-007-002:
+  Only when the amateur radio operator is being paid: Being paid makes it worse, not allowed.
+  Only when the broadcasts last less than 1 hour: Short broadcasts aren't allowed either.
+  Only when the broadcasts are of broad public interest: Public interest doesn't allow broadcasting.
+B-001-007-003:
+  A considerate amateur radio operator does not transmit unnecessary signals: That statement is correct.
+  A courteous amateur radio operator refrains from using offensive language: That statement is correct.
+  An amateur radio operator does not obscure the meaning of their transmissions: That statement is correct.
+B-001-007-004:
+  Radio control commands to model craft: Model control is allowed.
+  Brief transmissions to make adjustments to the station: Brief adjustments are allowed.
+  Morse code practice: Morse practice is allowed.
+B-001-007-005:
+  When it is used for music streaming content: Music streaming isn't allowed.
+  When it is used for commercial traffic: Commercial traffic isn't allowed.
+  When it includes sending the amateur radio station's call sign: Sending your call sign doesn't make a secret code legal.
+B-001-007-006:
+  Only during a declared communications emergency: Emergencies don't allow secret codes.
+  Only during contests: Contests don't allow secret codes.
+  Only when transmitting above 450 MHz: Frequency doesn't matter.
+B-001-007-007:
+  There are no restrictions: "There are restrictions: they must not be secret."
+  They are not permitted because they obscure the meaning of a message to government monitoring stations: They're allowed if not secret.
+  Only "10 codes" are permitted: 10 codes aren't the only ones; any non-secret code is fine.
+B-001-007-008:
+  Turn up the volume of your transmitter: More volume would send more music.
+  Speak closer to the microphone to increase your signal strength: Speaking closer doesn't stop background music.
+  Adjust your transceiver noise blanker: A noise blanker is a receiver control.
+B-001-007-009:
+  is permitted for contests: Contests don't allow it.
+  must be approved by Innovation, Science and Economic Development Canada: ISED doesn't approve secret codes.
+  is permitted for third-party traffic: Third-party traffic doesn't allow it.
+B-001-007-010:
+  programming that originates from a broadcasting undertaking: Broadcast programming isn't allowed.
+  radiocommunication in support of industrial, business, or professional activities: Business support isn't allowed.
+  commercially recorded material: Commercial recordings aren't allowed.
+B-001-007-011:
+  are permitted on some bands: No band allows business.
+  are only permitted if they are for the safety of life or immediate protection of property: Safety of life doesn't make business allowed.
+  are not prohibited by regulation: They are prohibited by regulation.

@@ -1,0 +1,59 @@
+{
+  "lab": "LAB-02",
+  "steps": {
+    "rules-others": {
+      "title": "Can you help?",
+      "prompt": "Settle all four.",
+      "config": {
+        "intro": "You hold a Basic certificate. Can you do this for someone else?",
+        "cases": [
+          {
+            "id": "install",
+            "situation": "Install an HF transceiver for a neighbour with no certificate.",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "answer": "No",
+            "source": "RBR-4 Standards",
+            "why": "Both of you must hold certificates."
+          },
+          {
+            "id": "repair",
+            "situation": "Repair a transceiver for a fellow amateur.",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "answer": "Yes",
+            "source": "RBR-4 Standards",
+            "why": "You both hold certificates."
+          },
+          {
+            "id": "reprogram",
+            "situation": "Reprogram a land-mobile radio for 2 m, for someone without an amateur certificate.",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "answer": "No",
+            "why": "Only if the other person holds an amateur certificate."
+          },
+          {
+            "id": "student",
+            "situation": "Place a transmitter in service for someone who's enrolled in a course but hasn't passed.",
+            "options": [
+              "Yes",
+              "No"
+            ],
+            "answer": "No",
+            "why": "Being enrolled isn't enough; they need a certificate."
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "All four settled",
+      "success": "Both of you need certificates."
+    }
+  }
+}

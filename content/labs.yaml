@@ -2,7 +2,11 @@
 # null means the lab is not built yet. The first lab listing a lesson is that lesson's primary lab
 # unless lesson.yaml sets lab_id.
 - { id: LAB-01, name: Band Plan Explorer, component: null, lessons: ["1.15", "1.16", "1.18", "1.21", "5.07"] }
-- { id: LAB-02, name: Rules Navigator, component: null, lessons: ["1.01", "1.02", "1.03", "1.04", "1.05", "1.06", "1.07", "1.08", "1.09", "1.10", "1.11", "1.12", "1.14", "1.20", "1.22"] }
+- id: LAB-02
+  name: Rules Navigator
+  component: RulesLab
+  lessons: ["1.01", "1.02", "1.03", "1.04", "1.05", "1.06", "1.07", "1.08", "1.09", "1.10", "1.12", "1.14", "1.20", "1.22"]
+  default_config: {}
 - { id: LAB-03, name: Call Sign Builder, component: null, lessons: ["1.13", "2.02"] }
 - id: LAB-04
   name: Power Limit Calculator
