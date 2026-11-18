@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { LessonPlayer } from "@/player/LessonPlayer";
 import { serverApi } from "@/lib/server";
@@ -23,22 +22,13 @@ export default async function LessonPage({ params, searchParams }: Props) {
   if (!res.ok) {
     return (
       <main className="container page" id="main">
-        <div className="notice" role="alert"><h2>The lesson didn't load</h2><p>{res.error}</p></div>
+        <div className="notice" role="alert">
+          <h2>The lesson didn’t load</h2>
+          <p>{res.error}</p>
+        </div>
       </main>
     );
   }
   const lesson = res.data;
-  if (!lesson.authored) {
-    return (
-      <main className="container page" id="main">
-        <div className="page-head">
-          <p className="screen-kicker">Lesson {lesson.code} · Section {lesson.section.number}</p>
-          <h1 className="page-title">{lesson.title}</h1>
-          <p className="page-lead">This lesson is being written. Its {lesson.questions.length} exam questions will be taught here{lesson.lab ? ` with the ${lesson.lab.name} lab` : ""}.</p>
-        </div>
-        <Link className="btn btn-quiet" href="/">Course map</Link>
-      </main>
-    );
-  }
   return <LessonPlayer lesson={lesson} initialCardId={card} />;
 }

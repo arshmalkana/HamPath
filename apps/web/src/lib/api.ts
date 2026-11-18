@@ -1,7 +1,13 @@
+import { enqueue, isOffline } from "./outbox";
+
 /** Browser-side API client. Same-origin /api/v1 (Next rewrites it to the API), so the session cookie is first-party. */
 
 export class ApiError extends Error {
-  constructor(public readonly status: number, message: string, public readonly details?: unknown) {
+  constructor(
+    public readonly status: number,
+    message: string,
+    public readonly details?: unknown,
+  ) {
     super(message);
   }
 }
@@ -32,5 +38,7 @@ export function ensureSession() {
 export function track(path: string, body: unknown) {
   ensureSession()
     .then(() => api("POST", path, body))
-    .catch(() => undefined);
+    .catch((e) => {
+      if (isOffline(e)) enqueue("POST", path, body);
+    });
 }

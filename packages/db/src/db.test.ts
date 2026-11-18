@@ -18,7 +18,9 @@ describe("seed", () => {
   });
 
   it("takes lesson titles and labs from docs/coverage", async () => {
-    const { rows } = await pool.query("SELECT code, title, lab_id FROM lesson WHERE code IN ('5.04', '1.19', '6.05') ORDER BY code");
+    const { rows } = await pool.query(
+      "SELECT code, title, lab_id FROM lesson WHERE code IN ('5.04', '1.19', '6.05') ORDER BY code",
+    );
     expect(rows).toEqual([
       { code: "1.19", title: "Frequency stability and overmodulation", lab_id: null },
       { code: "5.04", title: "Ohm's Law", lab_id: "LAB-20" },
@@ -100,13 +102,17 @@ describe("bank import", () => {
   });
 
   it("keeps attempts append-only", async () => {
-    const u = (await pool.query<{ id: string }>(`INSERT INTO "user" (is_guest) VALUES (true) RETURNING id`)).rows[0]!.id;
-    const o = (await pool.query<{ id: string }>("SELECT id FROM option WHERE question_id = 'B-005-004-001' LIMIT 1")).rows[0]!.id;
+    const u = (await pool.query<{ id: string }>(`INSERT INTO "user" (is_guest) VALUES (true) RETURNING id`)).rows[0]!
+      .id;
+    const o = (await pool.query<{ id: string }>("SELECT id FROM option WHERE question_id = 'B-005-004-001' LIMIT 1"))
+      .rows[0]!.id;
     await pool.query(
       "INSERT INTO attempt (user_id, question_id, option_id, correct, context) VALUES ($1, 'B-005-004-001', $2, false, 'check')",
       [u, o],
     );
-    await expect(pool.query("UPDATE attempt SET correct = true WHERE user_id = $1", [u])).rejects.toThrow(/append-only/);
+    await expect(pool.query("UPDATE attempt SET correct = true WHERE user_id = $1", [u])).rejects.toThrow(
+      /append-only/,
+    );
     await expect(pool.query("DELETE FROM attempt WHERE user_id = $1", [u])).rejects.toThrow(/append-only/);
   });
 });

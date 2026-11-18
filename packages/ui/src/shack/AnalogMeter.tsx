@@ -28,37 +28,71 @@ export function AnalogMeter({ label, value, max, unit, format, overload }: Analo
   const angle = -50 + frac * 100;
   const ticks = Array.from({ length: 11 }, (_, i) => i);
   const text = off ? "not connected" : overload ? "off scale" : format(value);
+  // Scale numbers share one SI prefix, taken from full scale (0.3 A → 0, 150, 300 in mA).
+  const exp = Math.floor(Math.log10(max) / 3) * 3;
+  const scaleLabel = (i: number) => String(Number(((max * i) / 10 / 10 ** exp).toPrecision(3)));
   return (
     <div className="meter" data-off={off}>
       <div className="meter-name">
         <span>{label}</span>
-        <span className="meter-range">0–{format(max)}</span>
+        {!off && <span className="meter-range">0 to {format(max)}</span>}
       </div>
-      <svg viewBox="0 0 200 120" role="meter" aria-label={label} aria-valuemin={0} aria-valuemax={max}
-        aria-valuenow={off ? 0 : Math.min(value, max)} aria-valuetext={text}>
+      <svg
+        viewBox="0 0 200 120"
+        role="meter"
+        aria-label={label}
+        aria-valuemin={0}
+        aria-valuemax={max}
+        aria-valuenow={off ? 0 : Math.min(value, max)}
+        aria-valuetext={text}
+      >
         <rect className="meter-face" x="4" y="4" width="192" height="112" rx="8" />
         {ticks.map((i) => {
           const a = ((-50 + i * 10) * Math.PI) / 180;
           const long = i % 5 === 0;
           const r1 = long ? 72 : 78;
           return (
-            <line key={i} className="meter-tick" strokeWidth={long ? 2 : 1}
-              x1={100 + Math.sin(a) * r1} y1={104 - Math.cos(a) * r1} x2={100 + Math.sin(a) * 86} y2={104 - Math.cos(a) * 86} />
+            <line
+              key={i}
+              className="meter-tick"
+              strokeWidth={long ? 2 : 1}
+              x1={100 + Math.sin(a) * r1}
+              y1={104 - Math.cos(a) * r1}
+              x2={100 + Math.sin(a) * 86}
+              y2={104 - Math.cos(a) * 86}
+            />
           );
         })}
         {[0, 5, 10].map((i) => {
           const a = ((-50 + i * 10) * Math.PI) / 180;
           return (
-            <text key={i} className="meter-label" x={100 + Math.sin(a) * 62} y={108 - Math.cos(a) * 62} textAnchor="middle">
-              {i === 0 ? "0" : format((max * i) / 10).replace(/\s?\S+$/, "")}
+            <text
+              key={i}
+              className="meter-label"
+              x={100 + Math.sin(a) * 62}
+              y={108 - Math.cos(a) * 62}
+              textAnchor="middle"
+            >
+              {scaleLabel(i)}
             </text>
           );
         })}
-        <text className="meter-unit" x="100" y="80" textAnchor="middle">{unit}</text>
-        <line className="meter-needle" x1="100" y1="104" x2="100" y2="22" style={{ transform: `rotate(${angle}deg)` }} />
+        <text className="meter-unit" x="100" y="80" textAnchor="middle">
+          {unit}
+        </text>
+        <line
+          className="meter-needle"
+          x1="100"
+          y1="104"
+          x2="100"
+          y2="22"
+          style={{ transform: `rotate(${angle}deg)` }}
+        />
         <circle className="meter-hub" cx="100" cy="104" r="6" />
       </svg>
-      <output className="readout" data-dim={off}>{text}</output>
+      <output className="readout" data-dim={off}>
+        {text}
+      </output>
     </div>
   );
 }

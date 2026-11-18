@@ -33,27 +33,63 @@ export function ProfileForm({ user }: { user: User }) {
   };
 
   return (
-    <form className="form" onSubmit={(e) => { e.preventDefault(); void save(); }}>
+    <form
+      className="form"
+      onSubmit={(e) => {
+        e.preventDefault();
+        void save();
+      }}
+    >
       <div className="field">
-        <label className="field-label" htmlFor="name">Display name</label>
-        <input id="name" className="input" autoComplete="nickname" maxLength={60} value={name} onChange={(e) => setName(e.target.value)} />
+        <label className="field-label" htmlFor="name">
+          Display name
+        </label>
+        <input
+          id="name"
+          className="input"
+          autoComplete="nickname"
+          maxLength={60}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
       </div>
       <div className="field">
-        <label className="field-label" htmlFor="call">Call sign (optional)</label>
-        <input id="call" className="input" autoCapitalize="characters" spellCheck={false} value={call} aria-invalid={Boolean(callError)}
-          aria-describedby="call-help" onChange={(e) => setCall(e.target.value.toUpperCase())} />
-        <span id="call-help" className={callError ? "field-error" : "field-help"}>{callError ?? "Once you're licensed, e.g. VA3RAC."}</span>
+        <label className="field-label" htmlFor="call">
+          Call sign (optional)
+        </label>
+        <input
+          id="call"
+          className="input"
+          autoCapitalize="characters"
+          spellCheck={false}
+          value={call}
+          aria-invalid={Boolean(callError)}
+          aria-describedby="call-help"
+          onChange={(e) => setCall(e.target.value.toUpperCase())}
+        />
+        <span id="call-help" className={callError ? "field-error" : "field-help"}>
+          {callError ?? "Once you’re licensed, e.g. VA3RAC."}
+        </span>
       </div>
       <div className="field">
-        <label className="field-label" htmlFor="locale">Language</label>
-        <select id="locale" className="select" value={locale} onChange={(e) => setLocale(e.target.value as "en" | "fr")}>
+        <label className="field-label" htmlFor="locale">
+          Language
+        </label>
+        <select
+          id="locale"
+          className="select"
+          value={locale}
+          onChange={(e) => setLocale(e.target.value as "en" | "fr")}
+        >
           <option value="en">English</option>
           <option value="fr">Français (questions now; lessons later)</option>
         </select>
       </div>
       <div className="actions" style={{ marginTop: 0 }}>
         <Button type="submit">Save</Button>
-        <Button variant="quiet" onClick={() => void signOut()}>Sign out</Button>
+        <Button variant="quiet" onClick={() => void signOut()}>
+          Sign out
+        </Button>
       </div>
       <div aria-live="polite">{status && <Feedback tone={status.tone} title={status.text} />}</div>
     </form>

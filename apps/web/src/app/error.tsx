@@ -7,7 +7,9 @@ export default function ErrorPage({ error, reset }: { error: Error; reset: () =>
         <h2>Something broke on this page</h2>
         <p>{error.message || "An unexpected error happened."}</p>
         <p>
-          <button type="button" className="btn btn-primary" onClick={reset}>Try again</button>
+          <button type="button" className="btn btn-primary" onClick={reset}>
+            Try again
+          </button>
         </p>
       </div>
     </main>

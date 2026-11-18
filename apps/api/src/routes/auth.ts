@@ -24,7 +24,10 @@ const OAUTH_COOKIE = "hp_oauth";
 const MAX_LINKS_PER_HOUR = 5;
 
 const MagicLinkBody = z.strictObject({
-  email: z.email().max(254).transform((e) => e.trim().toLowerCase()),
+  email: z
+    .email()
+    .max(254)
+    .transform((e) => e.trim().toLowerCase()),
   redirect: z.string().max(500).optional(),
 });
 
@@ -69,7 +72,8 @@ export function authRoutes(app: FastifyInstance, pool: Pool) {
       `SELECT count(*)::int AS n FROM auth_token WHERE email = $1 AND created_at > now() - interval '1 hour'`,
       [body.email],
     );
-    if ((rows[0]?.n ?? 0) >= MAX_LINKS_PER_HOUR) throw new HttpError(429, "Too many sign-in links requested. Try again later.");
+    if ((rows[0]?.n ?? 0) >= MAX_LINKS_PER_HOUR)
+      throw new HttpError(429, "Too many sign-in links requested. Try again later.");
     const token = randomToken();
     await pool.query(
       `INSERT INTO auth_token (token_hash, email, redirect_to, expires_at)
@@ -108,11 +112,10 @@ export function authRoutes(app: FastifyInstance, pool: Pool) {
     const state = randomToken();
     const verifier = randomToken();
     const challenge = createHash("sha256").update(verifier).digest("base64url");
-    reply.setCookie(
-      OAUTH_COOKIE,
-      JSON.stringify({ state, verifier, redirect: safeRedirect(req.query.redirect) }),
-      { ...cookieOptions(new Date(Date.now() + 10 * 60_000)), path: "/api/v1/auth/google" },
-    );
+    reply.setCookie(OAUTH_COOKIE, JSON.stringify({ state, verifier, redirect: safeRedirect(req.query.redirect) }), {
+      ...cookieOptions(new Date(Date.now() + 10 * 60_000)),
+      path: "/api/v1/auth/google",
+    });
     const url = new URL("https://accounts.google.com/o/oauth2/v2/auth");
     url.search = new URLSearchParams({
       client_id: env.google.clientId,
@@ -127,55 +130,59 @@ export function authRoutes(app: FastifyInstance, pool: Pool) {
     return reply.redirect(url.toString(), 302);
   });
 
-  app.get<{ Querystring: { code?: string; state?: string; error?: string } }>("/auth/google/callback", async (req, reply) => {
-    if (!googleEnabled()) throw new HttpError(404, "Google sign-in is not configured");
-    let saved: { state: string; verifier: string; redirect: string } | null = null;
-    try {
-      saved = JSON.parse(req.cookies[OAUTH_COOKIE] ?? "null");
-    } catch {
-      saved = null;
-    }
-    reply.clearCookie(OAUTH_COOKIE, { path: "/api/v1/auth/google" });
-    if (req.query.error || !req.query.code || !saved || saved.state !== req.query.state) {
-      return reply.redirect("/sign-in?error=google", 303);
-    }
-    const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
-      method: "POST",
-      headers: { "content-type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({
-        code: req.query.code,
-        client_id: env.google.clientId,
-        client_secret: env.google.clientSecret,
-        redirect_uri: redirectUri(),
-        grant_type: "authorization_code",
-        code_verifier: saved.verifier,
-      }),
-    });
-    if (!tokenRes.ok) return reply.redirect("/sign-in?error=google", 303);
-    const { access_token } = (await tokenRes.json()) as { access_token?: string };
-    const infoRes = await fetch("https://openidconnect.googleapis.com/v1/userinfo", {
-      headers: { authorization: `Bearer ${access_token}` },
-    });
-    const info = (await infoRes.json()) as { sub?: string; email?: string; email_verified?: boolean; name?: string };
-    if (!infoRes.ok || !info.sub || !info.email || !info.email_verified) return reply.redirect("/sign-in?error=google", 303);
+  app.get<{ Querystring: { code?: string; state?: string; error?: string } }>(
+    "/auth/google/callback",
+    async (req, reply) => {
+      if (!googleEnabled()) throw new HttpError(404, "Google sign-in is not configured");
+      let saved: { state: string; verifier: string; redirect: string } | null = null;
+      try {
+        saved = JSON.parse(req.cookies[OAUTH_COOKIE] ?? "null");
+      } catch {
+        saved = null;
+      }
+      reply.clearCookie(OAUTH_COOKIE, { path: "/api/v1/auth/google" });
+      if (req.query.error || !req.query.code || !saved || saved.state !== req.query.state) {
+        return reply.redirect("/sign-in?error=google", 303);
+      }
+      const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
+        method: "POST",
+        headers: { "content-type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          code: req.query.code,
+          client_id: env.google.clientId,
+          client_secret: env.google.clientSecret,
+          redirect_uri: redirectUri(),
+          grant_type: "authorization_code",
+          code_verifier: saved.verifier,
+        }),
+      });
+      if (!tokenRes.ok) return reply.redirect("/sign-in?error=google", 303);
+      const { access_token } = (await tokenRes.json()) as { access_token?: string };
+      const infoRes = await fetch("https://openidconnect.googleapis.com/v1/userinfo", {
+        headers: { authorization: `Bearer ${access_token}` },
+      });
+      const info = (await infoRes.json()) as { sub?: string; email?: string; email_verified?: boolean; name?: string };
+      if (!infoRes.ok || !info.sub || !info.email || !info.email_verified)
+        return reply.redirect("/sign-in?error=google", 303);
 
-    const current = await userFromRequest(pool, req);
-    const userId = await tx(pool, async (c) => {
-      const linked = await c.query<{ user_id: string }>(
-        `SELECT user_id FROM oauth_account WHERE provider = 'google' AND provider_user_id = $1`,
-        [info.sub],
-      );
-      if (linked.rows[0]) return linked.rows[0].user_id;
-      const id = await accountForVerifiedEmail(c, info.email!.toLowerCase(), current, info.name ?? null);
-      await c.query(
-        `INSERT INTO oauth_account (provider, provider_user_id, user_id, email) VALUES ('google', $1, $2, $3)`,
-        [info.sub, id, info.email],
-      );
-      return id;
-    });
-    await startSession(pool, req, reply, userId);
-    return reply.redirect(safeRedirect(saved.redirect), 303);
-  });
+      const current = await userFromRequest(pool, req);
+      const userId = await tx(pool, async (c) => {
+        const linked = await c.query<{ user_id: string }>(
+          `SELECT user_id FROM oauth_account WHERE provider = 'google' AND provider_user_id = $1`,
+          [info.sub],
+        );
+        if (linked.rows[0]) return linked.rows[0].user_id;
+        const id = await accountForVerifiedEmail(c, info.email!.toLowerCase(), current, info.name ?? null);
+        await c.query(
+          `INSERT INTO oauth_account (provider, provider_user_id, user_id, email) VALUES ('google', $1, $2, $3)`,
+          [info.sub, id, info.email],
+        );
+        return id;
+      });
+      await startSession(pool, req, reply, userId);
+      return reply.redirect(safeRedirect(saved.redirect), 303);
+    },
+  );
 
   // ---- Profile -----------------------------------------------------------------------------
   app.get("/me", async (req) => ({ user: await requireUser(pool, req) }));

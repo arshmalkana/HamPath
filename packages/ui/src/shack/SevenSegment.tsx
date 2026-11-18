@@ -1,11 +1,35 @@
 // Segments: a top, b upper-right, c lower-right, d bottom, e lower-left, f upper-left, g middle
 const GLYPHS: Record<string, string> = {
-  "0": "abcdef", "1": "bc", "2": "abdeg", "3": "abcdg", "4": "bcfg", "5": "acdfg", "6": "acdefg", "7": "abc", "8": "abcdefg",
-  "9": "abcdfg", "-": "g", " ": "", A: "abcefg", b: "cdefg", C: "adef", d: "bcdeg", E: "adefg", F: "aefg", H: "bcefg", L: "def", P: "abefg",
+  "0": "abcdef",
+  "1": "bc",
+  "2": "abdeg",
+  "3": "abcdg",
+  "4": "bcfg",
+  "5": "acdfg",
+  "6": "acdefg",
+  "7": "abc",
+  "8": "abcdefg",
+  "9": "abcdfg",
+  "-": "g",
+  " ": "",
+  A: "abcefg",
+  b: "cdefg",
+  C: "adef",
+  d: "bcdeg",
+  E: "adefg",
+  F: "aefg",
+  H: "bcefg",
+  L: "def",
+  P: "abefg",
 };
 const SEG: Record<string, string> = {
-  a: "M4 2 h16 l-3 3 h-10 z", b: "M21 3 v16 l-3 -2 v-11 z", c: "M21 21 v16 l-3 -3 v-11 z", d: "M4 38 h16 l-3 -3 h-10 z",
-  e: "M3 21 v16 l3 -3 v-11 z", f: "M3 3 v16 l3 -2 v-11 z", g: "M4 20 l3 -2 h10 l3 2 l-3 2 h-10 z",
+  a: "M4 2 h16 l-3 3 h-10 z",
+  b: "M21 3 v16 l-3 -2 v-11 z",
+  c: "M21 21 v16 l-3 -3 v-11 z",
+  d: "M4 38 h16 l-3 -3 h-10 z",
+  e: "M3 21 v16 l3 -3 v-11 z",
+  f: "M3 3 v16 l3 -2 v-11 z",
+  g: "M4 20 l3 -2 h10 l3 2 l-3 2 h-10 z",
 };
 
 export interface SevenSegmentProps {

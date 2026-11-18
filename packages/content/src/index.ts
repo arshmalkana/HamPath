@@ -4,3 +4,4 @@ export * from "./schemas.ts";
 export * from "./tree.ts";
 export * from "./validate.ts";
 export * from "./coverage.ts";
+export * from "./blueprint.ts";

@@ -44,7 +44,15 @@ export async function seed(pool: Pool): Promise<SeedResult> {
          ON CONFLICT (id) DO UPDATE SET number=EXCLUDED.number, title_en=EXCLUDED.title_en, title_fr=EXCLUDED.title_fr,
            sort_order=EXCLUDED.sort_order, checkpoint_pass_percent=EXCLUDED.checkpoint_pass_percent,
            checkpoint_mastered_sample=EXCLUDED.checkpoint_mastered_sample`,
-        [s.id, s.number, s.title_en, s.title_fr ?? null, s.recommended_order, s.checkpoint.pass_percent, s.checkpoint.mastered_sample],
+        [
+          s.id,
+          s.number,
+          s.title_en,
+          s.title_fr ?? null,
+          s.recommended_order,
+          s.checkpoint.pass_percent,
+          s.checkpoint.mastered_sample,
+        ],
       );
     }
     for (const l of tree.labs) {

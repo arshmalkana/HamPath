@@ -11,9 +11,23 @@ export interface ToggleSwitchProps {
 }
 
 /** Panel toggle switch: role="switch", Space/Enter toggles, the state is spoken and shown as text. */
-export function ToggleSwitch({ label, checked, onChange, onText = "On", offText = "Off", disabled }: ToggleSwitchProps) {
+export function ToggleSwitch({
+  label,
+  checked,
+  onChange,
+  onText = "On",
+  offText = "Off",
+  disabled,
+}: ToggleSwitchProps) {
   return (
-    <button type="button" role="switch" aria-checked={checked} className="toggle" disabled={disabled} onClick={() => onChange(!checked)}>
+    <button
+      type="button"
+      role="switch"
+      aria-checked={checked}
+      className="toggle"
+      disabled={disabled}
+      onClick={() => onChange(!checked)}
+    >
       <span className="toggle-track" aria-hidden="true">
         <span className="toggle-knob" />
       </span>

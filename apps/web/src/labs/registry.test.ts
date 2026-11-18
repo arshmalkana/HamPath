@@ -10,7 +10,9 @@ describe("lab registry", () => {
   });
 
   it("has a component exactly for the labs the catalogue marks as built", () => {
-    const built = readContentTree().labs.filter((l) => l.component).map((l) => l.id);
+    const built = readContentTree()
+      .labs.filter((l) => l.component)
+      .map((l) => l.id);
     expect(LAB_REGISTRY.filter((l) => l.component).map((l) => l.id)).toEqual(built);
   });
 });

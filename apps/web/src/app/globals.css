@@ -1,4 +1,15 @@
-/* HamPath web: Tailwind (layout utilities) + the design system. The Hallmark stamp and every
-   colour/font token live in packages/ui/src/styles/index.css. */
+/* Hallmark · shape: app screen · genre: modern-minimal · theme: custom · idea: "the lesson is a workbench: the instrument explains first, the words arrive after the needle moves" · vibe: "clean course app, lit test-bench labs"
+ * Tokens, components and the full stamp live in packages/ui/src/styles/index.css (imported below). */
+/* Hallmark · waive 26b · .btn:active, .btn:disabled, .toggle:disabled, .input:disabled are defined in packages/ui/src/styles/index.css · sloplint does not follow the package @import below */
 @import "tailwindcss";
 @import "@hampath/ui/styles.css";
+
+/* Restated from the design system so this entry stylesheet stands on its own. */
+html,
+body {
+  overflow-x: clip;
+}
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}

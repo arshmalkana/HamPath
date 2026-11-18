@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Atkinson_Hyperlegible_Next, Azeret_Mono } from "next/font/google";
 import Link from "next/link";
 import { ThemeToggle, themeInitScript } from "@hampath/ui";
+import { OfflineSupport } from "@/components/OfflineSupport";
 import { serverApi } from "@/lib/server";
 import type { User } from "@/lib/types";
 import "./globals.css";
@@ -25,21 +26,38 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <style>{`:root{--font-display:var(--font-atkinson),ui-sans-serif,sans-serif;--font-body:var(--font-atkinson),ui-sans-serif,sans-serif;--font-outlier:var(--font-azeret),ui-monospace,monospace}`}</style>
       </head>
       <body>
-        <a className="visually-hidden" href="#main">Skip to content</a>
+        <a className="skip-link" href="#main">
+          Skip to content
+        </a>
         <header className="topbar">
           <div className="container topbar-inner">
-            <Link href="/" className="wordmark">Ham<span className="wordmark-mark">Path</span></Link>
+            <Link href="/" className="wordmark">
+              Ham<span className="wordmark-mark">Path</span>
+            </Link>
             <nav className="topbar-nav" aria-label="Main">
-              <Link className="toplink" href="/">Course</Link>
+              <Link className="toplink" href="/">
+                Dashboard
+              </Link>
+              <Link className="toplink" href="/review">
+                Review
+              </Link>
+              <Link className="toplink" href="/mocks">
+                Mocks
+              </Link>
               {user && !user.isGuest ? (
-                <Link className="toplink" href="/profile">{user.callSign ?? user.displayName ?? "Profile"}</Link>
+                <Link className="toplink" href="/profile">
+                  {user.callSign ?? user.displayName ?? "Profile"}
+                </Link>
               ) : (
-                <Link className="toplink" href="/sign-in">Sign in</Link>
+                <Link className="toplink" href="/sign-in">
+                  Sign in
+                </Link>
               )}
               <ThemeToggle />
             </nav>
           </div>
         </header>
+        <OfflineSupport />
         {children}
       </body>
     </html>

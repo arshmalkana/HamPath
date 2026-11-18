@@ -71,7 +71,9 @@ export const lesson = pgTable(
   "lesson",
   {
     id: text().primaryKey(), // B-005-004
-    sectionId: text("section_id").notNull().references(() => section.id),
+    sectionId: text("section_id")
+      .notNull()
+      .references(() => section.id),
     code: text().notNull().unique(), // 5.04
     title: text().notNull(),
     titleFr: text("title_fr"),
@@ -92,10 +94,14 @@ export const question = pgTable(
   "question",
   {
     id: text().primaryKey(), // B-005-004-001
-    lessonId: text("lesson_id").notNull().references(() => lesson.id),
+    lessonId: text("lesson_id")
+      .notNull()
+      .references(() => lesson.id),
     stemEn: text("stem_en").notNull(),
     stemFr: text("stem_fr").notNull(),
-    bankVersion: integer("bank_version").notNull().references(() => bankVersion.id),
+    bankVersion: integer("bank_version")
+      .notNull()
+      .references(() => bankVersion.id),
     hasCalculation: boolean("has_calculation").notNull().default(false),
     calcSpec: jsonb("calc_spec"),
     imageRef: text("image_ref"),
@@ -110,8 +116,12 @@ export const question = pgTable(
 /** Previous stems, kept when an import changes a question's wording. */
 export const questionHistory = pgTable("question_history", {
   id: bigserial({ mode: "number" }).primaryKey(),
-  questionId: text("question_id").notNull().references(() => question.id),
-  bankVersion: integer("bank_version").notNull().references(() => bankVersion.id),
+  questionId: text("question_id")
+    .notNull()
+    .references(() => question.id),
+  bankVersion: integer("bank_version")
+    .notNull()
+    .references(() => bankVersion.id),
   stemEn: text("stem_en").notNull(),
   stemFr: text("stem_fr").notNull(),
   replacedAt: ts("replaced_at").notNull().defaultNow(),
@@ -125,28 +135,40 @@ export const option = pgTable(
   "option",
   {
     id: uuid().primaryKey().defaultRandom(),
-    questionId: text("question_id").notNull().references(() => question.id),
+    questionId: text("question_id")
+      .notNull()
+      .references(() => question.id),
     slot: smallint().notNull(), // 0 = the correct answer's position in the ISED file
     textEn: text("text_en").notNull(),
     textFr: text("text_fr").notNull(),
     isCorrect: boolean("is_correct").notNull(),
     whyNotEn: text("why_not_en"),
     whyNotFr: text("why_not_fr"),
-    bankVersion: integer("bank_version").notNull().references(() => bankVersion.id),
+    bankVersion: integer("bank_version")
+      .notNull()
+      .references(() => bankVersion.id),
     retiredIn: integer("retired_in").references(() => bankVersion.id),
   },
   (t) => [
     check("option_slot_range", sql`${t.slot} BETWEEN 0 AND 3`),
-    uniqueIndex("option_active_slot_idx").on(t.questionId, t.slot).where(sql`${t.retiredIn} IS NULL`),
-    uniqueIndex("option_one_correct_idx").on(t.questionId).where(sql`${t.isCorrect} AND ${t.retiredIn} IS NULL`),
+    uniqueIndex("option_active_slot_idx")
+      .on(t.questionId, t.slot)
+      .where(sql`${t.retiredIn} IS NULL`),
+    uniqueIndex("option_one_correct_idx")
+      .on(t.questionId)
+      .where(sql`${t.isCorrect} AND ${t.retiredIn} IS NULL`),
   ],
 );
 
 /** A lab's setup inside one lesson. */
 export const labStep = pgTable("lab_step", {
   id: text().primaryKey(), // 5.04/explore-current
-  lessonId: text("lesson_id").notNull().references(() => lesson.id),
-  labId: text("lab_id").notNull().references(() => lab.id),
+  lessonId: text("lesson_id")
+    .notNull()
+    .references(() => lesson.id),
+  labId: text("lab_id")
+    .notNull()
+    .references(() => lab.id),
   sortOrder: smallint("sort_order").notNull(),
   title: text().notNull(),
   prompt: text().notNull(),
@@ -158,14 +180,25 @@ export const labStep = pgTable("lab_step", {
 });
 
 export const CARD_TYPES = [
-  "hook", "lab", "concept", "predict", "numeric", "worked_example", "drag_drop", "flashcards", "audio",
+  "intro",
+  "hook",
+  "lab",
+  "concept",
+  "predict",
+  "numeric",
+  "worked_example",
+  "drag_drop",
+  "flashcards",
+  "audio",
 ] as const;
 
 export const card = pgTable(
   "card",
   {
     id: text().primaryKey(), // 5.04/05-voltage (stable for deep links)
-    lessonId: text("lesson_id").notNull().references(() => lesson.id),
+    lessonId: text("lesson_id")
+      .notNull()
+      .references(() => lesson.id),
     sortOrder: smallint("sort_order").notNull(),
     type: text().notNull(),
     title: text().notNull(),
@@ -186,8 +219,12 @@ export const card = pgTable(
 export const cardQuestion = pgTable(
   "card_question",
   {
-    cardId: text("card_id").notNull().references(() => card.id, { onDelete: "cascade" }),
-    questionId: text("question_id").notNull().references(() => question.id),
+    cardId: text("card_id")
+      .notNull()
+      .references(() => card.id, { onDelete: "cascade" }),
+    questionId: text("question_id")
+      .notNull()
+      .references(() => question.id),
   },
   (t) => [primaryKey({ columns: [t.cardId, t.questionId] }), index("card_question_q_idx").on(t.questionId)],
 );
@@ -218,7 +255,9 @@ export const session = pgTable(
   "session",
   {
     tokenHash: text("token_hash").primaryKey(),
-    userId: uuid("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
     createdAt: ts("created_at").notNull().defaultNow(),
     expiresAt: ts("expires_at").notNull(),
   },
@@ -245,7 +284,9 @@ export const oauthAccount = pgTable(
   {
     provider: text().notNull(),
     providerUserId: text("provider_user_id").notNull(),
-    userId: uuid("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
     email: citext(),
     createdAt: ts("created_at").notNull().defaultNow(),
   },
@@ -257,24 +298,40 @@ export const attempt = pgTable(
   "attempt",
   {
     id: bigserial({ mode: "number" }).primaryKey(),
-    userId: uuid("user_id").notNull().references(() => user.id),
-    questionId: text("question_id").notNull().references(() => question.id),
-    optionId: uuid("option_id").notNull().references(() => option.id),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id),
+    questionId: text("question_id")
+      .notNull()
+      .references(() => question.id),
+    optionId: uuid("option_id")
+      .notNull()
+      .references(() => option.id),
     correct: boolean().notNull(),
     context: attemptContext().notNull(),
     tryNo: smallint("try_no").notNull().default(1),
     msTaken: integer("ms_taken"),
+    /** The checkpoint or mock exam this answer belongs to (NULL for lesson checks and reviews). */
+    sessionId: uuid("session_id"),
     createdAt: ts("created_at").notNull().defaultNow(),
   },
-  (t) => [index("attempt_user_q_idx").on(t.userId, t.questionId, t.createdAt)],
+  (t) => [
+    index("attempt_user_q_idx").on(t.userId, t.questionId, t.createdAt),
+    index("attempt_session_idx").on(t.sessionId),
+    index("attempt_user_day_idx").on(t.userId, t.createdAt),
+  ],
 );
 
-/** Spaced-repetition state. stability/difficulty are FSRS parameters (Phase 1). */
+/** Spaced-repetition state per learner per question: FSRS-5 memory state plus the mastery streak. */
 export const questionState = pgTable(
   "question_state",
   {
-    userId: uuid("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
-    questionId: text("question_id").notNull().references(() => question.id),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    questionId: text("question_id")
+      .notNull()
+      .references(() => question.id),
     mastered: boolean().notNull().default(false),
     streak: smallint().notNull().default(0),
     lastCorrectAt: ts("last_correct_at"),
@@ -282,6 +339,8 @@ export const questionState = pgTable(
     stability: real(),
     difficulty: real(),
     dueAt: ts("due_at"),
+    lastReviewedAt: ts("last_reviewed_at"),
+    reps: smallint().notNull().default(0),
     updatedAt: ts("updated_at").notNull().defaultNow(),
   },
   (t) => [primaryKey({ columns: [t.userId, t.questionId] }), index("question_state_due_idx").on(t.userId, t.dueAt)],
@@ -290,8 +349,12 @@ export const questionState = pgTable(
 export const lessonProgress = pgTable(
   "lesson_progress",
   {
-    userId: uuid("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
-    lessonId: text("lesson_id").notNull().references(() => lesson.id),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    lessonId: text("lesson_id")
+      .notNull()
+      .references(() => lesson.id),
     step: smallint().notNull().default(0), // furthest screen reached
     startedAt: ts("started_at").notNull().defaultNow(),
     completedAt: ts("completed_at"),
@@ -304,7 +367,9 @@ export const labEvent = pgTable(
   "lab_event",
   {
     id: bigserial({ mode: "number" }).primaryKey(),
-    userId: uuid("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
     labStepId: text("lab_step_id").references(() => labStep.id, { onDelete: "set null" }),
     event: text().notNull(),
     payload: jsonb().notNull().default({}),
@@ -318,16 +383,67 @@ export const labEvent = pgTable(
 
 export const mockExam = pgTable("mock_exam", {
   id: uuid().primaryKey().defaultRandom(),
-  userId: uuid("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+  userId: uuid("user_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
   questionIds: text("question_ids").array().notNull(),
+  /** Percent correct, 0..100. */
   score: real(),
+  correct: integer(),
+  total: integer(),
+  passed: boolean(),
+  honours: boolean(),
+  /** [{ sectionId, correct, total }] */
+  sectionBreakdown: jsonb("section_breakdown"),
+  timeLimitS: integer("time_limit_s").notNull().default(10800),
+  blueprintVersion: text("blueprint_version"),
   startedAt: ts("started_at").notNull().defaultNow(),
   finishedAt: ts("finished_at"),
 });
 
+/** Section Checkpoint: every unmastered question in the section plus a sample of mastered ones. */
+export const checkpoint = pgTable(
+  "checkpoint",
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    sectionId: text("section_id")
+      .notNull()
+      .references(() => section.id),
+    questionIds: text("question_ids").array().notNull(),
+    correct: integer(),
+    total: integer(),
+    score: real(),
+    passed: boolean(),
+    startedAt: ts("started_at").notNull().defaultNow(),
+    finishedAt: ts("finished_at"),
+  },
+  (t) => [index("checkpoint_user_idx").on(t.userId, t.sectionId)],
+);
+
+/** Earned by scoring the pass mark (80%) on a section's Checkpoint. */
+export const sectionBadge = pgTable(
+  "section_badge",
+  {
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    sectionId: text("section_id")
+      .notNull()
+      .references(() => section.id),
+    checkpointId: uuid("checkpoint_id").references(() => checkpoint.id, { onDelete: "set null" }),
+    earnedAt: ts("earned_at").notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.sectionId] })],
+);
+
 export const klass = pgTable("class", {
   id: uuid().primaryKey().defaultRandom(),
-  instructorId: uuid("instructor_id").notNull().references(() => user.id),
+  instructorId: uuid("instructor_id")
+    .notNull()
+    .references(() => user.id),
   name: text().notNull(),
   joinCode: text("join_code").notNull().unique(),
   createdAt: ts("created_at").notNull().defaultNow(),
@@ -336,8 +452,12 @@ export const klass = pgTable("class", {
 export const classMember = pgTable(
   "class_member",
   {
-    classId: uuid("class_id").notNull().references(() => klass.id, { onDelete: "cascade" }),
-    userId: uuid("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+    classId: uuid("class_id")
+      .notNull()
+      .references(() => klass.id, { onDelete: "cascade" }),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
     joinedAt: ts("joined_at").notNull().defaultNow(),
   },
   (t) => [primaryKey({ columns: [t.classId, t.userId] })],

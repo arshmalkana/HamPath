@@ -18,7 +18,9 @@ try {
   if (!rows[0]?.n) {
     console.log("Empty database: seeding, importing the bank and loading content…");
     const s = await seed(pool);
-    const d = await importBank(pool, readFileSync(BANK_PATH), { sourceFile: "content/bank/amat_basic_quest_delim.txt" });
+    const d = await importBank(pool, readFileSync(BANK_PATH), {
+      sourceFile: "content/bank/amat_basic_quest_delim.txt",
+    });
     const c = await loadContent(pool);
     console.log(`Ready: ${s.lessons} lessons, ${d.questionCount} questions, ${c.lessons.length} authored lesson(s)`);
   } else {

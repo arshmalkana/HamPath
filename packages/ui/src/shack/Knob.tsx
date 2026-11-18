@@ -34,8 +34,14 @@ export function Knob({ label, value, min, max, step, onChange, format = String, 
     if (disabled) return;
     const big = step * 10;
     const map: Record<string, number> = {
-      ArrowUp: value + step, ArrowRight: value + step, ArrowDown: value - step, ArrowLeft: value - step,
-      PageUp: value + big, PageDown: value - big, Home: min, End: max,
+      ArrowUp: value + step,
+      ArrowRight: value + step,
+      ArrowDown: value - step,
+      ArrowLeft: value - step,
+      PageUp: value + big,
+      PageDown: value - big,
+      Home: min,
+      End: max,
     };
     if (e.key in map) {
       e.preventDefault();
@@ -60,10 +66,23 @@ export function Knob({ label, value, min, max, step, onChange, format = String, 
   return (
     <div className="knob">
       <svg
-        className="knob-dial" viewBox="0 0 100 100" width={size} height={size}
-        role="slider" tabIndex={disabled ? -1 : 0} aria-label={label}
-        aria-valuemin={min} aria-valuemax={max} aria-valuenow={value} aria-valuetext={format(value)} aria-disabled={disabled || undefined}
-        onKeyDown={onKey} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}
+        className="knob-dial"
+        viewBox="0 0 100 100"
+        width={size}
+        height={size}
+        role="slider"
+        tabIndex={disabled ? -1 : 0}
+        aria-label={label}
+        aria-valuemin={min}
+        aria-valuemax={max}
+        aria-valuenow={value}
+        aria-valuetext={format(value)}
+        aria-disabled={disabled || undefined}
+        onKeyDown={onKey}
+        onPointerDown={onDown}
+        onPointerMove={onMove}
+        onPointerUp={onUp}
+        onPointerCancel={onUp}
       >
         {ticks.map((a) => (
           <line key={a} className="knob-tick" x1="50" y1="4" x2="50" y2="10" transform={`rotate(${a} 50 50)`} />
@@ -74,8 +93,12 @@ export function Knob({ label, value, min, max, step, onChange, format = String, 
           <line className="knob-pointer" x1="50" y1="24" x2="50" y2="38" />
         </g>
       </svg>
-      <span className="knob-label" aria-hidden="true">{label}</span>
-      <span className="knob-value" aria-hidden="true">{format(value)}</span>
+      <span className="knob-label" aria-hidden="true">
+        {label}
+      </span>
+      <span className="knob-value" aria-hidden="true">
+        {format(value)}
+      </span>
     </div>
   );
 }

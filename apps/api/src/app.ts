@@ -6,7 +6,9 @@ import { HttpError } from "./auth.ts";
 import { adminRoutes } from "./routes/admin.ts";
 import { authRoutes } from "./routes/auth.ts";
 import { contentRoutes } from "./routes/content.ts";
-import { learnRoutes, readinessRoutes } from "./routes/learn.ts";
+import { dashboardRoutes } from "./routes/dashboard.ts";
+import { learnRoutes } from "./routes/learn.ts";
+import { practiceRoutes } from "./routes/practice.ts";
 
 export async function buildApp(pool: Pool, opts: { logger?: boolean } = {}): Promise<FastifyInstance> {
   const app = Fastify({ logger: opts.logger ?? false, trustProxy: true });
@@ -34,7 +36,8 @@ export async function buildApp(pool: Pool, opts: { logger?: boolean } = {}): Pro
       authRoutes(v1, pool);
       contentRoutes(v1, pool);
       learnRoutes(v1, pool);
-      readinessRoutes(v1, pool);
+      practiceRoutes(v1, pool);
+      dashboardRoutes(v1, pool);
       adminRoutes(v1, pool);
     },
     { prefix: "/api/v1" },

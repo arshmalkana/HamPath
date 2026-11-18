@@ -25,22 +25,58 @@ export const UNIT_NAMES: Record<Unit, string> = {
 };
 
 const UNIT_ALIASES: Record<string, Unit> = {
-  v: "V", volt: "V", volts: "V",
-  a: "A", amp: "A", amps: "A", ampere: "A", amperes: "A",
-  "ω": "Ω", ohm: "Ω", ohms: "Ω",
-  w: "W", watt: "W", watts: "W",
-  hz: "Hz", hertz: "Hz",
-  f: "F", farad: "F", farads: "F",
-  h: "H", henry: "H", henrys: "H", henries: "H",
-  s: "s", second: "s", seconds: "s",
-  metre: "m", metres: "m", meter: "m", meters: "m",
+  v: "V",
+  volt: "V",
+  volts: "V",
+  a: "A",
+  amp: "A",
+  amps: "A",
+  ampere: "A",
+  amperes: "A",
+  ω: "Ω",
+  ohm: "Ω",
+  ohms: "Ω",
+  w: "W",
+  watt: "W",
+  watts: "W",
+  hz: "Hz",
+  hertz: "Hz",
+  f: "F",
+  farad: "F",
+  farads: "F",
+  h: "H",
+  henry: "H",
+  henrys: "H",
+  henries: "H",
+  s: "s",
+  second: "s",
+  seconds: "s",
+  metre: "m",
+  metres: "m",
+  meter: "m",
+  meters: "m",
 };
 
 const PREFIX_WORDS: Record<string, number> = {
-  pico: -12, nano: -9, micro: -6, milli: -3, kilo: 3, mega: 6, giga: 9,
+  pico: -12,
+  nano: -9,
+  micro: -6,
+  milli: -3,
+  kilo: 3,
+  mega: 6,
+  giga: 9,
 };
 const PREFIX_SYMBOLS: Record<string, number> = {
-  p: -12, n: -9, u: -6, "µ": -6, "μ": -6, m: -3, k: 3, K: 3, M: 6, G: 9,
+  p: -12,
+  n: -9,
+  u: -6,
+  µ: -6,
+  μ: -6,
+  m: -3,
+  k: 3,
+  K: 3,
+  M: 6,
+  G: 9,
 };
 
 function lookupUnit(text: string): Unit | undefined {
@@ -53,8 +89,7 @@ export interface Quantity {
   unit?: Unit;
 }
 
-const NUMBER_RE =
-  /^([-+]?(?:\d{1,3}(?:[ \u202f]\d{3})+|\d+)(?:[.,]\d+)?(?:e[-+]?\d+)?|[-+]?[.,]\d+)\s*(.*)$/i;
+const NUMBER_RE = /^([-+]?(?:\d{1,3}(?:[ \u202f]\d{3})+|\d+)(?:[.,]\d+)?(?:e[-+]?\d+)?|[-+]?[.,]\d+)\s*(.*)$/i;
 
 /**
  * Parse a human-entered quantity: "10m", "10 mA", "2.2k", "0.44 amperes",

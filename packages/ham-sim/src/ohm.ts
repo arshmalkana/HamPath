@@ -35,20 +35,29 @@ export function solveOhm(given: Partial<Record<OhmVar, number>>): WorkedSolution
   if (E === undefined) {
     const value = voltage(I!, R!);
     return {
-      solve: "E", value, unit: "V", formula: "E = I × R",
+      solve: "E",
+      value,
+      unit: "V",
+      formula: "E = I × R",
       steps: ["E = I × R", `E = ${q(I!, "I")} × ${q(R!, "R")}`, `E = ${formatQuantity(value, "V")}`],
     };
   }
   if (I === undefined) {
     const value = current(E, R!);
     return {
-      solve: "I", value, unit: "A", formula: "I = E ÷ R",
+      solve: "I",
+      value,
+      unit: "A",
+      formula: "I = E ÷ R",
       steps: ["I = E ÷ R", `I = ${q(E, "E")} ÷ ${q(R!, "R")}`, `I = ${formatQuantity(value, "A")}`],
     };
   }
   const value = resistance(E, I);
   return {
-    solve: "R", value, unit: "Ω", formula: "R = E ÷ I",
+    solve: "R",
+    value,
+    unit: "Ω",
+    formula: "R = E ÷ I",
     steps: ["R = E ÷ I", `R = ${q(E, "E")} ÷ ${q(I, "I")}`, `R = ${formatQuantity(value, "Ω")}`],
   };
 }

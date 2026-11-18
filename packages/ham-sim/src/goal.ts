@@ -5,11 +5,7 @@
  * and a fixed set of functions. No property access, no assignment, no eval().
  */
 
-type Token =
-  | { t: "num"; v: number }
-  | { t: "id"; v: string }
-  | { t: "op"; v: string }
-  | { t: "eof" };
+type Token = { t: "num"; v: number } | { t: "id"; v: string } | { t: "op"; v: string } | { t: "eof" };
 
 const OPS = ["&&", "||", "<=", ">=", "==", "!=", "<", ">", "+", "-", "*", "/", "%", "!", "(", ")", ","];
 
@@ -18,13 +14,28 @@ function tokenize(src: string): Token[] {
   let i = 0;
   while (i < src.length) {
     const c = src[i]!;
-    if (/\s/.test(c)) { i++; continue; }
+    if (/\s/.test(c)) {
+      i++;
+      continue;
+    }
     const num = /^(\d+\.?\d*|\.\d+)(e[-+]?\d+)?/i.exec(src.slice(i));
-    if (num) { out.push({ t: "num", v: Number(num[0]) }); i += num[0].length; continue; }
+    if (num) {
+      out.push({ t: "num", v: Number(num[0]) });
+      i += num[0].length;
+      continue;
+    }
     const id = /^[A-Za-z_][A-Za-z0-9_]*/.exec(src.slice(i));
-    if (id) { out.push({ t: "id", v: id[0] }); i += id[0].length; continue; }
+    if (id) {
+      out.push({ t: "id", v: id[0] });
+      i += id[0].length;
+      continue;
+    }
     const op = OPS.find((o) => src.startsWith(o, i));
-    if (op) { out.push({ t: "op", v: op }); i += op.length; continue; }
+    if (op) {
+      out.push({ t: "op", v: op });
+      i += op.length;
+      continue;
+    }
     throw new Error(`Unexpected character '${c}' at ${i} in goal "${src}"`);
   }
   out.push({ t: "eof" });
@@ -86,7 +97,10 @@ export function parseGoal(src: string): Node {
           for (;;) {
             args.push(expr(0));
             const sep = peek();
-            if (sep.t === "op" && sep.v === ",") { p++; continue; }
+            if (sep.t === "op" && sep.v === ",") {
+              p++;
+              continue;
+            }
             break;
           }
         }
@@ -127,7 +141,8 @@ const num = (v: Value) => (typeof v === "boolean" ? (v ? 1 : 0) : v);
 
 function evalNode(n: Node, vars: Vars): Value {
   switch (n.k) {
-    case "num": return n.v;
+    case "num":
+      return n.v;
     case "var": {
       if (!(n.name in vars)) throw new Error(`Unknown variable '${n.name}'`);
       return vars[n.name]!;
@@ -136,24 +151,36 @@ function evalNode(n: Node, vars: Vars): Value {
       const a = evalNode(n.a, vars);
       return n.op === "!" ? !a : -num(a);
     }
-    case "call": return FUNCS[n.fn]!(...n.args.map((a) => num(evalNode(a, vars))));
+    case "call":
+      return FUNCS[n.fn]!(...n.args.map((a) => num(evalNode(a, vars))));
     case "bin": {
       if (n.op === "&&") return Boolean(evalNode(n.a, vars)) && Boolean(evalNode(n.b, vars));
       if (n.op === "||") return Boolean(evalNode(n.a, vars)) || Boolean(evalNode(n.b, vars));
       const a = num(evalNode(n.a, vars));
       const b = num(evalNode(n.b, vars));
       switch (n.op) {
-        case "+": return a + b;
-        case "-": return a - b;
-        case "*": return a * b;
-        case "/": return a / b;
-        case "%": return a % b;
-        case "<": return a < b;
-        case "<=": return a <= b;
-        case ">": return a > b;
-        case ">=": return a >= b;
-        case "==": return a === b;
-        case "!=": return a !== b;
+        case "+":
+          return a + b;
+        case "-":
+          return a - b;
+        case "*":
+          return a * b;
+        case "/":
+          return a / b;
+        case "%":
+          return a % b;
+        case "<":
+          return a < b;
+        case "<=":
+          return a <= b;
+        case ">":
+          return a > b;
+        case ">=":
+          return a >= b;
+        case "==":
+          return a === b;
+        case "!=":
+          return a !== b;
       }
     }
   }
@@ -171,8 +198,10 @@ export function goalVariables(src: string): string[] {
   const walk = (n: Node): void => {
     if (n.k === "var") names.add(n.name);
     else if (n.k === "un") walk(n.a);
-    else if (n.k === "bin") { walk(n.a); walk(n.b); }
-    else if (n.k === "call") n.args.forEach(walk);
+    else if (n.k === "bin") {
+      walk(n.a);
+      walk(n.b);
+    } else if (n.k === "call") n.args.forEach(walk);
   };
   walk(parseGoal(src));
   return [...names];

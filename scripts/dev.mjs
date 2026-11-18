@@ -10,7 +10,11 @@ const runPnpm = (args) => (pnpm ? [process.execPath, [pnpm, ...args]] : ["pnpm",
 
 function step(label, cmd, args) {
   console.log(`\n▸ ${label}`);
-  const r = spawnSync(cmd, args, { cwd: root, stdio: "inherit", shell: process.platform === "win32" && cmd === "pnpm" });
+  const r = spawnSync(cmd, args, {
+    cwd: root,
+    stdio: "inherit",
+    shell: process.platform === "win32" && cmd === "pnpm",
+  });
   if (r.status !== 0) {
     console.error(`\n✗ ${label} failed.`);
     process.exit(r.status ?? 1);
@@ -26,7 +30,11 @@ const child = spawn(
   process.execPath,
   [
     path.join(root, "node_modules", "concurrently", "dist", "bin", "index.js"),
-    "--names", "api,web", "--prefix-colors", "yellow,cyan", "--kill-others-on-fail",
+    "--names",
+    "api,web",
+    "--prefix-colors",
+    "yellow,cyan",
+    "--kill-others-on-fail",
     `${pnpmCmd} --filter @hampath/api dev`,
     `${pnpmCmd} --filter @hampath/web dev`,
   ],

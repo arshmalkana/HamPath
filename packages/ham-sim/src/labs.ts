@@ -27,7 +27,12 @@ export const SOCKET_ACCEPTS: Record<Socket, readonly PartKind[]> = {
   across: ["ammeter", "voltmeter"],
 };
 
-export const CORRECT_BOARD: Required<Board> = { source: "battery", series: "ammeter", load: "resistor", across: "voltmeter" };
+export const CORRECT_BOARD: Required<Board> = {
+  source: "battery",
+  series: "ammeter",
+  load: "resistor",
+  across: "voltmeter",
+};
 
 export interface OhmsLabState {
   topology: Topology;
@@ -93,24 +98,40 @@ export function readOhmsLab(s: OhmsLabState): OhmsReading {
 export function ohmsLabVariables(s: OhmsLabState): Vars {
   const r = readOhmsLab(s);
   const board = s.board ?? CORRECT_BOARD;
-  return { E: s.E, I: r.I, V: r.V, R: r.R, P: r.P, closed: s.closed, built: r.built, metered: board.across === "voltmeter" };
+  return {
+    E: s.E,
+    I: r.I,
+    V: r.V,
+    R: r.R,
+    P: r.P,
+    closed: s.closed,
+    built: r.built,
+    metered: board.across === "voltmeter",
+  };
 }
 
 function isBoard(x: unknown): x is Board {
   if (x === undefined) return true;
   if (typeof x !== "object" || x === null) return false;
   return Object.entries(x).every(
-    ([k, v]) => (SOCKETS as readonly string[]).includes(k) && (v === null || (SOCKET_ACCEPTS[k as Socket] as readonly string[]).includes(v as string)),
+    ([k, v]) =>
+      (SOCKETS as readonly string[]).includes(k) &&
+      (v === null || (SOCKET_ACCEPTS[k as Socket] as readonly string[]).includes(v as string)),
   );
 }
 
 function isOhmsState(x: unknown): x is OhmsLabState {
   const s = x as OhmsLabState;
   return (
-    typeof s === "object" && s !== null &&
+    typeof s === "object" &&
+    s !== null &&
     ["single", "series", "parallel"].includes(s.topology) &&
-    typeof s.E === "number" && Number.isFinite(s.E) && s.E >= 0 &&
-    Array.isArray(s.resistors) && s.resistors.length >= 1 && s.resistors.length <= 4 &&
+    typeof s.E === "number" &&
+    Number.isFinite(s.E) &&
+    s.E >= 0 &&
+    Array.isArray(s.resistors) &&
+    s.resistors.length >= 1 &&
+    s.resistors.length <= 4 &&
     s.resistors.every((r) => typeof r === "number" && r > 0 && Number.isFinite(r)) &&
     typeof s.closed === "boolean" &&
     isBoard(s.board)

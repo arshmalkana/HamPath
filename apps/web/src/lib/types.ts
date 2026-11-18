@@ -46,14 +46,50 @@ export interface LabStep {
 }
 
 export type Interaction =
-  | { kind: "predict"; prompt: string; choices: { text: string; correct: boolean; feedback: string }[]; reveal_lab_step?: string }
-  | { kind: "numeric"; prompt: string; unit: string; answer: number; tolerance: number; hint?: string; solution?: string[] }
+  | {
+      kind: "predict";
+      prompt: string;
+      choices: { text: string; correct: boolean; feedback: string }[];
+      reveal_lab_step?: string;
+    }
+  | {
+      kind: "numeric";
+      prompt: string;
+      unit: string;
+      answer: number;
+      tolerance: number;
+      hint?: string;
+      solution?: string[];
+    }
   | { kind: "reveal"; prompt?: string; items: { label: string; text: string }[] }
-  | { kind: "drag_drop"; prompt: string; items: { id: string; text: string }[]; slots: { id: string; label: string; accepts: string }[] }
+  | {
+      kind: "drag_drop";
+      prompt: string;
+      items: { id: string; text: string }[];
+      slots: { id: string; label: string; accepts: string }[];
+    }
   | { kind: "flashcards"; cards: { front: string; back: string }[] }
-  | { kind: "audio"; prompt: string; morse?: string; wpm: number; src?: string; transcript: string; choices?: { text: string; correct: boolean }[] };
+  | {
+      kind: "audio";
+      prompt: string;
+      morse?: string;
+      wpm: number;
+      src?: string;
+      transcript: string;
+      choices?: { text: string; correct: boolean }[];
+    };
 
-export type CardType = "hook" | "lab" | "concept" | "predict" | "numeric" | "worked_example" | "drag_drop" | "flashcards" | "audio";
+export type CardType =
+  | "intro"
+  | "hook"
+  | "lab"
+  | "concept"
+  | "predict"
+  | "numeric"
+  | "worked_example"
+  | "drag_drop"
+  | "flashcards"
+  | "audio";
 
 export interface Card {
   id: string;
@@ -97,7 +133,7 @@ export interface AttemptResult {
   correct_option_id: string | null;
   why_not: string | null;
   worked_solution: string[] | null;
-  teach_card: { id: string; title: string; href: string } | null;
+  teach_card: { id: string | null; title: string; href: string } | null;
   in_review_queue: boolean;
   mastered: boolean;
 }

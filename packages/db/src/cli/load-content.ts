@@ -6,7 +6,7 @@ import { ContentInvalidError, loadContent } from "../import/content.ts";
 const pool = createPool();
 try {
   const r = await loadContent(pool);
-  console.log(`Loaded ${r.lessons.length} authored lesson(s)`);
+  console.log(`Loaded ${r.lessons.length} authored lesson(s); ${r.stubs} minimal lesson(s) (intro + Check)`);
   for (const l of r.lessons) {
     console.log(`  ${l.code}: ${l.cards} cards, ${l.labSteps} lab steps, ${l.whyNot} Why not? notes`);
   }

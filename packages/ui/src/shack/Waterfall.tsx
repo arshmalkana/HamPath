@@ -95,8 +95,14 @@ export function Waterfall({ label, centerHz, spanHz, signals, tunedHz, onTune, t
   const onKey = (e: KeyboardEvent) => {
     if (!onTune || tunedHz === undefined) return;
     const map: Record<string, number> = {
-      ArrowRight: tunedHz + tuneStepHz, ArrowUp: tunedHz + tuneStepHz, ArrowLeft: tunedHz - tuneStepHz, ArrowDown: tunedHz - tuneStepHz,
-      PageUp: tunedHz + tuneStepHz * 10, PageDown: tunedHz - tuneStepHz * 10, Home: lo, End: lo + spanHz,
+      ArrowRight: tunedHz + tuneStepHz,
+      ArrowUp: tunedHz + tuneStepHz,
+      ArrowLeft: tunedHz - tuneStepHz,
+      ArrowDown: tunedHz - tuneStepHz,
+      PageUp: tunedHz + tuneStepHz * 10,
+      PageDown: tunedHz - tuneStepHz * 10,
+      Home: lo,
+      End: lo + spanHz,
     };
     if (e.key in map) {
       e.preventDefault();
@@ -112,8 +118,13 @@ export function Waterfall({ label, centerHz, spanHz, signals, tunedHz, onTune, t
         className="waterfall-tune"
         {...(tunable
           ? {
-              role: "slider", tabIndex: 0, "aria-label": `${label} tuning`, "aria-valuemin": lo, "aria-valuemax": lo + spanHz,
-              "aria-valuenow": tunedHz, "aria-valuetext": `${fmtMHz(tunedHz!)}${near ? `, on ${near.label ?? "a signal"}` : ""}`,
+              role: "slider",
+              tabIndex: 0,
+              "aria-label": `${label} tuning`,
+              "aria-valuemin": lo,
+              "aria-valuemax": lo + spanHz,
+              "aria-valuenow": tunedHz,
+              "aria-valuetext": `${fmtMHz(tunedHz!)}${near ? `, on ${near.label ?? "a signal"}` : ""}`,
               onKeyDown: onKey,
             }
           : { role: "img", "aria-label": label })}

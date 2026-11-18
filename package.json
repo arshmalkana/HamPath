@@ -14,7 +14,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "pnpm -r --parallel typecheck",
-    "check:content": "tsx packages/content/src/cli/check.ts",
+    "check:content": "tsx packages/content/src/cli/check-coverage.ts",
     "coverage": "tsx packages/content/src/cli/coverage.ts",
     "db:up": "docker compose up -d --wait db mailpit",
     "db:migrate": "pnpm --filter @hampath/db migrate",
@@ -25,7 +25,8 @@
     "db:setup": "pnpm db:up && pnpm db:migrate && pnpm db:seed && pnpm import:bank && pnpm db:load-content",
     "db:reset": "docker compose down -v db && pnpm db:setup",
     "db:make-admin": "pnpm --filter @hampath/db make-admin",
-    "smoke": "pnpm --filter @hampath/api smoke"
+    "smoke": "pnpm --filter @hampath/api smoke",
+    "check:coverage": "tsx packages/content/src/cli/check-coverage.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

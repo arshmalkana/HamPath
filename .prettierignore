@@ -4,3 +4,7 @@ pnpm-lock.yaml
 packages/db/migrations
 content/bank
 docs/coverage
+content
+docs/SPEC.md
+CLAUDE.md
+.hallmark

@@ -27,7 +27,12 @@ function browser() {
     body?: unknown,
     headers: Record<string, string> = {},
   ) {
-    const res = await app.inject({ method, url: `/api/v1${url}`, payload: body as object, headers: { cookie, ...headers } });
+    const res = await app.inject({
+      method,
+      url: `/api/v1${url}`,
+      payload: body as object,
+      headers: { cookie, ...headers },
+    });
     const set = res.headers["set-cookie"];
     for (const c of ([] as string[]).concat(set ?? [])) {
       const [pair] = c.split(";");
@@ -63,7 +68,9 @@ describe("GET /sections", () => {
     expect(status).toBe(200);
     expect(json).toHaveLength(8);
     expect(json.reduce((n: number, s: any) => n + s.lessons.length, 0)).toBe(100);
-    expect(json.reduce((n: number, s: any) => n + s.lessons.reduce((m: number, l: any) => m + l.questionCount, 0), 0)).toBe(984);
+    expect(
+      json.reduce((n: number, s: any) => n + s.lessons.reduce((m: number, l: any) => m + l.questionCount, 0), 0),
+    ).toBe(984);
     const l504 = json[4].lessons.find((l: any) => l.code === "5.04");
     expect(l504).toMatchObject({ title: "Ohm's Law", authored: true, labId: "LAB-20", questionCount: 11 });
   });
@@ -72,7 +79,10 @@ describe("GET /sections", () => {
 describe("GET /sections/:id", () => {
   it("finds a section by id or number", async () => {
     const call = browser();
-    expect((await call("GET", "/sections/B-005")).json).toMatchObject({ id: "B-005", title: "Basic Electronics & Theory" });
+    expect((await call("GET", "/sections/B-005")).json).toMatchObject({
+      id: "B-005",
+      title: "Basic Electronics & Theory",
+    });
     expect((await call("GET", "/sections/5")).json.lessons).toHaveLength(13);
   });
   it("404s an unknown section", async () => {
@@ -133,17 +143,27 @@ describe("POST /attempts", () => {
     const q6 = lesson.questions.find((q: any) => q.id === "B-005-004-006");
     const opt = (text: string) => q6.options.find((o: any) => o.text === text).id;
 
-    const miss = (await call("POST", "/attempts", { question_id: q6.id, option_id: opt("90 ohms"), context: "check", try: 1 })).json;
+    const miss = (
+      await call("POST", "/attempts", { question_id: q6.id, option_id: opt("90 ohms"), context: "check", try: 1 })
+    ).json;
     expect(miss).toMatchObject({ correct: false, revealed: false, correct_option_id: null, in_review_queue: true });
     expect(miss.why_not).toMatch(/10 mA as 0\.1 A/);
-    expect(miss.teach_card).toEqual({ id: "5.04/10-milliamps", title: "Milliamps first", href: "/lessons/5.04?card=5.04%2F10-milliamps" });
+    expect(miss.teach_card).toEqual({
+      id: "5.04/10-milliamps",
+      title: "Milliamps first",
+      href: "/lessons/5.04?card=5.04%2F10-milliamps",
+    });
 
-    const miss2 = (await call("POST", "/attempts", { question_id: q6.id, option_id: opt("9 ohms"), context: "check", try: 2 })).json;
+    const miss2 = (
+      await call("POST", "/attempts", { question_id: q6.id, option_id: opt("9 ohms"), context: "check", try: 2 })
+    ).json;
     expect(miss2.revealed).toBe(true);
     expect(miss2.correct_option_id).toBe(opt("900 ohms"));
     expect(miss2.worked_solution).toEqual(["10 mA = 0.01 A", "R = E ÷ I", "R = 9 V ÷ 0.01 A", "R = 900 Ω"]);
 
-    const right = (await call("POST", "/attempts", { question_id: q6.id, option_id: opt("900 ohms"), context: "review", try: 1 })).json;
+    const right = (
+      await call("POST", "/attempts", { question_id: q6.id, option_id: opt("900 ohms"), context: "review", try: 1 })
+    ).json;
     expect(right).toMatchObject({ correct: true, why_not: null, correct_option_id: opt("900 ohms") });
   });
 
@@ -162,9 +182,15 @@ describe("POST /attempts", () => {
     const call = browser();
     await call("POST", "/auth/guest");
     const [a] = await correctOptions("B-005-004-001");
-    expect((await call("POST", "/attempts", { question_id: "B-005-004-002", option_id: a!.id, context: "check" })).status).toBe(400);
-    expect((await call("POST", "/attempts", { question_id: "B-005-004-002", option_id: "nope", context: "check" })).status).toBe(400);
-    expect((await call("POST", "/attempts", { question_id: "B-005-004-002", option_id: a!.id, context: "exam" })).status).toBe(400);
+    expect(
+      (await call("POST", "/attempts", { question_id: "B-005-004-002", option_id: a!.id, context: "check" })).status,
+    ).toBe(400);
+    expect(
+      (await call("POST", "/attempts", { question_id: "B-005-004-002", option_id: "nope", context: "check" })).status,
+    ).toBe(400);
+    expect(
+      (await call("POST", "/attempts", { question_id: "B-005-004-002", option_id: a!.id, context: "exam" })).status,
+    ).toBe(400);
   });
 });
 
@@ -174,18 +200,21 @@ describe("POST /lab-events", () => {
     await call("POST", "/auth/guest");
     const step = "5.04/explore-current";
     const fake = await call("POST", "/lab-events", {
-      lab_step_id: step, event: "goal_met",
+      lab_step_id: step,
+      event: "goal_met",
       payload: { state: { topology: "single", E: 3, resistors: [30], closed: true }, I: 0.2 },
     });
     expect(fake.json).toEqual({ recorded: true, goal_verified: false, step: 0 });
     const unbuilt = await call("POST", "/lab-events", {
-      lab_step_id: step, event: "goal_met",
+      lab_step_id: step,
+      event: "goal_met",
       payload: { state: { topology: "single", E: 6, resistors: [30], closed: true } },
     });
     expect(unbuilt.json.goal_verified).toBe(false); // this step requires building the circuit
     const board = { source: "battery", series: "ammeter", load: "resistor", across: null };
     const real = await call("POST", "/lab-events", {
-      lab_step_id: step, event: "goal_met",
+      lab_step_id: step,
+      event: "goal_met",
       payload: { state: { topology: "single", E: 6, resistors: [30], closed: true, board } },
     });
     expect(real.json).toEqual({ recorded: true, goal_verified: true, step: 2 });
@@ -196,7 +225,9 @@ describe("POST /lab-events", () => {
   it("records other events and 404s unknown steps", async () => {
     const call = browser();
     await call("POST", "/auth/guest");
-    expect((await call("POST", "/lab-events", { lab_step_id: "5.04/sandbox", event: "hint_used" })).json.recorded).toBe(true);
+    expect((await call("POST", "/lab-events", { lab_step_id: "5.04/sandbox", event: "hint_used" })).json.recorded).toBe(
+      true,
+    );
     expect((await call("POST", "/lab-events", { lab_step_id: "nope", event: "started" })).status).toBe(404);
     expect((await call("POST", "/lab-events", { lab_step_id: "5.04/sandbox", event: "exploded" })).status).toBe(400);
   });
@@ -207,7 +238,13 @@ describe("lesson completion, summary and GET /me/readiness", () => {
     const call = browser();
     await call("POST", "/auth/guest");
     expect((await call("GET", "/me/readiness")).json).toMatchObject({
-      masteryPercent: 0, mastered: 0, totalQuestions: 984, mocksTaken: 0, readiness: null, mocksNeeded: 3, weakLessons: [],
+      masteryPercent: 0,
+      mastered: 0,
+      totalQuestions: 984,
+      mocksTaken: 0,
+      readiness: null,
+      mocksNeeded: 3,
+      weakLessons: [],
     });
 
     const opts = await correctOptions("B-005-004");
@@ -278,7 +315,8 @@ describe("auth: magic link", () => {
     expect((await other("POST", "/auth/magic-link", { email: "not-an-email" })).status).toBe(400);
     const spam = browser();
     const codes = [];
-    for (let i = 0; i < 6; i++) codes.push((await spam("POST", "/auth/magic-link", { email: "spam@example.com" })).status);
+    for (let i = 0; i < 6; i++)
+      codes.push((await spam("POST", "/auth/magic-link", { email: "spam@example.com" })).status);
     expect(codes).toEqual([202, 202, 202, 202, 202, 429]);
   });
 
@@ -332,7 +370,10 @@ describe("POST /admin/import-bank", () => {
     const preview = await call("POST", "/admin/import-bank?dry_run=true", bank, text);
     expect(preview.json).toMatchObject({ dryRun: true, unchanged: 984, added: [], changed: [], retired: [] });
 
-    const byToken = await browser()("POST", "/admin/import-bank?dry_run=true", "x", { ...text, "x-admin-token": "test-admin-token-123" });
+    const byToken = await browser()("POST", "/admin/import-bank?dry_run=true", "x", {
+      ...text,
+      "x-admin-token": "test-admin-token-123",
+    });
     expect(byToken.status).toBe(422);
   });
 });

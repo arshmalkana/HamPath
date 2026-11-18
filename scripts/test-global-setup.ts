@@ -12,13 +12,16 @@ import { TEST_DATABASE_URL } from "./test-env.ts";
 export default async function setup() {
   const url = new URL(TEST_DATABASE_URL);
   const dbName = url.pathname.slice(1);
-  if (!/_test$/.test(dbName)) throw new Error(`Refusing to recreate '${dbName}': test database names must end in _test`);
+  if (!/_test$/.test(dbName))
+    throw new Error(`Refusing to recreate '${dbName}': test database names must end in _test`);
 
   const admin = new pg.Client({ connectionString: Object.assign(new URL(url), { pathname: "/postgres" }).toString() });
   try {
     await admin.connect();
   } catch (e) {
-    throw new Error(`Cannot reach Postgres for tests at ${url.host}. Start it with: pnpm db:up\n${(e as Error).message}`);
+    throw new Error(
+      `Cannot reach Postgres for tests at ${url.host}. Start it with: pnpm db:up\n${(e as Error).message}`,
+    );
   }
   await admin.query(`DROP DATABASE IF EXISTS "${dbName}" WITH (FORCE)`);
   await admin.query(`CREATE DATABASE "${dbName}"`);

@@ -7,11 +7,15 @@ export function RelayHook({ guess, onGuess }: { guess: string | null; onGuess: (
       <div className="lab-task">
         <div>
           <p className="shack-label">Relay coil</p>
-          <p className="readout" style={{ textAlign: "left" }}>25 Ω · 200 mA</p>
+          <p className="readout" style={{ textAlign: "left" }}>
+            25 Ω · 200 mA
+          </p>
         </div>
       </div>
       <fieldset className="choices" style={{ gap: "var(--space-xs)" }}>
-        <legend className="shack-label" style={{ fontSize: "var(--text-sm)", fontWeight: 400 }}>Your guess: which supply output?</legend>
+        <legend className="shack-label" style={{ fontSize: "var(--text-sm)", fontWeight: 400 }}>
+          Your guess: which supply output?
+        </legend>
         <div className="chip-row">
           {["5 V", "8 V", "12 V"].map((v) => (
             <button key={v} type="button" className="chip" aria-pressed={guess === v} onClick={() => onGuess(v)}>
@@ -20,7 +24,11 @@ export function RelayHook({ guess, onGuess }: { guess: string | null; onGuess: (
           ))}
         </div>
       </fieldset>
-      {guess && <p className="lab-hint" role="status">Locked in: {guess}. You'll find out on the relay card.</p>}
+      {guess && (
+        <p className="lab-hint" role="status">
+          Locked in: {guess}. You’ll find out on the relay card.
+        </p>
+      )}
     </div>
   );
 }
@@ -39,7 +47,9 @@ export function OhmsTriangle({ focus, alt }: { focus: string | null; alt: string
         ["R", 158, 164],
       ].map(([k, x, y]) => (
         <g key={k as string} opacity={covered(k as string) ? 0.25 : 1}>
-          <text x={x as number} y={y as number} textAnchor="middle" fontSize="40" fontWeight="700" fill="currentColor">{k}</text>
+          <text x={x as number} y={y as number} textAnchor="middle" fontSize="40" fontWeight="700" fill="currentColor">
+            {k}
+          </text>
         </g>
       ))}
     </svg>

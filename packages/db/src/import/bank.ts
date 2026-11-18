@@ -41,7 +41,9 @@ async function assertLessonsSeeded(c: Client, qs: BankQuestion[]) {
   const have = new Set(rows.map((r) => r.id));
   const missing = [...new Set(qs.map((q) => q.lessonId))].filter((id) => !have.has(id)).sort();
   if (missing.length) {
-    throw new Error(`No lesson rows for ${missing.map(lessonCode).join(", ")}. Run pnpm db:seed first (or add them to docs/coverage).`);
+    throw new Error(
+      `No lesson rows for ${missing.map(lessonCode).join(", ")}. Run pnpm db:seed first (or add them to docs/coverage).`,
+    );
   }
 }
 
@@ -86,11 +88,20 @@ export async function importBank(
     await c.query("LOCK TABLE question IN EXCLUSIVE MODE");
     const existing = await loadExisting(c);
     const diff: ImportDiff = {
-      bankVersion: null, sha256: bank.sha256, dryRun: Boolean(opts.dryRun),
-      questionCount: bank.questions.length, added: [], changed: [], retired: [], unchanged: 0, lessonsNeedingReview: [],
+      bankVersion: null,
+      sha256: bank.sha256,
+      dryRun: Boolean(opts.dryRun),
+      questionCount: bank.questions.length,
+      added: [],
+      changed: [],
+      retired: [],
+      unchanged: 0,
+      lessonsNeedingReview: [],
     };
 
-    const { rows: [v] } = await c.query<{ id: number }>(
+    const {
+      rows: [v],
+    } = await c.query<{ id: number }>(
       "INSERT INTO bank_version (sha256, source_file, question_count) VALUES ($1,$2,$3) RETURNING id",
       [bank.sha256, opts.sourceFile, bank.questions.length],
     );
@@ -102,10 +113,13 @@ export async function importBank(
     for (const q of bank.questions) {
       const old = existing.get(q.id);
       if (!old) {
-        await c.query(
-          `INSERT INTO question (id, lesson_id, stem_en, stem_fr, bank_version) VALUES ($1,$2,$3,$4,$5)`,
-          [q.id, q.lessonId, q.stemEn, q.stemFr, version],
-        );
+        await c.query(`INSERT INTO question (id, lesson_id, stem_en, stem_fr, bank_version) VALUES ($1,$2,$3,$4,$5)`, [
+          q.id,
+          q.lessonId,
+          q.stemEn,
+          q.stemFr,
+          version,
+        ]);
         for (let s = 0; s < 4; s++) await insertOption(c, q.id, s, q.optionsEn[s]!, q.optionsFr[s]!, version);
         diff.added.push(q.id);
         review.add(q.lessonId);
@@ -129,10 +143,12 @@ export async function importBank(
         fields.push(s === 0 ? "correct_answer" : `distractor_${s}`);
       }
       if (fields.length) {
-        await c.query(
-          `UPDATE question SET stem_en=$2, stem_fr=$3, bank_version=$4, retired_in=NULL WHERE id=$1`,
-          [q.id, q.stemEn, q.stemFr, version],
-        );
+        await c.query(`UPDATE question SET stem_en=$2, stem_fr=$3, bank_version=$4, retired_in=NULL WHERE id=$1`, [
+          q.id,
+          q.stemEn,
+          q.stemFr,
+          version,
+        ]);
         diff.changed.push({ id: q.id, fields });
         review.add(q.lessonId);
       } else diff.unchanged++;
@@ -142,7 +158,10 @@ export async function importBank(
     for (const old of existing.values()) {
       if (old.retired_in !== null || inFile.has(old.id)) continue;
       await c.query("UPDATE question SET retired_in = $1 WHERE id = $2", [version, old.id]);
-      await c.query("UPDATE option SET retired_in = $1 WHERE question_id = $2 AND retired_in IS NULL", [version, old.id]);
+      await c.query("UPDATE option SET retired_in = $1 WHERE question_id = $2 AND retired_in IS NULL", [
+        version,
+        old.id,
+      ]);
       diff.retired.push(old.id);
     }
 
@@ -153,7 +172,10 @@ export async function importBank(
     );
     diff.lessonsNeedingReview = flagged.map((r) => r.id).sort();
     await c.query("UPDATE bank_version SET added=$2, changed=$3, retired=$4 WHERE id=$1", [
-      version, diff.added.length, diff.changed.length, diff.retired.length,
+      version,
+      diff.added.length,
+      diff.changed.length,
+      diff.retired.length,
     ]);
 
     const noChange = !diff.added.length && !diff.changed.length && !diff.retired.length;

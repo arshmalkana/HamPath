@@ -8,7 +8,10 @@ export type ServerResult<T> = { ok: true; data: T } | { ok: false; status: numbe
 /** Fetch from the API during server rendering, forwarding the learner's session cookie. */
 export async function serverApi<T>(path: string): Promise<ServerResult<T>> {
   const jar = await cookies();
-  const cookie = jar.getAll().map((c) => `${c.name}=${c.value}`).join("; ");
+  const cookie = jar
+    .getAll()
+    .map((c) => `${c.name}=${c.value}`)
+    .join("; ");
   try {
     const res = await fetch(`${API_ORIGIN}/api/v1${path}`, { headers: { cookie }, cache: "no-store" });
     const json = await res.json().catch(() => null);

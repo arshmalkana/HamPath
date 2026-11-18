@@ -20,7 +20,11 @@ export interface SessionUser {
 }
 
 export class HttpError extends Error {
-  constructor(public readonly status: number, message: string, public readonly details?: unknown) {
+  constructor(
+    public readonly status: number,
+    message: string,
+    public readonly details?: unknown,
+  ) {
     super(message);
   }
 }
@@ -62,7 +66,11 @@ export async function startSession(pool: Pool, req: FastifyRequest, reply: Fasti
   if (old) await pool.query("DELETE FROM session WHERE token_hash = $1", [sha256(old)]);
   const token = randomToken();
   const expires = new Date(Date.now() + SESSION_DAYS * 86_400_000);
-  await pool.query("INSERT INTO session (token_hash, user_id, expires_at) VALUES ($1,$2,$3)", [sha256(token), userId, expires]);
+  await pool.query("INSERT INTO session (token_hash, user_id, expires_at) VALUES ($1,$2,$3)", [
+    sha256(token),
+    userId,
+    expires,
+  ]);
   reply.setCookie(SESSION_COOKIE, token, cookieOptions(expires));
 }
 
@@ -94,7 +102,9 @@ export async function accountForVerifiedEmail(
 ): Promise<string> {
   const existing = await c.query<{ id: string }>(`SELECT id FROM "user" WHERE email = $1`, [email]);
   if (existing.rows[0]) {
-    await c.query(`UPDATE "user" SET email_verified_at = coalesce(email_verified_at, now()) WHERE id = $1`, [existing.rows[0].id]);
+    await c.query(`UPDATE "user" SET email_verified_at = coalesce(email_verified_at, now()) WHERE id = $1`, [
+      existing.rows[0].id,
+    ]);
     return existing.rows[0].id;
   }
   if (current?.isGuest) {

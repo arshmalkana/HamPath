@@ -1,0 +1,26 @@
+# Mock exam blueprint (SPEC §5, LAB-35).
+#
+# TO CONFIRM against ISED's current Basic Qualification exam specification before launch:
+# the per-section counts and the time limit below are placeholders. Section counts are
+# proportional to each section's share of the 984-question bank.
+#
+# How a mock is drawn: for each section, questions are first taken one per topic (lesson) from
+# randomly chosen topics; if the section's count is larger than its number of topics, the rest
+# are drawn at random from the section. No question appears twice in one exam. `topics` pins an
+# exact count for a topic; pinned questions count towards their section's total.
+version: draft-2026-11
+total_questions: 100
+time_limit_minutes: 180
+pass_percent: 70
+# Honours: 80% or more gives access to the amateur bands below 30 MHz.
+honours_percent: 80
+sections:
+  "1": 20 # Regulations & Policies (199 questions, 25 topics)
+  "2": 10 # Operating & Procedures (99, 9)
+  "3": 20 # Station Assembly, Practice & Safety (199, 21)
+  "4": 6 # Circuit Components (63, 6)
+  "5": 15 # Basic Electronics & Theory (142, 13)
+  "6": 14 # Feedlines & Antenna Systems (140, 13)
+  "7": 9 # Radio Wave Propagation (87, 8)
+  "8": 6 # Interference & Suppression (55, 5)
+topics: {}

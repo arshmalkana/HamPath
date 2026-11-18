@@ -154,17 +154,27 @@ describe("LAB-20 breadboard", () => {
   });
 
   it("a voltmeter in series blocks the current and reads the battery", () => {
-    const r = readOhmsLab({ ...base, board: { source: "battery", load: "resistor", series: "voltmeter", across: "ammeter" } });
+    const r = readOhmsLab({
+      ...base,
+      board: { source: "battery", load: "resistor", series: "voltmeter", across: "ammeter" },
+    });
     expect(r).toMatchObject({ fault: "voltmeter-in-series", I: 0, voltmeter: 6, ammeter: 0 });
   });
 
   it("an ammeter across the resistor is a short: the fuse blows", () => {
-    const r = readOhmsLab({ ...base, board: { source: "battery", load: "resistor", series: "ammeter", across: "ammeter" } });
+    const r = readOhmsLab({
+      ...base,
+      board: { source: "battery", load: "resistor", series: "ammeter", across: "ammeter" },
+    });
     expect(r).toMatchObject({ fault: "ammeter-across-load", I: 0 });
   });
 
   it("exposes goal variables and validates reported state", () => {
-    expect(labVariables("LAB-20", { ...base, board: CORRECT_BOARD })).toMatchObject({ built: true, metered: true, I: 0.2 });
+    expect(labVariables("LAB-20", { ...base, board: CORRECT_BOARD })).toMatchObject({
+      built: true,
+      metered: true,
+      I: 0.2,
+    });
     expect(labVariables("LAB-20", { ...base, board: { source: "resistor" } })).toBeNull();
     expect(labVariables("LAB-20", { ...base, E: -1 })).toBeNull();
     expect(labVariables("LAB-99", base)).toBeNull();

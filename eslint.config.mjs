@@ -20,6 +20,10 @@ export default tseslint.config(
     languageOptions: { globals: globals.node },
   },
   {
+    files: ["apps/web/public/sw.js"],
+    languageOptions: { globals: globals.serviceworker },
+  },
+  {
     files: ["**/*.test.ts"],
     rules: { "@typescript-eslint/no-explicit-any": "off" },
   },

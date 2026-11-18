@@ -2,7 +2,9 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Button, PhaseProgress, type Phase } from "@hampath/ui";
+import { cacheForOffline } from "@/components/OfflineSupport";
 import { api, ensureSession } from "@/lib/api";
+import { enqueue, isOffline } from "@/lib/outbox";
 import type { Card, Lesson, Question } from "@/lib/types";
 import { QuestionScreen, emptyQuestionState, type QuestionState } from "./QuestionScreen";
 import { RecapScreen } from "./RecapScreen";
@@ -18,11 +20,16 @@ const PHASES: PhaseName[] = ["Hook", "Explore", "Learn", "Check", "Recap"];
 
 /** SPEC §3 order: Hook → Explore (lab) → Learn cards → Check (every question) → Recap. */
 function buildScreens(lesson: Lesson): Screen[] {
-  const firstLearn = lesson.cards.findIndex((c) => c.type !== "hook" && c.type !== "lab");
+  const firstLearn = lesson.cards.findIndex((c) => c.type !== "hook" && c.type !== "lab" && c.type !== "intro");
   const cards: Screen[] = lesson.cards.map((card, i) => ({
     kind: "card",
     card,
-    phase: card.type === "hook" ? "Hook" : card.type === "lab" && (firstLearn === -1 || i < firstLearn) ? "Explore" : "Learn",
+    phase:
+      card.type === "hook" || card.type === "intro"
+        ? "Hook"
+        : card.type === "lab" && (firstLearn === -1 || i < firstLearn)
+          ? "Explore"
+          : "Learn",
   }));
   const qs: Screen[] = lesson.questions.map((q, i) => ({ kind: "question", q, n: i + 1, phase: "Check" }));
   return [...cards, ...qs, { kind: "recap", phase: "Recap" }];
@@ -46,7 +53,11 @@ export function LessonPlayer({ lesson, initialCardId }: { lesson: Lesson; initia
 
   useEffect(() => {
     void ensureSession().catch(() => undefined);
-  }, []);
+    // Keep this lesson's whole section available offline (SPEC §6).
+    api<{ lessons: { code: string }[] }>("GET", `/sections/${lesson.section.id}`)
+      .then((s) => cacheForOffline(s.lessons.map((l) => `/lessons/${l.code}`)))
+      .catch(() => undefined);
+  }, [lesson.section.id]);
 
   const screen = screens[index]!;
   const markDone = useCallback((i: number) => setDone((d) => (d.has(i) ? d : new Set(d).add(i))), []);
@@ -54,7 +65,9 @@ export function LessonPlayer({ lesson, initialCardId }: { lesson: Lesson; initia
   const go = (to: number) => {
     const target = Math.max(0, Math.min(screens.length - 1, to));
     if (target > index) {
-      void api("PUT", `/lessons/${lesson.code}/progress`, { step: target }).catch(() => undefined);
+      void api("PUT", `/lessons/${lesson.code}/progress`, { step: target }).catch((e) => {
+        if (isOffline(e)) enqueue("PUT", `/lessons/${lesson.code}/progress`, { step: target });
+      });
     }
     setIndex(target);
     window.scrollTo({ top: 0 });
@@ -64,35 +77,56 @@ export function LessonPlayer({ lesson, initialCardId }: { lesson: Lesson; initia
     const idx = screens.map((s, i) => (s.phase === name ? i : -1)).filter((i) => i >= 0);
     const complete = idx.filter((i) => done.has(i) || i < index).length;
     return { label: name, fill: idx.length ? complete / idx.length : 1, current: screen.phase === name };
-  }).filter((p) => p.label !== "Explore" || screens.some((s) => s.phase === "Explore"));
+  }).filter((p) => screens.some((s) => s.phase === p.label));
 
   const canContinue = done.has(index) || screen.kind === "recap";
   const status =
     screen.kind === "card" && !canContinue
-      ? screen.card.type === "lab" ? "Reach the goal (or use the hints) to continue" : "Answer to continue"
-      : screen.kind === "question" && !canContinue ? "Answer to continue" : "";
+      ? screen.card.type === "lab"
+        ? "Reach the goal (or use the hints) to continue"
+        : "Answer to continue"
+      : screen.kind === "question" && !canContinue
+        ? "Answer to continue"
+        : "";
 
   let body: React.ReactNode;
   if (screen.kind === "card") {
     const S = SCREENS[screen.card.type];
     body = (
-      <S key={screen.card.id} card={screen.card} done={done.has(index)} onDone={() => markDone(index)}
-        memory={memory} remember={(k, v) => setMemory((m) => ({ ...m, [k]: v }))} labSteps={lesson.labSteps} />
+      <S
+        key={screen.card.id}
+        card={screen.card}
+        done={done.has(index)}
+        onDone={() => markDone(index)}
+        memory={memory}
+        remember={(k, v) => setMemory((m) => ({ ...m, [k]: v }))}
+        labSteps={lesson.labSteps}
+      />
     );
   } else if (screen.kind === "question") {
     const qi = index;
     body = (
-      <QuestionScreen key={screen.q.id} q={screen.q} number={screen.n} total={lesson.questions.length}
+      <QuestionScreen
+        key={screen.q.id}
+        q={screen.q}
+        number={screen.n}
+        total={lesson.questions.length}
         state={answers[screen.q.id] ?? emptyQuestionState}
         setState={(s) => setAnswers((a) => ({ ...a, [screen.q.id]: s }))}
         onDone={() => markDone(qi)}
         onSeeAgain={(cardId) => {
           setReturnTo(qi);
           go(screens.findIndex((s) => s.kind === "card" && s.card.id === cardId));
-        }} />
+        }}
+      />
     );
   } else {
-    body = <RecapScreen lesson={lesson} onJumpToQuestion={(qid) => go(screens.findIndex((s) => s.kind === "question" && s.q.id === qid))} />;
+    body = (
+      <RecapScreen
+        lesson={lesson}
+        onJumpToQuestion={(qid) => go(screens.findIndex((s) => s.kind === "question" && s.q.id === qid))}
+      />
+    );
   }
 
   return (
@@ -100,8 +134,13 @@ export function LessonPlayer({ lesson, initialCardId }: { lesson: Lesson; initia
       <header className="player-head">
         <div className="container player-head-inner">
           <div className="player-title-row">
-            <p className="player-title"><span className="player-title-code">{lesson.code}</span>{lesson.title}</p>
-            <span className="player-count">Screen {index + 1} of {screens.length}</span>
+            <p className="player-title">
+              <span className="player-title-code">{lesson.code}</span>
+              {lesson.title}
+            </p>
+            <span className="player-count">
+              Screen {index + 1} of {screens.length}
+            </span>
           </div>
           <PhaseProgress phases={phases} label="Lesson progress" />
         </div>
@@ -111,13 +150,35 @@ export function LessonPlayer({ lesson, initialCardId }: { lesson: Lesson; initia
       </main>
       <footer className="player-foot">
         <div className="container player-foot-inner">
-          {index > 0 ? <Button variant="quiet" onClick={() => go(index - 1)}>Back</Button> : <Link className="btn btn-quiet" href="/">Course map</Link>}
-          <span className="player-foot-status" aria-live="polite">{status}</span>
+          {index > 0 ? (
+            <Button variant="quiet" onClick={() => go(index - 1)}>
+              Back
+            </Button>
+          ) : (
+            <Link className="btn btn-quiet" href="/">
+              Course map
+            </Link>
+          )}
+          <span className="player-foot-status" aria-live="polite">
+            {status}
+          </span>
           {returnTo !== null && screen.kind === "card" ? (
-            <Button onClick={() => { const r = returnTo; setReturnTo(null); go(r); }}>Back to question</Button>
+            <Button
+              onClick={() => {
+                const r = returnTo;
+                setReturnTo(null);
+                go(r);
+              }}
+            >
+              Back to question
+            </Button>
           ) : screen.kind !== "recap" ? (
             <Button onClick={() => go(index + 1)} disabled={!canContinue}>
-              {index + 1 === firstCheck ? "Start the Check" : screens[index + 1]?.kind === "recap" ? "Finish" : "Continue"}
+              {index + 1 === firstCheck
+                ? "Start the Check"
+                : screens[index + 1]?.kind === "recap"
+                  ? "Finish"
+                  : "Continue"}
             </Button>
           ) : null}
         </div>

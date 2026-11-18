@@ -23,7 +23,9 @@ try {
   });
   const head = dryRun ? "Dry run (nothing written)" : `Imported as bank_version ${diff.bankVersion}`;
   console.log(`${head}: ${diff.questionCount} questions, sha256 ${diff.sha256.slice(0, 12)}…`);
-  console.log(`  added ${diff.added.length} · changed ${diff.changed.length} · retired ${diff.retired.length} · unchanged ${diff.unchanged}`);
+  console.log(
+    `  added ${diff.added.length} · changed ${diff.changed.length} · retired ${diff.retired.length} · unchanged ${diff.unchanged}`,
+  );
   for (const c of diff.changed.slice(0, 20)) console.log(`  changed ${c.id}: ${c.fields.join(", ")}`);
   for (const r of diff.retired.slice(0, 20)) console.log(`  retired ${r}`);
   if (diff.lessonsNeedingReview.length) {

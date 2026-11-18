@@ -7,7 +7,19 @@ export function cx(...xs: (string | false | null | undefined)[]) {
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & { variant?: "primary" | "quiet" | "link" };
 export function Button({ variant = "primary", className, type = "button", ...rest }: ButtonProps) {
-  return <button type={type} className={cx("btn", variant === "primary" && "btn-primary", variant === "quiet" && "btn-quiet", variant === "link" && "btn-link", className)} {...rest} />;
+  return (
+    <button
+      type={type}
+      className={cx(
+        "btn",
+        variant === "primary" && "btn-primary",
+        variant === "quiet" && "btn-quiet",
+        variant === "link" && "btn-link",
+        className,
+      )}
+      {...rest}
+    />
+  );
 }
 
 export function ExamFact({ children }: { children: ReactNode }) {
@@ -19,7 +31,15 @@ export function ExamFact({ children }: { children: ReactNode }) {
   );
 }
 
-export function Feedback({ tone, title, children }: { tone: "good" | "bad" | "neutral"; title: string; children?: ReactNode }) {
+export function Feedback({
+  tone,
+  title,
+  children,
+}: {
+  tone: "good" | "bad" | "neutral";
+  title: string;
+  children?: ReactNode;
+}) {
   return (
     <div className="feedback" data-tone={tone} role="status">
       <p className="feedback-title">{title}</p>
@@ -39,8 +59,14 @@ export interface Phase {
 export function PhaseProgress({ phases, label }: { phases: Phase[]; label: string }) {
   const done = phases.reduce((s, p) => s + p.fill, 0);
   return (
-    <div role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={phases.length} aria-valuenow={Math.round(done * 10) / 10}
-      aria-valuetext={`${phases.find((p) => p.current)?.label ?? ""} step, ${Math.round((done / phases.length) * 100)}% through the lesson`}>
+    <div
+      role="progressbar"
+      aria-label={label}
+      aria-valuemin={0}
+      aria-valuemax={phases.length}
+      aria-valuenow={Math.round(done * 10) / 10}
+      aria-valuetext={`${phases.find((p) => p.current)?.label ?? ""} step, ${Math.round((done / phases.length) * 100)}% through the lesson`}
+    >
       <ol className="phases">
         {phases.map((p) => (
           <li key={p.label} className="phase" data-current={p.current}>
@@ -59,7 +85,19 @@ export function PhaseProgress({ phases, label }: { phases: Phase[]; label: strin
  * Mastery ring: mastered (green) and learning (accent) segments of `total` questions.
  * The numbers are in the accessible name; colour is never the only signal (the legend says it too).
  */
-export function MasteryRing({ total, mastered, learning, size = 200, caption }: { total: number; mastered: number; learning: number; size?: number; caption?: string }) {
+export function MasteryRing({
+  total,
+  mastered,
+  learning,
+  size = 200,
+  caption,
+}: {
+  total: number;
+  mastered: number;
+  learning: number;
+  size?: number;
+  caption?: string;
+}) {
   const r = 80;
   const c = 2 * Math.PI * r;
   const m = total ? (mastered / total) * c : 0;
@@ -68,10 +106,31 @@ export function MasteryRing({ total, mastered, learning, size = 200, caption }: 
   return (
     <svg viewBox="0 0 200 200" width={size} height={size} role="img" aria-label={label}>
       <circle className="ring-track" cx="100" cy="100" r={r} strokeWidth="16" />
-      <circle className="ring-seg-mastered" cx="100" cy="100" r={r} strokeWidth="16" strokeDasharray={`${m} ${c}`} transform="rotate(-90 100 100)" />
-      <circle className="ring-seg-learning" cx="100" cy="100" r={r} strokeWidth="16" strokeDasharray={`${l} ${c}`} strokeDashoffset={-m} transform="rotate(-90 100 100)" />
-      <text className="ring-num" x="100" y="104" textAnchor="middle">{mastered + learning}/{total}</text>
-      <text className="ring-sub" x="100" y="126" textAnchor="middle">{caption ?? "answered right"}</text>
+      <circle
+        className="ring-seg-mastered"
+        cx="100"
+        cy="100"
+        r={r}
+        strokeWidth="16"
+        strokeDasharray={`${m} ${c}`}
+        transform="rotate(-90 100 100)"
+      />
+      <circle
+        className="ring-seg-learning"
+        cx="100"
+        cy="100"
+        r={r}
+        strokeWidth="16"
+        strokeDasharray={`${l} ${c}`}
+        strokeDashoffset={-m}
+        transform="rotate(-90 100 100)"
+      />
+      <text className="ring-num" x="100" y="104" textAnchor="middle">
+        {mastered + learning}/{total}
+      </text>
+      <text className="ring-sub" x="100" y="126" textAnchor="middle">
+        {caption ?? "answered right"}
+      </text>
     </svg>
   );
 }
@@ -103,8 +162,14 @@ export function ThemeToggle() {
     }
   };
   return (
-    <button type="button" className="toplink" onClick={choose} aria-label={`Theme: ${pref}. Switch to ${next[pref]}`} suppressHydrationWarning>
-      Theme: {pref}
+    <button
+      type="button"
+      className="toplink"
+      onClick={choose}
+      aria-label={`Theme: ${pref}. Switch to ${next[pref]}`}
+      suppressHydrationWarning
+    >
+      {pref === "system" ? "Auto" : pref === "light" ? "Light" : "Dark"}
     </button>
   );
 }
