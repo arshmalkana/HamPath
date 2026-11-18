@@ -1,0 +1,18 @@
+---
+type: predict
+title: Double the resistance
+teaches: [B-005-004-002]
+interaction:
+  kind: predict
+  prompt: "12 V across 48 Ω gave 0.25 A. Swap in a 96 Ω resistor and keep the same battery. What happens to the current?"
+  choices:
+    - text: It doubles to 0.5 A
+      feedback: "More resistance holds current back, so it can't go up. I = E ÷ R, and R just got bigger."
+    - text: It halves to 0.125 A
+      correct: true
+      feedback: "Right. Resistance is underneath in I = E ÷ R: double it and the current halves. 12 ÷ 96 = 0.125 A."
+    - text: It stays at 0.25 A
+      feedback: "The battery is the same, but the resistor isn't. I = E ÷ R, so a bigger R means a smaller I."
+  reveal_lab_step: predict-double
+---
+Predict first, then watch the meter.

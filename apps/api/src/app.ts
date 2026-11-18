@@ -1,0 +1,43 @@
+import cookie from "@fastify/cookie";
+import Fastify, { type FastifyInstance } from "fastify";
+import { ZodError } from "zod";
+import type { Pool } from "@hampath/db";
+import { HttpError } from "./auth.ts";
+import { adminRoutes } from "./routes/admin.ts";
+import { authRoutes } from "./routes/auth.ts";
+import { contentRoutes } from "./routes/content.ts";
+import { learnRoutes, readinessRoutes } from "./routes/learn.ts";
+
+export async function buildApp(pool: Pool, opts: { logger?: boolean } = {}): Promise<FastifyInstance> {
+  const app = Fastify({ logger: opts.logger ?? false, trustProxy: true });
+  await app.register(cookie);
+
+  app.setErrorHandler((err, _req, reply) => {
+    if (err instanceof ZodError) {
+      return reply.status(400).send({ error: err.issues[0]?.message ?? "Invalid request", issues: err.issues });
+    }
+    if (err instanceof HttpError) {
+      return reply.status(err.status).send({ error: err.message, ...(err.details ? { details: err.details } : {}) });
+    }
+    const status = (err as { statusCode?: number }).statusCode;
+    if (status && status < 500) return reply.status(status).send({ error: (err as Error).message });
+    app.log.error(err);
+    return reply.status(500).send({ error: "Internal error" });
+  });
+
+  await app.register(
+    async (v1) => {
+      v1.get("/health", async () => {
+        await pool.query("SELECT 1");
+        return { ok: true };
+      });
+      authRoutes(v1, pool);
+      contentRoutes(v1, pool);
+      learnRoutes(v1, pool);
+      readinessRoutes(v1, pool);
+      adminRoutes(v1, pool);
+    },
+    { prefix: "/api/v1" },
+  );
+  return app;
+}

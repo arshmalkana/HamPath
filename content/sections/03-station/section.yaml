@@ -1,0 +1,8 @@
+id: B-003
+number: 3
+title_en: "Station Assembly, Practice & Safety"
+# title_fr: to be confirmed against the official ISED French section names (Phase 3)
+recommended_order: 4
+checkpoint:
+  pass_percent: 80
+  mastered_sample: 0.2

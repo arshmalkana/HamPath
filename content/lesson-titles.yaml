@@ -1,0 +1,103 @@
+# Working titles for all 100 lessons, drafted from each topic group's questions.
+# They feed docs/coverage/ and the database seed. An authored lesson's lesson.yaml title wins.
+# Status: draft, to be confirmed by the licensed technical reviewer (SPEC §8, authoring step 2).
+"1.01": Who makes the rules
+"1.02": Your certificate and keeping it current
+"1.03": Penalties and prohibited transmissions
+"1.04": Who can get a certificate
+"1.05": Operating for other people's equipment
+"1.06": Who you may talk to, and supervision
+"1.07": Prohibited content and business use
+"1.08": Where you may operate and station types
+"1.09": Who is responsible for a station
+"1.10": Interference and secondary allocations
+"1.11": Distress, emergencies and relief operations
+"1.12": No payment for messages
+"1.13": Call signs and station identification
+"1.14": Third-party traffic and foreign operators
+"1.15": Qualifications and their privileges
+"1.16": Bandwidth limits by band
+"1.17": Transmitter power limits
+"1.18": Repeaters, beacons and test carriers
+"1.19": Frequency stability and overmodulation
+"1.20": International communications
+"1.21": ITU regions and operating abroad
+"1.22": Examinations and fees
+"1.23": Antenna structures and land-use consultation
+"1.24": RF exposure and Safety Code 6
+"1.25": Field strength and EMC complaints
+"2.01": Repeater operating
+"2.02": Phonetic alphabet and voice identification
+"2.03": Calling CQ on voice, and simplex
+"2.04": Listen first, and on-air courtesy
+"2.05": Calling CQ in Morse code
+"2.06": RST signal reports
+"2.07": Q codes
+"2.08": Distress and urgency calls
+"2.09": QSL cards, maps and grid squares
+"3.01": Low-pass filters in the station
+"3.02": The FM transmitter
+"3.03": The superheterodyne receiver
+"3.04": The CW transmitter
+"3.05": The SSB/CW receiver
+"3.06": The SSB transmitter
+"3.07": Sound-card interfaces for digital modes
+"3.08": The linear power supply
+"3.09": Parts of a Yagi antenna
+"3.10": Mode bandwidths and receiver performance
+"3.11": "CW transmitter problems: chirp and clicks"
+"3.12": SSB transmitter adjustment and PEP
+"3.13": FM deviation, squelch and capture
+"3.14": Keyers, microphones and station accessories
+"3.15": Digital modes and packet radio
+"3.16": Batteries
+"3.17": Power supplies for the station
+"3.18": Station security and electrical hazards
+"3.19": Grounding, bonding and fuses
+"3.20": Lightning protection
+"3.21": Antenna and RF safety
+"4.01": Amplifiers
+"4.02": Diodes and Zener diodes
+"4.03": Bipolar transistors
+"4.04": Field-effect transistors
+"4.05": Vacuum tubes
+"4.06": Resistor colour code
+"5.01": Metric prefixes and unit conversions
+"5.02": Conductors, insulators and current
+"5.03": Electrical power
+"5.04": Ohm's Law
+"5.05": Series and parallel resistors
+"5.06": Power calculations and resistor ratings
+"5.07": Frequency, audio and radio waves
+"5.08": Decibels
+"5.09": Inductors and capacitors in series and parallel
+"5.10": Reactance
+"5.11": Transformers
+"5.12": Resonance and tuned circuits
+"5.13": Meters and measurements
+"6.01": Transmission lines and characteristic impedance
+"6.02": Types of transmission line
+"6.03": Coaxial cable, baluns and chokes
+"6.04": Feedline loss and connectors
+"6.05": Standing wave ratio
+"6.06": Antenna tuners and matching
+"6.07": Polarization
+"6.08": Wavelength and dipole length
+"6.09": Gain, directivity and parasitic elements
+"6.10": Vertical antennas
+"6.11": Yagi antennas
+"6.12": Wire antennas and dipole patterns
+"6.13": Quad and delta loop antennas
+"7.01": Ground wave, line of sight and sky wave
+"7.02": The ionosphere and its regions
+"7.03": Skip zone and hop distance
+"7.04": Absorption and fading
+"7.05": Sunspots and the solar cycle
+"7.06": Critical and maximum usable frequency
+"7.07": "VHF propagation: sporadic E and tropospheric ducting"
+"7.08": Scatter, meteor and auroral propagation
+"8.01": Receiver overload
+"8.02": Curing interference to home electronics
+"8.03": Intermodulation and spurious emissions
+"8.04": Harmonics
+"8.05": Filters

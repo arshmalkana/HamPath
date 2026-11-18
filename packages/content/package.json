@@ -1,0 +1,18 @@
+{
+  "name": "@hampath/content",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "ISED bank parser, content-tree reader, CI validation and coverage report.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p ."
+  },
+  "dependencies": {
+    "@hampath/ham-sim": "workspace:*",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.7"
+  }
+}

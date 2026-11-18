@@ -1,0 +1,141 @@
+{
+  "lab": "LAB-20",
+  "steps": {
+    "explore-current": {
+      "title": "Build it, then push some current",
+      "prompt": "Drag the battery, the resistor and the ammeter onto the breadboard. Close the switch, then turn up the battery until the ammeter reads 0.2 A.",
+      "config": {
+        "E": 0,
+        "resistors": [
+          30
+        ],
+        "closed": false,
+        "build": true,
+        "controls": {
+          "E": {
+            "min": 0,
+            "max": 12,
+            "step": 0.5
+          },
+          "R": false,
+          "switch": true
+        }
+      },
+      "goal": "built && closed && approx(I, 0.2)",
+      "goal_text": "Circuit built, ammeter reads 0.2 A",
+      "hints": [
+        "The battery goes on the left, the resistor on the right. The ammeter fills the gap at the top so current can flow through it.",
+        "Current needs a complete loop. Close the switch.",
+        "Each volt pushes 1/30 of an ampere through 30 Ω. How many volts make 0.2 A?",
+        "Try 6 V."
+      ],
+      "success": "6 volts pushes 0.2 amperes through 30 ohms. More voltage, more current."
+    },
+    "explore-resistance": {
+      "title": "Hold the current back",
+      "prompt": "The battery is fixed at 12 V. Change the resistor until the ammeter reads 0.25 A.",
+      "config": {
+        "E": 12,
+        "resistors": [
+          100
+        ],
+        "closed": true,
+        "controls": {
+          "E": false,
+          "R": {
+            "min": 1,
+            "max": 100,
+            "step": 1
+          },
+          "switch": false
+        }
+      },
+      "goal": "approx(I, 0.25)",
+      "goal_text": "Ammeter reads 0.25 A",
+      "hints": [
+        "Right now the current is too small. Less resistance lets more current through.",
+        "You need a resistor that lets exactly a quarter of an ampere through from 12 V.",
+        "Try 48 Ω."
+      ],
+      "success": "48 ohms lets 0.25 amperes flow from 12 volts. More resistance, less current."
+    },
+    "explore-voltage": {
+      "title": "How much push?",
+      "prompt": "Set the resistor to 2 Ω, then find the battery voltage that pushes exactly 0.5 A through it.",
+      "config": {
+        "E": 6,
+        "resistors": [
+          10
+        ],
+        "closed": true,
+        "controls": {
+          "E": {
+            "min": 0,
+            "max": 12,
+            "step": 0.5
+          },
+          "R": {
+            "min": 1,
+            "max": 100,
+            "step": 1
+          },
+          "switch": false
+        }
+      },
+      "goal": "R == 2 && approx(I, 0.5)",
+      "goal_text": "0.5 A flowing through 2 Ω",
+      "hints": [
+        "Drag the resistor all the way down to 2 Ω first.",
+        "With 2 Ω, every volt pushes half an ampere.",
+        "Try 1 V."
+      ],
+      "success": "Just 1 volt: 0.5 A × 2 Ω = 1 V."
+    },
+    "predict-double": {
+      "title": "Double the resistance",
+      "prompt": "Same 12 V battery, but the 48 Ω resistor has been swapped for 96 Ω.",
+      "config": {
+        "E": 12,
+        "resistors": [
+          96
+        ],
+        "closed": true,
+        "controls": {
+          "E": false,
+          "R": false,
+          "switch": false
+        }
+      }
+    },
+    "sandbox": {
+      "title": "Check any number",
+      "prompt": "Type any voltage and resistance, including prefixes like 10m or 2.2k, and read the current and power.",
+      "config": {
+        "E": 9,
+        "resistors": [
+          900
+        ],
+        "closed": true,
+        "controls": {
+          "E": {
+            "min": 0,
+            "max": 12,
+            "step": 0.5
+          },
+          "R": {
+            "min": 1,
+            "max": 1000,
+            "step": 1
+          },
+          "switch": true,
+          "typed": true
+        },
+        "show": {
+          "ammeter": true,
+          "voltmeter": true,
+          "power": true
+        }
+      }
+    }
+  }
+}

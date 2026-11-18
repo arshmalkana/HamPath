@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-005-004-001:
+  "0.25 volts": "That's 0.5 ÷ 2: current divided by resistance. Voltage is current times resistance: 0.5 A × 2 Ω = 1 V."
+  "2.5 volts": "That's 0.5 + 2. Ohm's Law multiplies, it never adds: E = I × R = 0.5 × 2 = 1 V."
+  "1.5 volts": "That's 2 − 0.5. Ohm's Law has no subtraction: E = I × R = 0.5 × 2 = 1 V."
+B-005-004-002:
+  "Current equals resistance multiplied by voltage": "Multiplying would make current grow as resistance grows. More resistance means less current, so resistance divides: I = E ÷ R."
+  "Current equals resistance divided by voltage": "Upside down. More voltage pushes more current, so voltage goes on top: I = E ÷ R."
+  "Current equals power divided by voltage": "I = P ÷ E is a real formula, but it needs the power, which you don't know here. With voltage and resistance, use I = E ÷ R."
+B-005-004-003:
+  "Resistance equals current multiplied by voltage": "Resistance is how many volts it takes per ampere, which is a ratio: R = E ÷ I, not a product. (E × I is power.)"
+  "Resistance equals power divided by voltage": "Power isn't one of the known values. With voltage and current known, R = E ÷ I."
+  "Resistance equals current divided by voltage": "Upside down. If it takes more volts to push the same current, the resistance is higher, so voltage goes on top: R = E ÷ I."
+B-005-004-004:
+  "Voltage equals current divided by resistance": "That would mean a bigger resistor needs less voltage to push the same current, the opposite of what the lab showed. E = I × R."
+  "Voltage equals resistance divided by current": "Voltage grows with both current and resistance, so multiply them: E = I × R."
+  "Voltage equals power divided by current": "E = P ÷ I is a real formula, but the power isn't given. With current and resistance known, E = I × R."
+B-005-004-005:
+  "3 ohms": "That's 12 × 0.25, multiplying instead of dividing. R = E ÷ I = 12 ÷ 0.25 = 48 Ω."
+  "12 ohms": "That's just the voltage. Divide it by the current: 12 V ÷ 0.25 A = 48 Ω."
+  "0.25 ohms": "That's just the current. Resistance is voltage ÷ current: 12 ÷ 0.25 = 48 Ω."
+B-005-004-006:
+  "90 ohms": "That treats 10 mA as 0.1 A. Ten milliamperes is 0.010 A, so R = 9 ÷ 0.010 = 900 Ω."
+  "9 ohms": "That treats 10 mA as 1 A. Convert first: 10 mA = 0.010 A, then R = 9 ÷ 0.010 = 900 Ω."
+  "9000 ohms": "That treats 10 mA as 0.001 A, which is only 1 mA. 10 mA = 0.010 A, so R = 9 ÷ 0.010 = 900 Ω."
+B-005-004-007:
+  "222 volts": "Way too big. Sense check: about half an ampere through 50 Ω is about 25 V. Exactly: 0.44 × 50 = 22 V."
+  "2.2 volts": "The decimal point slipped one place. E = I × R = 0.44 A × 50 Ω = 22 V."
+  "0.22 volts": "The decimal point slipped two places. E = I × R = 0.44 A × 50 Ω = 22 V."
+B-005-004-008:
+  "2 amperes": "Ten times too much: 2 A would need a 3 Ω resistor. I = E ÷ R = 6 ÷ 30 = 0.2 A."
+  "0.5 amperes": "0.5 A would need a 12 Ω resistor. With 30 Ω, I = E ÷ R = 6 ÷ 30 = 0.2 A."
+  "0.005 amperes": "Far too small: that would need a 1200 Ω resistor. I = E ÷ R = 6 ÷ 30 = 0.2 A."
+B-005-004-009:
+  "8 volts": "That's 200 ÷ 25: dividing, with milliamperes left unconverted. 200 mA = 0.2 A, and E = I × R = 0.2 × 25 = 5 V."
+  "0.5 volts": "That treats 200 mA as 0.02 A. 200 mA = 0.2 A, so E = 0.2 × 25 = 5 V."
+  "50 volts": "That treats 200 mA as 2 A. 200 mA = 0.2 A, so E = 0.2 × 25 = 5 V."
+B-005-004-010:
+  "R = I / E": "Upside down. Resistance is volts per ampere, so E goes on top: R = E / I."
+  "R = E squared / I": "Squares belong in the power formulas (P = E² / R). Ohm's Law has none: R = E / I."
+  "R = E x I": "E × I is power (P = E × I), not resistance. R = E / I."
+B-005-004-011:
+  "9 ohms": "Close, but no Ohm's Law step gives 9. Convert 300 mA = 0.3 A, then R = 3 ÷ 0.3 = 10 Ω."
+  "5 ohms": "Check the division: 3 ÷ 0.3 = 10. Dividing by a number smaller than 1 gives a bigger answer."
+  "3 ohms": "That's just the voltage, as if the current were 1 A. 300 mA = 0.3 A, so R = 3 ÷ 0.3 = 10 Ω."

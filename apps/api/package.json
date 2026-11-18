@@ -1,0 +1,24 @@
+{
+  "name": "@hampath/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false src/main.ts",
+    "start": "tsx src/main.ts",
+    "typecheck": "tsc -p .",
+    "smoke": "tsx src/cli/smoke.ts"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^11.1.5",
+    "@hampath/content": "workspace:*",
+    "@hampath/db": "workspace:*",
+    "@hampath/ham-sim": "workspace:*",
+    "fastify": "^5.12.8",
+    "nodemailer": "^10.6.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^8.0.2"
+  }
+}

@@ -1,0 +1,18 @@
+---
+type: drag_drop
+title: Match the formula to the job
+teaches: [B-005-004-002, B-005-004-003, B-005-004-004, B-005-004-010]
+interaction:
+  kind: drag_drop
+  prompt: Drag each formula to the quantity it finds. One formula is left over.
+  items:
+    - { id: e, text: "E = I × R" }
+    - { id: i, text: "I = E ÷ R" }
+    - { id: r, text: "R = E ÷ I" }
+    - { id: p, text: "P = E × I" }
+  slots:
+    - { id: find-e, label: "Find the voltage", accepts: e }
+    - { id: find-i, label: "Find the current", accepts: i }
+    - { id: find-r, label: "Find the resistance", accepts: r }
+---
+The leftover one is the power formula. It multiplies voltage and current, and it's a common exam distractor for resistance.

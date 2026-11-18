@@ -1,0 +1,120 @@
+/* Scale, motion, layers: shared by every theme. */
+:root {
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.9rem; --text-md: 1.0625rem; --text-lg: 1.2rem; --text-xl: 1.44rem; --text-2xl: 1.728rem; --text-3xl: 2.074rem;
+  --text-display-s: 1.44rem; --text-display: 1.728rem; --text-section: 1.2rem; --text-title: 1.0625rem; --text-lead: 1.125rem;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms; --dur-needle: 380ms;
+  --container: 1120px; --measure: 40rem; --gutter: 32px; --gap-columns: 24px; --section-gap-s: 48px; --section-gap: 64px; --section-gap-l: 96px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  --radius-card: 12px; --radius-control: 8px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
+  --tracking-display: -0.01em;
+  --control-h: 44px;
+
+  --font-display: "Atkinson Hyperlegible Next", ui-sans-serif, sans-serif;
+  --font-body: "Atkinson Hyperlegible Next", ui-sans-serif, sans-serif;
+  --font-outlier: "Azeret Mono", ui-monospace, monospace;
+}
+
+/* App theme, light (default): warm white paper, ink blue-black, one signal-orange accent. */
+:root {
+  --color-paper: oklch(98.6% 0.004 85);
+  --color-paper-2: oklch(95.6% 0.006 85);
+  --color-paper-3: oklch(92.4% 0.008 85);
+  --color-ink: oklch(22% 0.02 250);
+  --color-ink-2: oklch(37% 0.02 250);
+  --color-muted: oklch(49% 0.015 250);
+  --color-rule: oklch(87% 0.01 250);
+  --color-accent: oklch(53% 0.16 38);
+  --color-accent-ink: oklch(99% 0.003 85);
+  --color-accent-wash: oklch(94% 0.03 45);
+  --color-focus: oklch(52% 0.17 250);
+  --color-success: oklch(46% 0.12 150);
+  --color-success-wash: oklch(95% 0.035 150);
+  --color-error: oklch(50% 0.19 27);
+  --color-error-wash: oklch(95% 0.03 27);
+}
+
+/* App theme, dark. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-paper: oklch(19% 0.012 250);
+    --color-paper-2: oklch(24% 0.014 250);
+    --color-paper-3: oklch(15.5% 0.01 250);
+    --color-ink: oklch(95% 0.008 85);
+    --color-ink-2: oklch(84% 0.01 250);
+    --color-muted: oklch(71% 0.015 250);
+    --color-rule: oklch(34% 0.015 250);
+    --color-accent: oklch(77% 0.14 55);
+    --color-accent-ink: oklch(20% 0.03 50);
+    --color-accent-wash: oklch(30% 0.05 50);
+    --color-focus: oklch(80% 0.12 230);
+    --color-success: oklch(80% 0.14 150);
+    --color-success-wash: oklch(28% 0.05 150);
+    --color-error: oklch(75% 0.15 27);
+    --color-error-wash: oklch(29% 0.06 27);
+  }
+}
+:root[data-theme="dark"] {
+  --color-paper: oklch(19% 0.012 250);
+  --color-paper-2: oklch(24% 0.014 250);
+  --color-paper-3: oklch(15.5% 0.01 250);
+  --color-ink: oklch(95% 0.008 85);
+  --color-ink-2: oklch(84% 0.01 250);
+  --color-muted: oklch(71% 0.015 250);
+  --color-rule: oklch(34% 0.015 250);
+  --color-accent: oklch(77% 0.14 55);
+  --color-accent-ink: oklch(20% 0.03 50);
+  --color-accent-wash: oklch(30% 0.05 50);
+  --color-focus: oklch(80% 0.12 230);
+  --color-success: oklch(80% 0.14 150);
+  --color-success-wash: oklch(28% 0.05 150);
+  --color-error: oklch(75% 0.15 27);
+  --color-error-wash: oklch(29% 0.06 27);
+}
+
+/*
+ * Shack skin: the labs' test-bench instruments. An enamel front panel, lit amber meter faces,
+ * phosphor readouts and copper wire. It is the same in both app themes, like real equipment,
+ * and it re-points the app tokens so ordinary controls inside a lab match the panel.
+ */
+.shack {
+  --shack-panel: oklch(27% 0.022 235);
+  --shack-panel-2: oklch(32% 0.024 235);
+  --shack-well: oklch(21% 0.02 235);
+  --shack-ink: oklch(95% 0.012 85);
+  --shack-ink-2: oklch(86% 0.015 235);
+  --shack-muted: oklch(76% 0.02 235);
+  --shack-rule: oklch(43% 0.022 235);
+  --shack-lamp: oklch(81% 0.145 75);
+  --shack-lamp-ink: oklch(22% 0.03 60);
+  --shack-meter-face: oklch(91% 0.065 88);
+  --shack-meter-ink: oklch(28% 0.03 70);
+  --shack-meter-tick: oklch(45% 0.03 70);
+  --shack-needle: oklch(52% 0.19 28);
+  --shack-readout: oklch(86% 0.14 155);
+  --shack-readout-ground: oklch(17% 0.02 200);
+  --shack-segment-off: oklch(26% 0.03 200);
+  --shack-wire: oklch(70% 0.1 55);
+  --shack-wire-dead: oklch(52% 0.04 55);
+  --shack-part: oklch(90% 0.01 235);
+  --shack-land: oklch(40% 0.03 200);
+  --shack-sea: oklch(22% 0.025 230);
+  --shack-night: oklch(8% 0.02 260 / 0.55);
+  --shack-fault: oklch(74% 0.16 27);
+  --shack-ok: oklch(82% 0.14 150);
+
+  --color-paper: var(--shack-panel);
+  --color-paper-2: var(--shack-panel-2);
+  --color-paper-3: var(--shack-well);
+  --color-ink: var(--shack-ink);
+  --color-ink-2: var(--shack-ink-2);
+  --color-muted: var(--shack-muted);
+  --color-rule: var(--shack-rule);
+  --color-accent: var(--shack-lamp);
+  --color-accent-ink: var(--shack-lamp-ink);
+  --color-focus: oklch(88% 0.1 205);
+  --color-success: var(--shack-ok);
+  --color-error: var(--shack-fault);
+  color: var(--color-ink);
+}

@@ -1,0 +1,8 @@
+id: B-001
+number: 1
+title_en: "Regulations & Policies"
+# title_fr: to be confirmed against the official ISED French section names (Phase 3)
+recommended_order: 8
+checkpoint:
+  pass_percent: 80
+  mastered_sample: 0.2

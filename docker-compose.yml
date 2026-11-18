@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: hampath-db
+    environment:
+      POSTGRES_USER: hampath
+      POSTGRES_PASSWORD: hampath
+      POSTGRES_DB: hampath
+    ports:
+      - "127.0.0.1:5433:5432" # 5433: avoids clashing with other local Postgres instances
+    volumes:
+      - hampath-pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hampath -d hampath"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  # Dev mail catcher for magic-link e-mails: inbox at http://localhost:8025
+  mailpit:
+    image: axllent/mailpit:v1.27
+    container_name: hampath-mailpit
+    ports:
+      - "127.0.0.1:1025:1025"
+      - "127.0.0.1:8025:8025"
+    healthcheck:
+      test: ["CMD", "/mailpit", "readyz"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+volumes:
+  hampath-pg:

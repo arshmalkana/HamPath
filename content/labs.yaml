@@ -1,0 +1,51 @@
+# Lab catalogue (SPEC §4). `component` is the React component in apps/web/src/labs;
+# null means the lab is not built yet. The first lab listing a lesson is that lesson's primary lab
+# unless lesson.yaml sets lab_id.
+- { id: LAB-01, name: Band Plan Explorer, component: null, lessons: ["1.15", "1.16", "1.18", "1.21", "5.07"] }
+- { id: LAB-02, name: Rules Navigator, component: null, lessons: ["1.01", "1.02", "1.03", "1.04", "1.05", "1.06", "1.07", "1.08", "1.09", "1.10", "1.11", "1.12", "1.14", "1.20", "1.22"] }
+- { id: LAB-03, name: Call Sign Builder, component: null, lessons: ["1.13", "2.02"] }
+- { id: LAB-04, name: Power Limit Calculator, component: null, lessons: ["1.17", "3.12"] }
+- { id: LAB-05, name: RF Exposure Zone, component: null, lessons: ["1.24", "3.21"] }
+- { id: LAB-06, name: Antenna Permit Planner, component: null, lessons: ["1.23"] }
+- { id: LAB-07, name: Virtual QSO Simulator, component: null, lessons: ["2.03", "2.04", "2.06", "2.09"] }
+- { id: LAB-08, name: Repeater Lab, component: null, lessons: ["1.18", "2.01"] }
+- { id: LAB-09, name: Phonetic & Q-Code Trainer, component: null, lessons: ["2.02", "2.07"] }
+- { id: LAB-10, name: Morse Trainer, component: null, lessons: ["2.05", "3.14"] }
+- { id: LAB-11, name: Emergency Net Scenario, component: null, lessons: ["1.11", "2.08"] }
+- { id: LAB-12, name: World Map & Clock, component: null, lessons: ["2.09", "7.06"] }
+- { id: LAB-13, name: Block-Diagram Builder, component: null, lessons: ["3.01", "3.02", "3.03", "3.04", "3.05", "3.06", "3.07", "3.08", "3.09"] }
+- { id: LAB-14, name: Mode Spectrum Lab, component: null, lessons: ["3.10", "3.11", "3.12", "3.13", "3.15"] }
+- { id: LAB-15, name: Power Bench, component: null, lessons: ["3.08", "3.16", "3.17"] }
+- { id: LAB-16, name: Safe Shack Inspector, component: null, lessons: ["3.18", "3.19", "3.20", "3.21"] }
+- { id: LAB-17, name: Component Bench, component: null, lessons: ["4.01", "4.02", "4.03", "4.04", "4.05"] }
+- { id: LAB-18, name: Resistor Colour Code, component: null, lessons: ["4.06"] }
+- { id: LAB-19, name: Unit Slider, component: null, lessons: ["5.01"] }
+- id: LAB-20
+  name: Ohm's Law Circuit Builder
+  component: OhmsLawLab
+  lessons: ["5.02", "5.03", "5.04", "5.05", "5.06", "5.09"]
+  default_config:
+    topology: single
+    E: 12
+    resistors: [100]
+    closed: true
+    controls:
+      E: { min: 0, max: 12, step: 0.5 }
+      R: { min: 1, max: 100, step: 1 }
+      switch: true
+    show: { ammeter: true, voltmeter: true, power: false }
+- { id: LAB-21, name: AC Scope, component: null, lessons: ["5.07", "5.10"] }
+- { id: LAB-22, name: dB Ladder, component: null, lessons: ["5.08", "6.09"] }
+- { id: LAB-23, name: Transformer Lab, component: null, lessons: ["5.11"] }
+- { id: LAB-24, name: Resonance Tuner, component: null, lessons: ["5.12"] }
+- { id: LAB-25, name: Meter Lab, component: null, lessons: ["5.13"] }
+- { id: LAB-26, name: Feedline Lab, component: null, lessons: ["6.01", "6.02", "6.03", "6.04"] }
+- { id: LAB-27, name: SWR Bridge & Tuner, component: null, lessons: ["6.05", "6.06"] }
+- { id: LAB-28, name: Antenna Builder, component: null, lessons: ["3.09", "6.08", "6.10", "6.11", "6.12", "6.13"] }
+- { id: LAB-29, name: Radiation Pattern 3D, component: null, lessons: ["6.07", "6.09", "6.11"] }
+- { id: LAB-30, name: Ionosphere Simulator, component: null, lessons: ["7.01", "7.02", "7.03", "7.04", "7.06"] }
+- { id: LAB-31, name: Solar Cycle Dial, component: null, lessons: ["7.05"] }
+- { id: LAB-32, name: VHF Propagation Sandbox, component: null, lessons: ["7.07", "7.08"] }
+- { id: LAB-33, name: Interference Detective, component: null, lessons: ["1.25", "8.01", "8.02", "8.03", "8.04"] }
+- { id: LAB-34, name: Filter Designer, component: null, lessons: ["3.01", "8.05"] }
+- { id: LAB-35, name: Exam Simulator, component: null, lessons: [] }

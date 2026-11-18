@@ -1,0 +1,8 @@
+id: B-005
+number: 5
+title_en: "Basic Electronics & Theory"
+# title_fr: to be confirmed against the official ISED French section names (Phase 3)
+recommended_order: 2
+checkpoint:
+  pass_percent: 80
+  mastered_sample: 0.2

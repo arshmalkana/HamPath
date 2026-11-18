@@ -1,0 +1,14 @@
+{
+  "name": "@hampath/ham-sim",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Pure TypeScript physics/maths for HamPath labs and grading. One source of truth for every formula.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "typecheck": "tsc -p ."
+  }
+}

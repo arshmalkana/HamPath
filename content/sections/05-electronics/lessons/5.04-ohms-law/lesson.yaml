@@ -1,0 +1,26 @@
+code: "5.04"
+title: Ohm's Law
+est_minutes: 10
+lab_id: LAB-20
+question_ids:
+  - B-005-004-001
+  - B-005-004-002
+  - B-005-004-003
+  - B-005-004-004
+  - B-005-004-005
+  - B-005-004-006
+  - B-005-004-007
+  - B-005-004-008
+  - B-005-004-009
+  - B-005-004-010
+  - B-005-004-011
+# Calculation questions: CI reproduces each correct answer with ham-sim, and the worked
+# solution shown after a miss is generated from these specs.
+calculations:
+  B-005-004-001: { calc: ohm, given: { I: "0.5 A", R: "2 ohms" } }
+  B-005-004-005: { calc: ohm, given: { E: "12 V", I: "0.25 A" } }
+  B-005-004-006: { calc: ohm, given: { E: "9 V", I: "10 mA" } }
+  B-005-004-007: { calc: ohm, given: { I: "0.44 A", R: "50 ohms" } }
+  B-005-004-008: { calc: ohm, given: { E: "6 V", R: "30 ohms" } }
+  B-005-004-009: { calc: ohm, given: { I: "200 mA", R: "25 ohms" } }
+  B-005-004-011: { calc: ohm, given: { E: "3 V", I: "300 mA" } }

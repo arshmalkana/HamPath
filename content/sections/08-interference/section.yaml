@@ -1,0 +1,8 @@
+id: B-008
+number: 8
+title_en: "Interference & Suppression"
+# title_fr: to be confirmed against the official ISED French section names (Phase 3)
+recommended_order: 7
+checkpoint:
+  pass_percent: 80
+  mastered_sample: 0.2

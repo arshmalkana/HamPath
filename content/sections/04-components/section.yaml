@@ -1,0 +1,8 @@
+id: B-004
+number: 4
+title_en: "Circuit Components"
+# title_fr: to be confirmed against the official ISED French section names (Phase 3)
+recommended_order: 3
+checkpoint:
+  pass_percent: 80
+  mastered_sample: 0.2

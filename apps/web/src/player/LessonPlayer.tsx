@@ -1,0 +1,127 @@
+"use client";
+import Link from "next/link";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { Button, PhaseProgress, type Phase } from "@hampath/ui";
+import { api, ensureSession } from "@/lib/api";
+import type { Card, Lesson, Question } from "@/lib/types";
+import { QuestionScreen, emptyQuestionState, type QuestionState } from "./QuestionScreen";
+import { RecapScreen } from "./RecapScreen";
+import { SCREENS } from "./screens";
+
+type PhaseName = "Hook" | "Explore" | "Learn" | "Check" | "Recap";
+type Screen =
+  | { kind: "card"; card: Card; phase: PhaseName }
+  | { kind: "question"; q: Question; n: number; phase: "Check" }
+  | { kind: "recap"; phase: "Recap" };
+
+const PHASES: PhaseName[] = ["Hook", "Explore", "Learn", "Check", "Recap"];
+
+/** SPEC §3 order: Hook → Explore (lab) → Learn cards → Check (every question) → Recap. */
+function buildScreens(lesson: Lesson): Screen[] {
+  const firstLearn = lesson.cards.findIndex((c) => c.type !== "hook" && c.type !== "lab");
+  const cards: Screen[] = lesson.cards.map((card, i) => ({
+    kind: "card",
+    card,
+    phase: card.type === "hook" ? "Hook" : card.type === "lab" && (firstLearn === -1 || i < firstLearn) ? "Explore" : "Learn",
+  }));
+  const qs: Screen[] = lesson.questions.map((q, i) => ({ kind: "question", q, n: i + 1, phase: "Check" }));
+  return [...cards, ...qs, { kind: "recap", phase: "Recap" }];
+}
+
+export function LessonPlayer({ lesson, initialCardId }: { lesson: Lesson; initialCardId?: string }) {
+  const screens = useMemo(() => buildScreens(lesson), [lesson]);
+  const firstCheck = screens.findIndex((s) => s.kind === "question");
+  const startAt = () => {
+    const deep = initialCardId ? screens.findIndex((s) => s.kind === "card" && s.card.id === initialCardId) : -1;
+    if (deep >= 0) return deep;
+    const p = lesson.progress;
+    if (p && !p.completedAt) return Math.min(p.step, firstCheck === -1 ? screens.length - 1 : firstCheck);
+    return 0;
+  };
+  const [index, setIndex] = useState(startAt);
+  const [done, setDone] = useState<Set<number>>(() => new Set(Array.from({ length: startAt() }, (_, i) => i)));
+  const [answers, setAnswers] = useState<Record<string, QuestionState>>({});
+  const [returnTo, setReturnTo] = useState<number | null>(null);
+  const [memory, setMemory] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    void ensureSession().catch(() => undefined);
+  }, []);
+
+  const screen = screens[index]!;
+  const markDone = useCallback((i: number) => setDone((d) => (d.has(i) ? d : new Set(d).add(i))), []);
+
+  const go = (to: number) => {
+    const target = Math.max(0, Math.min(screens.length - 1, to));
+    if (target > index) {
+      void api("PUT", `/lessons/${lesson.code}/progress`, { step: target }).catch(() => undefined);
+    }
+    setIndex(target);
+    window.scrollTo({ top: 0 });
+  };
+
+  const phases: Phase[] = PHASES.map((name) => {
+    const idx = screens.map((s, i) => (s.phase === name ? i : -1)).filter((i) => i >= 0);
+    const complete = idx.filter((i) => done.has(i) || i < index).length;
+    return { label: name, fill: idx.length ? complete / idx.length : 1, current: screen.phase === name };
+  }).filter((p) => p.label !== "Explore" || screens.some((s) => s.phase === "Explore"));
+
+  const canContinue = done.has(index) || screen.kind === "recap";
+  const status =
+    screen.kind === "card" && !canContinue
+      ? screen.card.type === "lab" ? "Reach the goal (or use the hints) to continue" : "Answer to continue"
+      : screen.kind === "question" && !canContinue ? "Answer to continue" : "";
+
+  let body: React.ReactNode;
+  if (screen.kind === "card") {
+    const S = SCREENS[screen.card.type];
+    body = (
+      <S key={screen.card.id} card={screen.card} done={done.has(index)} onDone={() => markDone(index)}
+        memory={memory} remember={(k, v) => setMemory((m) => ({ ...m, [k]: v }))} labSteps={lesson.labSteps} />
+    );
+  } else if (screen.kind === "question") {
+    const qi = index;
+    body = (
+      <QuestionScreen key={screen.q.id} q={screen.q} number={screen.n} total={lesson.questions.length}
+        state={answers[screen.q.id] ?? emptyQuestionState}
+        setState={(s) => setAnswers((a) => ({ ...a, [screen.q.id]: s }))}
+        onDone={() => markDone(qi)}
+        onSeeAgain={(cardId) => {
+          setReturnTo(qi);
+          go(screens.findIndex((s) => s.kind === "card" && s.card.id === cardId));
+        }} />
+    );
+  } else {
+    body = <RecapScreen lesson={lesson} onJumpToQuestion={(qid) => go(screens.findIndex((s) => s.kind === "question" && s.q.id === qid))} />;
+  }
+
+  return (
+    <div className="player">
+      <header className="player-head">
+        <div className="container player-head-inner">
+          <div className="player-title-row">
+            <p className="player-title"><span className="player-title-code">{lesson.code}</span>{lesson.title}</p>
+            <span className="player-count">Screen {index + 1} of {screens.length}</span>
+          </div>
+          <PhaseProgress phases={phases} label="Lesson progress" />
+        </div>
+      </header>
+      <main className="player-body" id="main">
+        <div className="container">{body}</div>
+      </main>
+      <footer className="player-foot">
+        <div className="container player-foot-inner">
+          {index > 0 ? <Button variant="quiet" onClick={() => go(index - 1)}>Back</Button> : <Link className="btn btn-quiet" href="/">Course map</Link>}
+          <span className="player-foot-status" aria-live="polite">{status}</span>
+          {returnTo !== null && screen.kind === "card" ? (
+            <Button onClick={() => { const r = returnTo; setReturnTo(null); go(r); }}>Back to question</Button>
+          ) : screen.kind !== "recap" ? (
+            <Button onClick={() => go(index + 1)} disabled={!canContinue}>
+              {index + 1 === firstCheck ? "Start the Check" : screens[index + 1]?.kind === "recap" ? "Finish" : "Continue"}
+            </Button>
+          ) : null}
+        </div>
+      </footer>
+    </div>
+  );
+}
