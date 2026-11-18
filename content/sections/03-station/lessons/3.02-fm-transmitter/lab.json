@@ -1,0 +1,132 @@
+{
+  "lab": "LAB-13",
+  "steps": {
+    "build-fm": {
+      "title": "Build an FM transmitter",
+      "prompt": "Put the five stages in order from microphone to antenna.",
+      "config": {
+        "mode": "build",
+        "input": "Microphone",
+        "output": "Antenna",
+        "blocks": [
+          {
+            "id": "speech",
+            "label": "Speech amplifier",
+            "does": "makes the weak microphone audio stronger"
+          },
+          {
+            "id": "modulator",
+            "label": "Modulator",
+            "does": "varies the oscillator's frequency in step with the audio"
+          },
+          {
+            "id": "osc",
+            "label": "Oscillator",
+            "does": "makes the RF signal"
+          },
+          {
+            "id": "mult",
+            "label": "Frequency multiplier",
+            "does": "picks a harmonic to reach the operating frequency"
+          },
+          {
+            "id": "pa",
+            "label": "Power amplifier",
+            "does": "raises the signal to full power"
+          },
+          {
+            "id": "bfo",
+            "label": "Beat frequency oscillator",
+            "does": "belongs in an SSB/CW receiver"
+          }
+        ],
+        "slots": [
+          {
+            "accepts": "speech",
+            "out": "stronger audio"
+          },
+          {
+            "accepts": "modulator",
+            "out": "a control signal that follows the audio"
+          },
+          {
+            "accepts": "osc",
+            "out": "RF whose frequency swings with your voice"
+          },
+          {
+            "accepts": "mult",
+            "out": "a harmonic: the FM carrier at the operating frequency"
+          },
+          {
+            "accepts": "pa",
+            "out": "the full-power FM signal"
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "Transmitter built",
+      "hints": [
+        "Audio stages first, then RF.",
+        "The modulator works on the oscillator, so it comes just before it."
+      ],
+      "success": "Speech amp, modulator, oscillator, multiplier, power amp. The modulator swings the oscillator's frequency; the multiplier lifts it to the operating frequency."
+    },
+    "find-power": {
+      "title": "The power-hungry stage",
+      "prompt": "Which stage draws the most power from the supply?",
+      "config": {
+        "mode": "identify",
+        "input": "Microphone",
+        "output": "Antenna",
+        "target": "pa",
+        "blocks": [
+          {
+            "id": "speech",
+            "label": "Speech amplifier",
+            "does": "works with small audio signals"
+          },
+          {
+            "id": "modulator",
+            "label": "Modulator",
+            "does": "works with small control signals"
+          },
+          {
+            "id": "osc",
+            "label": "Oscillator",
+            "does": "makes a low-power RF signal"
+          },
+          {
+            "id": "mult",
+            "label": "Frequency multiplier",
+            "does": "works at low power"
+          },
+          {
+            "id": "pa",
+            "label": "Power amplifier",
+            "does": "raises the signal to tens of watts"
+          }
+        ],
+        "slots": [
+          {
+            "accepts": "speech"
+          },
+          {
+            "accepts": "modulator"
+          },
+          {
+            "accepts": "osc"
+          },
+          {
+            "accepts": "mult"
+          },
+          {
+            "accepts": "pa"
+          }
+        ]
+      },
+      "goal": "found",
+      "goal_text": "Found it",
+      "success": "The power amplifier: it makes the full output power, so it draws the most from the supply."
+    }
+  }
+}

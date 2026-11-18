@@ -1,0 +1,52 @@
+{
+  "lab": "LAB-13",
+  "steps": {
+    "build-digital": {
+      "title": "Connect the computer",
+      "prompt": "Connect the computer to the transceiver for FT8.",
+      "config": {
+        "mode": "build",
+        "input": "Computer",
+        "output": "Antenna",
+        "blocks": [
+          {
+            "id": "iface",
+            "label": "Sound-card interface",
+            "does": "couples audio both ways and keys the transmitter"
+          },
+          {
+            "id": "rig",
+            "label": "Transceiver",
+            "does": "turns audio into RF and back"
+          },
+          {
+            "id": "tuner",
+            "label": "Antenna tuner",
+            "does": "matches the antenna; it doesn't connect to the computer"
+          },
+          {
+            "id": "rfamp",
+            "label": "RF amplifier",
+            "does": "boosts RF; the computer deals in audio"
+          }
+        ],
+        "slots": [
+          {
+            "accepts": "iface",
+            "out": "audio tones and a push-to-talk signal"
+          },
+          {
+            "accepts": "rig",
+            "out": "the digital mode on the air"
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "Connected",
+      "hints": [
+        "The computer speaks audio; the interface sits between it and the radio."
+      ],
+      "success": "Computer, interface, transceiver. The interface carries audio both ways and switches the radio to transmit."
+    }
+  }
+}

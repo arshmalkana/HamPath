@@ -1,0 +1,18 @@
+---
+type: predict
+title: Changing bands
+teaches:
+  - B-003-001-009
+interaction:
+  kind: predict
+  prompt: Your transceiver has a solid-state final amplifier. You move from 7.050 MHz to 7.250 MHz. Which box might you need to readjust?
+  choices:
+    - text: The antenna tuner
+      correct: true
+      feedback: Right. The antenna's impedance changes with frequency, so the match may need touching up.
+    - text: The low-pass filter
+      feedback: A low-pass filter passes everything below its cut-off, so it needs no adjusting within the HF bands.
+    - text: The dummy load
+      feedback: A dummy load is a resistor; it doesn't care about frequency, and it isn't in use on the air anyway.
+---
+Predict, then check.

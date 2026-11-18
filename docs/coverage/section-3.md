@@ -8,169 +8,169 @@
 
 Lab: LAB-13
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-001-001 | To be most effective, where should a low-pass filter be connected in an HF station without an external power amplifier? | — | 0/3 |  |
-| B-003-001-002 | In an HF station that includes an external RF power amplifier, where should a low-pass filter be located? | — | 0/3 |  |
-| B-003-001-003 | Why do modern HF transmitters have a built-in low-pass filter in their RF output circuits? | — | 0/3 |  |
-| B-003-001-004 | Which component in an HF station is used to determine if the antenna system impedance is matched to the transmitter? | — | 0/3 |  |
-| B-003-001-005 | What is the purpose of the antenna switch in an HF station? | — | 0/3 |  |
-| B-003-001-006 | In an HF station, what device might allow the use of an antenna on a band it was not designed for? | — | 0/3 |  |
-| B-003-001-007 | In an HF station, which component is designed to dissipate RF energy and prevent radiation? | — | 0/3 |  |
-| B-003-001-008 | In an HF station, right after which component is the SWR meter inserted? | — | 0/3 |  |
-| B-003-001-009 | When using an HF transmitter with a solid-state final amplifier, which station component may need to be adjusted when changing frequency? | — | 0/3 |  |
+| B-003-001-001 | To be most effective, where should a low-pass filter be connected in an HF station without an external power amplifier? | 02-explore-station, 04-lpf | 3/3 |  |
+| B-003-001-002 | In an HF station that includes an external RF power amplifier, where should a low-pass filter be located? | 04-lpf, 05-explore-amp | 3/3 |  |
+| B-003-001-003 | Why do modern HF transmitters have a built-in low-pass filter in their RF output circuits? | 04-lpf | 3/3 |  |
+| B-003-001-004 | Which component in an HF station is used to determine if the antenna system impedance is matched to the transmitter? | 03-boxes | 3/3 |  |
+| B-003-001-005 | What is the purpose of the antenna switch in an HF station? | 03-boxes | 3/3 |  |
+| B-003-001-006 | In an HF station, what device might allow the use of an antenna on a band it was not designed for? | 03-boxes | 3/3 |  |
+| B-003-001-007 | In an HF station, which component is designed to dissipate RF energy and prevent radiation? | 03-boxes | 3/3 |  |
+| B-003-001-008 | In an HF station, right after which component is the SWR meter inserted? | 02-explore-station, 04-lpf | 3/3 |  |
+| B-003-001-009 | When using an HF transmitter with a solid-state final amplifier, which station component may need to be adjusted when changing frequency? | 03-boxes, 06-predict | 3/3 |  |
 
 ## 3.02 The FM transmitter
 
 Lab: LAB-13
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-002-001 | What does the microphone produce in an FM transmitter? | — | 0/3 |  |
-| B-003-002-002 | The microphone of an FM transmitter: | — | 0/3 |  |
-| B-003-002-003 | An FM transmitter's modulator: | — | 0/3 |  |
-| B-003-002-004 | How is the oscillator in the FM transmitter different from oscillators in AM, CW, and SSB transmitters? | — | 0/3 |  |
-| B-003-002-005 | In an FM transmitter, the frequency multiplier: | — | 0/3 |  |
-| B-003-002-006 | In an FM transmitter, which stage produces a useful harmonic? | — | 0/3 |  |
-| B-003-002-007 | In an FM transmitter, which stage draws the most electric power? | — | 0/3 |  |
+| B-003-002-001 | What does the microphone produce in an FM transmitter? | 02-explore, 03-stages | 3/3 |  |
+| B-003-002-002 | The microphone of an FM transmitter: | 03-stages | 3/3 |  |
+| B-003-002-003 | An FM transmitter's modulator: | 02-explore, 03-stages | 3/3 |  |
+| B-003-002-004 | How is the oscillator in the FM transmitter different from oscillators in AM, CW, and SSB transmitters? | 02-explore, 03-stages | 3/3 |  |
+| B-003-002-005 | In an FM transmitter, the frequency multiplier: | 02-explore, 03-stages | 3/3 |  |
+| B-003-002-006 | In an FM transmitter, which stage produces a useful harmonic? | 02-explore, 03-stages | 3/3 |  |
+| B-003-002-007 | In an FM transmitter, which stage draws the most electric power? | 04-identify, 05-power | 3/3 |  |
 
 ## 3.03 The superheterodyne receiver
 
 Lab: LAB-13
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-003-001 | In a superheterodyne receiver, which stage is called the front-end? | — | 0/3 |  |
-| B-003-003-002 | In a VHF superheterodyne receiver, which stage must be designed to produce very little noise? | — | 0/3 |  |
-| B-003-003-003 | In a superheterodyne receiver, which stage allows detection to function at a single frequency regardless of the received frequency? | — | 0/3 |  |
-| B-003-003-004 | In a superheterodyne receiver, which stage sets the received frequency? | — | 0/3 |  |
-| B-003-003-005 | In a superheterodyne receiver, which stage rejects signals on adjacent channels? | — | 0/3 |  |
-| B-003-003-006 | In a superheterodyne receiver, which stage provides the final signal power to drive the detector? | — | 0/3 |  |
-| B-003-003-007 | In an FM receiver, what is the purpose of the limiter? | — | 0/3 |  |
-| B-003-003-008 | In an FM receiver, what is the purpose of the discriminator? | — | 0/3 |  |
-| B-003-003-009 | In a receiver, which stage is controlled by the volume control? | — | 0/3 |  |
-| B-003-003-010 | In an FM receiver, which stage includes a squelch circuit? | — | 0/3 |  |
+| B-003-003-001 | In a superheterodyne receiver, which stage is called the front-end? | 02-explore, 03-front-end | 3/3 |  |
+| B-003-003-002 | In a VHF superheterodyne receiver, which stage must be designed to produce very little noise? | 03-front-end | 3/3 |  |
+| B-003-003-003 | In a superheterodyne receiver, which stage allows detection to function at a single frequency regardless of the received frequency? | 02-explore, 03-front-end | 3/3 |  |
+| B-003-003-004 | In a superheterodyne receiver, which stage sets the received frequency? | 02-explore, 03-front-end, 06-identify | 3/3 |  |
+| B-003-003-005 | In a superheterodyne receiver, which stage rejects signals on adjacent channels? | 02-explore, 04-if | 3/3 |  |
+| B-003-003-006 | In a superheterodyne receiver, which stage provides the final signal power to drive the detector? | 02-explore, 04-if | 3/3 |  |
+| B-003-003-007 | In an FM receiver, what is the purpose of the limiter? | 05-fm-stages | 3/3 |  |
+| B-003-003-008 | In an FM receiver, what is the purpose of the discriminator? | 05-fm-stages | 3/3 |  |
+| B-003-003-009 | In a receiver, which stage is controlled by the volume control? | 05-fm-stages | 3/3 |  |
+| B-003-003-010 | In an FM receiver, which stage includes a squelch circuit? | 05-fm-stages | 3/3 |  |
 
 ## 3.04 The CW transmitter
 
 Lab: LAB-13
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-004-001 | In a basic CW transmitter, the output from the oscillator is: | — | 0/3 |  |
-| B-003-004-002 | In a basic CW transmitter, what type of electricity directly powers each stage? | — | 0/3 |  |
-| B-003-004-003 | In a basic CW transmitter, why is the oscillator followed by a driver/buffer stage? | — | 0/3 |  |
-| B-003-004-004 | In a basic three-stage CW transmitter, what does the key do? | — | 0/3 |  |
-| B-003-004-005 | In a basic CW transmitter, what does the power amplifier stage do? | — | 0/3 |  |
-| B-003-004-006 | In a basic CW transmitter, what does the key do? | — | 0/3 |  |
+| B-003-004-001 | In a basic CW transmitter, the output from the oscillator is: | 02-explore, 03-stages | 3/3 |  |
+| B-003-004-002 | In a basic CW transmitter, what type of electricity directly powers each stage? | 03-stages | 3/3 |  |
+| B-003-004-003 | In a basic CW transmitter, why is the oscillator followed by a driver/buffer stage? | 02-explore, 03-stages, 05-predict | 3/3 |  |
+| B-003-004-004 | In a basic three-stage CW transmitter, what does the key do? | 04-key | 3/3 |  |
+| B-003-004-005 | In a basic CW transmitter, what does the power amplifier stage do? | 02-explore, 03-stages | 3/3 |  |
+| B-003-004-006 | In a basic CW transmitter, what does the key do? | 04-key | 3/3 |  |
 
 ## 3.05 The SSB/CW receiver
 
 Lab: LAB-13
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-005-001 | In an SSB/CW receiver, what is the purpose of the antenna? | — | 0/3 |  |
-| B-003-005-002 | In an SSB/CW receiver, what is the purpose of the radio frequency (RF) amplifier? | — | 0/3 |  |
-| B-003-005-003 | In an SSB/CW receiver, what is the purpose of the mixer? | — | 0/3 |  |
-| B-003-005-004 | In an SSB/CW receiver, what is the purpose of the signal generated by the local oscillator? | — | 0/3 |  |
-| B-003-005-005 | In an SSB/CW receiver, what is the purpose of the intermediate frequency (IF) filter? | — | 0/3 |  |
-| B-003-005-006 | In an SSB/CW receiver, what is the purpose of the intermediate frequency (IF) amplifier? | — | 0/3 |  |
-| B-003-005-007 | In an SSB/CW receiver, what is the purpose of the product detector? | — | 0/3 |  |
-| B-003-005-008 | In an SSB/CW receiver, what is the purpose of the signal produced by the beat frequency oscillator (BFO)? | — | 0/3 |  |
-| B-003-005-009 | In an SSB/CW receiver, what is the purpose of the audio frequency (AF) amplifier? | — | 0/3 |  |
-| B-003-005-010 | In an SSB/CW receiver, which stage could include an audio band-pass filter? | — | 0/3 |  |
+| B-003-005-001 | In an SSB/CW receiver, what is the purpose of the antenna? | 03-front | 3/3 |  |
+| B-003-005-002 | In an SSB/CW receiver, what is the purpose of the radio frequency (RF) amplifier? | 03-front | 3/3 |  |
+| B-003-005-003 | In an SSB/CW receiver, what is the purpose of the mixer? | 02-explore, 03-front | 3/3 |  |
+| B-003-005-004 | In an SSB/CW receiver, what is the purpose of the signal generated by the local oscillator? | 02-explore, 03-front | 3/3 |  |
+| B-003-005-005 | In an SSB/CW receiver, what is the purpose of the intermediate frequency (IF) filter? | 04-if, 06-identify | 3/3 |  |
+| B-003-005-006 | In an SSB/CW receiver, what is the purpose of the intermediate frequency (IF) amplifier? | 04-if | 3/3 |  |
+| B-003-005-007 | In an SSB/CW receiver, what is the purpose of the product detector? | 02-explore, 05-detect | 3/3 |  |
+| B-003-005-008 | In an SSB/CW receiver, what is the purpose of the signal produced by the beat frequency oscillator (BFO)? | 02-explore, 05-detect | 3/3 |  |
+| B-003-005-009 | In an SSB/CW receiver, what is the purpose of the audio frequency (AF) amplifier? | 05-detect | 3/3 |  |
+| B-003-005-010 | In an SSB/CW receiver, which stage could include an audio band-pass filter? | 05-detect | 3/3 |  |
 
 ## 3.06 The SSB transmitter
 
 Lab: LAB-13
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-006-001 | In a single-sideband transmitter, what does the fixed RF oscillator do? | — | 0/3 |  |
-| B-003-006-002 | In a single-sideband transmitter, why is the speech amplifier needed? | — | 0/3 |  |
-| B-003-006-003 | In a typical single-sideband transmitter, what is the purpose of the filter that follows the balanced modulator? | — | 0/3 |  |
-| B-003-006-004 | In a typical single-sideband transmitter, at what frequency is the sideband filter tuned? | — | 0/3 |  |
-| B-003-006-005 | In a single-sideband transmitter, what is the purpose of the speech amplifier? | — | 0/3 |  |
-| B-003-006-006 | In a single-sideband transmitter, which stage transposes the single-sideband signal to the operating frequency? | — | 0/3 |  |
-| B-003-006-007 | In a single-sideband transmitter, which stage allows you to adjust the final transmit frequency? | — | 0/3 |  |
-| B-003-006-008 | In a single-sideband transmitter, which stage normally includes a circuit providing protection from excessive SWR? | — | 0/3 |  |
-| B-003-006-009 | In a single-sideband transmitter, which stage transposes the voice message from the audio spectrum to the radio spectrum? | — | 0/3 |  |
+| B-003-006-001 | In a single-sideband transmitter, what does the fixed RF oscillator do? | 02-explore, 03-audio | 3/3 |  |
+| B-003-006-002 | In a single-sideband transmitter, why is the speech amplifier needed? | 03-audio | 3/3 |  |
+| B-003-006-003 | In a typical single-sideband transmitter, what is the purpose of the filter that follows the balanced modulator? | 02-explore, 04-filter-mixer | 3/3 |  |
+| B-003-006-004 | In a typical single-sideband transmitter, at what frequency is the sideband filter tuned? | 04-filter-mixer | 3/3 |  |
+| B-003-006-005 | In a single-sideband transmitter, what is the purpose of the speech amplifier? | 03-audio | 3/3 |  |
+| B-003-006-006 | In a single-sideband transmitter, which stage transposes the single-sideband signal to the operating frequency? | 02-explore, 04-filter-mixer | 3/3 |  |
+| B-003-006-007 | In a single-sideband transmitter, which stage allows you to adjust the final transmit frequency? | 04-filter-mixer | 3/3 |  |
+| B-003-006-008 | In a single-sideband transmitter, which stage normally includes a circuit providing protection from excessive SWR? | 05-final | 3/3 |  |
+| B-003-006-009 | In a single-sideband transmitter, which stage transposes the voice message from the audio spectrum to the radio spectrum? | 02-explore, 03-audio | 3/3 |  |
 
 ## 3.07 Sound-card interfaces for digital modes
 
 Lab: LAB-13
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-007-001 | Which of the following is a function of the sound card interface in a station operating computer-based digital modes? | — | 0/3 |  |
-| B-003-007-002 | Which of the following is a function of the sound card interface in a station operating computer-based digital modes? | — | 0/3 |  |
-| B-003-007-003 | Which of the following is one function of most sound card interfaces in a station operating computer-based digital modes? | — | 0/3 |  |
-| B-003-007-004 | Which of the following is a function of the sound card interface in a station operating computer-based digital modes? | — | 0/3 |  |
-| B-003-007-005 | Why are isolation transformers often included in the sound card interface of a station operating computer-based digital modes? | — | 0/3 |  |
-| B-003-007-006 | Why are some transceivers capable of operating computer-based digital modes without a separate sound card? | — | 0/3 |  |
+| B-003-007-001 | Which of the following is a function of the sound card interface in a station operating computer-based digital modes? | 03-functions | 3/3 |  |
+| B-003-007-002 | Which of the following is a function of the sound card interface in a station operating computer-based digital modes? | 03-functions | 3/3 |  |
+| B-003-007-003 | Which of the following is one function of most sound card interfaces in a station operating computer-based digital modes? | 03-functions | 3/3 |  |
+| B-003-007-004 | Which of the following is a function of the sound card interface in a station operating computer-based digital modes? | 02-explore, 03-functions | 3/3 |  |
+| B-003-007-005 | Why are isolation transformers often included in the sound card interface of a station operating computer-based digital modes? | 04-isolation | 3/3 |  |
+| B-003-007-006 | Why are some transceivers capable of operating computer-based digital modes without a separate sound card? | 04-isolation | 3/3 |  |
 
 ## 3.08 The linear power supply
 
 Lab: LAB-13
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-008-001 | If a linear power supply provides overvoltage protection, where is the voltage monitored? | — | 0/3 |  |
-| B-003-008-002 | What is the purpose of the transformer in a linear power supply? | — | 0/3 |  |
-| B-003-008-003 | What is the purpose of the rectifier in a linear power supply? | — | 0/3 |  |
-| B-003-008-004 | What is the purpose of the filter in a linear power supply? | — | 0/3 |  |
-| B-003-008-005 | What is the purpose of the regulator in a linear power supply? | — | 0/3 |  |
-| B-003-008-006 | In a linear power supply, which stage typically requires a heat sink? | — | 0/3 |  |
+| B-003-008-001 | If a linear power supply provides overvoltage protection, where is the voltage monitored? | 04-heat | 3/3 |  |
+| B-003-008-002 | What is the purpose of the transformer in a linear power supply? | 02-explore, 03-stages | 3/3 |  |
+| B-003-008-003 | What is the purpose of the rectifier in a linear power supply? | 02-explore, 03-stages | 3/3 |  |
+| B-003-008-004 | What is the purpose of the filter in a linear power supply? | 02-explore, 03-stages | 3/3 |  |
+| B-003-008-005 | What is the purpose of the regulator in a linear power supply? | 02-explore, 03-stages | 3/3 |  |
+| B-003-008-006 | In a linear power supply, which stage typically requires a heat sink? | 04-heat, 05-identify | 3/3 |  |
 
 ## 3.09 Parts of a Yagi antenna
 
-Lab: LAB-13
+Lab: LAB-28
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-009-001 | Which component of a 3-element Yagi antenna is primarily for mechanical support? | — | 0/3 |  |
-| B-003-009-002 | In a 3-element Yagi antenna, what is the longest radiating element? | — | 0/3 |  |
-| B-003-009-003 | In a 3-element Yagi antenna, which is the shortest radiating element? | — | 0/3 |  |
-| B-003-009-004 | In a 3-element Yagi antenna, which element is connected to the transmission line? | — | 0/3 |  |
+| B-003-009-001 | Which component of a 3-element Yagi antenna is primarily for mechanical support? | 03-parts | 3/3 |  |
+| B-003-009-002 | In a 3-element Yagi antenna, what is the longest radiating element? | 03-parts, 04-explore-lengths, 05-predict | 3/3 |  |
+| B-003-009-003 | In a 3-element Yagi antenna, which is the shortest radiating element? | 03-parts, 04-explore-lengths, 05-predict | 3/3 |  |
+| B-003-009-004 | In a 3-element Yagi antenna, which element is connected to the transmission line? | 02-explore-feed, 03-parts | 3/3 |  |
 
 ## 3.10 Mode bandwidths and receiver performance
 
 Lab: LAB-14
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-003-010-001 | Which series of emission modes listed below is in order from the narrowest bandwidth to the widest bandwidth? | — | 0/3 |  |
-| B-003-010-002 | The figure in a receiver's specifications which indicates its sensitivity is the: | — | 0/3 |  |
-| B-003-010-003 | What are the two signal parameters presented to the user on the waterfall display (spectrogram) of a modern receiver? | — | 0/3 |  |
-| B-003-010-004 | What is the function of automatic gain control (AGC) in a receiver? | — | 0/3 |  |
-| B-003-010-005 | For which of the following emission modes is it important for the receiver to be tuned accurately (within 100 Hz)? | — | 0/3 |  |
-| B-003-010-006 | A superheterodyne receiver has an intermediate frequency (IF) of 455 kHz. The local oscillator runs above the operating frequency. To which frequency should it be tuned to receive a signal on 3.54 MHz? | — | 0/3 |  |
-| B-003-010-007 | When receiving a modulated signal, what is the adverse consequence of too narrow a receiver bandwidth? | — | 0/3 |  |
-| B-003-010-008 | Apart from sensitivity and selectivity, which of these is the third main indicator of communications receiver performance? | — | 0/3 |  |
-| B-003-010-009 | A communications receiver has four filters installed in it, respectively designated as 250 Hz, 500 Hz, 2.4 kHz, and 6 kHz. If you were listening to single sideband, which filter would you utilize? | — | 0/3 |  |
-| B-003-010-010 | A communications receiver has four filters installed in it, respectively designated as 250 Hz, 500 Hz, 2.4 kHz and 6 kHz. You are copying a CW transmission and there is a great deal of interference. Which one of the filters would you choose? | — | 0/3 |  |
-| B-003-010-011 | When receiving CW, which of these frequency ranges is optimum for a band-pass filter? | — | 0/3 |  |
+| B-003-010-001 | Which series of emission modes listed below is in order from the narrowest bandwidth to the widest bandwidth? | 02-explore-widths, 03-widths | 3/3 |  |
+| B-003-010-002 | The figure in a receiver's specifications which indicates its sensitivity is the: | 10-performance | 3/3 |  |
+| B-003-010-003 | What are the two signal parameters presented to the user on the waterfall display (spectrogram) of a modern receiver? | 02-explore-widths, 03-widths | 3/3 |  |
+| B-003-010-004 | What is the function of automatic gain control (AGC) in a receiver? | 08-tuning-agc, 09-explore-agc | 3/3 |  |
+| B-003-010-005 | For which of the following emission modes is it important for the receiver to be tuned accurately (within 100 Hz)? | 07-explore-tune, 08-tuning-agc | 3/3 |  |
+| B-003-010-006 | A superheterodyne receiver has an intermediate frequency (IF) of 455 kHz. The local oscillator runs above the operating frequency. To which frequency should it be tuned to receive a signal on 3.54 MHz? | 11-worked-lo | 3/3 | ✓ ham-sim |
+| B-003-010-007 | When receiving a modulated signal, what is the adverse consequence of too narrow a receiver bandwidth? | 04-explore-ssb, 05-filters | 3/3 |  |
+| B-003-010-008 | Apart from sensitivity and selectivity, which of these is the third main indicator of communications receiver performance? | 10-performance | 3/3 |  |
+| B-003-010-009 | A communications receiver has four filters installed in it, respectively designated as 250 Hz, 500 Hz, 2.4 kHz, and 6 kHz. If you were listening to single sideband, which filter would you utilize? | 04-explore-ssb, 05-filters | 3/3 |  |
+| B-003-010-010 | A communications receiver has four filters installed in it, respectively designated as 250 Hz, 500 Hz, 2.4 kHz and 6 kHz. You are copying a CW transmission and there is a great deal of interference. Which one of the filters would you choose? | 05-filters, 06-explore-cw | 3/3 |  |
+| B-003-010-011 | When receiving CW, which of these frequency ranges is optimum for a band-pass filter? | 05-filters | 3/3 |  |
 
 ## 3.11 CW transmitter problems: chirp and clicks
 

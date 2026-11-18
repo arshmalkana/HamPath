@@ -1,0 +1,48 @@
+{
+  "lab": "LAB-28",
+  "steps": {
+    "explore-feed": {
+      "title": "Connect the feedline",
+      "prompt": "Connect the feedline to the right element.",
+      "config": {
+        "mode": "yagi",
+        "reflector": 1.05,
+        "driven": 1,
+        "director": 0.95,
+        "feed": null,
+        "controls": {
+          "lengths": false,
+          "feed": true
+        }
+      },
+      "goal": "fedDriven",
+      "goal_text": "Feedline on the driven element",
+      "hints": [
+        "The driven element is the middle one: a plain half-wave dipole."
+      ],
+      "success": "The middle element is driven. The other two are parasitic: they're not connected to anything."
+    },
+    "explore-lengths": {
+      "title": "Set the lengths",
+      "prompt": "Make the antenna beam toward the front. Change the rear and front element lengths.",
+      "config": {
+        "mode": "yagi",
+        "reflector": 1,
+        "driven": 1,
+        "director": 1,
+        "feed": "driven",
+        "controls": {
+          "lengths": true,
+          "feed": false
+        }
+      },
+      "goal": "reflecting && directing",
+      "goal_text": "Beam formed",
+      "hints": [
+        "The rear element needs to be longer than the middle one.",
+        "The front element needs to be shorter than the middle one."
+      ],
+      "success": "Longest at the back (reflector), shortest at the front (director): the signal is focused forward."
+    }
+  }
+}

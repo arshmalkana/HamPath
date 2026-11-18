@@ -1,0 +1,93 @@
+{
+  "lab": "LAB-13",
+  "steps": {
+    "build-ssb-tx": {
+      "title": "Build an SSB transmitter",
+      "prompt": "Build the SSB transmitter from microphone to antenna.",
+      "config": {
+        "mode": "build",
+        "input": "Microphone",
+        "output": "Antenna",
+        "blocks": [
+          {
+            "id": "speech",
+            "label": "Speech amplifier",
+            "does": "amplifies the weak microphone audio"
+          },
+          {
+            "id": "bm",
+            "label": "Balanced modulator",
+            "does": "moves the voice up to radio frequency"
+          },
+          {
+            "id": "fixed",
+            "label": "Fixed RF oscillator",
+            "does": "produces the RF carrier"
+          },
+          {
+            "id": "sbf",
+            "label": "Sideband filter",
+            "does": "removes the unwanted sideband"
+          },
+          {
+            "id": "mixer",
+            "label": "Mixer",
+            "does": "moves the SSB signal to the operating frequency"
+          },
+          {
+            "id": "vfo",
+            "label": "VFO",
+            "does": "sets the final transmit frequency"
+          },
+          {
+            "id": "pa",
+            "label": "Final amplifier",
+            "does": "delivers the power, with SWR protection"
+          },
+          {
+            "id": "mult",
+            "label": "Frequency multiplier",
+            "does": "belongs in an FM transmitter"
+          }
+        ],
+        "slots": [
+          {
+            "accepts": "speech",
+            "out": "stronger audio"
+          },
+          {
+            "accepts": "bm",
+            "out": "two sidebands, carrier suppressed"
+          },
+          {
+            "accepts": "fixed",
+            "feeds": 1
+          },
+          {
+            "accepts": "sbf",
+            "out": "one sideband"
+          },
+          {
+            "accepts": "mixer",
+            "out": "the SSB signal on the operating frequency"
+          },
+          {
+            "accepts": "vfo",
+            "feeds": 4
+          },
+          {
+            "accepts": "pa",
+            "out": "full-power SSB"
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "Transmitter built",
+      "hints": [
+        "The fixed oscillator feeds the balanced modulator; the VFO feeds the mixer.",
+        "The filter must come straight after the balanced modulator."
+      ],
+      "success": "Speech amp, balanced modulator with its fixed oscillator, sideband filter, mixer with the VFO, final amplifier."
+    }
+  }
+}

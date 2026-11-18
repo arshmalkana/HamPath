@@ -6,9 +6,9 @@
 | --- | --- | --- |
 | Questions in the bank | 984 | |
 | Mapped to a lesson | 984 | 100% |
-| Taught on ≥ 1 card | 205 | 20.8% |
-| 3 Why not? notes | 205 | 20.8% |
-| Lessons authored | 19 / 100 | 19% |
+| Taught on ≥ 1 card | 283 | 28.8% |
+| 3 Why not? notes | 283 | 28.8% |
+| Lessons authored | 29 / 100 | 29% |
 
 Every question maps to exactly one lesson by its ID (B-005-004-001 → lesson 5.04).
 
@@ -16,7 +16,7 @@ Every question maps to exactly one lesson by its ID (B-005-004-001 → lesson 5.
 | --- | --- | --- | --- | --- |
 | [1. Regulations & Policies](section-1.md) | 25 | 199 | 0 (0%) | 0 (0%) |
 | [2. Operating & Procedures](section-2.md) | 9 | 99 | 0 (0%) | 0 (0%) |
-| [3. Station Assembly, Practice & Safety](section-3.md) | 21 | 199 | 0 (0%) | 0 (0%) |
+| [3. Station Assembly, Practice & Safety](section-3.md) | 21 | 199 | 78 (39.2%) | 78 (39.2%) |
 | [4. Circuit Components](section-4.md) | 6 | 63 | 63 (100%) | 63 (100%) |
 | [5. Basic Electronics & Theory](section-5.md) | 13 | 142 | 142 (100%) | 142 (100%) |
 | [6. Feedlines & Antenna Systems](section-6.md) | 13 | 140 | 0 (0%) | 0 (0%) |

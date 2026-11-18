@@ -421,6 +421,21 @@ describe("POST /lab-events: authored labs are verified on the server", () => {
       { topology: "series", E: 44.5, resistors: [500, 500], closed: true },
       { topology: "series", E: 30, resistors: [500, 500], closed: true },
     ],
+    // section 3
+    ["3.01/build-station", { slots: ["lpf", "swr", "tuner", "switch"] }, { slots: ["swr", "lpf", "tuner", "switch"] }],
+    ["3.02/find-power", { slots: [], selected: "pa" }, { slots: [], selected: "osc" }],
+    [
+      "3.05/build-ssb-rx",
+      { slots: ["rf", "mixer", "lo", "iff", "ifa", "pd", "bfo", "af"] },
+      { slots: ["rf", "mixer", "bfo", "iff", "ifa", "pd", "lo", "af"] },
+    ],
+    [
+      "3.09/explore-lengths",
+      { mode: "yagi", reflector: 1.05, driven: 1, director: 0.95, feed: "driven" },
+      { mode: "yagi", reflector: 0.95, driven: 1, director: 1.05, feed: "driven" },
+    ],
+    ["3.10/explore-cw-qrm", { mode: "cw", filter: 250, tune: 0 }, { mode: "cw", filter: 500, tune: 0 }],
+    ["3.10/explore-tune", { mode: "ssb", filter: 2400, tune: 50 }, { mode: "ssb", filter: 2400, tune: 300 }],
     // section 4
     [
       "4.01/explore-drive",

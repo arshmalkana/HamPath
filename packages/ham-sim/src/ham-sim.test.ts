@@ -32,6 +32,10 @@ import {
   diodeCurrent,
   fetDrainCurrent,
   triodePlateCurrent,
+  blockDiagramVariables,
+  spectrumVariables,
+  fractionPassed,
+  yagiVariables,
 } from "./index.ts";
 
 describe("units", () => {
@@ -345,5 +349,72 @@ describe("section 4 component models", () => {
       R: 2200,
       score: 3,
     });
+  });
+});
+
+describe("section 3 lab models", () => {
+  const diagram = {
+    mode: "build" as const,
+    blocks: [
+      { id: "a", label: "A" },
+      { id: "b", label: "B" },
+      { id: "c", label: "C" },
+    ],
+    slots: [{ accepts: "a", fixed: true }, { accepts: "b" }, { accepts: "c", feeds: 1 }],
+  };
+  it("grades block diagrams from the trusted config, ignoring fixed slots", () => {
+    expect(blockDiagramVariables({ slots: [null, "b", "c"] }, diagram)).toMatchObject({
+      placed: 2,
+      total: 2,
+      complete: true,
+      wrong: 0,
+    });
+    expect(blockDiagramVariables({ slots: [null, "c", "b"] }, diagram)).toMatchObject({
+      placed: 0,
+      wrong: 2,
+      complete: false,
+    });
+    expect(
+      blockDiagramVariables({ slots: [], selected: "b" }, { ...diagram, mode: "identify", target: "b" }),
+    ).toMatchObject({ found: true });
+    expect(
+      blockDiagramVariables({ slots: [], selected: "a" }, { ...diagram, mode: "identify", target: "b" }),
+    ).toMatchObject({ found: false });
+  });
+  it("works out how much of a signal a filter passes", () => {
+    expect(fractionPassed(2400, 0, 2400)).toBe(1);
+    expect(fractionPassed(2400, 0, 250)).toBeCloseTo(250 / 2400);
+    expect(spectrumVariables({ mode: "ssb", filter: 250, tune: 0 })).toMatchObject({ lost: true });
+    expect(spectrumVariables({ mode: "cw", filter: 250, tune: 0 }, { qrm: { mode: "cw", offset: 300 } })).toMatchObject(
+      { qrm: 0, passed: 1 },
+    );
+    expect(
+      spectrumVariables({ mode: "cw", filter: 500, tune: 0 }, { qrm: { mode: "cw", offset: 300 } })!.qrm,
+    ).toBeGreaterThan(0.1);
+    expect(spectrumVariables({ mode: "ssb", filter: 2400, tune: 150 })).toMatchObject({ natural: false });
+    expect(spectrumVariables({ mode: "cw", filter: 2400, tune: 150 })).toMatchObject({ natural: true });
+    expect(spectrumVariables({ mode: "nope" as never, filter: 1, tune: 0 })).toBeNull();
+  });
+  it("makes a Yagi beam only with a long reflector and short director", () => {
+    expect(yagiVariables({ mode: "yagi", reflector: 1.05, driven: 1, director: 0.95, feed: "driven" })).toMatchObject({
+      reflecting: true,
+      directing: true,
+      reflectorLongest: true,
+      directorShortest: true,
+      fedDriven: true,
+      fb: 20,
+    });
+    expect(yagiVariables({ mode: "yagi", reflector: 1, driven: 1, director: 1, feed: "reflector" })).toMatchObject({
+      gain: 0,
+      fedDriven: false,
+    });
+  });
+  it("finds the superhet local oscillator frequency", () => {
+    expect(
+      runCalculation({ calc: "superhet", given: { f: "3.54 MHz", if: "455 kHz", lo: "above" } }).value,
+    ).toBeCloseTo(3.995e6);
+    expect(runCalculation({ calc: "superhet", given: { f: "14.2 MHz", if: "9 MHz", lo: "below" } }).value).toBeCloseTo(
+      5.2e6,
+    );
   });
 });

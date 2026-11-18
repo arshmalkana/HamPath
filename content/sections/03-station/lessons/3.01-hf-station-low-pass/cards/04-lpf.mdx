@@ -1,0 +1,18 @@
+---
+type: concept
+title: The low-pass filter goes right after the last amplifier
+teaches:
+  - B-003-001-001
+  - B-003-001-002
+  - B-003-001-003
+  - B-003-001-008
+exam_fact: A low-pass filter reduces harmonic emissions. Put it as close as possible to the transceiver output, or to the external amplifier output if there is one. The SWR meter goes right after it.
+---
+A transmitter makes small amounts of energy at **harmonics**: two, three, four times the operating frequency. A **low-pass filter** passes the operating frequency and blocks those harmonics, so its job is to **reduce harmonic emissions**. Modern transmitters have one built in.
+
+Where an external one goes:
+
+- No external amplifier: **as close as possible to the transceiver output**.
+- With an external amplifier: **as close as possible to the amplifier's output**, after the last thing that could create harmonics.
+
+The **SWR meter** comes **right after the low-pass filter**, then the tuner, then the antenna switch.

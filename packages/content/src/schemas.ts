@@ -259,8 +259,65 @@ export const ColourCodeConfig = z.object({
   controls: z.object({ bands: z.tuple([z.boolean(), z.boolean(), z.boolean(), z.boolean()]) }),
 });
 
+export const DiagramConfigSchema = z
+  .object({
+    mode: z.enum(["build", "identify"]),
+    blocks: z.array(z.strictObject({ id: z.string(), label: z.string(), does: z.string().optional() })).min(2),
+    slots: z
+      .array(
+        z.strictObject({
+          accepts: z.string(),
+          fixed: z.boolean().optional(),
+          feeds: z.number().int().min(0).optional(),
+          out: z.string().optional(),
+        }),
+      )
+      .min(1),
+    target: z.string().optional(),
+    input: z.string().optional(),
+    output: z.string().optional(),
+  })
+  .superRefine((c, ctx) => {
+    const ids = new Set(c.blocks.map((b) => b.id));
+    c.slots.forEach((s, i) => {
+      if (!ids.has(s.accepts)) ctx.addIssue({ code: "custom", message: `slot ${i} accepts unknown block ${s.accepts}` });
+      if (s.feeds !== undefined && (s.feeds >= c.slots.length || c.slots[s.feeds]!.feeds !== undefined))
+        ctx.addIssue({ code: "custom", message: `slot ${i} feeds ${s.feeds}, which is not a main-chain slot` });
+    });
+    if (c.mode === "identify" && !(c.target && c.slots.some((s) => s.accepts === c.target)))
+      ctx.addIssue({ code: "custom", message: "identify mode needs a target that is in the diagram" });
+  });
+const SpectrumMode = z.enum(["cw", "ssb", "am", "fm", "rtty", "psk31", "ft8", "packet"]);
+export const SpectrumConfigSchema = z.object({
+  mode: SpectrumMode,
+  filter: z.number().positive(),
+  tune: z.number(),
+  agc: z.boolean().optional(),
+  filters: z.array(z.number().positive()).min(1),
+  dialHz: z.number().positive().optional(),
+  waterfall: z.boolean().optional(),
+  qrm: z.object({ mode: SpectrumMode, offset: z.number() }).nullable().optional(),
+  controls: z.object({
+    modes: z.union([z.array(SpectrumMode).min(2).max(4), z.literal(false)]),
+    filter: z.boolean(),
+    tune: RangeOrLocked,
+    agc: z.boolean(),
+  }),
+});
+export const AntennaConfigSchema = z.object({
+  mode: z.literal("yagi"),
+  reflector: z.number().min(0.85).max(1.15),
+  driven: z.number().min(0.85).max(1.15),
+  director: z.number().min(0.85).max(1.15),
+  feed: z.enum(["reflector", "driven", "director"]).nullable(),
+  controls: z.object({ lengths: z.boolean(), feed: z.boolean() }),
+});
+
 /** Config schema and the variables a goal may reference, per implemented lab. */
 export const LAB_SCHEMAS: Record<string, { config: z.ZodType; variables: string[] }> = {
+  "LAB-13": { config: DiagramConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-13"]! },
+  "LAB-14": { config: SpectrumConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-14"]! },
+  "LAB-28": { config: AntennaConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-28"]! },
   "LAB-17": { config: BenchConfig, variables: LAB_GOAL_VARIABLES["LAB-17"]! },
   "LAB-18": { config: ColourCodeConfig, variables: LAB_GOAL_VARIABLES["LAB-18"]! },
   "LAB-19": { config: UnitSliderConfig, variables: LAB_GOAL_VARIABLES["LAB-19"]! },

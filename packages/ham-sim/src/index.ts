@@ -8,3 +8,6 @@ export * from "./labs.ts";
 export * from "./morse.ts";
 export * from "./lab-models.ts";
 export * from "./components.ts";
+export * from "./diagrams.ts";
+export * from "./spectrum.ts";
+export * from "./antennas.ts";

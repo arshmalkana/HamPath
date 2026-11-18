@@ -1,0 +1,185 @@
+{
+  "lab": "LAB-13",
+  "steps": {
+    "build-ssb-rx": {
+      "title": "Build an SSB/CW receiver",
+      "prompt": "Build the receiver from antenna to speaker. Two oscillators feed in from below.",
+      "config": {
+        "mode": "build",
+        "input": "Antenna",
+        "output": "Speaker",
+        "blocks": [
+          {
+            "id": "rf",
+            "label": "RF amplifier",
+            "does": "increases sensitivity"
+          },
+          {
+            "id": "mixer",
+            "label": "Mixer",
+            "does": "converts the signal to the IF"
+          },
+          {
+            "id": "lo",
+            "label": "Local oscillator",
+            "does": "mixed with the incoming signal to make the IF"
+          },
+          {
+            "id": "iff",
+            "label": "IF filter",
+            "does": "provides most of the selectivity"
+          },
+          {
+            "id": "ifa",
+            "label": "IF amplifier",
+            "does": "provides most of the gain"
+          },
+          {
+            "id": "pd",
+            "label": "Product detector",
+            "does": "recovers the transmitted modulation"
+          },
+          {
+            "id": "bfo",
+            "label": "Beat frequency oscillator",
+            "does": "mixed with the IF to recover the modulation"
+          },
+          {
+            "id": "af",
+            "label": "AF amplifier",
+            "does": "raises the recovered audio for the speaker"
+          },
+          {
+            "id": "limiter",
+            "label": "Limiter",
+            "does": "is for FM receivers"
+          }
+        ],
+        "slots": [
+          {
+            "accepts": "rf",
+            "out": "weak signals made stronger"
+          },
+          {
+            "accepts": "mixer",
+            "out": "the signal at the IF"
+          },
+          {
+            "accepts": "lo",
+            "feeds": 1
+          },
+          {
+            "accepts": "iff",
+            "out": "only the wanted signal"
+          },
+          {
+            "accepts": "ifa",
+            "out": "a strong IF signal"
+          },
+          {
+            "accepts": "pd",
+            "out": "speech or a CW tone"
+          },
+          {
+            "accepts": "bfo",
+            "feeds": 5
+          },
+          {
+            "accepts": "af",
+            "out": "audio loud enough for the speaker"
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "Receiver built",
+      "hints": [
+        "The local oscillator feeds the mixer; the BFO feeds the product detector.",
+        "The limiter belongs in FM receivers."
+      ],
+      "success": "RF amp, mixer with LO, IF filter, IF amp, product detector with BFO, AF amp."
+    },
+    "find-selectivity": {
+      "title": "Where's the selectivity?",
+      "prompt": "Which stage provides most of the receiver's selectivity?",
+      "config": {
+        "mode": "identify",
+        "input": "Antenna",
+        "output": "Speaker",
+        "target": "iff",
+        "blocks": [
+          {
+            "id": "rf",
+            "label": "RF amplifier",
+            "does": "increases sensitivity, but passes a wide range"
+          },
+          {
+            "id": "mixer",
+            "label": "Mixer",
+            "does": "converts to the IF"
+          },
+          {
+            "id": "lo",
+            "label": "Local oscillator",
+            "does": "sets the received frequency"
+          },
+          {
+            "id": "iff",
+            "label": "IF filter",
+            "does": "passes only a narrow slice at the IF"
+          },
+          {
+            "id": "ifa",
+            "label": "IF amplifier",
+            "does": "provides most of the gain"
+          },
+          {
+            "id": "pd",
+            "label": "Product detector",
+            "does": "recovers the modulation"
+          },
+          {
+            "id": "bfo",
+            "label": "Beat frequency oscillator",
+            "does": "supplies the missing carrier"
+          },
+          {
+            "id": "af",
+            "label": "AF amplifier",
+            "does": "raises the audio"
+          }
+        ],
+        "slots": [
+          {
+            "accepts": "rf"
+          },
+          {
+            "accepts": "mixer"
+          },
+          {
+            "accepts": "lo",
+            "feeds": 1
+          },
+          {
+            "accepts": "iff"
+          },
+          {
+            "accepts": "ifa"
+          },
+          {
+            "accepts": "pd"
+          },
+          {
+            "accepts": "bfo",
+            "feeds": 5
+          },
+          {
+            "accepts": "af"
+          }
+        ]
+      },
+      "goal": "found",
+      "goal_text": "Found it",
+      "success": "The IF filter. Working at one fixed frequency, it can be made very narrow and sharp."
+    }
+  }
+}

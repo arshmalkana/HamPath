@@ -1,0 +1,29 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-002-001:
+  An electrical signal driving the oscillator: The microphone feeds the speech amplifier first, not the oscillator.
+  A radio frequency signal driving the speech amplifier: A microphone makes audio, not radio frequency.
+  A radio frequency signal driving the power amplifier: A microphone makes audio, and it feeds the speech amplifier, not the power amplifier.
+B-003-002-002:
+  is quieter than AM or SSB microphones: FM microphones aren't quieter; any microphone just converts sound.
+  has a different tone than other microphones: An FM microphone sounds like any other.
+  has a wider frequency range than other microphones: FM doesn't need a wider-range microphone; voice is limited to about 3 kHz anyway.
+B-003-002-003:
+  as no effect on the frequency of the oscillator: In FM, varying the oscillator's frequency is exactly what the modulator does.
+  alters the radio's output signal amplitude: FM keeps the output amplitude constant.
+  produces amplitude changes in the oscillator: Amplitude changes are AM; FM changes frequency.
+B-003-002-004:
+  It runs at much higher frequencies: FM oscillators often run lower, with multipliers bringing them up.
+  It has higher fidelity: Fidelity isn't the difference; the modulator acting on its frequency is.
+  The modulator changes its output amplitude: Changing amplitude is AM; in FM the frequency changes.
+B-003-002-005:
+  allows the oscillator to be run at very high frequencies: The multiplier lets the oscillator run lower, not higher.
+  is the major load fed by the power supply: The power amplifier is the major load.
+  produces a low distortion audio response: Audio response is the speech amplifier's concern.
+B-003-002-006:
+  Modulator: The modulator varies the oscillator's frequency; it doesn't make harmonics on purpose.
+  Power amplifier: The power amplifier should make as few harmonics as possible.
+  Speech amplifier: The speech amplifier handles audio.
+B-003-002-007:
+  Frequency multiplier: The multiplier works at low power.
+  Oscillator: The oscillator only makes a weak signal.
+  Speech amplifier: The speech amplifier handles small audio signals.

@@ -1,0 +1,184 @@
+{
+  "lab": "LAB-13",
+  "steps": {
+    "build-fm-rx": {
+      "title": "Build an FM receiver",
+      "prompt": "Build the superhet FM receiver from antenna to speaker.",
+      "config": {
+        "mode": "build",
+        "input": "Antenna",
+        "output": "Speaker",
+        "blocks": [
+          {
+            "id": "rf",
+            "label": "RF amplifier",
+            "does": "the low-noise front end"
+          },
+          {
+            "id": "mixer",
+            "label": "Mixer",
+            "does": "converts the signal to the IF"
+          },
+          {
+            "id": "lo",
+            "label": "Local oscillator",
+            "does": "sets which frequency is received"
+          },
+          {
+            "id": "iff",
+            "label": "IF filter",
+            "does": "rejects adjacent channels"
+          },
+          {
+            "id": "ifa",
+            "label": "IF amplifier",
+            "does": "drives the detector"
+          },
+          {
+            "id": "limiter",
+            "label": "Limiter",
+            "does": "removes amplitude variations"
+          },
+          {
+            "id": "disc",
+            "label": "Discriminator",
+            "does": "recovers the audio from the FM"
+          },
+          {
+            "id": "af",
+            "label": "AF amplifier",
+            "does": "drives the speaker; has the volume and squelch"
+          },
+          {
+            "id": "bfo",
+            "label": "Beat frequency oscillator",
+            "does": "used for SSB and CW, not FM"
+          }
+        ],
+        "slots": [
+          {
+            "accepts": "rf",
+            "out": "the weak signal, a little stronger"
+          },
+          {
+            "accepts": "mixer",
+            "out": "the signal moved to the IF"
+          },
+          {
+            "accepts": "lo",
+            "feeds": 1
+          },
+          {
+            "accepts": "iff",
+            "out": "just the wanted channel"
+          },
+          {
+            "accepts": "ifa",
+            "out": "a strong IF signal"
+          },
+          {
+            "accepts": "limiter",
+            "out": "constant amplitude, noise clipped off"
+          },
+          {
+            "accepts": "disc",
+            "out": "audio"
+          },
+          {
+            "accepts": "af",
+            "out": "audio loud enough for a speaker"
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "Receiver built",
+      "hints": [
+        "The RF amplifier is the front end, then the mixer.",
+        "FM: limiter before discriminator. The BFO isn't needed."
+      ],
+      "success": "Front end, mixer with its local oscillator, IF filter, IF amp, limiter, discriminator, audio. Everything after the mixer works at one frequency."
+    },
+    "find-lo": {
+      "title": "What sets the frequency?",
+      "prompt": "Which stage sets the frequency you receive?",
+      "config": {
+        "mode": "identify",
+        "input": "Antenna",
+        "output": "Speaker",
+        "target": "lo",
+        "blocks": [
+          {
+            "id": "rf",
+            "label": "RF amplifier",
+            "does": "amplifies a broad range of frequencies"
+          },
+          {
+            "id": "mixer",
+            "label": "Mixer",
+            "does": "combines two signals; it doesn't choose the frequency"
+          },
+          {
+            "id": "lo",
+            "label": "Local oscillator",
+            "does": "is moved by the tuning dial"
+          },
+          {
+            "id": "iff",
+            "label": "IF filter",
+            "does": "works at one fixed frequency"
+          },
+          {
+            "id": "ifa",
+            "label": "IF amplifier",
+            "does": "works at one fixed frequency"
+          },
+          {
+            "id": "limiter",
+            "label": "Limiter",
+            "does": "removes amplitude variations"
+          },
+          {
+            "id": "disc",
+            "label": "Discriminator",
+            "does": "recovers the audio"
+          },
+          {
+            "id": "af",
+            "label": "AF amplifier",
+            "does": "drives the speaker"
+          }
+        ],
+        "slots": [
+          {
+            "accepts": "rf"
+          },
+          {
+            "accepts": "mixer"
+          },
+          {
+            "accepts": "lo",
+            "feeds": 1
+          },
+          {
+            "accepts": "iff"
+          },
+          {
+            "accepts": "ifa"
+          },
+          {
+            "accepts": "limiter"
+          },
+          {
+            "accepts": "disc"
+          },
+          {
+            "accepts": "af"
+          }
+        ]
+      },
+      "goal": "found",
+      "goal_text": "Found it",
+      "success": "The local oscillator. Turn the dial and it moves, bringing a different station onto the IF."
+    }
+  }
+}

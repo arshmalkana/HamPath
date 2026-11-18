@@ -335,6 +335,23 @@ const calculators: Record<string, Calculator> = {
     return { value: v, unit: "V", steps: [...steps, `Vp = Vs ÷ ${n(r)} = ${q(v, "V")}`] };
   },
 
+  /** Superheterodyne local oscillator: LO = f + IF (LO above) or f − IF (LO below). */
+  superhet: (s) => {
+    const f = need(val(s.given, "f", "Hz"), "f");
+    const ifq = need(val(s.given, "if", "Hz"), "if");
+    const above = String(s.given.lo ?? "above") !== "below";
+    const lo = above ? f + ifq : f - ifq;
+    return {
+      value: lo,
+      unit: "Hz",
+      steps: [
+        `The mixer makes the IF from the difference: |LO − f| = IF`,
+        `LO ${above ? "above" : "below"} the signal: LO = ${q(f, "Hz")} ${above ? "+" : "−"} ${q(ifq, "Hz")}`,
+        `LO = ${q(lo, "Hz")}`,
+      ],
+    };
+  },
+
   /** λ (m) = 300 ÷ f (MHz), and the reverse. */
   wavelength: (s) => {
     const f = val(s.given, "f", "Hz");

@@ -1,0 +1,144 @@
+{
+  "lab": "LAB-14",
+  "steps": {
+    "explore-widths": {
+      "title": "Compare the modes",
+      "prompt": "Switch modes and find the widest signal.",
+      "config": {
+        "mode": "cw",
+        "filter": 15000,
+        "tune": 0,
+        "filters": [
+          15000
+        ],
+        "waterfall": true,
+        "dialHz": 14200000,
+        "controls": {
+          "modes": [
+            "cw",
+            "ssb",
+            "fm"
+          ],
+          "filter": false,
+          "tune": false,
+          "agc": false
+        }
+      },
+      "goal": "bw >= 12000",
+      "goal_text": "Widest mode found",
+      "hints": [
+        "Try each of the three modes."
+      ],
+      "success": "FM voice is widest, about 12 kHz. SSB is about 2.4 kHz and CW about 150 Hz."
+    },
+    "explore-ssb-filter": {
+      "title": "Choose a filter for SSB",
+      "prompt": "Choose the filter that passes the whole SSB signal without letting in lots of extra noise.",
+      "config": {
+        "mode": "ssb",
+        "filter": 250,
+        "tune": 0,
+        "filters": [
+          250,
+          500,
+          2400,
+          6000
+        ],
+        "controls": {
+          "modes": false,
+          "filter": true,
+          "tune": false,
+          "agc": false
+        }
+      },
+      "goal": "passed >= 0.95 && excess < 1000",
+      "goal_text": "SSB filter chosen",
+      "hints": [
+        "At 250 Hz most of the voice is cut off.",
+        "Match the filter to the signal's width, about 2.4 kHz."
+      ],
+      "success": "2.4 kHz passes the whole voice signal. Narrower loses information; 6 kHz lets in extra noise."
+    },
+    "explore-cw-qrm": {
+      "title": "CW with interference",
+      "prompt": "Choose a filter that keeps your CW station and shuts out the one 300 Hz away.",
+      "config": {
+        "mode": "cw",
+        "filter": 2400,
+        "tune": 0,
+        "filters": [
+          250,
+          500,
+          2400,
+          6000
+        ],
+        "qrm": {
+          "mode": "cw",
+          "offset": 300
+        },
+        "controls": {
+          "modes": false,
+          "filter": true,
+          "tune": false,
+          "agc": false
+        }
+      },
+      "goal": "passed >= 0.9 && qrm < 0.02",
+      "goal_text": "Interference shut out",
+      "hints": [
+        "500 Hz still lets part of it in."
+      ],
+      "success": "250 Hz: your station fits and the interference falls outside the filter."
+    },
+    "explore-tune": {
+      "title": "Tune in the SSB station",
+      "prompt": "Tune until the voice sounds natural: within 100 Hz.",
+      "config": {
+        "mode": "ssb",
+        "filter": 2400,
+        "tune": 300,
+        "filters": [
+          2400
+        ],
+        "controls": {
+          "modes": false,
+          "filter": false,
+          "tune": {
+            "min": -500,
+            "max": 500,
+            "step": 10
+          },
+          "agc": false
+        }
+      },
+      "goal": "natural",
+      "goal_text": "Voice sounds natural",
+      "hints": [
+        "Bring the tuning offset toward 0 Hz."
+      ],
+      "success": "Within 100 Hz the voice sounds right. SSB is the mode that needs accurate tuning."
+    },
+    "explore-agc": {
+      "title": "Fading signals",
+      "prompt": "Turn on AGC to stop the volume jumping as the signal fades.",
+      "config": {
+        "mode": "ssb",
+        "filter": 2400,
+        "tune": 0,
+        "filters": [
+          2400
+        ],
+        "agc": false,
+        "controls": {
+          "modes": false,
+          "filter": false,
+          "tune": false,
+          "agc": true
+        }
+      },
+      "goal": "agc",
+      "goal_text": "AGC on",
+      "success": "With AGC on, a 60 dB fade becomes a 3 dB wobble in volume."
+    }
+  }
+}

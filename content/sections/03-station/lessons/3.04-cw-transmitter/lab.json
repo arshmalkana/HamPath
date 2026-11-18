@@ -1,0 +1,65 @@
+{
+  "lab": "LAB-13",
+  "steps": {
+    "build-cw": {
+      "title": "Build a CW transmitter",
+      "prompt": "Put the stages in order, and connect the key where it switches the carrier.",
+      "config": {
+        "mode": "build",
+        "output": "Antenna",
+        "blocks": [
+          {
+            "id": "osc",
+            "label": "Oscillator",
+            "does": "makes the signal at the transmitted frequency"
+          },
+          {
+            "id": "buffer",
+            "label": "Driver/buffer",
+            "does": "isolates the oscillator from load changes"
+          },
+          {
+            "id": "pa",
+            "label": "Power amplifier",
+            "does": "increases the output power"
+          },
+          {
+            "id": "key",
+            "label": "Key",
+            "does": "switches the carrier on and off"
+          },
+          {
+            "id": "mult",
+            "label": "Frequency multiplier",
+            "does": "not needed: the oscillator is already on frequency"
+          }
+        ],
+        "slots": [
+          {
+            "accepts": "osc",
+            "out": "a weak signal at the transmitted frequency"
+          },
+          {
+            "accepts": "buffer",
+            "out": "the same signal, a little stronger, keyed on and off"
+          },
+          {
+            "accepts": "key",
+            "feeds": 1
+          },
+          {
+            "accepts": "pa",
+            "out": "the full-power CW signal"
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "Transmitter built",
+      "hints": [
+        "Oscillator first, power amplifier last.",
+        "The key works on the middle stage."
+      ],
+      "success": "Oscillator, buffer, power amplifier, with the key switching the carrier on and off at the buffer."
+    }
+  }
+}

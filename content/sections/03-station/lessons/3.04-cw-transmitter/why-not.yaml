@@ -1,0 +1,25 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-004-001:
+  at the transmitted signal's power level: The oscillator's output is weak; the power amplifier raises it.
+  at a submultiple of the operating frequency: In a basic CW transmitter the oscillator runs right on frequency, not at a submultiple.
+  less stable than the transmitted signal: The oscillator sets the frequency, so the output can't be more stable than it.
+B-003-004-002:
+  Radio frequency current: Stages are powered by DC; RF is what they produce.
+  Audio frequency current: Audio isn't used to power stages.
+  Alternating current: Mains AC is turned into DC by the power supply first.
+B-003-004-003:
+  To shape the oscillator waveform to prevent key clicks: Key clicks are prevented by shaping the keying, not by the buffer.
+  To filter out noise from the oscillator: The buffer isn't a noise filter.
+  To filter out spurious emissions from the oscillator: Spurious emissions are filtered at the output, not by the buffer.
+B-003-004-004:
+  It switches the oscillator on and off: In a three-stage design the oscillator keeps running; the key works on a later stage.
+  It reduces key clicks: The key doesn't reduce clicks; badly shaped keying causes them.
+  It reduces key chirps: Chirp is a frequency shift; the key doesn't reduce it.
+B-003-004-005:
+  It removes CW chirps from the transmitted signal: Chirp is fixed by a stable oscillator and buffer, not the amplifier.
+  It multiplies the oscillator frequency to the operating frequency: A basic CW transmitter has no multiplier; the oscillator is on frequency.
+  It reduces distortion in the transmitted signal: Reducing distortion isn't the power amplifier's purpose.
+B-003-004-006:
+  It switches the carrier between two frequencies: Switching between two frequencies is frequency-shift keying, not CW.
+  It switches the transmitted tone on and off: CW sends the carrier itself, not an audio tone.
+  It makes and breaks the antenna connection: The antenna stays connected; the key switches the carrier.

@@ -1,0 +1,41 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-003-001:
+  Local oscillator: The local oscillator feeds the mixer; it isn't the first stage after the antenna.
+  AF amplifier: The AF amplifier is the last stage, at the speaker end.
+  Limiter: The limiter comes after the IF stages.
+B-003-003-002:
+  Product detector: The product detector comes late, after lots of gain; noise matters most at the first stage.
+  IF amplifier: The IF amplifier comes after the RF amplifier, whose noise has already been amplified.
+  Limiter: The limiter comes after the IF; it isn't the noise-critical stage.
+B-003-003-003:
+  Limiter: The limiter removes amplitude variations; it doesn't change frequency.
+  IF filter: The IF filter works at the IF that the mixer has already made.
+  Discriminator: The discriminator detects FM at the IF; the mixer makes the IF.
+B-003-003-004:
+  RF amplifier: The RF amplifier boosts a broad range; it doesn't pick the station.
+  IF filter: The IF filter is fixed at the IF.
+  Beat frequency oscillator: The BFO is for SSB and CW detection, after the IF.
+B-003-003-005:
+  Mixer: The mixer converts frequency; the filter after it does the rejecting.
+  Limiter: The limiter removes amplitude variations.
+  Product detector: A product detector recovers SSB and CW audio.
+B-003-003-006:
+  RF amplifier: The RF amplifier is the front end, far from the detector.
+  Speech amplifier: The speech amplifier is part of a transmitter.
+  Frequency multiplier: Frequency multipliers belong to transmitters.
+B-003-003-007:
+  Suppress local oscillator harmonics: Local oscillator harmonics aren't the limiter's job.
+  Prevent overdriving the IF amplifier: The limiter comes after the IF amplifier; it doesn't protect it.
+  Maintain constant input level to the mixer: The limiter is after the mixer; it doesn't set the mixer's input level.
+B-003-003-008:
+  Select narrowband or wideband FM reception: Choosing narrow or wide FM is done with filters, not the discriminator.
+  Remove amplitude modulation from the received signal: Removing amplitude variations is the limiter's job.
+  Provide most of the receiver's selectivity: Selectivity comes from the IF filter.
+B-003-003-009:
+  Limiter: The limiter has no volume control.
+  Discriminator: The discriminator recovers audio; the volume control comes after it.
+  IF amplifier: The IF amplifier's gain isn't the volume control.
+B-003-003-010:
+  Limiter: The limiter removes amplitude variations; squelch is in the audio stage.
+  IF amplifier: The squelch mutes the audio, so it sits in the AF amplifier.
+  Product detector: FM receivers don't use a product detector.

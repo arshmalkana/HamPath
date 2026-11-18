@@ -1,0 +1,41 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-005-001:
+  Protect the receiver from overload: Overload protection isn't the antenna's purpose.
+  Polarize signals received via sky-wave propagation: The antenna doesn't polarize sky-wave signals.
+  Separate signals from atmospheric noise: The antenna picks up noise along with the signal; it can't separate them.
+B-003-005-002:
+  Provide sufficient drive for the automatic gain control circuit (AGC): AGC drive comes from later in the receiver.
+  Increase the local oscillator signal to drive the mixer: The RF amplifier boosts the received signal, not the local oscillator.
+  Provide sufficient gain to activate the limiter circuit: SSB/CW receivers have no limiter.
+B-003-005-003:
+  Convert the beat frequency oscillator signal to audio: Mixing the BFO to make audio is the product detector's job.
+  Provide USB and LSB signals for sideband selection: Sideband selection is done by filtering or the BFO's position, not by the mixer.
+  Remove the carrier from the received signal: Removing the carrier happens in an SSB transmitter.
+B-003-005-004:
+  It is mixed with the beat frequency oscillator signal to produce audio: The BFO, not the local oscillator, works with the IF to make audio.
+  It is fed to the receiver input to provide band edge markers: Band edge markers come from a crystal calibrator, not the local oscillator.
+  It is mixed with the intermediate frequency signal to produce a CW sidetone: A CW sidetone is generated separately, in audio.
+B-003-005-005:
+  For SSB reception, select the desired sideband: Selecting a sideband is a side effect; the filter's purpose is selectivity.
+  Suppress spurious signals from the IF amplifier: Suppressing spurious signals isn't its main purpose.
+  Reject RF from the product detector, passing only audio: Rejecting RF from the detector is a low-pass job after the product detector.
+B-003-005-006:
+  Boost the signal as required for the mixer: The mixer's drive comes from the RF amplifier and local oscillator.
+  Increase the level of the recovered modulation: Raising recovered audio is the AF amplifier's job.
+  Provide sufficient gain to activate the limiter circuit: SSB/CW receivers have no limiter.
+B-003-005-007:
+  For SSB reception, reject the unwanted sideband: Sideband rejection is done by the IF filter.
+  Convert audio frequency electrical signals into sound: Turning audio into sound is the speaker's job.
+  Detect frequency drift to control the local oscillator: Frequency drift control isn't a product detector's job.
+B-003-005-008:
+  It is mixed with the incoming signal to produce the intermediate frequency: Mixing with the incoming signal to make the IF is the local oscillator's job.
+  It drives the automatic gain control circuit to maintain a constant audio level: The BFO doesn't drive the AGC.
+  It is fed to the receiver input to provide band edge markers: Band edge markers come from a calibrator.
+B-003-005-009:
+  Convert audio frequency electrical signals into sound: The speaker converts audio into sound.
+  Increase the BFO signal for driving the product detector: The BFO feeds the product detector directly.
+  Provide audible warning of receiver overload: The AF amplifier isn't an overload alarm.
+B-003-005-010:
+  IF amplifier: The IF amplifier works at the IF, not audio.
+  IF filter: The IF filter works at the IF; an audio filter goes in the AF stage.
+  Limiter: SSB/CW receivers have no limiter.

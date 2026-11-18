@@ -14,6 +14,9 @@ import {
   type UnitSliderState,
 } from "./lab-models.ts";
 import { solveCircuit, type Topology } from "./resistors.ts";
+import { blockDiagramVariables, type DiagramConfig, type DiagramState } from "./diagrams.ts";
+import { spectrumVariables, type SpectrumConfig, type SpectrumState } from "./spectrum.ts";
+import { antennaVariables } from "./antennas.ts";
 import { benchVariables, colourCodeVariables, type BenchState, type ColourCodeState } from "./components.ts";
 
 /**
@@ -211,6 +214,12 @@ export function labVariables(labId: string, state: unknown, config: Record<strin
       return transformerVariables(st as unknown as TransformerState);
     case "LAB-24":
       return resonanceVariables(st as unknown as ResonanceState);
+    case "LAB-13":
+      return blockDiagramVariables(st as unknown as DiagramState, config as unknown as DiagramConfig);
+    case "LAB-14":
+      return spectrumVariables(st as unknown as SpectrumState, config as SpectrumConfig);
+    case "LAB-28":
+      return antennaVariables(st);
     case "LAB-17":
       return benchVariables(st as unknown as BenchState);
     case "LAB-18":
@@ -279,4 +288,7 @@ export const LAB_GOAL_VARIABLES: Record<string, string[]> = {
     "rectified",
   ],
   "LAB-18": ["R", "tol", "min", "max", "score"],
+  "LAB-13": ["placed", "total", "wrong", "complete", "found"],
+  "LAB-14": ["bw", "filter", "passed", "lost", "qrm", "excess", "tuneError", "natural", "agc", "swing"],
+  "LAB-28": ["reflecting", "directing", "gain", "fb", "reflectorLongest", "directorShortest", "fedDriven", "fed"],
 };

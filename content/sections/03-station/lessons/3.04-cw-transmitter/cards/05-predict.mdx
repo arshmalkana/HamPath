@@ -1,0 +1,18 @@
+---
+type: predict
+title: No buffer
+teaches:
+  - B-003-004-003
+interaction:
+  kind: predict
+  prompt: Someone removes the buffer and connects the oscillator straight to the power amplifier. What goes wrong when they key it?
+  choices:
+    - text: The frequency shifts each time the load changes
+      correct: true
+      feedback: Right. The oscillator now sees the amplifier's changing load directly, and its frequency moves.
+    - text: The output power doubles
+      feedback: Taking a stage out can't add power.
+    - text: The signal becomes AM voice
+      feedback: There's no audio anywhere in this transmitter.
+---
+Predict, then check.

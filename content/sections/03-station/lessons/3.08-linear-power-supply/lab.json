@@ -1,0 +1,115 @@
+{
+  "lab": "LAB-13",
+  "steps": {
+    "build-psu": {
+      "title": "Build a power supply",
+      "prompt": "Build a linear power supply from the AC mains to steady DC.",
+      "config": {
+        "mode": "build",
+        "input": "AC mains",
+        "output": "Steady DC to the radio",
+        "blocks": [
+          {
+            "id": "xfmr",
+            "label": "Transformer",
+            "does": "steps the voltage down and isolates the output"
+          },
+          {
+            "id": "rect",
+            "label": "Rectifier",
+            "does": "converts AC into DC"
+          },
+          {
+            "id": "filter",
+            "label": "Filter",
+            "does": "smooths the pulsating DC"
+          },
+          {
+            "id": "reg",
+            "label": "Regulator",
+            "does": "keeps the voltage constant"
+          },
+          {
+            "id": "osc",
+            "label": "Oscillator",
+            "does": "makes a signal; no use in a power supply"
+          }
+        ],
+        "slots": [
+          {
+            "accepts": "xfmr",
+            "out": "low-voltage AC"
+          },
+          {
+            "accepts": "rect",
+            "out": "pulsating DC"
+          },
+          {
+            "accepts": "filter",
+            "out": "smooth DC with a little ripple"
+          },
+          {
+            "accepts": "reg",
+            "out": "steady DC"
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "Supply built",
+      "hints": [
+        "Change the voltage first, while it's still AC.",
+        "Rectify, then smooth, then regulate."
+      ],
+      "success": "Transformer, rectifier, filter, regulator: AC steps down, becomes pulsating DC, is smoothed, then held steady."
+    },
+    "find-heat": {
+      "title": "Which stage gets hot?",
+      "prompt": "Which stage typically needs a heat sink?",
+      "config": {
+        "mode": "identify",
+        "input": "AC mains",
+        "output": "Steady DC to the radio",
+        "target": "reg",
+        "blocks": [
+          {
+            "id": "xfmr",
+            "label": "Transformer",
+            "does": "gets warm, but is cooled by its own bulk"
+          },
+          {
+            "id": "rect",
+            "label": "Rectifier",
+            "does": "drops under a volt or so"
+          },
+          {
+            "id": "filter",
+            "label": "Filter",
+            "does": "is capacitors; they shouldn't get hot"
+          },
+          {
+            "id": "reg",
+            "label": "Regulator",
+            "does": "turns the extra voltage into heat"
+          }
+        ],
+        "slots": [
+          {
+            "accepts": "xfmr"
+          },
+          {
+            "accepts": "rect"
+          },
+          {
+            "accepts": "filter"
+          },
+          {
+            "accepts": "reg"
+          }
+        ]
+      },
+      "goal": "found",
+      "goal_text": "Found it",
+      "success": "The regulator. It drops the extra voltage at full current, and that becomes heat."
+    }
+  }
+}

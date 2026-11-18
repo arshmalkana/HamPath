@@ -1,0 +1,37 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-001-001:
+  Between the SWR meter and the antenna tuner: The filter belongs before the SWR meter, right at the radio.
+  Between the antenna tuner and the antenna switch: Between the tuner and the switch is too far down the chain; the filter goes first.
+  As close as possible to the antenna switch output: The antenna switch is the far end of the chain; the filter goes at the radio's output.
+B-003-001-002:
+  Between the SWR meter and the antenna tuner: The filter goes before the SWR meter, right after the amplifier.
+  Between the antenna tuner and the antenna switch: That's too far from the amplifier; the filter goes right after it.
+  As close as possible to the transceiver output: The amplifier makes harmonics too, so the filter must come after the amplifier, not before it.
+B-003-001-003:
+  To reduce fundamental emission: The fundamental is the signal you want to send; the filter passes it.
+  To reduce adjacent channel interference: Adjacent-channel interference comes from a too-wide signal, not harmonics.
+  To reduce RF energy below a cut-off point: A low-pass filter passes energy below its cut-off; it blocks what's above.
+B-003-001-004:
+  Frequency meter: A frequency meter measures frequency, not the match.
+  Multimeter: A multimeter can't show RF impedance match.
+  S-meter: An S-meter shows received signal strength.
+B-003-001-005:
+  To adjust the antenna operating frequency: An antenna switch doesn't change what frequency an antenna works on.
+  To adjust the impedance of the antenna system: Matching impedance is the tuner's job.
+  To select the orientation of the antenna: Turning an antenna is a rotator's job.
+B-003-001-006:
+  A low-pass filter: A low-pass filter blocks harmonics; it doesn't match antennas.
+  A high-pass filter: A high-pass filter blocks low frequencies; it doesn't match antennas.
+  An SWR meter: An SWR meter only shows the match; it can't change it.
+B-003-001-007:
+  Lightning surge protector: A lightning surge protector diverts surges; it isn't meant to absorb your RF.
+  Low-pass filter: A low-pass filter passes the operating frequency on to the antenna.
+  Heat sink: A heat sink cools components; it doesn't take RF.
+B-003-001-008:
+  The last stage of RF amplification: The low-pass filter comes after the last amplifier, then the SWR meter.
+  The antenna tuner: The SWR meter goes before the tuner, not after it.
+  The antenna switch: The antenna switch is last; the SWR meter comes before it.
+B-003-001-009:
+  Low-pass filter: A low-pass filter passes everything below its cut-off; no retuning is needed.
+  SWR meter: An SWR meter only measures; it has nothing to adjust for a frequency change.
+  Dummy load: A dummy load works at any frequency.

@@ -1,0 +1,128 @@
+{
+  "lab": "LAB-13",
+  "steps": {
+    "build-station": {
+      "title": "Build an HF station",
+      "prompt": "Put the station's boxes in order from the transceiver to the antenna.",
+      "config": {
+        "mode": "build",
+        "input": "Transceiver",
+        "output": "Antenna or dummy load",
+        "blocks": [
+          {
+            "id": "lpf",
+            "label": "Low-pass filter",
+            "does": "passes the operating frequency and blocks harmonics"
+          },
+          {
+            "id": "swr",
+            "label": "SWR meter",
+            "does": "shows whether the antenna system is matched"
+          },
+          {
+            "id": "tuner",
+            "label": "Antenna tuner",
+            "does": "matches the antenna system to the transmitter"
+          },
+          {
+            "id": "switch",
+            "label": "Antenna switch",
+            "does": "selects the antenna or the dummy load"
+          },
+          {
+            "id": "hpf",
+            "label": "High-pass filter",
+            "does": "blocks low frequencies; it belongs on a TV, not here"
+          },
+          {
+            "id": "smeter",
+            "label": "S-meter",
+            "does": "shows received signal strength; it lives inside the receiver"
+          }
+        ],
+        "slots": [
+          {
+            "accepts": "lpf",
+            "out": "the signal without its harmonics"
+          },
+          {
+            "accepts": "swr"
+          },
+          {
+            "accepts": "tuner"
+          },
+          {
+            "accepts": "switch"
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "Station built",
+      "hints": [
+        "The filter goes first, straight after the radio.",
+        "The SWR meter goes right after the low-pass filter; the switch is last before the antennas."
+      ],
+      "success": "Transceiver, low-pass filter, SWR meter, tuner, antenna switch. Harmonics are filtered as close to the radio as possible."
+    },
+    "build-amp": {
+      "title": "Add an amplifier",
+      "prompt": "This station has an external amplifier. Where does the low-pass filter go now?",
+      "config": {
+        "mode": "build",
+        "input": "Transceiver",
+        "output": "Antenna or dummy load",
+        "blocks": [
+          {
+            "id": "amp",
+            "label": "RF amplifier",
+            "does": "boosts the transceiver's output"
+          },
+          {
+            "id": "lpf",
+            "label": "Low-pass filter",
+            "does": "blocks harmonics, including the amplifier's"
+          },
+          {
+            "id": "swr",
+            "label": "SWR meter",
+            "does": "shows whether the antenna system is matched"
+          },
+          {
+            "id": "tuner",
+            "label": "Antenna tuner",
+            "does": "matches the antenna system to the transmitter"
+          },
+          {
+            "id": "switch",
+            "label": "Antenna switch",
+            "does": "selects the antenna or the dummy load"
+          }
+        ],
+        "slots": [
+          {
+            "accepts": "amp",
+            "fixed": true
+          },
+          {
+            "accepts": "lpf"
+          },
+          {
+            "accepts": "swr"
+          },
+          {
+            "accepts": "tuner"
+          },
+          {
+            "accepts": "switch"
+          }
+        ]
+      },
+      "goal": "complete",
+      "goal_text": "Station built",
+      "hints": [
+        "The amplifier makes harmonics too. The filter has to come after it."
+      ],
+      "success": "The filter now sits right after the amplifier, so it catches the amplifier's harmonics as well."
+    }
+  }
+}

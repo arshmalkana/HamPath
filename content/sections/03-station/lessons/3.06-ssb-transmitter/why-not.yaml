@@ -1,0 +1,37 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-006-001:
+  It directly drives the sideband filter: The fixed oscillator feeds the balanced modulator, not the filter directly.
+  It drives the mixer: The VFO feeds the mixer; the fixed oscillator feeds the balanced modulator.
+  It balances the variable frequency oscillator: Oscillators aren't balanced against each other.
+B-003-006-002:
+  To match the balanced modulator's output impedance: Impedance matching isn't why the speech amplifier is there.
+  The sideband filter requires a large audio signal to work: The sideband filter works on RF, not audio.
+  To improve signal fidelity: Fidelity isn't the reason; microphones are simply too weak.
+B-003-006-003:
+  Suppress the RF carrier signal: The balanced modulator already suppresses the carrier.
+  Shape the audio waveform: The filter works at RF; it doesn't shape audio.
+  Remove harmonics from the transmitted signal: Harmonics are removed by the output low-pass filter.
+B-003-006-004:
+  At the VFO frequency: The VFO moves; a filter tuned there would need retuning constantly.
+  Near the operating frequency: The filter works before the mixer, near the fixed oscillator's frequency, not the operating frequency.
+  At audio frequencies: The filter follows the balanced modulator, so it works at RF.
+B-003-006-005:
+  Amplify one of the signal's two sidebands: The speech amplifier works on audio, before there are any sidebands.
+  Amplify the signal's carrier: There's no carrier yet at the speech amplifier.
+  Amplify the signal's harmonic content: Harmonics aren't something you want to amplify.
+B-003-006-006:
+  Variable frequency oscillator: The VFO feeds the mixer; it doesn't do the mixing.
+  Balanced modulator: The balanced modulator moves audio up to the fixed RF frequency, not the operating frequency.
+  Fixed RF oscillator: The fixed RF oscillator just makes the carrier.
+B-003-006-007:
+  Antenna tuner: The antenna tuner matches the antenna; it doesn't set the frequency.
+  Sideband filter: The sideband filter is fixed.
+  Balanced modulator: The balanced modulator works at the fixed RF frequency.
+B-003-006-008:
+  Speech amplifier: The speech amplifier is far from the antenna.
+  Variable frequency oscillator: The VFO sets frequency; it doesn't see the SWR.
+  Balanced modulator: The balanced modulator works at low power.
+B-003-006-009:
+  Mixer: The mixer moves an RF signal to another RF frequency.
+  Variable frequency oscillator: The VFO doesn't handle the voice.
+  Fixed RF oscillator: The fixed RF oscillator only makes the carrier.

@@ -1,0 +1,25 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-008-001:
+  At the output of the filter: The filter's output isn't regulated yet; protection watches what the radio actually gets.
+  At the input of the rectifier: The rectifier's input is AC; protection watches the final DC output.
+  At the input of the transformer: The transformer's input is the mains; protection watches the output.
+B-003-008-002:
+  Convert alternating current into direct current: Converting AC to DC is the rectifier's job.
+  Smooth out the pulsating direct current: Smoothing is the filter's job.
+  Ensure that the voltage stays constant when a heavy demand is placed on the supply: Holding the voltage steady is the regulator's job.
+B-003-008-003:
+  Ensure that the voltage stays constant when a heavy demand is placed on the supply: Holding the voltage steady is the regulator's job.
+  Convert the AC mains voltage up or down as required and provide isolation: Stepping the voltage and isolating is the transformer's job.
+  Smooth out pulsating direct current: Smoothing is the filter's job.
+B-003-008-004:
+  Convert alternating current into direct current: Converting AC to DC is the rectifier's job.
+  Ensure that the voltage stays constant when a heavy demand is placed on the supply: Holding the voltage steady is the regulator's job.
+  Absorb the power produced by the supply: The filter doesn't absorb the supply's power.
+B-003-008-005:
+  Convert the AC mains voltage up or down as required and provides isolation: Stepping the voltage is the transformer's job.
+  Convert alternating current into direct current: Converting AC to DC is the rectifier's job.
+  Absorb the power produced by the supply: The regulator doesn't absorb the supply's power; it delivers it.
+B-003-008-006:
+  Transformer: The transformer is cooled by its own bulk.
+  Rectifier: The rectifier drops little voltage and rarely needs much cooling.
+  Filter: Filter capacitors shouldn't get hot.

@@ -13,8 +13,16 @@
 - { id: LAB-10, name: Morse Trainer, component: null, lessons: ["2.05", "3.14"] }
 - { id: LAB-11, name: Emergency Net Scenario, component: null, lessons: ["1.11", "2.08"] }
 - { id: LAB-12, name: World Map & Clock, component: null, lessons: ["2.09", "7.06"] }
-- { id: LAB-13, name: Block-Diagram Builder, component: null, lessons: ["3.01", "3.02", "3.03", "3.04", "3.05", "3.06", "3.07", "3.08", "3.09"] }
-- { id: LAB-14, name: Mode Spectrum Lab, component: null, lessons: ["3.10", "3.11", "3.12", "3.13", "3.15"] }
+- id: LAB-13
+  name: Block-Diagram Builder
+  component: BlockDiagramLab
+  lessons: ["3.01", "3.02", "3.03", "3.04", "3.05", "3.06", "3.07", "3.08"]
+  default_config: { mode: build }
+- id: LAB-14
+  name: Mode Spectrum Lab
+  component: SpectrumLab
+  lessons: ["3.10", "3.11", "3.12", "3.13", "3.15"]
+  default_config: { mode: ssb, filter: 2400, tune: 0, agc: false, filters: [250, 500, 2400, 6000, 15000], waterfall: false, qrm: null, controls: { modes: false, filter: true, tune: false, agc: false } }
 - { id: LAB-15, name: Power Bench, component: null, lessons: ["3.08", "3.16", "3.17"] }
 - { id: LAB-16, name: Safe Shack Inspector, component: null, lessons: ["3.18", "3.19", "3.20", "3.21"] }
 - id: LAB-17
@@ -82,7 +90,11 @@
     show: { ammeter: true, voltmeter: true, power: false }
 - { id: LAB-26, name: Feedline Lab, component: null, lessons: ["6.01", "6.02", "6.03", "6.04"] }
 - { id: LAB-27, name: SWR Bridge & Tuner, component: null, lessons: ["6.05", "6.06"] }
-- { id: LAB-28, name: Antenna Builder, component: null, lessons: ["3.09", "6.08", "6.10", "6.11", "6.12", "6.13"] }
+- id: LAB-28
+  name: Antenna Builder
+  component: AntennaBuilderLab
+  lessons: ["3.09", "6.08", "6.10", "6.11", "6.12", "6.13"]
+  default_config: { mode: yagi, reflector: 1, driven: 1, director: 1, feed: null, controls: { lengths: true, feed: true } }
 - { id: LAB-29, name: Radiation Pattern 3D, component: null, lessons: ["6.07", "6.09", "6.11"] }
 - { id: LAB-30, name: Ionosphere Simulator, component: null, lessons: ["7.01", "7.02", "7.03", "7.04", "7.06"] }
 - { id: LAB-31, name: Solar Cycle Dial, component: null, lessons: ["7.05"] }

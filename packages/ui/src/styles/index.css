@@ -2171,3 +2171,103 @@ a.lesson-tile[data-done="true"] {
   color: var(--shack-ink-2);
   font-size: var(--text-sm);
 }
+
+/* ================================================================ LAB-13 block diagrams */
+.bd-diagram {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-xs);
+}
+.bd-col {
+  display: grid;
+  gap: var(--space-2xs);
+  justify-items: center;
+}
+.bd-side {
+  display: grid;
+  justify-items: center;
+}
+.bd-arrow,
+.bd-end {
+  align-self: flex-start;
+  padding-top: 14px;
+  color: var(--shack-ink-2);
+}
+.bd-up {
+  padding-top: 0;
+}
+.bd-end {
+  font-size: var(--text-sm);
+}
+.bd-block {
+  min-height: var(--control-h);
+  min-width: 96px;
+  max-width: 150px;
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-control);
+  border: 2px solid var(--shack-rule);
+  background: var(--shack-panel-2);
+  color: var(--shack-ink);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition:
+    border-color var(--dur-micro) var(--ease-out),
+    background-color var(--dur-micro) var(--ease-out);
+}
+.bd-block:focus-visible {
+  outline: 3px solid var(--shack-lamp);
+  outline-offset: 2px;
+}
+.bd-slot {
+  border-style: dashed;
+  background: var(--shack-well);
+  color: var(--shack-ink-2);
+  font-weight: 400;
+}
+.bd-block[data-over="true"],
+.bd-block:hover:not(:disabled) {
+  border-color: var(--shack-lamp);
+}
+.bd-block[data-state="right"] {
+  border-style: solid;
+  border-color: var(--shack-ok);
+  color: var(--shack-ink);
+  font-weight: 700;
+}
+.bd-block[data-state="wrong"] {
+  border-style: solid;
+  border-color: var(--shack-fault);
+  color: var(--shack-ink);
+}
+.bd-block[data-state="fixed"] {
+  cursor: default;
+}
+.bd-tray {
+  background: var(--shack-well);
+  border-color: var(--shack-rule);
+}
+
+/* ================================================================ LAB-28 antennas */
+.yagi-element {
+  stroke-width: 5;
+}
+.yagi-fed {
+  stroke: var(--shack-lamp);
+}
+.yagi-feed {
+  stroke: var(--shack-wire);
+  stroke-dasharray: 4 3;
+}
+.polar-ring {
+  fill: none;
+  stroke: var(--shack-grid);
+  stroke-width: 1;
+}
+.polar-lobe {
+  fill: var(--shack-readout);
+  fill-opacity: 0.25;
+  stroke: var(--shack-readout);
+  stroke-width: 2;
+}

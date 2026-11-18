@@ -65,13 +65,16 @@ export function Plot({
       .map(([x, y], i) => `${i ? "L" : "M"}${sx(x).toFixed(1)},${sy(y).toFixed(1)}`)
       .join("");
 
+  // Keep end labels inside the screen instead of clipping them at the edges.
+  const anchorAt = (x: number) => (x < PAD.l + 24 ? "start" : x > W - PAD.r - 24 ? "end" : "middle");
+
   return (
     <svg className="plot" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={label}>
       <rect className="plot-screen" x={PAD.l} y={PAD.t} width={W - PAD.l - PAD.r} height={H - PAD.t - PAD.b} rx="4" />
       {xTicks.map((t) => (
         <g key={`x${t}`}>
           <line className="plot-grid" x1={sx(t)} x2={sx(t)} y1={PAD.t} y2={H - PAD.b} />
-          <text className="plot-tick" x={sx(t)} y={H - PAD.b + 14} textAnchor="middle">
+          <text className="plot-tick" x={sx(t)} y={H - PAD.b + 14} textAnchor={anchorAt(sx(t))}>
             {formatX(t)}
           </text>
         </g>
@@ -96,7 +99,12 @@ export function Plot({
         <g key={`m${m.x}${m.label}`}>
           <line className="plot-marker" x1={sx(m.x)} x2={sx(m.x)} y1={PAD.t} y2={H - PAD.b} />
           {m.label && (
-            <text className="plot-marker-label" x={sx(m.x) + 4} y={PAD.t + 12}>
+            <text
+              className="plot-marker-label"
+              x={sx(m.x) > W - PAD.r - 60 ? sx(m.x) - 4 : sx(m.x) + 4}
+              y={PAD.t + 12}
+              textAnchor={sx(m.x) > W - PAD.r - 60 ? "end" : "start"}
+            >
               {m.label}
             </text>
           )}

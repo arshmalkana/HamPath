@@ -1,8 +1,11 @@
 import type { ComponentType } from "react";
 import type { Vars } from "@hampath/ham-sim";
+import { AntennaBuilderLab } from "./AntennaBuilderLab";
+import { BlockDiagramLab } from "./BlockDiagramLab";
 import { ColourCodeLab } from "./ColourCodeLab";
 import { ComponentBenchLab } from "./ComponentBenchLab";
 import { DbLadderLab } from "./DbLadderLab";
+import { SpectrumLab } from "./SpectrumLab";
 import { MeterLab } from "./MeterLab";
 import { OhmsLawLab } from "./OhmsLawLab";
 import { ResonanceLab } from "./ResonanceLab";
@@ -41,8 +44,8 @@ export const LAB_REGISTRY: LabEntry[] = [
   { id: "LAB-10", name: "Morse Trainer", component: null },
   { id: "LAB-11", name: "Emergency Net Scenario", component: null },
   { id: "LAB-12", name: "World Map & Clock", component: null },
-  { id: "LAB-13", name: "Block-Diagram Builder", component: null },
-  { id: "LAB-14", name: "Mode Spectrum Lab", component: null },
+  { id: "LAB-13", name: "Block-Diagram Builder", component: BlockDiagramLab },
+  { id: "LAB-14", name: "Mode Spectrum Lab", component: SpectrumLab },
   { id: "LAB-15", name: "Power Bench", component: null },
   { id: "LAB-16", name: "Safe Shack Inspector", component: null },
   { id: "LAB-17", name: "Component Bench", component: ComponentBenchLab },
@@ -56,7 +59,7 @@ export const LAB_REGISTRY: LabEntry[] = [
   { id: "LAB-25", name: "Meter Lab", component: MeterLab },
   { id: "LAB-26", name: "Feedline Lab", component: null },
   { id: "LAB-27", name: "SWR Bridge & Tuner", component: null },
-  { id: "LAB-28", name: "Antenna Builder", component: null },
+  { id: "LAB-28", name: "Antenna Builder", component: AntennaBuilderLab },
   { id: "LAB-29", name: "Radiation Pattern 3D", component: null },
   { id: "LAB-30", name: "Ionosphere Simulator", component: null },
   { id: "LAB-31", name: "Solar Cycle Dial", component: null },

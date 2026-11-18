@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-003-010-001:
+  CW, FM voice and SSB voice: FM voice is wider than SSB, so it must come last.
+  FM voice, SSB voice and CW: That's widest to narrowest, backwards.
+  SSB voice, CW and FM voice: CW is narrower than SSB.
+B-003-010-002:
+  audio output in watts: Audio output says nothing about how weak a signal it can hear.
+  bandwidth of the IF in kilohertz: IF bandwidth is about selectivity, not sensitivity.
+  number of RF amplifiers: The number of RF amplifiers isn't a measure of sensitivity.
+B-003-010-003:
+  Frequency and phase: Phase isn't shown on a waterfall.
+  Phase and bandwidth: A waterfall shows amplitude and frequency, not phase or bandwidth figures.
+  Bandwidth and digital mode: It doesn't label digital modes; you see their shapes.
+B-003-010-004:
+  Remove high-amplitude short-duration noise pulses: Removing short noise pulses is the noise blanker's job.
+  Improve the signal-to-distortion ratio of the detector: AGC doesn't improve detector distortion.
+  Maximize overall gain for greater sensitivity: AGC reduces gain on strong signals; it doesn't maximize gain.
+B-003-010-005:
+  AM: AM has its own carrier, so tuning is forgiving.
+  FM: FM has its own carrier and tolerates mistuning.
+  CW: CW mistuned just changes the tone's pitch; it's still readable.
+B-003-010-006:
+  4.450 MHz: 4.450 MHz adds the IF twice.
+  4.905 MHz: 4.905 MHz adds the IF three times.
+  13.540 MHz: 13.540 MHz has nothing to do with a 455 kHz IF.
+B-003-010-007:
+  Loss of dynamic range: Dynamic range doesn't depend on bandwidth like this.
+  Lower signal strength: The signal isn't weaker; part of it is cut off.
+  Lower signal-to-noise ratio: Narrowing the filter usually improves signal-to-noise; the problem is lost information.
+B-003-010-008:
+  Frequency range: Frequency range is a feature, not one of the three performance measures.
+  Fidelity: Fidelity matters for broadcast audio, not communications receivers.
+  Volume range: Volume range isn't a performance measure.
+B-003-010-009:
+  250 Hz: 250 Hz is for CW; it would cut most of the voice off.
+  6 kHz: 6 kHz is for AM; it lets in extra noise on SSB.
+  500 Hz: 500 Hz is for CW; far too narrow for voice.
+B-003-010-010:
+  500 Hz: 500 Hz is good for CW, but 250 Hz rejects more interference.
+  2.4 kHz: 2.4 kHz is for SSB voice.
+  6 kHz: 6 kHz is for AM.
+B-003-010-011:
+  2100 Hz to 2300 Hz: 2100 to 2300 Hz is much higher than a normal CW tone.
+  300 Hz to 2700 Hz: 300 to 2700 Hz is an SSB voice filter.
+  100 Hz to 1100 Hz: 100 to 1100 Hz is 1 kHz wide; much wider than a CW filter needs.
