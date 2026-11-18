@@ -495,6 +495,33 @@ export const WorldClockConfigSchema = z.discriminatedUnion("mode", [
     controls: z.object({ utc: z.boolean(), f: z.boolean() }),
   }),
 ]);
+const CauseSchema = z.enum(["overload", "desense", "intermod", "rectification", "harmonics", "spurious", "parasitic", "clicks", "splatter", "commonmode"]);
+const CureSchema = z.enum(["hpfTv", "lpfTx", "ferrite", "phoneFilter", "cmChoke", "rxFilter", "separate", "cover", "keying", "micGain", "lessPower"]);
+export const InterferenceConfigSchema = z
+  .object({
+    title: z.string(),
+    story: z.string(),
+    evidence: z.array(z.string()).min(1),
+    sound: z.enum(["ssb-rect", "cw-rect", "overload", "harmonic", "intermod", "clicks", "desense", "splatter"]),
+    caption: z.string().min(10),
+    cause: CauseSchema,
+    cure: CureSchema,
+    causes: z.array(CauseSchema).min(2),
+    cures: z.array(CureSchema).min(2),
+  })
+  .refine((c) => c.causes.includes(c.cause) && c.cures.includes(c.cure), "the right cause and cure must be among the options");
+const FilterTypeSchema = z.enum(["lowpass", "highpass", "bandpass", "bandreject", "notch"]);
+export const FilterConfigSchema = z.object({
+  wanted: z.array(z.number().positive()).min(1),
+  interferers: z.array(z.number().positive()).min(1),
+  type: FilterTypeSchema,
+  f1: z.number().positive(),
+  f2: z.number().positive().optional(),
+  types: z.array(FilterTypeSchema).min(2).max(4),
+  values: z.array(z.number().positive()).min(2),
+  axis: z.object({ min: z.number().positive(), max: z.number().positive(), log: z.boolean() }),
+  labels: z.object({ wanted: z.string().optional(), interferers: z.string().optional() }).optional(),
+});
 const PatternAntenna = z.enum(["isotropic", "dipole", "yagi"]);
 export const PatternConfigSchema = z.object({
   antenna: PatternAntenna,
@@ -510,6 +537,8 @@ export const LAB_SCHEMAS: Record<string, { config: z.ZodType; variables: string[
   "LAB-13": { config: DiagramConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-13"]! },
   "LAB-14": { config: SpectrumConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-14"]! },
   "LAB-28": { config: AntennaConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-28"]! },
+  "LAB-33": { config: InterferenceConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-33"]! },
+  "LAB-34": { config: FilterConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-34"]! },
   "LAB-30": { config: IonosphereConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-30"]! },
   "LAB-31": { config: SolarCycleConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-31"]! },
   "LAB-32": { config: VhfConfigSchema, variables: LAB_GOAL_VARIABLES["LAB-32"]! },

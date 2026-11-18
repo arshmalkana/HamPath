@@ -195,7 +195,9 @@ describe("Section Checkpoints", () => {
     expect(res.score).toBeCloseTo(90.9, 1);
     expect(res.weakLessons[0]).toMatchObject({ code: "8.02", missed: 5, href: "/lessons/8.02" });
     expect(res.misses).toHaveLength(5);
-    expect(res.misses[0]).toMatchObject({ correct: false, teach: { href: "/lessons/8.02" } });
+    // Authored lessons deep-link to the card that teaches the missed question.
+    expect(res.misses[0]).toMatchObject({ correct: false });
+    expect(res.misses[0].teach.href).toMatch(/^\/lessons\/8\.02(\?card=8\.02%2F.+)?$/);
     expect(res.misses[0].chosen.text).toBeTruthy();
     expect(res.misses[0].correctOption.text).toBeTruthy();
 

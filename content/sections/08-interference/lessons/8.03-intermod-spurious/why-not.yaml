@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-008-003-001:
+  Phase distortion: Phase distortion doesn't create new frequencies.
+  Linear distortion: Linear distortion doesn't create new frequencies.
+  Aliasing: Aliasing is a sampling effect.
+B-008-003-002:
+  You need to reduce your output power: Less power might hide it, but spurious emissions are the cause.
+  Your hand-held has a chirp due to low battery voltage: Low-battery chirp is a small frequency shift, not interference to others.
+  Your hand-held offset is wrong: A wrong offset affects repeater access, not other signals.
+B-008-003-003:
+  Side tones: Side tones are what you hear while sending CW.
+  Transmitter chirping: Chirping is a frequency shift.
+  Off-frequency emissions: Off-frequency emissions isn't the term.
+B-008-003-004:
+  It may transmit a weak signal: Removing the cover doesn't weaken the signal.
+  It may draw excessive current: It doesn't change the current drawn.
+  It may transmit a chirpy signal: It doesn't cause chirp.
+B-008-003-005:
+  frequency shifting caused by poor voltage regulation: Poor regulation causes chirp.
+  high frequency parasitic oscillations: Parasitics aren't local key clicks.
+  poor wave-shaping caused by a defective filter capacitor: A defective capacitor isn't the cause of local clicks.
+B-008-003-006:
+  power supply hum modulating the carrier: Hum modulation isn't key clicks.
+  sparks emitting RF from the key contacts: Sparks cause local, not distant, clicks.
+  changes in oscillator frequency on keying: Frequency change on keying is chirp.
+B-008-003-007:
+  frequency shifting during keying: Frequency shifting is chirp.
+  sparking at the key contacts: Sparking at the contacts causes local interference.
+  mechanical instability in the oscillator: Oscillator instability causes drift or chirp.
+B-008-003-008:
+  Adjust your key: Adjusting the key won't fix the waveform.
+  Regulate the oscillator supply voltage: Regulating the oscillator fixes chirp, not clicks.
+  Use a choke in the RF power output: A choke at the output won't shape the keying.
+B-008-003-009:
+  Secondary emission: Secondary emission is a tube effect.
+  Frequency instability: Frequency instability is drift.
+  Harmonic emission: Harmonic emission is at multiples.
+B-008-003-010:
+  Unwanted negative feedback: Negative feedback stabilizes.
+  Oscillator drift: Drift isn't oscillation.
+  Power supply instability: Supply instability isn't the cause.
+B-008-003-011:
+  on VHF frequencies only: They're not limited to VHF.
+  on the transmitter fundamental frequency: They're not on the fundamental.
+  on harmonics of the transmitter frequency: They're not limited to harmonics.

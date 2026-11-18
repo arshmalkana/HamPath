@@ -8,99 +8,99 @@
 
 Lab: LAB-33
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-008-001-001 | What is the cause of receiver overload? | — | 0/3 |  |
-| B-008-001-002 | What is one way to tell if your HF transmitter causes front-end overload interference to a neighbour's receiver? | — | 0/3 |  |
-| B-008-001-003 | If a neighbour reports television interference whenever you transmit, no matter what band you use, what is probably the cause of the interference? | — | 0/3 |  |
-| B-008-001-004 | What type of filter should be connected to a TV receiver as the first step in trying to prevent receiver overload from an amateur radio HF transmission? | — | 0/3 |  |
-| B-008-001-005 | During a club Field Day outing, reception on the 20-metre SSB station is compromised every time the 20-metre CW station is on the air. What might cause such interference? | — | 0/3 |  |
-| B-008-001-006 | The signals from two commercial transmitters combine outside your receiver to produce noise on a desired frequency. What type of interference is this? | — | 0/3 |  |
-| B-008-001-007 | You have connected your hand-held VHF transceiver to an outside gain antenna. You now hear a mixture of signals together with different modulation on your desired frequency. What is the nature of this interference? | — | 0/3 |  |
-| B-008-001-008 | Two or more strong signals mix in your receiver to produce interference on a desired frequency. What is this called? | — | 0/3 |  |
-| B-008-001-009 | Two mobile stations are communicating through a repeater. As they arrive in close proximity to each other, they begin to have difficulty communicating. What is the most likely cause? | — | 0/3 |  |
-| B-008-001-010 | A television receiver suffers interference on channel 5 (76 MHz - 82 MHz) only when you transmit on 14 MHz. From your home you see the tower of a commercial FM station known to broadcast on 92.5 MHz. Which of these solutions would you try first? | — | 0/3 |  |
-| B-008-001-011 | You are experiencing interference in your VHF receiver. You have determined that signals from two nearby transmitters are mixing in your receiver to cause the interference. What device can you install to reduce the interference? | — | 0/3 |  |
+| B-008-001-001 | What is the cause of receiver overload? | 03-overload | 3/3 |  |
+| B-008-001-002 | What is one way to tell if your HF transmitter causes front-end overload interference to a neighbour's receiver? | 02-explore-overload, 03-overload | 3/3 |  |
+| B-008-001-003 | If a neighbour reports television interference whenever you transmit, no matter what band you use, what is probably the cause of the interference? | 02-explore-overload, 03-overload | 3/3 |  |
+| B-008-001-004 | What type of filter should be connected to a TV receiver as the first step in trying to prevent receiver overload from an amateur radio HF transmission? | 02-explore-overload, 03-overload | 3/3 |  |
+| B-008-001-005 | During a club Field Day outing, reception on the 20-metre SSB station is compromised every time the 20-metre CW station is on the air. What might cause such interference? | 04-explore-desense, 05-desense | 3/3 |  |
+| B-008-001-006 | The signals from two commercial transmitters combine outside your receiver to produce noise on a desired frequency. What type of interference is this? | 07-intermod | 3/3 |  |
+| B-008-001-007 | You have connected your hand-held VHF transceiver to an outside gain antenna. You now hear a mixture of signals together with different modulation on your desired frequency. What is the nature of this interference? | 06-explore-intermod, 07-intermod | 3/3 |  |
+| B-008-001-008 | Two or more strong signals mix in your receiver to produce interference on a desired frequency. What is this called? | 06-explore-intermod, 07-intermod | 3/3 |  |
+| B-008-001-009 | Two mobile stations are communicating through a repeater. As they arrive in close proximity to each other, they begin to have difficulty communicating. What is the most likely cause? | 04-explore-desense, 05-desense | 3/3 |  |
+| B-008-001-010 | A television receiver suffers interference on channel 5 (76 MHz - 82 MHz) only when you transmit on 14 MHz. From your home you see the tower of a commercial FM station known to broadcast on 92.5 MHz. Which of these solutions would you try first? | 07-intermod | 3/3 |  |
+| B-008-001-011 | You are experiencing interference in your VHF receiver. You have determined that signals from two nearby transmitters are mixing in your receiver to cause the interference. What device can you install to reduce the interference? | 06-explore-intermod, 07-intermod | 3/3 |  |
 
 ## 8.02 Curing interference to home electronics
 
 Lab: LAB-33
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-008-002-001 | What devices would you install to reduce or eliminate interference to a home entertainment system from an HF transmitter? | — | 0/3 |  |
-| B-008-002-002 | What should be done if a properly operating amateur radio station is the cause of interference to a nearby telephone? | — | 0/3 |  |
-| B-008-002-003 | What sound is heard from a public address system if audio rectification of a nearby single-sideband transmission occurs? | — | 0/3 |  |
-| B-008-002-004 | What sound is heard from a public address system if audio rectification of a nearby CW transmission occurs? | — | 0/3 |  |
-| B-008-002-005 | If an amateur radio transmission is heard in a device that contains no RF components, what type of interference is this? | — | 0/3 |  |
-| B-008-002-006 | An amateur radio transmitter is being heard across the entire dial of a broadcast receiver. The receiver is most probably suffering from: | — | 0/3 |  |
-| B-008-002-007 | Your SSB HF transmissions are heard muffled on a sound system in the living room regardless of its volume setting. What causes this? | — | 0/3 |  |
-| B-008-002-008 | What device can be used to minimize the effect of RF pickup by audio wires connected to stereo speakers, intercom amplifiers, telephones, etc.? | — | 0/3 |  |
-| B-008-002-009 | Stereo speaker leads often act as antennas to pick up RF signals. What is one method you can use to minimize this effect? | — | 0/3 |  |
-| B-008-002-010 | One method of preventing RF from entering a stereo set through the speaker leads is to wrap each of the speaker leads: | — | 0/3 |  |
-| B-008-002-011 | You are using an HF off-centre-fed (OCF) unbalanced antenna. When you transmit on SSB, distorted audio and noise are heard from an outboard amplified speaker. What device could you install in the transmission line to mitigate this problem? | — | 0/3 |  |
+| B-008-002-001 | What devices would you install to reduce or eliminate interference to a home entertainment system from an HF transmitter? | 05-ferrite | 3/3 |  |
+| B-008-002-002 | What should be done if a properly operating amateur radio station is the cause of interference to a nearby telephone? | 06-explore-phone, 07-phone-ocf | 3/3 |  |
+| B-008-002-003 | What sound is heard from a public address system if audio rectification of a nearby single-sideband transmission occurs? | 02-explore-pa, 03-rectification | 3/3 |  |
+| B-008-002-004 | What sound is heard from a public address system if audio rectification of a nearby CW transmission occurs? | 03-rectification, 04-explore-cw | 3/3 |  |
+| B-008-002-005 | If an amateur radio transmission is heard in a device that contains no RF components, what type of interference is this? | 02-explore-pa, 03-rectification | 3/3 |  |
+| B-008-002-006 | An amateur radio transmitter is being heard across the entire dial of a broadcast receiver. The receiver is most probably suffering from: | 03-rectification | 3/3 |  |
+| B-008-002-007 | Your SSB HF transmissions are heard muffled on a sound system in the living room regardless of its volume setting. What causes this? | 02-explore-pa, 03-rectification | 3/3 |  |
+| B-008-002-008 | What device can be used to minimize the effect of RF pickup by audio wires connected to stereo speakers, intercom amplifiers, telephones, etc.? | 05-ferrite | 3/3 |  |
+| B-008-002-009 | Stereo speaker leads often act as antennas to pick up RF signals. What is one method you can use to minimize this effect? | 05-ferrite | 3/3 |  |
+| B-008-002-010 | One method of preventing RF from entering a stereo set through the speaker leads is to wrap each of the speaker leads: | 05-ferrite | 3/3 |  |
+| B-008-002-011 | You are using an HF off-centre-fed (OCF) unbalanced antenna. When you transmit on SSB, distorted audio and noise are heard from an outboard amplified speaker. What device could you install in the transmission line to mitigate this problem? | 07-phone-ocf, 08-explore-ocf | 3/3 |  |
 
 ## 8.03 Intermodulation and spurious emissions
 
 Lab: LAB-33
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-008-003-001 | What term describes the undesired creation of new frequency components when one or more signals enter a non-linear device? | — | 0/3 |  |
-| B-008-003-002 | If someone tells you that signals from your hand-held transceiver are interfering with other signals on a frequency near yours, what could be the cause? | — | 0/3 |  |
-| B-008-003-003 | If your transmitter sends signals outside the band where it is transmitting, what is this called? | — | 0/3 |  |
-| B-008-003-004 | What problem may occur if your transmitter is operated without its cover or other shielding in place? | — | 0/3 |  |
-| B-008-003-005 | In Morse code transmission, local RF interference (key clicks) is produced by: | — | 0/3 |  |
-| B-008-003-006 | Key clicks, heard from a Morse code transmitter at a distant receiver, are the result of: | — | 0/3 |  |
-| B-008-003-007 | In a Morse code transmission, broad bandwidth RF interference (key clicks) heard at a distance is produced by: | — | 0/3 |  |
-| B-008-003-008 | What should you do if you learn your transmitter is producing key clicks? | — | 0/3 |  |
-| B-008-003-009 | What term describes an unwanted oscillation in an amplifier or oscillator circuit? | — | 0/3 |  |
-| B-008-003-010 | What can cause parasitic oscillations in a stage? | — | 0/3 |  |
-| B-008-003-011 | Transmitter RF amplifiers can generate parasitic oscillations: | — | 0/3 |  |
+| B-008-003-001 | What term describes the undesired creation of new frequency components when one or more signals enter a non-linear device? | 03-spurious | 3/3 |  |
+| B-008-003-002 | If someone tells you that signals from your hand-held transceiver are interfering with other signals on a frequency near yours, what could be the cause? | 03-spurious | 3/3 |  |
+| B-008-003-003 | If your transmitter sends signals outside the band where it is transmitting, what is this called? | 02-explore-cover, 03-spurious | 3/3 |  |
+| B-008-003-004 | What problem may occur if your transmitter is operated without its cover or other shielding in place? | 02-explore-cover, 03-spurious | 3/3 |  |
+| B-008-003-005 | In Morse code transmission, local RF interference (key clicks) is produced by: | 05-clicks | 3/3 |  |
+| B-008-003-006 | Key clicks, heard from a Morse code transmitter at a distant receiver, are the result of: | 04-explore-clicks, 05-clicks | 3/3 |  |
+| B-008-003-007 | In a Morse code transmission, broad bandwidth RF interference (key clicks) heard at a distance is produced by: | 04-explore-clicks, 05-clicks | 3/3 |  |
+| B-008-003-008 | What should you do if you learn your transmitter is producing key clicks? | 04-explore-clicks, 05-clicks | 3/3 |  |
+| B-008-003-009 | What term describes an unwanted oscillation in an amplifier or oscillator circuit? | 06-parasitic | 3/3 |  |
+| B-008-003-010 | What can cause parasitic oscillations in a stage? | 06-parasitic | 3/3 |  |
+| B-008-003-011 | Transmitter RF amplifiers can generate parasitic oscillations: | 06-parasitic | 3/3 |  |
 
 ## 8.04 Harmonics
 
 Lab: LAB-33
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-008-004-001 | If a neighbour reports television interference on one or two channels only when you transmit on 15 metres, what is probably the cause of the interference? | — | 0/3 |  |
-| B-008-004-002 | What are harmonic emissions? | — | 0/3 |  |
-| B-008-004-003 | Why are harmonic emissions from an amateur radio station not wanted? | — | 0/3 |  |
-| B-008-004-004 | What term describes unwanted radio energy transmitted just outside the necessary bandwidth? | — | 0/3 |  |
-| B-008-004-005 | If you are told your station was heard on 21.375 MHz but at the time you were operating on 7.125 MHz. What is one reason that could cause this to happen? | — | 0/3 |  |
-| B-008-004-006 | What causes splatter interference? | — | 0/3 |  |
-| B-008-004-007 | A television tuned to channel 3 (60 MHz - 66 MHz) experiences interference when you are transmitting on the 15-metre band. Other channels are not affected. What is the most likely cause? | — | 0/3 |  |
-| B-008-004-008 | What is the probable cause of "flat topping" (non-linear operation) of an amplifier in an SSB transmitter? | — | 0/3 |  |
-| B-008-004-009 | Which of the following may cause excessive harmonics in a transmitter? | — | 0/3 |  |
-| B-008-004-010 | An interfering signal from an HF transmitter is found to have a frequency of 56 MHz. What could be the source? | — | 0/3 |  |
-| B-008-004-011 | Harmonics may be produced in the RF power amplifier of a transmitter if: | — | 0/3 |  |
+| B-008-004-001 | If a neighbour reports television interference on one or two channels only when you transmit on 15 metres, what is probably the cause of the interference? | 02-explore-harmonic, 03-harmonics | 3/3 |  |
+| B-008-004-002 | What are harmonic emissions? | 03-harmonics | 3/3 |  |
+| B-008-004-003 | Why are harmonic emissions from an amateur radio station not wanted? | 03-harmonics | 3/3 |  |
+| B-008-004-004 | What term describes unwanted radio energy transmitted just outside the necessary bandwidth? | 06-splatter | 3/3 |  |
+| B-008-004-005 | If you are told your station was heard on 21.375 MHz but at the time you were operating on 7.125 MHz. What is one reason that could cause this to happen? | 03-harmonics | 3/3 |  |
+| B-008-004-006 | What causes splatter interference? | 05-explore-splatter, 06-splatter | 3/3 |  |
+| B-008-004-007 | A television tuned to channel 3 (60 MHz - 66 MHz) experiences interference when you are transmitting on the 15-metre band. Other channels are not affected. What is the most likely cause? | 02-explore-harmonic, 03-harmonics | 3/3 |  |
+| B-008-004-008 | What is the probable cause of "flat topping" (non-linear operation) of an amplifier in an SSB transmitter? | 05-explore-splatter, 06-splatter | 3/3 |  |
+| B-008-004-009 | Which of the following may cause excessive harmonics in a transmitter? | 04-overdrive | 3/3 |  |
+| B-008-004-010 | An interfering signal from an HF transmitter is found to have a frequency of 56 MHz. What could be the source? | 03-harmonics | 3/3 |  |
+| B-008-004-011 | Harmonics may be produced in the RF power amplifier of a transmitter if: | 04-overdrive | 3/3 |  |
 
 ## 8.05 Filters
 
 Lab: LAB-34
 
-Status: not yet authored
+Status: authored
 
 | Question | Stem | Cards | Why not? | Calc |
 | --- | --- | --- | --- | --- |
-| B-008-005-001 | What is the frequency response of an ideal notch filter? | — | 0/3 |  |
-| B-008-005-002 | A filter attenuates frequencies below its cut-off frequency of 60 MHz. What type of filter is it? | — | 0/3 |  |
-| B-008-005-003 | What type of filter attenuates RF energy above and below a certain range of frequencies? | — | 0/3 |  |
-| B-008-005-004 | Why should the impedance of a filter match the transmission line where it is inserted? | — | 0/3 |  |
-| B-008-005-005 | Listening to shortwave on a low-cost software defined receiver (SDR), you hear several stations known to operate on much higher frequencies. What type of filter could help? | — | 0/3 |  |
-| B-008-005-006 | You need to install an AC line filter to reduce radio frequency noise heard in your station equipment. What type of frequency response should it have? | — | 0/3 |  |
-| B-008-005-007 | A strong interfering signal is very close to your receive frequency. Which type of filter can effectively suppress it? | — | 0/3 |  |
-| B-008-005-008 | In a Field Day operation with separate transmitters assigned to specific bands, what type of filter is needed on the receivers to minimize interference? | — | 0/3 |  |
-| B-008-005-009 | A nearby high-power HF broadcast station in the 31-metre band is interfering with your reception on the 40-metre and 30-metre bands. What type of filter is needed on the receiver to minimize interference? | — | 0/3 |  |
-| B-008-005-010 | Your 2-metre station suffers receiver overload from several land mobile service transmitters on adjacent bands. What type of filter could help? | — | 0/3 |  |
-| B-008-005-011 | A filter attenuates frequencies above its cut-off frequency of 40 MHz. What type of filter is it? | — | 0/3 |  |
+| B-008-005-001 | What is the frequency response of an ideal notch filter? | 03-types, 05-explore-notch | 3/3 |  |
+| B-008-005-002 | A filter attenuates frequencies below its cut-off frequency of 60 MHz. What type of filter is it? | 03-types, 04-explore-highpass | 3/3 |  |
+| B-008-005-003 | What type of filter attenuates RF energy above and below a certain range of frequencies? | 03-types | 3/3 |  |
+| B-008-005-004 | Why should the impedance of a filter match the transmission line where it is inserted? | 09-impedance | 3/3 |  |
+| B-008-005-005 | Listening to shortwave on a low-cost software defined receiver (SDR), you hear several stations known to operate on much higher frequencies. What type of filter could help? | 02-explore-lowpass, 08-choosing | 3/3 |  |
+| B-008-005-006 | You need to install an AC line filter to reduce radio frequency noise heard in your station equipment. What type of frequency response should it have? | 08-choosing | 3/3 |  |
+| B-008-005-007 | A strong interfering signal is very close to your receive frequency. Which type of filter can effectively suppress it? | 05-explore-notch, 08-choosing | 3/3 |  |
+| B-008-005-008 | In a Field Day operation with separate transmitters assigned to specific bands, what type of filter is needed on the receivers to minimize interference? | 06-explore-bandpass, 08-choosing | 3/3 |  |
+| B-008-005-009 | A nearby high-power HF broadcast station in the 31-metre band is interfering with your reception on the 40-metre and 30-metre bands. What type of filter is needed on the receiver to minimize interference? | 07-explore-bandreject, 08-choosing | 3/3 |  |
+| B-008-005-010 | Your 2-metre station suffers receiver overload from several land mobile service transmitters on adjacent bands. What type of filter could help? | 06-explore-bandpass, 08-choosing | 3/3 |  |
+| B-008-005-011 | A filter attenuates frequencies above its cut-off frequency of 40 MHz. What type of filter is it? | 02-explore-lowpass, 03-types | 3/3 |  |
 

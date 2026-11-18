@@ -1,0 +1,68 @@
+{
+  "lab": "LAB-33",
+  "steps": {
+    "case-cover": {
+      "title": "Case 8: the open cabinet",
+      "prompt": "Diagnose, then fix.",
+      "config": {
+        "title": "Case file: the workbench transmitter",
+        "story": "You've been testing a transmitter on the bench with its cover off. Several stations report hearing you outside the band.",
+        "evidence": [
+          "The reports come from frequencies outside the band you're using.",
+          "The cover and its shielding are sitting on the shelf."
+        ],
+        "sound": "harmonic",
+        "caption": "Your signal heard where it shouldn't be: a buzzy carrier well away from your frequency.",
+        "cause": "spurious",
+        "cure": "cover",
+        "causes": [
+          "overload",
+          "spurious",
+          "rectification",
+          "desense"
+        ],
+        "cures": [
+          "hpfTv",
+          "ferrite",
+          "cover",
+          "rxFilter"
+        ]
+      },
+      "goal": "solved",
+      "goal_text": "Case closed",
+      "success": "Without its shielding the transmitter radiates spurious emissions. Put the cover back on."
+    },
+    "case-clicks": {
+      "title": "Case 9: the clicking CW",
+      "prompt": "Diagnose, then fix.",
+      "config": {
+        "title": "Case file: the distant complaint",
+        "story": "A station 500 km away says your CW clicks are wiping out signals several kHz either side of you.",
+        "evidence": [
+          "The clicks happen at the start and end of every element.",
+          "Your frequency is steady: no chirp.",
+          "It started after you repaired the keying circuit."
+        ],
+        "sound": "clicks",
+        "caption": "Sharp clicks at the start and end of every dit and dah, spreading well either side of the CW signal.",
+        "cause": "clicks",
+        "cure": "keying",
+        "causes": [
+          "clicks",
+          "parasitic",
+          "splatter",
+          "harmonics"
+        ],
+        "cures": [
+          "micGain",
+          "keying",
+          "lpfTx",
+          "phoneFilter"
+        ]
+      },
+      "goal": "solved",
+      "goal_text": "Case closed",
+      "success": "Too-sharp keying edges: key clicks. Check the keying filter and the stages after it."
+    }
+  }
+}

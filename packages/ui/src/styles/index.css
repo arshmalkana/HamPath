@@ -2487,3 +2487,33 @@ circle.rf-person.rf-safe {
   stroke: var(--shack-lamp);
   stroke-width: 2;
 }
+
+/* ================================================================ LAB-33 interference detective */
+.case-file {
+  display: grid;
+  gap: var(--space-xs);
+}
+.case-title {
+  margin: 0;
+  font-weight: 700;
+  color: var(--shack-ink);
+}
+.case-evidence {
+  margin: 0;
+  padding-left: 1.2em;
+  color: var(--shack-ink-2);
+  font-size: var(--text-sm);
+}
+.case-audio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  align-items: center;
+}
+
+/* Pressed chips inside the shack skin: the app's pale accent wash has no contrast on the dark panel. */
+.shack .chip[aria-pressed="true"] {
+  border-color: var(--shack-lamp);
+  background: var(--shack-lamp);
+  color: var(--shack-lamp-ink);
+}

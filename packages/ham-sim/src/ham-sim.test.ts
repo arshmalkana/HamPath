@@ -62,6 +62,9 @@ import {
   mapPathVariables,
   distanceKm,
   bearing,
+  interferenceVariables,
+  filterResponse,
+  filterVariables,
 } from "./index.ts";
 
 describe("units", () => {
@@ -649,5 +652,31 @@ describe("section 7 propagation models", () => {
     expect(distanceKm(cfg.from, cfg.to)).toBeLessThan(5500);
     expect(bearing(cfg.from, cfg.to)).toBeGreaterThan(40);
     expect(bearing(cfg.from, cfg.to)).toBeLessThan(60);
+  });
+});
+
+describe("section 8 interference models", () => {
+  it("needs both the right diagnosis and the right cure", () => {
+    const c = { cause: "harmonics" as const, cure: "lpfTx" as const };
+    expect(interferenceVariables({ diagnosis: "harmonics", cure: "lpfTx" }, c)).toMatchObject({ solved: true });
+    expect(interferenceVariables({ diagnosis: "harmonics", cure: null }, c)).toMatchObject({
+      diagnosed: true,
+      solved: false,
+    });
+    expect(interferenceVariables({ diagnosis: "overload", cure: "lpfTx" }, c)).toMatchObject({ solved: false });
+  });
+  it("shapes the five filter types", () => {
+    expect(filterResponse("lowpass", 10, 40)).toBeGreaterThan(0.99);
+    expect(filterResponse("lowpass", 88, 40)).toBeLessThan(0.01);
+    expect(filterResponse("highpass", 88, 40)).toBeGreaterThan(0.99);
+    expect(filterResponse("bandpass", 14.2, 12, 16)).toBeGreaterThan(0.8);
+    expect(filterResponse("notch", 14.3, 14.3)).toBeLessThan(0.001);
+    expect(filterResponse("notch", 14.2, 14.3)).toBeGreaterThan(0.9);
+    expect(filterResponse("bandreject", 9.6, 9.4, 9.8)).toBeLessThan(0.001);
+  });
+  it("grades a filter by what it keeps and what it blocks", () => {
+    const cfg = { wanted: [7, 14], interferers: [88, 100] };
+    expect(filterVariables({ type: "lowpass", f1: 30 }, cfg)).toMatchObject({ ok: true });
+    expect(filterVariables({ type: "highpass", f1: 30 }, cfg)).toMatchObject({ ok: false });
   });
 });

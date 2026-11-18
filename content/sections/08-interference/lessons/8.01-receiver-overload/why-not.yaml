@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-008-001-001:
+  Frequency instability of a transmitter: An unstable transmitter frequency isn't overload.
+  Parasitic oscillations in a transmitter: Parasitic oscillations are a transmitter fault, not overload.
+  Overmodulation of a transmitter: Overmodulation causes splatter, not overload.
+B-008-001-002:
+  Adding receiver shielding has no effect: Shielding often does help with overload; that's not the test.
+  Interference is heard regardless of the volume setting on the receiver: Volume has nothing to do with this test.
+  Adding a low-pass filter at the transmitter solves the problem: A low-pass filter would fix harmonics, not overload.
+B-008-001-003:
+  Incorrect antenna length: Antenna length doesn't cause interference on every band.
+  Spurious emissions: Spurious emissions would affect particular frequencies.
+  Deficient harmonic suppression: Harmonics would affect particular channels, not every band you use.
+B-008-001-004:
+  Low-pass: A low-pass filter would pass your HF signal right in.
+  Band-pass: A band-pass filter isn't the standard first step for a TV.
+  AC line filter: An AC line filter doesn't stop RF on the antenna input.
+B-008-001-005:
+  Both stations are fed from the same generator: A shared generator isn't the cause.
+  Improper station grounding: Grounding isn't the cause.
+  Harmonic emission: Harmonics of 20 m land on 10 m, not on 20 m.
+B-008-001-006:
+  Spurious emissions: Spurious emissions come from one transmitter.
+  Receiver overload: Overload happens inside a receiver.
+  Harmonic emissions: Harmonics are multiples of one frequency.
+B-008-001-007:
+  Harmonics from other stations: Harmonics are multiples of one frequency, not a mix of signals.
+  Audio stage overload: The audio stage isn't where RF signals mix.
+  Audio stage intermodulation: Mixing happens at RF, in the front end.
+B-008-001-008:
+  Harmonic interference: Harmonics come from one signal.
+  Capture effect: The capture effect picks the strongest signal; it doesn't create new ones.
+  Front-end desensitization: Desensitization reduces gain; it doesn't create signals.
+B-008-001-009:
+  CTCSS tones are activating the receivers' squelch circuits: CTCSS opens squelch; it doesn't stop communication.
+  They have entered a null area of their antenna patterns: Nulls don't explain trouble only when close.
+  Transmitter signals are mixing with the repeater signal to cause intermodulation: The strong signals desensitize the receivers; that's the most likely cause.
+B-008-001-010:
+  Insert a low-pass filter at the HF transmitter: The interference comes from mixing in the TV, not your transmitter's output.
+  Insert a high-pass filter at the HF transmitter: A high-pass filter at the transmitter would block your own signal.
+  Insert a low-pass filter at the television receiver: A low-pass filter at the TV would block the TV channel.
+B-008-001-011:
+  Common-mode choke: A common-mode choke stops feedline currents, not off-frequency signals.
+  RF attenuator: An attenuator weakens the wanted signal too.
+  Narrow band IF filter: "An IF filter is too late: the mixing happens before it."

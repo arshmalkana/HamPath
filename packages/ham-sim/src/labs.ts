@@ -18,6 +18,14 @@ import { blockDiagramVariables, type DiagramConfig, type DiagramState } from "./
 import { spectrumVariables, type SpectrumConfig, type SpectrumState } from "./spectrum.ts";
 import { antennaVariables, patternVariables, type PatternState } from "./antennas.ts";
 import {
+  filterVariables,
+  interferenceVariables,
+  type FilterConfig,
+  type FilterState,
+  type InterferenceConfig,
+  type InterferenceState,
+} from "./interference.ts";
+import {
   ionosphereVariables,
   mapPathVariables,
   solarCycleVariables,
@@ -257,6 +265,10 @@ export function labVariables(labId: string, state: unknown, config: Record<strin
       return spectrumVariables(st as unknown as SpectrumState, config as SpectrumConfig);
     case "LAB-28":
       return antennaVariables(st, config);
+    case "LAB-33":
+      return interferenceVariables(st as unknown as InterferenceState, config as unknown as InterferenceConfig);
+    case "LAB-34":
+      return filterVariables(st as unknown as FilterState, config as unknown as FilterConfig);
     case "LAB-30":
       return ionosphereVariables(st as unknown as IonosphereState, config as IonosphereConfig);
     case "LAB-31":
@@ -410,6 +422,8 @@ export const LAB_GOAL_VARIABLES: Record<string, string[]> = {
     "coilReactance",
     "horizontal",
   ],
+  "LAB-33": ["diagnosed", "cured", "solved"],
+  "LAB-34": ["wantedMin", "rejectDb", "ok", "lowpass", "highpass", "bandpass", "bandreject", "notch"],
   "LAB-30": [
     "foF2",
     "foE",

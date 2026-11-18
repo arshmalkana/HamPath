@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-008-004-001:
+  Splatter due to overmodulation: Splatter affects frequencies near yours, not TV channels.
+  Television receiver front-end overload: Overload would affect all channels and bands.
+  Parasitic oscillations from your transmitter: Parasitics aren't tied to one band like this.
+B-008-004-002:
+  Unwanted signals that are combined with a 60 Hz hum: Hum isn't harmonics.
+  Unwanted signals caused by mixing with a nearby transmitter: Mixing with another transmitter is intermodulation.
+  Signals which cause skip propagation to occur: Harmonics don't cause skip.
+B-008-004-003:
+  They may result in excessive power dissipation: Excess dissipation isn't the reason.
+  They may overload a nearby transmitter: Harmonics don't overload transmitters.
+  They may interfere with stations on adjacent frequencies: Adjacent frequencies are affected by splatter, not harmonics.
+B-008-004-004:
+  Harmonic emissions: Harmonics are at multiples, further out.
+  Parasitic emissions: Parasitic emissions come from oscillations.
+  Spurious emissions: Spurious emissions are further from the band.
+B-008-004-005:
+  Your transmitter's power-supply filter choke is defective: A bad choke causes hum.
+  You were sending CW too fast: CW speed doesn't create harmonics.
+  Your transmitter's power-supply filter capacitor is defective: A bad filter capacitor causes hum.
+B-008-004-006:
+  Keying a transmitter too fast: Keying too fast isn't splatter.
+  Unwanted feedback in an amplifier stage: Feedback causes parasitics.
+  The transmitting antenna is non-resonant: A non-resonant antenna doesn't cause splatter.
+B-008-004-007:
+  No high-pass filter on the TV: Missing a TV high-pass filter wouldn't single out channel 3.
+  No high-pass filter at your transmitter: A high-pass filter at the transmitter would block your HF signal.
+  Front-end overload of the TV: Overload would affect all channels.
+B-008-004-008:
+  Defective sideband filter: A bad sideband filter doesn't cause flat-topping.
+  Insufficient power supply current capacity: Supply current isn't the usual cause.
+  Defective low-pass filter: A low-pass filter doesn't cause flat-topping.
+B-008-004-009:
+  Use of a non-resonant antenna: A non-resonant antenna doesn't cause harmonics.
+  Defective driver circuit: A defective driver isn't the classic cause; overdriving is.
+  Internal antenna tuner malfunction: A tuner malfunction doesn't create harmonics.
+B-008-004-010:
+  Crystal oscillator operating on its fundamental: A crystal fundamental isn't at 56 MHz in an HF rig.
+  Seventh harmonic of an 80-metre transmission: Seven times 3.5 MHz is about 25 MHz.
+  Third harmonic of a 15-metre transmission: Three times 21 MHz is 63 MHz.
+B-008-004-011:
+  the output tank circuit is tuned to the fundamental frequency: A correctly tuned tank reduces harmonics.
+  the oscillator frequency is unstable: An unstable oscillator causes drift.
+  modulation is applied to a high-level stage: High-level modulation isn't the cause.

@@ -533,6 +533,11 @@ describe("POST /lab-events: authored labs are verified on the server", () => {
       { band: 2, height: 10, aurora: true, heading: 180 },
     ],
     ["7.08/explore-meteor", { band: 6, height: 10, meteors: true }, { band: 2, height: 10, meteors: true }],
+    // section 8
+    ["8.01/case-overload", { diagnosis: "overload", cure: "hpfTv" }, { diagnosis: "harmonics", cure: "lpfTx" }],
+    ["8.04/case-harmonic", { diagnosis: "harmonics", cure: "lpfTx" }, { diagnosis: "harmonics", cure: "hpfTv" }],
+    ["8.05/explore-notch", { type: "notch", f1: 14.3 }, { type: "lowpass", f1: 14.0 }],
+    ["8.05/explore-bandpass", { type: "bandpass", f1: 12, f2: 16 }, { type: "bandpass", f1: 10, f2: 20 }],
     // section 4
     [
       "4.01/explore-drive",

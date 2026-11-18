@@ -14,3 +14,4 @@ export * from "./antennas.ts";
 export * from "./station.ts";
 export * from "./feedline.ts";
 export * from "./propagation.ts";
+export * from "./interference.ts";

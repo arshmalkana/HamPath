@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-008-005-001:
+  Attenuate a range of frequencies and pass all others: That's a band-reject filter.
+  Attenuate all frequencies except one single frequency: That's a single-frequency pass, the opposite of a notch.
+  Attenuate all frequencies except a range of frequencies: That's a band-pass filter.
+B-008-005-002:
+  Low-pass: A low-pass filter attenuates above its cut-off.
+  Band-pass: Band-pass attenuates both sides of a range.
+  Notch: A notch removes a single frequency.
+B-008-005-003:
+  High-pass: High-pass only attenuates below.
+  Notch: A notch removes one frequency.
+  Low-pass: Low-pass only attenuates above.
+B-008-005-004:
+  To preserve the balance of the line: Balance is a balun's job.
+  To minimize noise in the receiver: Receiver noise isn't the reason.
+  To prevent spurious emissions: Spurious emissions aren't caused by a filter mismatch.
+B-008-005-005:
+  High-pass: High-pass would block the shortwave you want.
+  Band-pass: A band-pass for the whole shortwave range isn't the simple answer.
+  Band-reject: Band-reject would block a range, not everything above.
+B-008-005-006:
+  High-pass: High-pass would block the 60 Hz power.
+  Band-pass: Band-pass isn't the AC line filter type.
+  Band-reject: Band-reject isn't the AC line filter type.
+B-008-005-007:
+  High-pass: High-pass can't separate two close frequencies.
+  Low-pass: Low-pass can't separate two close frequencies.
+  Band-reject: Band-reject blocks a range; a notch targets the one signal.
+B-008-005-008:
+  Low-pass: Low-pass would let lower bands in.
+  High-pass: High-pass would let higher bands in.
+  Band-reject: Band-reject blocks one range but passes the rest.
+B-008-005-009:
+  Band-pass: Band-pass would only pass one of the two bands.
+  Low-pass: Low-pass would block 30 m.
+  High-pass: High-pass would block 40 m.
+B-008-005-010:
+  Low-pass: Low-pass lets lower land mobile bands through.
+  High-pass: High-pass lets higher bands through.
+  Notch: A notch handles one frequency, not several transmitters.
+B-008-005-011:
+  Band-pass: Band-pass attenuates both sides.
+  High-pass: High-pass attenuates below.
+  Notch: A notch removes one frequency.

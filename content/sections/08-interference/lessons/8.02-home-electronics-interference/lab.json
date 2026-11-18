@@ -1,0 +1,131 @@
+{
+  "lab": "LAB-33",
+  "steps": {
+    "case-pa": {
+      "title": "Case 4: the PA system",
+      "prompt": "Diagnose, then fix.",
+      "config": {
+        "title": "Case file: the community hall",
+        "story": "During the club meeting, your SSB transmissions from the parking lot come out of the hall's PA speakers.",
+        "evidence": [
+          "The PA system has no radio receiver in it.",
+          "Turning the PA volume up or down makes no difference.",
+          "The speaker cables are long runs around the hall."
+        ],
+        "sound": "ssb-rect",
+        "caption": "Muffled, distorted speech from the PA speakers, at the same level whatever the volume is set to.",
+        "cause": "rectification",
+        "cure": "ferrite",
+        "causes": [
+          "harmonics",
+          "rectification",
+          "intermod",
+          "overload"
+        ],
+        "cures": [
+          "lpfTx",
+          "hpfTv",
+          "ferrite",
+          "keying"
+        ]
+      },
+      "goal": "solved",
+      "goal_text": "Case closed",
+      "success": "No RF circuits, volume makes no difference: audio rectification. Ferrite cores on the leads stop the RF getting in."
+    },
+    "case-cw": {
+      "title": "Case 5: the CW version",
+      "prompt": "Diagnose, then fix.",
+      "config": {
+        "title": "Case file: the community hall, Morse edition",
+        "story": "Now you're sending CW from the parking lot.",
+        "evidence": [
+          "The PA system has no radio receiver in it.",
+          "The sound follows your keying exactly."
+        ],
+        "sound": "cw-rect",
+        "caption": "An on-and-off humming in rhythm with your Morse.",
+        "cause": "rectification",
+        "cure": "ferrite",
+        "causes": [
+          "clicks",
+          "rectification",
+          "spurious",
+          "desense"
+        ],
+        "cures": [
+          "keying",
+          "ferrite",
+          "lpfTx",
+          "micGain"
+        ]
+      },
+      "goal": "solved",
+      "goal_text": "Case closed",
+      "success": "CW rectified in an audio system sounds like on-and-off humming. Ferrite on the leads again."
+    },
+    "case-phone": {
+      "title": "Case 6: the telephone",
+      "prompt": "Diagnose, then fix.",
+      "config": {
+        "title": "Case file: the neighbour's phone",
+        "story": "Your neighbour hears your voice on their landline telephone when you transmit.",
+        "evidence": [
+          "Your station is operating properly and legally.",
+          "The telephone has no radio receiver."
+        ],
+        "sound": "ssb-rect",
+        "caption": "Your voice, distorted, mixed into the telephone call.",
+        "cause": "rectification",
+        "cure": "phoneFilter",
+        "causes": [
+          "rectification",
+          "harmonics",
+          "splatter",
+          "parasitic"
+        ],
+        "cures": [
+          "lessPower",
+          "phoneFilter",
+          "lpfTx",
+          "cover"
+        ]
+      },
+      "goal": "solved",
+      "goal_text": "Case closed",
+      "success": "Audio rectification in the phone. A modular plug-in RFI filter at the telephone cures it."
+    },
+    "case-ocf": {
+      "title": "Case 7: the shack speaker",
+      "prompt": "Diagnose, then fix.",
+      "config": {
+        "title": "Case file: your own shack",
+        "story": "You feed an off-centre-fed antenna with coax. When you transmit SSB, your outboard amplified speaker buzzes with distorted audio.",
+        "evidence": [
+          "The antenna is unbalanced at the feed point.",
+          "RF can be felt on the coax shield inside the shack.",
+          "It only happens on transmit."
+        ],
+        "sound": "splatter",
+        "caption": "Distorted audio and noise from the amplified speaker beside the radio whenever you transmit.",
+        "cause": "commonmode",
+        "cure": "cmChoke",
+        "causes": [
+          "commonmode",
+          "harmonics",
+          "splatter",
+          "overload"
+        ],
+        "cures": [
+          "lpfTx",
+          "cmChoke",
+          "hpfTv",
+          "micGain"
+        ]
+      },
+      "goal": "solved",
+      "goal_text": "Case closed",
+      "success": "Current on the outside of the coax brings RF into the shack. A common-mode choke on the feedline stops it."
+    }
+  }
+}

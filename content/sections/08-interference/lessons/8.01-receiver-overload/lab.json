@@ -1,0 +1,104 @@
+{
+  "lab": "LAB-33",
+  "steps": {
+    "case-overload": {
+      "title": "Case 1: the TV next door",
+      "prompt": "Diagnose the interference, then choose the fix.",
+      "config": {
+        "title": "Case file: Mrs. Tremblay's television",
+        "story": "Your neighbour's TV picture and sound break up whenever you transmit.",
+        "evidence": [
+          "It happens on 80, 40, 20 and 15 m alike.",
+          "You added a low-pass filter at your transmitter. No change.",
+          "Your transmitter's harmonics measure well within limits."
+        ],
+        "sound": "overload",
+        "caption": "The TV sound breaks into a rough hiss each time you key the transmitter, whatever band you're on.",
+        "cause": "overload",
+        "cure": "hpfTv",
+        "causes": [
+          "overload",
+          "harmonics",
+          "spurious",
+          "rectification"
+        ],
+        "cures": [
+          "lpfTx",
+          "hpfTv",
+          "micGain",
+          "cover"
+        ]
+      },
+      "goal": "solved",
+      "goal_text": "Case closed",
+      "hints": [
+        "Interference on every band points away from harmonics."
+      ],
+      "success": "Every band, clean transmitter: the TV is overloaded. A high-pass filter at the TV keeps your HF signal out."
+    },
+    "case-desense": {
+      "title": "Case 2: Field Day",
+      "prompt": "Diagnose, then fix.",
+      "config": {
+        "title": "Case file: Field Day, 20 m",
+        "story": "The 20 m SSB operator loses every signal whenever the 20 m CW station, 15 m away, transmits.",
+        "evidence": [
+          "The CW station's signal isn't on the SSB station's frequency.",
+          "Weak signals vanish; strong ones just get quieter.",
+          "It stops the moment the CW station stops."
+        ],
+        "sound": "desense",
+        "caption": "A station comes through clearly, then fades almost to nothing while the CW station transmits, and returns when it stops.",
+        "cause": "desense",
+        "cure": "separate",
+        "causes": [
+          "desense",
+          "harmonics",
+          "splatter",
+          "intermod"
+        ],
+        "cures": [
+          "micGain",
+          "lpfTx",
+          "separate",
+          "hpfTv"
+        ]
+      },
+      "goal": "solved",
+      "goal_text": "Case closed",
+      "success": "The strong nearby transmitter desensitizes the receiver. More distance between the stations and band-pass filters help."
+    },
+    "case-intermod": {
+      "title": "Case 3: the jumbled frequency",
+      "prompt": "Diagnose, then fix.",
+      "config": {
+        "title": "Case file: the handheld on the roof antenna",
+        "story": "You connected your VHF handheld to a high-gain outdoor antenna. Now your quiet simplex frequency is full of noise.",
+        "evidence": [
+          "You hear several different signals at once, with different kinds of modulation.",
+          "There's a paging transmitter and a commercial base station nearby.",
+          "On the handheld's own small antenna, the frequency is clear."
+        ],
+        "sound": "intermod",
+        "caption": "Two or three different voices and tones jumbled together on a frequency that should be empty.",
+        "cause": "intermod",
+        "cure": "rxFilter",
+        "causes": [
+          "harmonics",
+          "intermod",
+          "splatter",
+          "clicks"
+        ],
+        "cures": [
+          "cmChoke",
+          "keying",
+          "rxFilter",
+          "micGain"
+        ]
+      },
+      "goal": "solved",
+      "goal_text": "Case closed",
+      "success": "Strong nearby signals mix in the receiver: intermodulation. A suitable filter at the receiver keeps them out."
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "lab": "LAB-33",
+  "steps": {
+    "case-harmonic": {
+      "title": "Case 10: channel 3",
+      "prompt": "Diagnose, then fix.",
+      "config": {
+        "title": "Case file: channel 3",
+        "story": "A neighbour's old TV, on channel 3 (60 to 66 MHz), gets bars across the picture when you transmit on 15 m.",
+        "evidence": [
+          "Only channel 3 is affected; other channels are clean.",
+          "It only happens on 15 m: 3 × 21 MHz = 63 MHz.",
+          "There's no low-pass filter on your transmitter."
+        ],
+        "sound": "harmonic",
+        "caption": "A buzz and bars on channel 3 only, whenever you transmit on 15 m.",
+        "cause": "harmonics",
+        "cure": "lpfTx",
+        "causes": [
+          "overload",
+          "harmonics",
+          "rectification",
+          "intermod"
+        ],
+        "cures": [
+          "hpfTv",
+          "ferrite",
+          "lpfTx",
+          "phoneFilter"
+        ]
+      },
+      "goal": "solved",
+      "goal_text": "Case closed",
+      "success": "One channel, one band, at a multiple of your frequency: harmonics. A low-pass filter at the transmitter removes them."
+    },
+    "case-splatter": {
+      "title": "Case 11: splatter",
+      "prompt": "Diagnose, then fix.",
+      "config": {
+        "title": "Case file: the wide signal",
+        "story": "Stations 3 to 5 kHz away from you on 20 m SSB say they can hear your voice, distorted.",
+        "evidence": [
+          "Your mic gain is turned all the way up.",
+          "The ALC meter is pinned on voice peaks.",
+          "It's only near your frequency, not on other bands."
+        ],
+        "sound": "splatter",
+        "caption": "Harsh, distorted speech spreading several kHz either side of your SSB signal.",
+        "cause": "splatter",
+        "cure": "micGain",
+        "causes": [
+          "harmonics",
+          "splatter",
+          "clicks",
+          "overload"
+        ],
+        "cures": [
+          "lpfTx",
+          "micGain",
+          "keying",
+          "cover"
+        ]
+      },
+      "goal": "solved",
+      "goal_text": "Case closed",
+      "success": "Overmodulation causes splatter. Turn the mic gain down until the ALC stays in range."
+    }
+  }
+}

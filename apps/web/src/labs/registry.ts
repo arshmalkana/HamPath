@@ -5,6 +5,8 @@ import { BlockDiagramLab } from "./BlockDiagramLab";
 import { ColourCodeLab } from "./ColourCodeLab";
 import { ComponentBenchLab } from "./ComponentBenchLab";
 import { DbLadderLab } from "./DbLadderLab";
+import { FilterLab } from "./FilterLab";
+import { InterferenceLab } from "./InterferenceLab";
 import { IonosphereLab } from "./IonosphereLab";
 import { SolarCycleLab } from "./SolarCycleLab";
 import { VhfLab } from "./VhfLab";
@@ -76,8 +78,8 @@ export const LAB_REGISTRY: LabEntry[] = [
   { id: "LAB-30", name: "Ionosphere Simulator", component: IonosphereLab },
   { id: "LAB-31", name: "Solar Cycle Dial", component: SolarCycleLab },
   { id: "LAB-32", name: "VHF Propagation Sandbox", component: VhfLab },
-  { id: "LAB-33", name: "Interference Detective", component: null },
-  { id: "LAB-34", name: "Filter Designer", component: null },
+  { id: "LAB-33", name: "Interference Detective", component: InterferenceLab },
+  { id: "LAB-34", name: "Filter Designer", component: FilterLab },
   { id: "LAB-35", name: "Exam Simulator", component: null },
 ];
 

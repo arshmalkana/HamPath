@@ -1,0 +1,45 @@
+# One note per wrong option, keyed by the exact English option text from the ISED bank.
+B-008-002-001:
+  Bypass resistors: Bypass resistors don't block RF.
+  Metal oxide varistors: Varistors protect against surges, not RF.
+  Bypass inductors: Bypass inductors isn't the standard fix; ferrite coils are.
+B-008-002-002:
+  Ground and shield the telephone distribution amplifier: The amplifier isn't yours to modify, and grounding won't do it.
+  Stop transmitting whenever the telephone is in use: A properly operating station shouldn't have to stop.
+  Make internal adjustments to the telephone equipment: You shouldn't make internal adjustments to someone else's phone.
+B-008-002-003:
+  Clearly audible speech from the transmitter's signals: Rectified SSB isn't clear.
+  On-and-off humming or clicking: On-and-off clicking is CW.
+  A steady hum: A steady hum is AM or a carrier.
+B-008-002-004:
+  Audible, possibly distorted speech: Speech comes from SSB, not CW.
+  Muffled, severely distorted speech: Muffled speech is SSB.
+  A steady whistling: A steady whistle isn't rectified CW.
+B-008-002-005:
+  Front-end overload: "Front-end overload needs a front end: an RF stage."
+  Splatter: Splatter is a transmitter fault.
+  Intermodulation: Intermodulation happens in RF stages.
+B-008-002-006:
+  harmonics interference: Harmonics would land on particular frequencies.
+  poor image rejection: Poor image rejection affects particular frequencies.
+  splatter from the transmitter: Splatter affects frequencies near yours.
+B-008-002-007:
+  Harmonics generated at the transmitter: Harmonics don't land on a sound system's audio.
+  Improper filtering in the transmitter: Transmitter filtering isn't the cause.
+  Lack of receiver selectivity: A sound system has no receiver selectivity.
+B-008-002-008:
+  High-pass filter: A high-pass filter doesn't suit audio lines.
+  Attenuator: An attenuator would reduce the audio too.
+  Surge suppressor: A surge suppressor doesn't block RF.
+B-008-002-009:
+  Lengthen the leads: Longer leads pick up more RF.
+  Connect the speakers through audio attenuators: Attenuators don't block RF.
+  Connect the speakers through series capacitors: Series capacitors would block the bass, not the RF.
+B-008-002-010:
+  around a copper bar: Copper isn't magnetic; it won't choke RF.
+  around an iron bar: An iron bar is a poor RF core.
+  around a wooden dowel: Wood does nothing.
+B-008-002-011:
+  A low-pass filter: A low-pass filter doesn't stop common-mode current.
+  A surge suppressor: A surge suppressor is for lightning.
+  An antenna tuner: A tuner doesn't stop current on the coax shield.
