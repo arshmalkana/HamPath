@@ -5,7 +5,7 @@ import { HttpError, userFromRequest } from "../auth.ts";
 import { env } from "../env.ts";
 
 /** An admin session, or the x-admin-token header for scripts/CI. */
-async function requireAdmin(pool: Pool, req: FastifyRequest) {
+export async function requireAdmin(pool: Pool, req: FastifyRequest) {
   const user = await userFromRequest(pool, req);
   if (user && !user.isGuest && user.role === "admin") return;
   const given = String(req.headers["x-admin-token"] ?? "");

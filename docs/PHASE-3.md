@@ -31,3 +31,13 @@ Lab chunk names are per import site, so `dynamic()` and `preloadLabs()` share on
 - **Decision:** SPEC says strong placement areas "unlock" test-out. Placement is optional, so a gate would lock out learners who skip it. Instead, test-out is open for every section (a "Test out" link sits beside each Checkpoint), and placement recommends the sections answered all right. Product owner to confirm.
 
 Tested by `practice.test.ts` ("placement and test-out") and a browser run at 390 px. The run takes placement from the dashboard, then the recommended test-out, and checks the course map; axe is clean on every new screen.
+
+## Step 30: admin analytics
+
+`/admin` (admins only; there's an "Admin" nav link for them) reads `GET /admin/analytics`. Scripts can also use the `x-admin-token` header, as for bank imports. To make an account an admin: `pnpm db:make-admin you@example.com`.
+
+- **Questions:** the first-try success rate for each question, from each learner's first answer to it anywhere in the course. A question is **flagged below 60%** once at least 5 learners have answered it, and links to the card that teaches it (`FLAG_BELOW` and `MIN_ANSWERS` in `routes/analytics.ts`). Flagged questions come first, then the lowest unflagged rates.
+- **Labs:** for each lab, and each step behind a disclosure, the learners who started, the share who reached the goal (server-verified `goal_met` only), the share who used a hint, and hints per start. Labs with the lowest completion come first.
+- **Drop-off by lesson:** learners who started, finished and dropped, plus the screen where most unfinished learners stopped (a card title, or "Check question n"). Tested-out lessons are left out.
+
+Aggregates only; no learner is named. Tested by `analytics.test.ts`: access control, the first-try rate ignoring later answers, flags and their teaching links, the minimum-sample rule, and the lab and lesson funnels. axe is clean on the page at 390 px.

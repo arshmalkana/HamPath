@@ -44,6 +44,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <Link className="toplink" href="/mocks">
                 Mocks
               </Link>
+              {user?.role === "admin" && (
+                <Link className="toplink" href="/admin">
+                  Admin
+                </Link>
+              )}
               {user && !user.isGuest ? (
                 <Link className="toplink" href="/profile">
                   {user.callSign ?? user.displayName ?? "Profile"}
