@@ -41,3 +41,30 @@ Tested by `practice.test.ts` ("placement and test-out") and a browser run at 390
 - **Drop-off by lesson:** learners who started, finished and dropped, plus the screen where most unfinished learners stopped (a card title, or "Check question n"). Tested-out lessons are left out.
 
 Aggregates only; no learner is named. Tested by `analytics.test.ts`: access control, the first-try rate ignoring later answers, flags and their teaching links, the minimum-sample rule, and the lab and lesson funnels. axe is clean on the page at 390 px.
+
+## Step 31: instructor and club mode
+
+- **Classes.** An instructor creates a class on `/classes` and gets a 6-character join code; the alphabet leaves out 0/O and 1/I/L. Instructor is a role: `pnpm db:make-admin you@example.com instructor`. Learners join on `/classes` with the code and can give a display name for the class. Guests can join too; they appear as "Learner n" until they set a name.
+- **Assignments.** The instructor assigns sections, each with an optional target date. Learners see them on their class page, which links to the section on the course map.
+- **Dashboard** (`GET /classes/:id/dashboard`, instructor or admin only). For each learner it shows:
+  - last active, lessons done and mastery;
+  - progress on the assigned sections;
+  - up to three weak topics: lessons below 70% first-try accuracy over at least 3 answers.
+
+  It also lists the class's weakest lessons, pooled across learners, as topics for the next session.
+
+- **Live quiz.** The instructor starts a quiz from the class page. It draws from a chosen section, else the assigned sections, else the whole course. The instructor's screen is the projector view: large type, "x of y answered", then on reveal the correct answer and the count for each option, and final scores at the end. Members join from their class page and answer on their phones. The first answer stands, and answers are refused once a question is no longer open. Correct answers and counts appear only at reveal.
+- **Design decisions:**
+  - Phones and the projector **poll every 1.5 s**: simple and reliable through the Next proxy for a club-sized room. Server-sent events are an option if classes get large.
+  - **Live answers don't touch mastery or Daily Review** (`live_answer`, separate from `attempt`), so a rushed round can't distort anyone's schedule. The phone says so.
+  - Options are shuffled **once per quiz** (ordered by a hash of quiz and option), so the projector's A–D matches every phone and buttons don't move between polls.
+
+Migration `0007_classes_live_quiz` adds `class_assignment`, `live_quiz` and `live_answer`; `class` and `class_member` came from Phase 0. Tested by `classes.test.ts`:
+
+- roles and access;
+- joining by code;
+- assignments;
+- dashboard figures and weak topics;
+- the full live cycle, including option order and that no attempts are written.
+
+A browser run with an instructor laptop and two phones passes, and axe is clean on the class, phone and projector screens.

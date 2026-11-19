@@ -9,6 +9,7 @@ import {
   boolean,
   check,
   customType,
+  date,
   index,
   integer,
   jsonb,
@@ -497,4 +498,63 @@ export const classMember = pgTable(
     joinedAt: ts("joined_at").notNull().defaultNow(),
   },
   (t) => [primaryKey({ columns: [t.classId, t.userId] })],
+);
+
+/** Sections an instructor has set for the class, with an optional target date. */
+export const classAssignment = pgTable(
+  "class_assignment",
+  {
+    classId: uuid("class_id")
+      .notNull()
+      .references(() => klass.id, { onDelete: "cascade" }),
+    sectionId: text("section_id")
+      .notNull()
+      .references(() => section.id),
+    dueOn: date("due_on"),
+    assignedAt: ts("assigned_at").notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.classId, t.sectionId] })],
+);
+
+/** A live classroom quiz: the instructor projects and advances; members answer on their phones. */
+export const liveQuiz = pgTable(
+  "live_quiz",
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    classId: uuid("class_id")
+      .notNull()
+      .references(() => klass.id, { onDelete: "cascade" }),
+    questionIds: text("question_ids").array().notNull(),
+    /** Index into question_ids of the question on screen. */
+    current: smallint().notNull().default(0),
+    state: text().notNull().default("lobby"),
+    createdAt: ts("created_at").notNull().defaultNow(),
+    updatedAt: ts("updated_at").notNull().defaultNow(),
+  },
+  (t) => [
+    check("live_quiz_state", sql`${t.state} IN ('lobby', 'question', 'reveal', 'ended')`),
+    index("live_quiz_class_idx").on(t.classId, t.createdAt),
+  ],
+);
+
+/** One answer per learner per live question; separate from attempts (it doesn't affect mastery). */
+export const liveAnswer = pgTable(
+  "live_answer",
+  {
+    quizId: uuid("quiz_id")
+      .notNull()
+      .references(() => liveQuiz.id, { onDelete: "cascade" }),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    questionId: text("question_id")
+      .notNull()
+      .references(() => question.id),
+    optionId: uuid("option_id")
+      .notNull()
+      .references(() => option.id),
+    correct: boolean().notNull(),
+    answeredAt: ts("answered_at").notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.quizId, t.userId, t.questionId] })],
 );

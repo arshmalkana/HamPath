@@ -5,6 +5,7 @@ import type { Pool } from "@hampath/db";
 import { HttpError } from "./auth.ts";
 import { adminRoutes } from "./routes/admin.ts";
 import { analyticsRoutes } from "./routes/analytics.ts";
+import { classRoutes } from "./routes/classes.ts";
 import { authRoutes } from "./routes/auth.ts";
 import { contentRoutes } from "./routes/content.ts";
 import { dashboardRoutes } from "./routes/dashboard.ts";
@@ -43,6 +44,7 @@ export async function buildApp(pool: Pool, opts: { logger?: boolean } = {}): Pro
       dashboardRoutes(v1, pool);
       adminRoutes(v1, pool);
       analyticsRoutes(v1, pool);
+      classRoutes(v1, pool);
     },
     { prefix: "/api/v1" },
   );

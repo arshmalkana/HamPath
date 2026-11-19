@@ -50,6 +50,13 @@
       "when": 1795056845820,
       "tag": "0006_placement_test_out",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1795094047573,
+      "tag": "0007_classes_live_quiz",
+      "breakpoints": true
     }
   ]
 }
