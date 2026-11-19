@@ -9,7 +9,22 @@ const config: NextConfig = {
   // The browser talks to /api/v1 on the same origin so the session cookie is first-party.
   // The service worker must never be served stale.
   async headers() {
+    const security = [
+      { key: "X-Content-Type-Options", value: "nosniff" },
+      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+      { key: "X-Frame-Options", value: "DENY" },
+      { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+      // The Morse key and labs need no device access.
+      {
+        key: "Permissions-Policy",
+        value: "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()",
+      },
+      ...(process.env.NODE_ENV === "production"
+        ? [{ key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" }]
+        : []),
+    ];
     return [
+      { source: "/:path*", headers: security },
       {
         source: "/sw.js",
         headers: [

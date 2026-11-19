@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Atkinson_Hyperlegible_Next, Azeret_Mono } from "next/font/google";
+import { headers } from "next/headers";
 import Link from "next/link";
 import { ThemeToggle, themeInitScript } from "@hampath/ui";
 import { OfflineSupport } from "@/components/OfflineSupport";
@@ -18,11 +19,13 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const me = await serverApi<{ user: User }>("/me");
+  // Set by src/proxy.ts with the Content-Security-Policy; inline scripts must carry it.
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
   const user = me.ok ? me.data.user : null;
   return (
     <html lang="en" className={`${body.variable} ${mono.variable}`} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script nonce={nonce} dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <style>{`:root{--font-display:var(--font-atkinson),ui-sans-serif,sans-serif;--font-body:var(--font-atkinson),ui-sans-serif,sans-serif;--font-outlier:var(--font-azeret),ui-monospace,monospace}`}</style>
       </head>
       <body>

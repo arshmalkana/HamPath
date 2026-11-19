@@ -284,6 +284,8 @@ describe("lesson completion, summary and GET /me/readiness", () => {
   });
 });
 
+const tokenFrom = (mail: string) => /confirm#token=([\w-]+)/.exec(mail)![1]!;
+
 describe("auth: magic link", () => {
   it("e-mails a single-use link that signs the guest in and keeps their progress", async () => {
     const call = browser();
@@ -292,24 +294,30 @@ describe("auth: magic link", () => {
     expect(req.status).toBe(202);
     const mail = sentMail.at(-1)!;
     expect(mail.to).toBe("learner@example.com");
-    const link = /http:\/\/localhost:3000(\/api\/v1\/auth\/magic-link\/verify\?token=[\w-]+)/.exec(mail.text)![1]!;
+    // The token is in the URL fragment, which never reaches a server log.
+    const token = /http:\/\/localhost:3000\/sign-in\/confirm#token=([\w-]+)/.exec(mail.text)![1]!;
 
-    const verify = await call("GET", link.replace("/api/v1", ""));
-    expect(verify.status).toBe(303);
-    expect(verify.headers.location).toBe("/lessons/5.04");
+    // Fetching the link (a mail scanner, a prefetch) signs nobody in and doesn't use the token.
+    const scanner = await browser()("GET", `/auth/magic-link/verify?token=${token}`);
+    expect(scanner.status).toBe(303);
+    expect(scanner.headers.location).toBe(`/sign-in/confirm#token=${token}`);
+
+    const verify = await call("POST", "/auth/magic-link/verify", { token });
+    expect(verify.json).toEqual({ redirect: "/lessons/5.04" });
     const me = (await call("GET", "/me")).json.user;
     expect(me).toMatchObject({ id: guest.id, email: "learner@example.com", isGuest: false, role: "learner" });
 
-    // The link works once.
-    const again = await browser()("GET", link.replace("/api/v1", ""));
-    expect(again.headers.location).toBe("/sign-in?error=expired");
+    // The link works once, and a repeated query parameter is refused rather than crashing.
+    expect((await browser()("POST", "/auth/magic-link/verify", { token })).status).toBe(410);
+    expect((await browser()("GET", "/auth/magic-link/verify?token=a&token=b")).headers.location).toBe(
+      "/sign-in?error=expired",
+    );
   });
 
   it("signs a second browser into the same account, rejects bad input and rate-limits", async () => {
     const other = browser();
     await other("POST", "/auth/magic-link", { email: "learner@example.com" });
-    const link = /verify\?token=[\w-]+/.exec(sentMail.at(-1)!.text)![0];
-    await other("GET", `/auth/magic-link/${link}`);
+    await other("POST", "/auth/magic-link/verify", { token: tokenFrom(sentMail.at(-1)!.text) });
     expect((await other("GET", "/me")).json.user.email).toBe("learner@example.com");
 
     expect((await other("POST", "/auth/magic-link", { email: "not-an-email" })).status).toBe(400);
@@ -323,8 +331,9 @@ describe("auth: magic link", () => {
   it("refuses open redirects", async () => {
     const call = browser();
     await call("POST", "/auth/magic-link", { email: "redirect@example.com", redirect: "//evil.example" });
-    const link = /verify\?token=[\w-]+/.exec(sentMail.at(-1)!.text)![0];
-    expect((await call("GET", `/auth/magic-link/${link}`)).headers.location).toBe("/");
+    expect((await call("POST", "/auth/magic-link/verify", { token: tokenFrom(sentMail.at(-1)!.text) })).json).toEqual({
+      redirect: "/",
+    });
   });
 
   it("logs out", async () => {
@@ -362,7 +371,7 @@ describe("POST /admin/import-bank", () => {
   it("is forbidden to learners, allowed to admins and the admin token", async () => {
     const call = browser();
     await call("POST", "/auth/magic-link", { email: "admin@example.com" });
-    await call("GET", `/auth/magic-link/${/verify\?token=[\w-]+/.exec(sentMail.at(-1)!.text)![0]}`);
+    await call("POST", "/auth/magic-link/verify", { token: tokenFrom(sentMail.at(-1)!.text) });
     expect((await call("POST", "/admin/import-bank?dry_run=true", "x", text)).status).toBe(403);
 
     await pool.query(`UPDATE "user" SET role = 'admin' WHERE email = 'admin@example.com'`);

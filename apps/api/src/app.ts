@@ -12,10 +12,21 @@ import { dashboardRoutes } from "./routes/dashboard.ts";
 import { learnRoutes } from "./routes/learn.ts";
 import { placementRoutes } from "./routes/placement.ts";
 import { practiceRoutes } from "./routes/practice.ts";
+import { registerSecurity } from "./security.ts";
+import { env } from "./env.ts";
 
-export async function buildApp(pool: Pool, opts: { logger?: boolean } = {}): Promise<FastifyInstance> {
-  const app = Fastify({ logger: opts.logger ?? false, trustProxy: true });
+export async function buildApp(
+  pool: Pool,
+  opts: { logger?: boolean; rateLimit?: boolean } = {},
+): Promise<FastifyInstance> {
+  const app = Fastify({
+    logger: opts.logger ?? false,
+    trustProxy: env.trustProxy,
+    // Every JSON body is small; the bank import raises its own limit.
+    bodyLimit: 256 * 1024,
+  });
   await app.register(cookie);
+  await registerSecurity(app, { rateLimit: opts.rateLimit ?? env.rateLimits });
 
   app.setErrorHandler((err, _req, reply) => {
     if (err instanceof ZodError) {

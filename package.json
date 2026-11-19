@@ -44,5 +44,10 @@
     "@types/pg": "^8.23.1",
     "eslint-config-next": "^16.4.6",
     "globals": "^17.14.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@esbuild-kit/core-utils>esbuild": "^0.25.0"
+    }
   }
 }

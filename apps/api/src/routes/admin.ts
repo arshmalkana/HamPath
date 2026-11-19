@@ -33,7 +33,7 @@ export function adminRoutes(app: FastifyInstance, pool: Pool) {
       }
       try {
         return await importBank(pool, req.body, {
-          sourceFile: req.query.source ?? "upload",
+          sourceFile: String(req.query.source ?? "upload").slice(0, 200),
           dryRun: req.query.dry_run === "true",
         });
       } catch (e) {

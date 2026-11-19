@@ -17,6 +17,7 @@ export default defineConfig({
       DATABASE_URL: TEST_DATABASE_URL,
       MAIL_TRANSPORT: "memory",
       ADMIN_TOKEN: "test-admin-token-123",
+      RATE_LIMITS: "off",
       APP_ORIGIN: "http://localhost:3000",
       GOOGLE_CLIENT_ID: "",
       GOOGLE_CLIENT_SECRET: "",

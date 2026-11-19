@@ -8,7 +8,10 @@ import { resolveLessonId } from "./content.ts";
 const LabEventBody = z.strictObject({
   lab_step_id: z.string(),
   event: z.enum(["started", "goal_met", "hint_used", "value_changed"]),
-  payload: z.record(z.string(), z.unknown()).default({}),
+  payload: z
+    .record(z.string(), z.unknown())
+    .refine((p) => JSON.stringify(p).length <= 16_384, "Lab event payload is too large")
+    .default({}),
   /** Idempotency key: a replayed event is stored once. */
   client_id: z.uuid().optional(),
 });

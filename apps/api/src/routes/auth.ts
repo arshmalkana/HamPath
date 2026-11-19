@@ -23,6 +23,14 @@ import { magicLinkMail, sendMail } from "../mailer.ts";
 const OAUTH_COOKIE = "hp_oauth";
 const MAX_LINKS_PER_HOUR = 5;
 
+const Token = z.string().min(20).max(200);
+const VerifyBody = z.strictObject({ token: Token });
+const GoogleCallbackQuery = z.object({
+  code: z.string().max(2048).optional(),
+  state: z.string().max(200).optional(),
+  error: z.string().max(200).optional(),
+});
+
 const MagicLinkBody = z.strictObject({
   email: z
     .email()
@@ -80,13 +88,25 @@ export function authRoutes(app: FastifyInstance, pool: Pool) {
        VALUES ($1, $2, $3, now() + make_interval(mins => $4))`,
       [sha256(token), body.email, safeRedirect(body.redirect), MAGIC_LINK_MINUTES],
     );
-    const link = `${env.appOrigin}/api/v1/auth/magic-link/verify?token=${token}`;
+    // The link opens a confirm page; only its POST signs in. Mail scanners that fetch links (and
+    // anyone who sends a victim a link) can't consume the token or plant a session with a GET.
+    // The token rides in the URL fragment, which browsers never send to a server, so it stays out
+    // of proxy and access logs.
+    const link = `${env.appOrigin}/sign-in/confirm#token=${token}`;
     await sendMail(magicLinkMail(body.email, link));
     return reply.status(202).send({ sent: true });
   });
 
+  /** Links from older e-mails pointed here: send them to the confirm page without using the token. */
   app.get<{ Querystring: { token?: string } }>("/auth/magic-link/verify", async (req, reply) => {
-    const token = req.query.token ?? "";
+    const token = Token.safeParse(req.query.token);
+    if (!token.success) return reply.redirect("/sign-in?error=expired", 303);
+    return reply.redirect(`/sign-in/confirm#token=${encodeURIComponent(token.data)}`, 303);
+  });
+
+  /** Use a sign-in link (POSTed by the confirm page). */
+  app.post("/auth/magic-link/verify", async (req, reply) => {
+    const { token } = VerifyBody.parse(req.body);
     const current = await userFromRequest(pool, req);
     const userId = await tx(pool, async (c) => {
       const { rows } = await c.query<{ email: string; redirect_to: string | null }>(
@@ -99,9 +119,9 @@ export function authRoutes(app: FastifyInstance, pool: Pool) {
       if (!t) return null;
       return { id: await accountForVerifiedEmail(c, t.email, current), redirect: t.redirect_to };
     });
-    if (!userId) return reply.redirect("/sign-in?error=expired", 303);
+    if (!userId) throw new HttpError(410, "This sign-in link has expired or was already used. Ask for a new one.");
     await startSession(pool, req, reply, userId.id);
-    return reply.redirect(safeRedirect(userId.redirect), 303);
+    return { redirect: safeRedirect(userId.redirect) };
   });
 
   // ---- Google (OpenID Connect, authorization code + PKCE) --------------------------------
@@ -130,59 +150,59 @@ export function authRoutes(app: FastifyInstance, pool: Pool) {
     return reply.redirect(url.toString(), 302);
   });
 
-  app.get<{ Querystring: { code?: string; state?: string; error?: string } }>(
-    "/auth/google/callback",
-    async (req, reply) => {
-      if (!googleEnabled()) throw new HttpError(404, "Google sign-in is not configured");
-      let saved: { state: string; verifier: string; redirect: string } | null = null;
-      try {
-        saved = JSON.parse(req.cookies[OAUTH_COOKIE] ?? "null");
-      } catch {
-        saved = null;
-      }
-      reply.clearCookie(OAUTH_COOKIE, { path: "/api/v1/auth/google" });
-      if (req.query.error || !req.query.code || !saved || saved.state !== req.query.state) {
-        return reply.redirect("/sign-in?error=google", 303);
-      }
-      const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
-        method: "POST",
-        headers: { "content-type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({
-          code: req.query.code,
-          client_id: env.google.clientId,
-          client_secret: env.google.clientSecret,
-          redirect_uri: redirectUri(),
-          grant_type: "authorization_code",
-          code_verifier: saved.verifier,
-        }),
-      });
-      if (!tokenRes.ok) return reply.redirect("/sign-in?error=google", 303);
-      const { access_token } = (await tokenRes.json()) as { access_token?: string };
-      const infoRes = await fetch("https://openidconnect.googleapis.com/v1/userinfo", {
-        headers: { authorization: `Bearer ${access_token}` },
-      });
-      const info = (await infoRes.json()) as { sub?: string; email?: string; email_verified?: boolean; name?: string };
-      if (!infoRes.ok || !info.sub || !info.email || !info.email_verified)
-        return reply.redirect("/sign-in?error=google", 303);
+  app.get("/auth/google/callback", async (req, reply) => {
+    if (!googleEnabled()) throw new HttpError(404, "Google sign-in is not configured");
+    const q = GoogleCallbackQuery.safeParse(req.query);
+    if (!q.success) return reply.redirect("/sign-in?error=google", 303);
+    const query = q.data;
+    let saved: { state: string; verifier: string; redirect: string } | null = null;
+    try {
+      saved = JSON.parse(req.cookies[OAUTH_COOKIE] ?? "null");
+    } catch {
+      saved = null;
+    }
+    reply.clearCookie(OAUTH_COOKIE, { path: "/api/v1/auth/google" });
+    if (query.error || !query.code || !saved || saved.state !== query.state) {
+      return reply.redirect("/sign-in?error=google", 303);
+    }
+    const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
+      method: "POST",
+      headers: { "content-type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        code: query.code,
+        client_id: env.google.clientId,
+        client_secret: env.google.clientSecret,
+        redirect_uri: redirectUri(),
+        grant_type: "authorization_code",
+        code_verifier: saved.verifier,
+      }),
+    });
+    if (!tokenRes.ok) return reply.redirect("/sign-in?error=google", 303);
+    const { access_token } = (await tokenRes.json()) as { access_token?: string };
+    const infoRes = await fetch("https://openidconnect.googleapis.com/v1/userinfo", {
+      headers: { authorization: `Bearer ${access_token}` },
+    });
+    const info = (await infoRes.json()) as { sub?: string; email?: string; email_verified?: boolean; name?: string };
+    if (!infoRes.ok || !info.sub || !info.email || !info.email_verified)
+      return reply.redirect("/sign-in?error=google", 303);
 
-      const current = await userFromRequest(pool, req);
-      const userId = await tx(pool, async (c) => {
-        const linked = await c.query<{ user_id: string }>(
-          `SELECT user_id FROM oauth_account WHERE provider = 'google' AND provider_user_id = $1`,
-          [info.sub],
-        );
-        if (linked.rows[0]) return linked.rows[0].user_id;
-        const id = await accountForVerifiedEmail(c, info.email!.toLowerCase(), current, info.name ?? null);
-        await c.query(
-          `INSERT INTO oauth_account (provider, provider_user_id, user_id, email) VALUES ('google', $1, $2, $3)`,
-          [info.sub, id, info.email],
-        );
-        return id;
-      });
-      await startSession(pool, req, reply, userId);
-      return reply.redirect(safeRedirect(saved.redirect), 303);
-    },
-  );
+    const current = await userFromRequest(pool, req);
+    const userId = await tx(pool, async (c) => {
+      const linked = await c.query<{ user_id: string }>(
+        `SELECT user_id FROM oauth_account WHERE provider = 'google' AND provider_user_id = $1`,
+        [info.sub],
+      );
+      if (linked.rows[0]) return linked.rows[0].user_id;
+      const id = await accountForVerifiedEmail(c, info.email!.toLowerCase(), current, info.name ?? null);
+      await c.query(
+        `INSERT INTO oauth_account (provider, provider_user_id, user_id, email) VALUES ('google', $1, $2, $3)`,
+        [info.sub, id, info.email],
+      );
+      return id;
+    });
+    await startSession(pool, req, reply, userId);
+    return reply.redirect(safeRedirect(saved.redirect), 303);
+  });
 
   // ---- Profile -----------------------------------------------------------------------------
   app.get("/me", async (req) => ({ user: await requireUser(pool, req) }));
