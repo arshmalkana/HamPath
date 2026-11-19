@@ -27,13 +27,13 @@ async function sectionMap(pool: Pool, userId: string | null) {
   const { rows: lessons } = await pool.query(
     `SELECT l.id, l.section_id AS "sectionId", l.code, l.title, l.est_minutes AS "estMinutes", l.lab_id AS "labId",
               l.authored, count(q.id)::int AS "questionCount",
-              lp.step, lp.completed_at AS "completedAt",
+              lp.step, lp.completed_at AS "completedAt", coalesce(lp.tested_out, false) AS "testedOut",
               count(qs.question_id) FILTER (WHERE qs.mastered)::int AS mastered
          FROM lesson l
          JOIN question q ON q.lesson_id = l.id AND q.retired_in IS NULL
          LEFT JOIN lesson_progress lp ON lp.lesson_id = l.id AND lp.user_id = $1
          LEFT JOIN question_state qs ON qs.question_id = q.id AND qs.user_id = $1
-        GROUP BY l.id, lp.step, lp.completed_at
+        GROUP BY l.id, lp.step, lp.completed_at, lp.tested_out
         ORDER BY l.id`,
     [userId],
   );

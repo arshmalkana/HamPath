@@ -54,7 +54,7 @@ const MOCK_GRACE_SECONDS = 120;
 let blueprintCache: Blueprint | null = null;
 const blueprint = () => (blueprintCache ??= readBlueprint());
 
-function shuffled<T>(xs: T[]): T[] {
+export function shuffled<T>(xs: T[]): T[] {
   const a = [...xs];
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -78,7 +78,7 @@ export interface ResultItem {
 }
 
 /** Per-question results of a checkpoint or mock, rebuilt from its attempts. */
-async function sessionResults(pool: Pool, sessionId: string, questionIds: string[]): Promise<ResultItem[]> {
+export async function sessionResults(pool: Pool, sessionId: string, questionIds: string[]): Promise<ResultItem[]> {
   const facts = await questionFacts(pool, questionIds);
   const links = await teachLinks(pool, questionIds);
   const { rows: attempts } = await pool.query<{ question_id: string; option_id: string; correct: boolean }>(
@@ -118,7 +118,7 @@ async function sessionResults(pool: Pool, sessionId: string, questionIds: string
 }
 
 /** Lessons with misses, worst first, for "weak topics" lists. */
-async function weakLessons(pool: Pool, items: ResultItem[]) {
+export async function weakLessons(pool: Pool, items: ResultItem[]) {
   const by = new Map<string, { lessonId: string; missed: number; total: number }>();
   for (const it of items) {
     const e = by.get(it.lessonId) ?? { lessonId: it.lessonId, missed: 0, total: 0 };
@@ -143,7 +143,7 @@ async function weakLessons(pool: Pool, items: ResultItem[]) {
   }));
 }
 
-function resolveSectionId(idOrNumber: string): string {
+export function resolveSectionId(idOrNumber: string): string {
   if (/^[1-8]$/.test(idOrNumber)) return `B-00${idOrNumber}`;
   if (/^B-00[1-8]$/.test(idOrNumber)) return idOrNumber;
   throw new HttpError(404, `No section ${idOrNumber}`);

@@ -41,6 +41,11 @@ export interface QuizResults {
   sectionBreakdown?: { sectionId: string; number: number; title: string; correct: number; total: number }[];
   weakLessons: WeakLesson[];
   misses: ResultItem[];
+  /** Placement: sections answered all right, where testing out is recommended. */
+  recommendTestOut?: { number: number; title: string }[];
+  /** Test-out: each lesson's result. */
+  lessons?: { lessonId: string; code: string; title: string; correct: number; total: number; testedOut: boolean }[];
+  testedOut?: number;
 }
 
 export interface QuizInProgress {

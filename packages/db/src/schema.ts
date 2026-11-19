@@ -409,6 +409,35 @@ export const mockExam = pgTable("mock_exam", {
 });
 
 /** Section Checkpoint: every unmastered question in the section plus a sample of mastered ones. */
+/**
+ * Placement test (24 questions across the 8 sections) and per-section test-out (3 questions per
+ * lesson), submitted whole like checkpoints. Their attempts use the "placement" context.
+ */
+export const quizSession = pgTable(
+  "quiz_session",
+  {
+    id: uuid().primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    kind: text().notNull(),
+    /** The section a test-out covers (NULL for placement). */
+    sectionId: text("section_id").references(() => section.id),
+    questionIds: text("question_ids").array().notNull(),
+    correct: integer(),
+    total: integer(),
+    score: real(),
+    /** Placement: per-section scores. Test-out: per-lesson results. */
+    results: jsonb(),
+    startedAt: ts("started_at").notNull().defaultNow(),
+    finishedAt: ts("finished_at"),
+  },
+  (t) => [
+    check("quiz_session_kind", sql`${t.kind} IN ('placement', 'test_out')`),
+    index("quiz_session_user_idx").on(t.userId, t.kind, t.startedAt),
+  ],
+);
+
 export const checkpoint = pgTable(
   "checkpoint",
   {

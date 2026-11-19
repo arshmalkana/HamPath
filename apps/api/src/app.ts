@@ -8,6 +8,7 @@ import { authRoutes } from "./routes/auth.ts";
 import { contentRoutes } from "./routes/content.ts";
 import { dashboardRoutes } from "./routes/dashboard.ts";
 import { learnRoutes } from "./routes/learn.ts";
+import { placementRoutes } from "./routes/placement.ts";
 import { practiceRoutes } from "./routes/practice.ts";
 
 export async function buildApp(pool: Pool, opts: { logger?: boolean } = {}): Promise<FastifyInstance> {
@@ -37,6 +38,7 @@ export async function buildApp(pool: Pool, opts: { logger?: boolean } = {}): Pro
       contentRoutes(v1, pool);
       learnRoutes(v1, pool);
       practiceRoutes(v1, pool);
+      placementRoutes(v1, pool);
       dashboardRoutes(v1, pool);
       adminRoutes(v1, pool);
     },

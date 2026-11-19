@@ -405,3 +405,86 @@ describe("dashboard", () => {
     expect(readinessScore(70, [80, 80, 80])).toMatchObject({ readiness: 75, green: false });
   });
 });
+
+describe("placement and test-out (Step 29)", () => {
+  async function lessonOf(qids: string[]) {
+    const { rows } = await pool.query<{ id: string; lesson_id: string; section_id: string }>(
+      "SELECT q.id, q.lesson_id, l.section_id FROM question q JOIN lesson l ON l.id = q.lesson_id WHERE q.id = ANY($1)",
+      [qids],
+    );
+    return new Map(rows.map((r) => [r.id, r]));
+  }
+
+  it("draws 24 placement questions, 3 per section from different lessons, and recommends strong sections", async () => {
+    const { call } = await guest();
+    const { right, wrong } = await answerKey();
+    expect((await call("GET", "/placement")).json).toEqual({ latest: null });
+    const p = (await call("POST", "/placement")).json;
+    expect(p.questions).toHaveLength(24);
+    const meta = await lessonOf(p.questions.map((q: any) => q.id));
+    const bySection = new Map<string, Set<string>>();
+    for (const m of meta.values())
+      bySection.set(m.section_id, (bySection.get(m.section_id) ?? new Set()).add(m.lesson_id));
+    expect(bySection.size).toBe(8);
+    for (const lessons of bySection.values()) expect(lessons.size).toBe(3);
+    // Everything right except one question in section 8.
+    const miss = p.questions.find((q: any) => meta.get(q.id)!.section_id === "B-008")!.id;
+    const answers = p.questions.map((q: any) => ({
+      question_id: q.id,
+      option_id: q.id === miss ? wrong.get(q.id) : right.get(q.id),
+    }));
+    const r = (await call("POST", `/placement/${p.id}/submit`, { answers })).json;
+    expect(r).toMatchObject({ finished: true, correct: 23, total: 24 });
+    expect(r.recommendTestOut.map((s: any) => s.number)).toEqual([1, 2, 3, 4, 5, 6, 7]);
+    expect(r.misses.map((m: any) => m.questionId)).toEqual([miss]);
+    expect((await call("GET", "/placement")).json.latest.recommendTestOut).toEqual([1, 2, 3, 4, 5, 6, 7]);
+    expect((await call("POST", `/placement/${p.id}/submit`, { answers })).status).toBe(409);
+    const stranger = await guest();
+    expect((await stranger.call("GET", `/placement/${p.id}`)).status).toBe(404);
+  });
+
+  it("tests out of lessons answered 100% and still puts all their questions into review", async () => {
+    const { call, userId } = await guest();
+    const { right, wrong } = await answerKey();
+    const t = (await call("POST", "/test-out/7")).json;
+    const meta = await lessonOf(t.questions.map((q: any) => q.id));
+    const perLesson = new Map<string, number>();
+    for (const m of meta.values()) perLesson.set(m.lesson_id, (perLesson.get(m.lesson_id) ?? 0) + 1);
+    for (const n of perLesson.values()) expect(n).toBeLessThanOrEqual(3);
+    expect([...meta.values()].every((m) => m.section_id === "B-007")).toBe(true);
+    // Miss one question of the first lesson; every other lesson is all right.
+    const [failLesson] = [...perLesson.keys()].sort();
+    const miss = [...meta.values()].find((m) => m.lesson_id === failLesson)!.id;
+    const answers = t.questions.map((q: any) => ({
+      question_id: q.id,
+      option_id: q.id === miss ? wrong.get(q.id) : right.get(q.id),
+    }));
+    const r = (await call("POST", `/test-out/${t.id}/submit`, { answers })).json;
+    expect(r.testedOut).toBe(perLesson.size - 1);
+    expect(r.lessons.find((l: any) => l.lessonId === failLesson)).toMatchObject({ testedOut: false });
+
+    const { rows: progress } = await pool.query(
+      "SELECT lesson_id, tested_out, completed_at FROM lesson_progress WHERE user_id = $1 ORDER BY lesson_id",
+      [userId],
+    );
+    expect(progress.map((p) => p.lesson_id)).toEqual([...perLesson.keys()].filter((l) => l !== failLesson).sort());
+    expect(progress.every((p) => p.tested_out && p.completed_at)).toBe(true);
+
+    // Every question of a tested-out lesson is scheduled for review within the week, asked or not.
+    const passed = progress.map((p) => p.lesson_id);
+    const { rows: due } = await pool.query(
+      `SELECT q.id, qs.due_at FROM question q LEFT JOIN question_state qs ON qs.question_id = q.id AND qs.user_id = $1
+        WHERE q.lesson_id = ANY($2) AND q.retired_in IS NULL`,
+      [userId, passed],
+    );
+    expect(due.length).toBeGreaterThan(passed.length * 3);
+    expect(due.every((d) => d.due_at !== null)).toBe(true);
+    const unasked = due.filter((d) => !meta.has(d.id));
+    expect(unasked.length).toBeGreaterThan(0);
+    for (const d of unasked) expect(d.due_at.getTime() - Date.now()).toBeLessThan(7 * 86_400_000);
+
+    const map = (await call("GET", "/sections/7")).json;
+    expect(map.lessons.filter((l: any) => l.testedOut).length).toBe(passed.length);
+    expect((await call("GET", `/test-out/${t.id}`)).json).toMatchObject({ finished: true, testedOut: passed.length });
+  });
+});

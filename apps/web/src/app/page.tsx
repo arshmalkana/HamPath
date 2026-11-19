@@ -159,6 +159,15 @@ export default async function DashboardPage() {
               {next.step ? "Resume" : "Start"}: {next.code} {next.title}
             </Link>
           )}
+          {!r.mastered && !all.some((l) => l.step || l.completedAt) && (
+            <p className="page-lead">
+              Already know some of it?{" "}
+              <Link className="btn-link" href="/placement">
+                Take the 10-minute placement test
+              </Link>{" "}
+              and test out of what you know.
+            </p>
+          )}
         </div>
       </div>
 
@@ -240,6 +249,9 @@ export default async function DashboardPage() {
                   {st?.lessonsCompleted ?? 0} of {s.lessons.length} lessons, {pct}% of {qs} questions mastered.{" "}
                   <Link className="btn-link" href={`/checkpoints/new?section=${s.number}`}>
                     Checkpoint
+                  </Link>{" "}
+                  <Link className="btn-link" href={`/test-out/new?section=${s.number}`}>
+                    Test out
                   </Link>
                 </span>
               </div>
@@ -265,13 +277,15 @@ export default async function DashboardPage() {
                       <span className="lesson-tile-code">{l.code}</span>
                       <span className="lesson-tile-title">{l.title}</span>
                       <span className="lesson-tile-state">
-                        {l.completedAt
-                          ? "Finished"
-                          : l.step
-                            ? "In progress"
-                            : l.authored
-                              ? `Full lesson, ${l.questionCount} questions`
-                              : `${l.questionCount} questions`}
+                        {l.testedOut
+                          ? "Tested out"
+                          : l.completedAt
+                            ? "Finished"
+                            : l.step
+                              ? "In progress"
+                              : l.authored
+                                ? `Full lesson, ${l.questionCount} questions`
+                                : `${l.questionCount} questions`}
                       </span>
                     </Link>
                   </li>

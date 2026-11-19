@@ -22,3 +22,12 @@ The service worker's caches are versioned (`v2`); old ones are deleted on activa
 Tested by `practice.test.ts` ("offline replay") and an end-to-end browser run against a production build. The run opens a section-5 lesson online, goes offline, opens a different section-5 lab never visited before and answers a Check question. It then reconnects with two tabs open while the first replay's reply is dropped: one attempt is stored and the outbox drains.
 
 Lab chunk names are per import site, so `dynamic()` and `preloadLabs()` share one loader per lab. Otherwise the cache would hold a chunk the page never asks for.
+
+## Step 29: placement and test-out
+
+- **Placement** (`/placement`, optional): 24 questions, three per section, each from a different lesson of that section. Results show the score by section and recommend testing out of every section answered 3 for 3. `GET /placement` returns the latest result. The dashboard offers placement to learners who haven't started.
+- **Test-out** (`/test-out/new?section=N`): three questions per lesson (fewer if a lesson has fewer). A lesson with every asked question right is marked `tested_out` and complete in `lesson_progress`, and the course map labels it "Tested out". All of its questions enter Daily Review: the ones answered already have an FSRS slot, and the rest are spread over the next 7 days so the deck doesn't spike.
+- Both are submitted whole like checkpoints and stored in `quiz_session` (migration `0006_placement_test_out`). Their attempts use the `placement` context and move the FSRS state like any answer.
+- **Decision:** SPEC says strong placement areas "unlock" test-out. Placement is optional, so a gate would lock out learners who skip it. Instead, test-out is open for every section (a "Test out" link sits beside each Checkpoint), and placement recommends the sections answered all right. Product owner to confirm.
+
+Tested by `practice.test.ts` ("placement and test-out") and a browser run at 390 px. The run takes placement from the dashboard, then the recommended test-out, and checks the course map; axe is clean on every new screen.

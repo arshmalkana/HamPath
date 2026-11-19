@@ -21,6 +21,8 @@ export interface LessonSummaryRow {
   questionCount: number;
   step: number | null;
   completedAt: string | null;
+  /** Passed in a section test-out (Step 29). */
+  testedOut?: boolean;
   mastered: number;
 }
 
