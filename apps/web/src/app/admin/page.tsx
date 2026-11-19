@@ -45,11 +45,17 @@ interface Analytics {
   }[];
 }
 
+/** ISO time `days` ago; this page renders per request on the server. */
+const daysAgo = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
+
 const pct = (x: number | null) => (x === null ? "–" : `${Math.round(x * 100)}%`);
 
 /** Step 30: where learners struggle. Admins only (role admin). */
-export default async function AdminPage() {
-  const res = await serverApi<Analytics>("/admin/analytics");
+export default async function AdminPage({ searchParams }: { searchParams: Promise<{ days?: string }> }) {
+  const { days } = await searchParams;
+  const window = days === "30" ? 30 : null;
+  const since = window ? daysAgo(window) : null;
+  const res = await serverApi<Analytics>(`/admin/analytics${since ? `?since=${encodeURIComponent(since)}` : ""}`);
   if (!res.ok) {
     return (
       <main className="container page" id="main">
@@ -72,6 +78,14 @@ export default async function AdminPage() {
       <div className="page-head">
         <p className="screen-kicker">Admin</p>
         <h1 className="page-title">Course analytics</h1>
+        <nav className="chip-row" aria-label="Time window">
+          <Link className="chip" href="/admin" aria-current={window ? undefined : "page"}>
+            All time
+          </Link>
+          <Link className="chip" href="/admin?days=30" aria-current={window ? "page" : undefined}>
+            Last 30 days
+          </Link>
+        </nav>
         <p className="page-lead">
           {a.questions.length} questions answered at least once, {answered.length} by {a.minAnswers} or more learners.{" "}
           {flagged.length

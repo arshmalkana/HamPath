@@ -39,6 +39,12 @@ async function options(qid: string) {
 }
 
 describe("GET /admin/analytics (Step 30)", () => {
+  it("rejects a malformed time window", async () => {
+    expect(
+      (await browser({ "x-admin-token": "test-admin-token-123" })("GET", "/admin/analytics?since=yesterday")).status,
+    ).toBe(400);
+  });
+
   it("is for admins only", async () => {
     const learner = browser();
     await learner("POST", "/auth/guest");
@@ -47,6 +53,8 @@ describe("GET /admin/analytics (Step 30)", () => {
   });
 
   it("reports first-try success, flags weak questions with their teaching card, and lab and lesson funnels", async () => {
+    // Count only this test's activity: other suites (mock exams draw random questions) share the DB.
+    const since = new Date(Date.now() - 1000).toISOString();
     const hard = "B-006-002-001";
     const easy = "B-006-002-002";
     const rare = "B-006-002-003";
@@ -82,8 +90,11 @@ describe("GET /admin/analytics (Step 30)", () => {
         );
     }
 
-    const { json } = await browser({ "x-admin-token": "test-admin-token-123" })("GET", "/admin/analytics");
-    expect(json).toMatchObject({ flagBelow: 0.6, minAnswers: 5 });
+    const { json } = await browser({ "x-admin-token": "test-admin-token-123" })(
+      "GET",
+      `/admin/analytics?since=${encodeURIComponent(since)}`,
+    );
+    expect(json).toMatchObject({ since, flagBelow: 0.6, minAnswers: 5 });
     const q = (id: string) => json.questions.find((x: any) => x.questionId === id);
     expect(q(hard)).toMatchObject({ learners: 6, flagged: true, lessonCode: "6.02" });
     expect(q(hard).firstTryRate).toBeCloseTo(2 / 6, 2);
@@ -94,14 +105,13 @@ describe("GET /admin/analytics (Step 30)", () => {
 
     const lab = json.labs.find((l: any) => l.labId === "LAB-20");
     const step = lab.steps.find((s: any) => s.stepId === "5.04/explore-current");
-    expect(step.started).toBeGreaterThanOrEqual(6);
-    expect(step.completed).toBeGreaterThanOrEqual(2);
+    expect(step.started).toBe(6);
+    expect(step.completed).toBe(2);
     expect(step.hintRate).toBeGreaterThan(0);
 
     const lesson = json.lessons.find((l: any) => l.code === "6.02");
-    expect(lesson.started).toBeGreaterThanOrEqual(6);
-    expect(lesson.dropOff).toBeGreaterThanOrEqual(4);
-    expect(lesson.mostCommonStop).toMatchObject({ step: 1 });
+    expect(lesson).toMatchObject({ started: 6, finished: 2, dropOff: 4 });
+    expect(lesson.mostCommonStop).toMatchObject({ step: 1, learners: 4 });
     expect(typeof lesson.mostCommonStop.screen).toBe("string");
   });
 });

@@ -619,6 +619,7 @@ a.lesson-tile[data-authored="true"] .lesson-tile-code {
   cursor: default;
 }
 .chip[aria-pressed="true"],
+.chip[aria-current="page"],
 .chip[aria-expanded="true"] {
   border-color: var(--color-accent);
   background: var(--color-accent-wash);
