@@ -68,14 +68,29 @@ export async function insertAttempt(
     tryNo: number;
     msTaken?: number | null;
     sessionId?: string | null;
+    /** Browser idempotency key: the same key twice inserts once. */
+    clientId?: string | null;
     at: Date;
   },
-) {
-  await c.query(
-    `INSERT INTO attempt (user_id, question_id, option_id, correct, context, try_no, ms_taken, session_id, created_at)
-     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)`,
-    [a.userId, a.questionId, a.optionId, a.correct, a.context, a.tryNo, a.msTaken ?? null, a.sessionId ?? null, a.at],
+): Promise<boolean> {
+  const res = await c.query(
+    `INSERT INTO attempt (user_id, question_id, option_id, correct, context, try_no, ms_taken, session_id, client_id, created_at)
+     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
+     ON CONFLICT (user_id, client_id) DO NOTHING`,
+    [
+      a.userId,
+      a.questionId,
+      a.optionId,
+      a.correct,
+      a.context,
+      a.tryNo,
+      a.msTaken ?? null,
+      a.sessionId ?? null,
+      a.clientId ?? null,
+      a.at,
+    ],
   );
+  return (res.rowCount ?? 0) > 0;
 }
 
 /**

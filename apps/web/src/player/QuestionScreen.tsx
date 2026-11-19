@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button, Feedback } from "@hampath/ui";
 import { ApiError, api, ensureSession } from "@/lib/api";
 import { enqueue, isOffline } from "@/lib/outbox";
+import { newId } from "@/lib/id";
 import type { AttemptResult, Question } from "@/lib/types";
 import { ScreenTitle } from "./screens";
 
@@ -50,7 +51,16 @@ export function QuestionScreen({ q, number, total, state, setState, onDone, onSe
     setBusy(true);
     setError(null);
     const tries = state.tries + 1;
-    const body = { question_id: q.id, option_id: pick, context, try: tries, ms_taken: Date.now() - started.current };
+    // One key per answer, reused if it has to be replayed from the outbox, so it is graded once.
+    const body = {
+      question_id: q.id,
+      option_id: pick,
+      context,
+      try: tries,
+      ms_taken: Date.now() - started.current,
+      client_id: newId(),
+      answered_at: new Date().toISOString(),
+    };
     try {
       await ensureSession();
       const result = await api<AttemptResult>("POST", "/attempts", body);

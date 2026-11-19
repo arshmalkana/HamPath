@@ -9,6 +9,8 @@ const LabEventBody = z.strictObject({
   lab_step_id: z.string(),
   event: z.enum(["started", "goal_met", "hint_used", "value_changed"]),
   payload: z.record(z.string(), z.unknown()).default({}),
+  /** Idempotency key: a replayed event is stored once. */
+  client_id: z.uuid().optional(),
 });
 
 const ProgressBody = z.strictObject({
@@ -47,12 +49,11 @@ export function learnRoutes(app: FastifyInstance, pool: Pool) {
       const vars = labVariables(step.lab_id, state, step.config_json);
       verified = Boolean(vars && step.goal_expr && evaluateGoal(step.goal_expr, vars));
     }
-    await pool.query(`INSERT INTO lab_event (user_id, lab_step_id, event, payload) VALUES ($1,$2,$3,$4)`, [
-      user.id,
-      body.lab_step_id,
-      body.event,
-      JSON.stringify({ ...body.payload, verified }),
-    ]);
+    await pool.query(
+      `INSERT INTO lab_event (user_id, lab_step_id, event, payload, client_id) VALUES ($1,$2,$3,$4,$5)
+       ON CONFLICT (user_id, client_id) DO NOTHING`,
+      [user.id, body.lab_step_id, body.event, JSON.stringify({ ...body.payload, verified }), body.client_id ?? null],
+    );
     // goal_met advances the lesson: the lab card counts as completed (step = screens completed).
     if (verified && step.card_order !== null) {
       await pool.query(

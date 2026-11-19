@@ -21,43 +21,82 @@ export interface LabEntry {
 /** Shown while a lab's code loads; the same height as a typical lab, so the page doesn't jump. */
 const loading = () => createElement("div", { className: "lab-loading", "aria-busy": "true" }, "Loading the lab…");
 
+/** One import() per lab module: dynamic() and preloadLabs() must share it, because the bundler
+ * names a chunk per import site and the offline cache has to hold the chunk the page will ask for. */
+const load = {
+  AntennaBuilderLab: () => import("./AntennaBuilderLab"),
+  BlockDiagramLab: () => import("./BlockDiagramLab"),
+  ColourCodeLab: () => import("./ColourCodeLab"),
+  ComponentBenchLab: () => import("./ComponentBenchLab"),
+  AntennaPermitLab: () => import("./AntennaPermitLab"),
+  BandPlanLab: () => import("./BandPlanLab"),
+  CallSignLab: () => import("./CallSignLab"),
+  DbLadderLab: () => import("./DbLadderLab"),
+  ExamSimulatorLab: () => import("./ExamSimulatorLab"),
+  DrillLab: () => import("./DrillLab"),
+  RepeaterLab: () => import("./RepeaterLab"),
+  RulesLab: () => import("./RulesLab"),
+  ScenarioLab: () => import("./ScenarioLab"),
+  FilterLab: () => import("./FilterLab"),
+  InterferenceLab: () => import("./InterferenceLab"),
+  IonosphereLab: () => import("./IonosphereLab"),
+  SolarCycleLab: () => import("./SolarCycleLab"),
+  VhfLab: () => import("./VhfLab"),
+  WorldClockLab: () => import("./WorldClockLab"),
+  FeedlineLab: () => import("./FeedlineLab"),
+  PatternLab: () => import("./PatternLab"),
+  SwrTunerLab: () => import("./SwrTunerLab"),
+  MorseLab: () => import("./MorseLab"),
+  PowerBenchLab: () => import("./PowerBenchLab"),
+  PowerLimitLab: () => import("./PowerLimitLab"),
+  RfExposureLab: () => import("./RfExposureLab"),
+  SafetyInspectorLab: () => import("./SafetyInspectorLab"),
+  SpectrumLab: () => import("./SpectrumLab"),
+  MeterLab: () => import("./MeterLab"),
+  OhmsLawLab: () => import("./OhmsLawLab"),
+  ResonanceLab: () => import("./ResonanceLab"),
+  ScopeLab: () => import("./ScopeLab"),
+  TransformerLab: () => import("./TransformerLab"),
+  UnitSliderLab: () => import("./UnitSliderLab"),
+};
+
 // Each lab is its own chunk, loaded only by the lessons that use it (Three.js and WebAudio stay
-// out of every other page). `import()` must sit inline in each dynamic() call for code splitting.
-const AntennaBuilderLab = dynamic(() => import("./AntennaBuilderLab").then((m) => m.AntennaBuilderLab), { loading });
-const BlockDiagramLab = dynamic(() => import("./BlockDiagramLab").then((m) => m.BlockDiagramLab), { loading });
-const ColourCodeLab = dynamic(() => import("./ColourCodeLab").then((m) => m.ColourCodeLab), { loading });
-const ComponentBenchLab = dynamic(() => import("./ComponentBenchLab").then((m) => m.ComponentBenchLab), { loading });
-const AntennaPermitLab = dynamic(() => import("./AntennaPermitLab").then((m) => m.AntennaPermitLab), { loading });
-const BandPlanLab = dynamic(() => import("./BandPlanLab").then((m) => m.BandPlanLab), { loading });
-const CallSignLab = dynamic(() => import("./CallSignLab").then((m) => m.CallSignLab), { loading });
-const DbLadderLab = dynamic(() => import("./DbLadderLab").then((m) => m.DbLadderLab), { loading });
-const ExamSimulatorLab = dynamic(() => import("./ExamSimulatorLab").then((m) => m.ExamSimulatorLab), { loading });
-const PhoneticLab = dynamic(() => import("./DrillLab").then((m) => m.PhoneticLab), { loading });
-const RepeaterLab = dynamic(() => import("./RepeaterLab").then((m) => m.RepeaterLab), { loading });
-const RulesLab = dynamic(() => import("./RulesLab").then((m) => m.RulesLab), { loading });
-const EmergencyNetLab = dynamic(() => import("./ScenarioLab").then((m) => m.EmergencyNetLab), { loading });
-const QsoLab = dynamic(() => import("./ScenarioLab").then((m) => m.QsoLab), { loading });
-const FilterLab = dynamic(() => import("./FilterLab").then((m) => m.FilterLab), { loading });
-const InterferenceLab = dynamic(() => import("./InterferenceLab").then((m) => m.InterferenceLab), { loading });
-const IonosphereLab = dynamic(() => import("./IonosphereLab").then((m) => m.IonosphereLab), { loading });
-const SolarCycleLab = dynamic(() => import("./SolarCycleLab").then((m) => m.SolarCycleLab), { loading });
-const VhfLab = dynamic(() => import("./VhfLab").then((m) => m.VhfLab), { loading });
-const WorldClockLab = dynamic(() => import("./WorldClockLab").then((m) => m.WorldClockLab), { loading });
-const FeedlineLab = dynamic(() => import("./FeedlineLab").then((m) => m.FeedlineLab), { loading });
-const PatternLab = dynamic(() => import("./PatternLab").then((m) => m.PatternLab), { loading });
-const SwrTunerLab = dynamic(() => import("./SwrTunerLab").then((m) => m.SwrTunerLab), { loading });
-const MorseLab = dynamic(() => import("./MorseLab").then((m) => m.MorseLab), { loading });
-const PowerBenchLab = dynamic(() => import("./PowerBenchLab").then((m) => m.PowerBenchLab), { loading });
-const PowerLimitLab = dynamic(() => import("./PowerLimitLab").then((m) => m.PowerLimitLab), { loading });
-const RfExposureLab = dynamic(() => import("./RfExposureLab").then((m) => m.RfExposureLab), { loading });
-const SafetyInspectorLab = dynamic(() => import("./SafetyInspectorLab").then((m) => m.SafetyInspectorLab), { loading });
-const SpectrumLab = dynamic(() => import("./SpectrumLab").then((m) => m.SpectrumLab), { loading });
-const MeterLab = dynamic(() => import("./MeterLab").then((m) => m.MeterLab), { loading });
-const OhmsLawLab = dynamic(() => import("./OhmsLawLab").then((m) => m.OhmsLawLab), { loading });
-const ResonanceLab = dynamic(() => import("./ResonanceLab").then((m) => m.ResonanceLab), { loading });
-const ScopeLab = dynamic(() => import("./ScopeLab").then((m) => m.ScopeLab), { loading });
-const TransformerLab = dynamic(() => import("./TransformerLab").then((m) => m.TransformerLab), { loading });
-const UnitSliderLab = dynamic(() => import("./UnitSliderLab").then((m) => m.UnitSliderLab), { loading });
+// out of every other page).
+const AntennaBuilderLab = dynamic(() => load.AntennaBuilderLab().then((m) => m.AntennaBuilderLab), { loading });
+const BlockDiagramLab = dynamic(() => load.BlockDiagramLab().then((m) => m.BlockDiagramLab), { loading });
+const ColourCodeLab = dynamic(() => load.ColourCodeLab().then((m) => m.ColourCodeLab), { loading });
+const ComponentBenchLab = dynamic(() => load.ComponentBenchLab().then((m) => m.ComponentBenchLab), { loading });
+const AntennaPermitLab = dynamic(() => load.AntennaPermitLab().then((m) => m.AntennaPermitLab), { loading });
+const BandPlanLab = dynamic(() => load.BandPlanLab().then((m) => m.BandPlanLab), { loading });
+const CallSignLab = dynamic(() => load.CallSignLab().then((m) => m.CallSignLab), { loading });
+const DbLadderLab = dynamic(() => load.DbLadderLab().then((m) => m.DbLadderLab), { loading });
+const ExamSimulatorLab = dynamic(() => load.ExamSimulatorLab().then((m) => m.ExamSimulatorLab), { loading });
+const PhoneticLab = dynamic(() => load.DrillLab().then((m) => m.PhoneticLab), { loading });
+const RepeaterLab = dynamic(() => load.RepeaterLab().then((m) => m.RepeaterLab), { loading });
+const RulesLab = dynamic(() => load.RulesLab().then((m) => m.RulesLab), { loading });
+const EmergencyNetLab = dynamic(() => load.ScenarioLab().then((m) => m.EmergencyNetLab), { loading });
+const QsoLab = dynamic(() => load.ScenarioLab().then((m) => m.QsoLab), { loading });
+const FilterLab = dynamic(() => load.FilterLab().then((m) => m.FilterLab), { loading });
+const InterferenceLab = dynamic(() => load.InterferenceLab().then((m) => m.InterferenceLab), { loading });
+const IonosphereLab = dynamic(() => load.IonosphereLab().then((m) => m.IonosphereLab), { loading });
+const SolarCycleLab = dynamic(() => load.SolarCycleLab().then((m) => m.SolarCycleLab), { loading });
+const VhfLab = dynamic(() => load.VhfLab().then((m) => m.VhfLab), { loading });
+const WorldClockLab = dynamic(() => load.WorldClockLab().then((m) => m.WorldClockLab), { loading });
+const FeedlineLab = dynamic(() => load.FeedlineLab().then((m) => m.FeedlineLab), { loading });
+const PatternLab = dynamic(() => load.PatternLab().then((m) => m.PatternLab), { loading });
+const SwrTunerLab = dynamic(() => load.SwrTunerLab().then((m) => m.SwrTunerLab), { loading });
+const MorseLab = dynamic(() => load.MorseLab().then((m) => m.MorseLab), { loading });
+const PowerBenchLab = dynamic(() => load.PowerBenchLab().then((m) => m.PowerBenchLab), { loading });
+const PowerLimitLab = dynamic(() => load.PowerLimitLab().then((m) => m.PowerLimitLab), { loading });
+const RfExposureLab = dynamic(() => load.RfExposureLab().then((m) => m.RfExposureLab), { loading });
+const SafetyInspectorLab = dynamic(() => load.SafetyInspectorLab().then((m) => m.SafetyInspectorLab), { loading });
+const SpectrumLab = dynamic(() => load.SpectrumLab().then((m) => m.SpectrumLab), { loading });
+const MeterLab = dynamic(() => load.MeterLab().then((m) => m.MeterLab), { loading });
+const OhmsLawLab = dynamic(() => load.OhmsLawLab().then((m) => m.OhmsLawLab), { loading });
+const ResonanceLab = dynamic(() => load.ResonanceLab().then((m) => m.ResonanceLab), { loading });
+const ScopeLab = dynamic(() => load.ScopeLab().then((m) => m.ScopeLab), { loading });
+const TransformerLab = dynamic(() => load.TransformerLab().then((m) => m.TransformerLab), { loading });
+const UnitSliderLab = dynamic(() => load.UnitSliderLab().then((m) => m.UnitSliderLab), { loading });
 
 /** All 35 labs from SPEC §4. A null component renders the placeholder so lessons still load. */
 export const LAB_REGISTRY: LabEntry[] = [
@@ -100,4 +139,50 @@ export const LAB_REGISTRY: LabEntry[] = [
 
 export function findLab(id: string): LabEntry | undefined {
   return LAB_REGISTRY.find((l) => l.id === id);
+}
+
+/**
+ * Download the code for these labs in the background, so a section saved for offline use has its
+ * labs too (the service worker keeps every /_next/static file it sees).
+ */
+const LAB_MODULE: Record<string, keyof typeof load> = {
+  "LAB-01": "BandPlanLab",
+  "LAB-02": "RulesLab",
+  "LAB-03": "CallSignLab",
+  "LAB-04": "PowerLimitLab",
+  "LAB-05": "RfExposureLab",
+  "LAB-06": "AntennaPermitLab",
+  "LAB-07": "ScenarioLab",
+  "LAB-08": "RepeaterLab",
+  "LAB-09": "DrillLab",
+  "LAB-10": "MorseLab",
+  "LAB-11": "ScenarioLab",
+  "LAB-12": "WorldClockLab",
+  "LAB-13": "BlockDiagramLab",
+  "LAB-14": "SpectrumLab",
+  "LAB-15": "PowerBenchLab",
+  "LAB-16": "SafetyInspectorLab",
+  "LAB-17": "ComponentBenchLab",
+  "LAB-18": "ColourCodeLab",
+  "LAB-19": "UnitSliderLab",
+  "LAB-20": "OhmsLawLab",
+  "LAB-21": "ScopeLab",
+  "LAB-22": "DbLadderLab",
+  "LAB-23": "TransformerLab",
+  "LAB-24": "ResonanceLab",
+  "LAB-25": "MeterLab",
+  "LAB-26": "FeedlineLab",
+  "LAB-27": "SwrTunerLab",
+  "LAB-28": "AntennaBuilderLab",
+  "LAB-29": "PatternLab",
+  "LAB-30": "IonosphereLab",
+  "LAB-31": "SolarCycleLab",
+  "LAB-32": "VhfLab",
+  "LAB-33": "InterferenceLab",
+  "LAB-34": "FilterLab",
+  "LAB-35": "ExamSimulatorLab",
+};
+
+export function preloadLabs(ids: (string | null | undefined)[]) {
+  for (const id of new Set(ids)) if (id && LAB_MODULE[id]) void load[LAB_MODULE[id]]().catch(() => undefined);
 }

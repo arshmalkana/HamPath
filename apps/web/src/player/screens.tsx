@@ -4,6 +4,7 @@ import { approxEqual, formatQuantity, morseTiming, parseQuantity, toMorse, type 
 import { Button, ExamFact, Feedback, useDragDrop } from "@hampath/ui";
 import { Lab } from "@/labs/Lab";
 import { track } from "@/lib/api";
+import { newId } from "@/lib/id";
 import type { Card, Interaction, LabStep } from "@/lib/types";
 import { Markdown } from "./Markdown";
 import { OhmsTriangle, RelayHook } from "./media";
@@ -117,7 +118,7 @@ export function LabScreen({ card, onDone }: ScreenProps) {
           hints: step.hints,
           success: step.success,
         }}
-        onEvent={(event, payload) => track("/lab-events", { lab_step_id: step.id, event, payload })}
+        onEvent={(event, payload) => track("/lab-events", { lab_step_id: step.id, event, payload, client_id: newId() })}
         onGoalMet={onDone}
         onHintsExhausted={onDone}
       />

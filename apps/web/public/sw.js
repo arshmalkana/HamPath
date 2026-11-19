@@ -1,7 +1,7 @@
 /* HamPath service worker (SPEC §6 "Offline"): caches the app shell and the current section's
    lessons so they open without a connection. Grading stays on the server: answers made offline
    are queued by the page (src/lib/outbox.ts) and sent when the connection returns. */
-const VERSION = "v1";
+const VERSION = "v2";
 const STATIC = `hampath-static-${VERSION}`;
 const PAGES = `hampath-pages-${VERSION}`;
 const DATA = `hampath-data-${VERSION}`;
@@ -50,7 +50,10 @@ async function networkFirst(request, cacheName, fallbackUrl) {
     return res;
   } catch {
     const cached =
-      (await cache.match(request, { ignoreVary: true })) || (await caches.match(request, { ignoreVary: true }));
+      (await cache.match(request, { ignoreVary: true })) ||
+      (await caches.match(request, { ignoreVary: true })) ||
+      // A lesson page cached without its ?card= deep link: the page picks the card up from the URL.
+      (request.mode === "navigate" ? await caches.match(request, { ignoreVary: true, ignoreSearch: true }) : undefined);
     if (cached) return cached;
     if (fallbackUrl) {
       const fallback = await caches.match(fallbackUrl);
@@ -80,7 +83,27 @@ self.addEventListener("fetch", (event) => {
   }
 });
 
-/** The page asks us to keep a section's lessons available offline. */
+/** Every /_next/static file a page's HTML refers to (its scripts, styles and fonts). */
+function staticRefs(html) {
+  return [...new Set(html.match(/\/_next\/static\/[^"'\s)\\]+/g) || [])].slice(0, 80);
+}
+
+/** Store static files we don't have yet, so a cached page also runs offline. */
+async function cacheStatic(urls) {
+  const cache = await caches.open(STATIC);
+  await Promise.all(
+    urls.map(async (u) => {
+      if (await cache.match(u)) return;
+      const res = await fetch(u).catch(() => null);
+      if (res && res.ok) await cache.put(u, res);
+    }),
+  );
+}
+
+/**
+ * The page asks us to keep a section's lessons available offline: each page, plus the static files
+ * it needs. (The labs' own code is fetched by the page itself and kept by the static rule above.)
+ */
 self.addEventListener("message", (event) => {
   const msg = event.data || {};
   if (msg.type !== "cache-urls" || !Array.isArray(msg.urls)) return;
@@ -92,7 +115,11 @@ self.addEventListener("message", (event) => {
           .slice(0, 60)
           .map((u) =>
             fetch(u, { credentials: "same-origin" })
-              .then((res) => (res.ok ? cache.put(u, res) : undefined))
+              .then(async (res) => {
+                if (!res.ok) return;
+                await cache.put(u, res.clone());
+                await cacheStatic(staticRefs(await res.text()));
+              })
               .catch(() => undefined),
           ),
       ),

@@ -26,7 +26,19 @@ const AttemptBody = z.strictObject({
   context: Context,
   try: z.number().int().min(1).max(4).default(1),
   ms_taken: z.number().int().min(0).max(3_600_000).optional(),
+  /** Idempotency key: an answer replayed from the offline outbox is graded once. */
+  client_id: z.uuid().optional(),
+  /** When the learner answered (offline answers arrive later); clamped to the last 7 days. */
+  answered_at: z.iso.datetime({ offset: true }).optional(),
 });
+
+const MAX_ANSWER_AGE_MS = 7 * 86_400_000;
+/** The answer time to record: the browser's, if it's plausible, else now. */
+function answerTime(reported: string | undefined): Date {
+  const now = Date.now();
+  const t = reported ? Date.parse(reported) : NaN;
+  return Number.isFinite(t) && t <= now && t >= now - MAX_ANSWER_AGE_MS ? new Date(t) : new Date(now);
+}
 
 const StartMockBody = z.strictObject({ timed: z.boolean().default(true) }).default({ timed: true });
 
@@ -161,9 +173,9 @@ export function practiceRoutes(app: FastifyInstance, pool: Pool) {
       if (rows.length) throw new HttpError(409, "This question was updated; reload the lesson");
       throw new HttpError(400, "That option does not belong to that question");
     }
-    const at = new Date();
+    const at = answerTime(body.answered_at);
     const state = await tx(pool, async (c) => {
-      await insertAttempt(c, {
+      const inserted = await insertAttempt(c, {
         userId: user.id,
         questionId: body.question_id,
         optionId: body.option_id,
@@ -171,8 +183,17 @@ export function practiceRoutes(app: FastifyInstance, pool: Pool) {
         context: body.context,
         tryNo: body.try,
         msTaken: body.ms_taken,
+        clientId: body.client_id,
         at,
       });
+      if (!inserted) {
+        // A replay of an answer already graded: same response, no second move of the FSRS state.
+        const { rows } = await c.query<{ mastered: boolean; dueAt: Date | null }>(
+          `SELECT mastered, due_at AS "dueAt" FROM question_state WHERE user_id = $1 AND question_id = $2`,
+          [user.id, body.question_id],
+        );
+        return rows[0] ?? null;
+      }
       return applyAnswer(c, user.id, body.question_id, {
         correct: opt.isCorrect,
         context: body.context,

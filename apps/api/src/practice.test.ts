@@ -174,6 +174,74 @@ describe("Daily Review (FSRS)", () => {
   });
 });
 
+describe("offline replay (Step 28)", () => {
+  it("grades an answer once however many times it is replayed", async () => {
+    const { call, userId } = await guest();
+    const { wrong } = await answerKey();
+    const qid = "B-005-004-001";
+    const body = {
+      question_id: qid,
+      option_id: wrong.get(qid),
+      context: "review",
+      client_id: "6f1d6c3e-2c1b-4f5e-9a7d-0b7c8e9f1a2b",
+      answered_at: new Date(Date.now() - 3 * 3_600_000).toISOString(),
+    };
+    const first = await call("POST", "/attempts", body);
+    const state1 = await pool.query(
+      "SELECT due_at, lapses FROM question_state WHERE user_id = $1 AND question_id = $2",
+      [userId, qid],
+    );
+    // The reply was lost; the outbox sends it again, twice, once from another tab at the same time.
+    const replays = await Promise.all([call("POST", "/attempts", body), call("POST", "/attempts", body)]);
+    for (const r of replays) expect(r.json).toEqual(first.json);
+    const { rows } = await pool.query("SELECT created_at FROM attempt WHERE user_id = $1 AND question_id = $2", [
+      userId,
+      qid,
+    ]);
+    expect(rows).toHaveLength(1);
+    // Recorded at the time it was answered, not when it arrived.
+    expect(Math.abs(rows[0].created_at.getTime() - Date.parse(body.answered_at))).toBeLessThan(1000);
+    const state2 = await pool.query(
+      "SELECT due_at, lapses FROM question_state WHERE user_id = $1 AND question_id = $2",
+      [userId, qid],
+    );
+    expect(state2.rows).toEqual(state1.rows);
+  });
+
+  it("ignores an implausible answer time", async () => {
+    const { call, userId } = await guest();
+    const { right } = await answerKey();
+    const qid = "B-005-004-005";
+    await call("POST", "/attempts", {
+      question_id: qid,
+      option_id: right.get(qid),
+      context: "review",
+      answered_at: new Date(Date.now() + 86_400_000).toISOString(),
+    });
+    const { rows } = await pool.query("SELECT created_at FROM attempt WHERE user_id = $1 AND question_id = $2", [
+      userId,
+      qid,
+    ]);
+    expect(Math.abs(rows[0].created_at.getTime() - Date.now())).toBeLessThan(60_000);
+  });
+
+  it("stores a replayed lab event once", async () => {
+    const { call, userId } = await guest();
+    const ev = {
+      lab_step_id: "5.04/explore-current",
+      event: "hint_used",
+      payload: { hint: 1 },
+      client_id: "0a3c1e55-7b2d-4c8e-8f10-2d3e4f5a6b7c",
+    };
+    for (let i = 0; i < 3; i++) expect((await call("POST", "/lab-events", ev)).status).toBe(200);
+    const { rows } = await pool.query(
+      "SELECT count(*)::int AS n FROM lab_event WHERE user_id = $1 AND event = 'hint_used'",
+      [userId],
+    );
+    expect(rows[0].n).toBe(1);
+  });
+});
+
 describe("Section Checkpoints", () => {
   it("asks every unmastered question plus a 20% sample of mastered ones", async () => {
     const { call, userId } = await guest();

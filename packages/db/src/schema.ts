@@ -313,9 +313,12 @@ export const attempt = pgTable(
     msTaken: integer("ms_taken"),
     /** The checkpoint or mock exam this answer belongs to (NULL for lesson checks and reviews). */
     sessionId: uuid("session_id"),
+    /** Idempotency key from the browser: a replayed offline answer is recognised, not counted twice. */
+    clientId: uuid("client_id"),
     createdAt: ts("created_at").notNull().defaultNow(),
   },
   (t) => [
+    uniqueIndex("attempt_user_client_idx").on(t.userId, t.clientId),
     index("attempt_user_q_idx").on(t.userId, t.questionId, t.createdAt),
     index("attempt_session_idx").on(t.sessionId),
     index("attempt_user_day_idx").on(t.userId, t.createdAt),
@@ -373,9 +376,12 @@ export const labEvent = pgTable(
     labStepId: text("lab_step_id").references(() => labStep.id, { onDelete: "set null" }),
     event: text().notNull(),
     payload: jsonb().notNull().default({}),
+    /** Idempotency key from the browser (see attempt.client_id). */
+    clientId: uuid("client_id"),
     createdAt: ts("created_at").notNull().defaultNow(),
   },
   (t) => [
+    uniqueIndex("lab_event_user_client_idx").on(t.userId, t.clientId),
     check("lab_event_kind", sql`${t.event} IN ('started', 'goal_met', 'hint_used', 'value_changed')`),
     index("lab_event_step_idx").on(t.labStepId, t.event),
   ],

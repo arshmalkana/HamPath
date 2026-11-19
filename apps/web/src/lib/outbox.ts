@@ -45,8 +45,18 @@ export function isOffline(e: unknown) {
 }
 
 let flushing = false;
-/** Send everything queued, oldest first. Stops at the first network failure; drops items the server rejects. */
+/**
+ * Send everything queued, oldest first. Stops at the first network failure; drops items the server
+ * rejects. Tabs share one queue, so a Web Lock lets only one tab replay at a time; answers and lab
+ * events also carry a client_id, so even a replay whose reply was lost is counted once.
+ */
 export async function flush(): Promise<number> {
+  const locks = typeof navigator !== "undefined" ? navigator.locks : undefined;
+  if (locks) return locks.request("hp-outbox", { ifAvailable: true }, (lock) => (lock ? flushHere() : 0));
+  return flushHere();
+}
+
+async function flushHere(): Promise<number> {
   if (flushing) return 0;
   flushing = true;
   let sent = 0;

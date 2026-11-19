@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Button, PhaseProgress, type Phase } from "@hampath/ui";
 import { cacheForOffline } from "@/components/OfflineSupport";
+import { preloadLabs } from "@/labs/registry";
 import { api, ensureSession } from "@/lib/api";
 import { enqueue, isOffline } from "@/lib/outbox";
 import type { Card, Lesson, Question } from "@/lib/types";
@@ -54,13 +55,30 @@ export function LessonPlayer({ lesson, initialCardId }: { lesson: Lesson; initia
   useEffect(() => {
     void ensureSession().catch(() => undefined);
     // Keep this lesson's whole section available offline (SPEC §6).
-    api<{ lessons: { code: string }[] }>("GET", `/sections/${lesson.section.id}`)
-      .then((s) => cacheForOffline(s.lessons.map((l) => `/lessons/${l.code}`)))
+    api<{ lessons: { code: string; labId: string | null }[] }>("GET", `/sections/${lesson.section.id}`)
+      .then((s) => {
+        cacheForOffline(s.lessons.map((l) => `/lessons/${l.code}`));
+        // After the page settles, fetch the section's lab code so the labs work offline too.
+        setTimeout(() => preloadLabs(s.lessons.map((l) => l.labId)), 3000);
+      })
       .catch(() => undefined);
   }, [lesson.section.id]);
 
   const screen = screens[index]!;
   const markDone = useCallback((i: number) => setDone((d) => (d.has(i) ? d : new Set(d).add(i))), []);
+
+  // Offline, the service worker serves this lesson's cached page whatever the ?card= in the address,
+  // so the server-side deep link is missing; honour the address bar once hydrated.
+  useEffect(() => {
+    if (initialCardId) return;
+    const card = new URLSearchParams(window.location.search).get("card");
+    const deep = card ? screens.findIndex((s) => s.kind === "card" && s.card.id === card) : -1;
+    if (deep <= 0) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time sync with the URL after hydration
+    setIndex(deep);
+    setDone((d) => new Set([...d, ...Array.from({ length: deep }, (_, i) => i)]));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const go = (to: number) => {
     const target = Math.max(0, Math.min(screens.length - 1, to));
