@@ -1,4 +1,12 @@
-import { geoAzimuthalEquidistant, geoCircle, geoEquirectangular, geoGraticule10, geoPath } from "d3-geo";
+import {
+  geoAzimuthalEquidistant,
+  geoCircle,
+  geoEquirectangular,
+  geoGraticule10,
+  geoPath,
+  type GeoProjection,
+  type GeoStream,
+} from "d3-geo";
 import { feature } from "topojson-client";
 import type { FeatureCollection } from "geojson";
 import type { Topology } from "topojson-specification";
@@ -25,10 +33,50 @@ const land = () => {
   return landCache;
 };
 
+/**
+ * Wraps a projection so its output skips points closer than `minPx` to the last one drawn. At map
+ * sizes of a few hundred pixels most of the 110m coastline is sub-pixel detail; dropping it keeps
+ * the path data (which is server-rendered into the page) a fraction of the size with no visible change.
+ */
+function thinned(projection: GeoProjection, minPx: number) {
+  return {
+    stream(output: GeoStream): GeoStream {
+      let last: [number, number] | null = null;
+      return projection.stream({
+        point(x, y) {
+          if (!last || Math.hypot(x - last[0], y - last[1]) >= minPx) {
+            output.point(x, y);
+            last = [x, y];
+          }
+        },
+        lineStart() {
+          last = null;
+          output.lineStart();
+        },
+        lineEnd: () => output.lineEnd(),
+        polygonStart: () => output.polygonStart(),
+        polygonEnd: () => output.polygonEnd(),
+        sphere: () => output.sphere?.(),
+      });
+    },
+  };
+}
+
+/** Compact path generator: thinned to `minPx` and one decimal place. */
+const compactPath = (projection: GeoProjection, minPx = 1) => geoPath(thinned(projection, minPx)).digits(1);
+
+/** A 10° graticule for an equirectangular map: straight lines, so a few hundred bytes instead of 40 kB. */
+function flatGraticule(width: number, height: number) {
+  const parts: string[] = [];
+  for (let lon = -180; lon <= 180; lon += 10) parts.push(`M${+(((lon + 180) / 360) * width).toFixed(1)},0V${height}`);
+  for (let lat = -80; lat <= 80; lat += 10) parts.push(`M0,${+(((90 - lat) / 180) * height).toFixed(1)}H${width}`);
+  return parts.join("");
+}
+
 /** SVG path data for an equirectangular world map of the given size at `date` (pure, server-safe). */
 export function worldPaths(width: number, height: number, date: Date) {
   const projection = geoEquirectangular().fitSize([width, height], { type: "Sphere" });
-  const path = geoPath(projection);
+  const path = compactPath(projection);
   const sun = subsolarPoint(date);
   const night = geoCircle()
     .center([sun.lon + 180, -sun.lat])
@@ -36,7 +84,7 @@ export function worldPaths(width: number, height: number, date: Date) {
   return {
     land: path(land()) ?? "",
     night: path(night) ?? "",
-    grid: path(geoGraticule10()) ?? "",
+    grid: flatGraticule(width, height),
     project: (lon: number, lat: number) => projection([lon, lat]) ?? [0, 0],
   };
 }
@@ -48,7 +96,7 @@ export function azimuthalPaths(size: number, center: [number, number]) {
     .clipAngle(179.9)
     .fitSize([size - 8, size - 8], { type: "Sphere" })
     .translate([size / 2, size / 2]);
-  const path = geoPath(projection);
+  const path = compactPath(projection);
   return {
     land: path(land()) ?? "",
     grid: path(geoGraticule10()) ?? "",

@@ -170,11 +170,9 @@ function ItuBody({ config, mode, onState }: LabBodyProps) {
                   </button>
                 ))}
               </div>
-              {right !== null && (
-                <p className="inspect-why" role="status">
-                  {right ? `Right. ${k.why}` : "Not quite."}
-                </p>
-              )}
+              <p className="inspect-why" role="status">
+                {right !== null && (right ? `Right. ${k.why}` : "Not quite.")}
+              </p>
             </li>
           );
         })}

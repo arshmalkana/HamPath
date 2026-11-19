@@ -42,33 +42,35 @@ export function ResultsView({ r, kind }: { r: QuizResults; kind: "checkpoint" | 
           </span>
         </div>
         {r.sectionBreakdown && (
-          <table className="table">
-            <caption className="visually-hidden">Score by section</caption>
-            <thead>
-              <tr>
-                <th scope="col">Section</th>
-                <th scope="col" className="num">
-                  Correct
-                </th>
-                <th scope="col" className="num">
-                  Score
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {r.sectionBreakdown.map((s) => (
-                <tr key={s.sectionId}>
-                  <th scope="row">
-                    {s.number}. {s.title}
+          <div className="table-scroll" tabIndex={0} role="region" aria-label="Score by section">
+            <table className="table">
+              <caption className="visually-hidden">Score by section</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Section</th>
+                  <th scope="col" className="num">
+                    Correct
                   </th>
-                  <td className="num">
-                    {s.correct}/{s.total}
-                  </td>
-                  <td className="num">{Math.round((100 * s.correct) / s.total)}%</td>
+                  <th scope="col" className="num">
+                    Score
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {r.sectionBreakdown.map((s) => (
+                  <tr key={s.sectionId}>
+                    <th scope="row">
+                      {s.number}. {s.title}
+                    </th>
+                    <td className="num">
+                      {s.correct}/{s.total}
+                    </td>
+                    <td className="num">{Math.round((100 * s.correct) / s.total)}%</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
 

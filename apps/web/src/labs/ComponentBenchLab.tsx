@@ -156,8 +156,8 @@ export function ComponentBenchLab({ config, mode, onState }: LabBodyProps) {
       <Plot
         label={`Amplifier with a gain of ${AMP_GAIN}. Input ${fmt(drive, "V")} peak, output ${fmt(v.outputPeak as number, "V")} peak${v.distorted ? ", clipped: distorted" : ""}.`}
         series={[
-          { points: inp, tone: "a", dashed: true },
-          { points: out, tone: "b" },
+          { points: inp, tone: "a", dashed: true, label: "Input" },
+          { points: out, tone: "b", label: "Output" },
         ]}
         xDomain={[0, 2]}
         yDomain={[-12, 12]}
@@ -174,8 +174,8 @@ export function ComponentBenchLab({ config, mode, onState }: LabBodyProps) {
       <Plot
         label="Rectifier: AC in (dashed), and at the cathode, pulsating DC: only the positive half-cycles get through."
         series={[
-          { points: ac, tone: "a", dashed: true },
-          { points: dc, tone: "b" },
+          { points: ac, tone: "a", dashed: true, label: "AC in" },
+          { points: dc, tone: "b", label: "At the cathode" },
         ]}
         xDomain={[0, 2]}
         yDomain={[-12, 12]}

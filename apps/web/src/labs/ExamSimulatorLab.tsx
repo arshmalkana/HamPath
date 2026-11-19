@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Button, Feedback, SevenSegment } from "@hampath/ui";
 import { ApiError, api, ensureSession } from "../lib/api";
 import type { LabBodyProps } from "./registry";
-import { Readouts, useReport } from "./common";
+import { Readouts, SegChoice, useReport } from "./common";
 
 interface Blueprint {
   total: number;
@@ -22,12 +22,13 @@ export function ExamSimulatorLab({ mode, onState }: LabBodyProps) {
   const [taken, setTaken] = useState<number | null>(demo ? 0 : null);
   const router = useRouter();
   const [busy, setBusy] = useState(false);
+  const [timed, setTimed] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const start = async () => {
     setBusy(true);
     try {
       await ensureSession();
-      const m = await api<{ id: string }>("POST", "/mocks");
+      const m = await api<{ id: string }>("POST", "/mocks", { timed });
       router.push(`/mocks/${m.id}`);
     } catch (e) {
       setError(e instanceof ApiError ? e.message : "Couldn't start the exam.");
@@ -74,7 +75,8 @@ export function ExamSimulatorLab({ mode, onState }: LabBodyProps) {
       <p className="lab-state" role="status">
         {taken !== null && taken < 3
           ? `Questions are drawn from every section by the exam blueprint. Your readiness score appears after three mock exams (${3 - taken} to go).`
-          : "Questions are drawn from every section by the exam blueprint, and graded the moment you submit."}
+          : "Questions are drawn from every section by the exam blueprint, and graded the moment you submit."}{" "}
+        Untimed mocks have no countdown, for extra-time practice; they count toward readiness the same way.
       </p>
       {error && (
         <Feedback tone="bad" title="Not started">
@@ -82,6 +84,16 @@ export function ExamSimulatorLab({ mode, onState }: LabBodyProps) {
         </Feedback>
       )}
       <div className="lab-foot">
+        <SegChoice
+          label="Clock"
+          value={timed ? "timed" : "untimed"}
+          onChange={(x) => setTimed(x === "timed")}
+          disabled={demo || busy}
+          options={[
+            { value: "timed", label: bp ? `Timed, ${bp.timeLimitMinutes} min` : "Timed" },
+            { value: "untimed", label: "Untimed" },
+          ]}
+        />
         <Button onClick={() => void start()} disabled={demo || busy}>
           {busy ? "Drawing your questions…" : "Start a mock exam"}
         </Button>

@@ -395,7 +395,8 @@ export const mockExam = pgTable("mock_exam", {
   honours: boolean(),
   /** [{ sectionId, correct, total }] */
   sectionBreakdown: jsonb("section_breakdown"),
-  timeLimitS: integer("time_limit_s").notNull().default(10800),
+  /** Null for an untimed mock (WCAG 2.2.1: the learner may turn the time limit off). */
+  timeLimitS: integer("time_limit_s").default(10800),
   blueprintVersion: text("blueprint_version"),
   startedAt: ts("started_at").notNull().defaultNow(),
   finishedAt: ts("finished_at"),

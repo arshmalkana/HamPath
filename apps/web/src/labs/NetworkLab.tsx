@@ -134,39 +134,41 @@ export function NetworkLab({ config, mode, onState }: LabBodyProps) {
           ]}
         />
       </div>
-      <table className="table" aria-label="Each resistor">
-        <thead>
-          <tr>
-            <th scope="col">Resistor</th>
-            <th scope="col" className="num">
-              R
-            </th>
-            <th scope="col" className="num">
-              Voltage
-            </th>
-            <th scope="col" className="num">
-              Current
-            </th>
-            <th scope="col" className="num">
-              Power
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {c.resistors.map((r, i) => (
-            <tr key={i}>
-              <th scope="row">
-                R{i + 1}
-                {cfg.ratingW && r.P > cfg.ratingW ? " (too hot!)" : ""}
+      <div className="table-scroll" tabIndex={0} role="region" aria-label="Each resistor">
+        <table className="table" aria-label="Each resistor">
+          <thead>
+            <tr>
+              <th scope="col">Resistor</th>
+              <th scope="col" className="num">
+                R
               </th>
-              <td className="num">{fmt(r.R, "Ω")}</td>
-              <td className="num">{fmt(r.E, "V")}</td>
-              <td className="num">{fmt(r.I, "A")}</td>
-              <td className="num">{fmt(r.P, "W")}</td>
+              <th scope="col" className="num">
+                Voltage
+              </th>
+              <th scope="col" className="num">
+                Current
+              </th>
+              <th scope="col" className="num">
+                Power
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {c.resistors.map((r, i) => (
+              <tr key={i}>
+                <th scope="row">
+                  R{i + 1}
+                  {cfg.ratingW && r.P > cfg.ratingW ? " (too hot!)" : ""}
+                </th>
+                <td className="num">{fmt(r.R, "Ω")}</td>
+                <td className="num">{fmt(r.E, "V")}</td>
+                <td className="num">{fmt(r.I, "A")}</td>
+                <td className="num">{fmt(r.P, "W")}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <div className="knobs">
         {cfg.controls.E ? (
           <Knob

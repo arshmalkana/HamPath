@@ -62,11 +62,10 @@ export function RulesLab({ config, mode, onState }: LabBodyProps) {
                   </button>
                 ))}
               </div>
-              {right !== null && (
-                <p className="inspect-why" role="status">
-                  {right ? `Right. ${k.why}${k.source ? ` (${k.source})` : ""}` : "Not quite. Think again."}
-                </p>
-              )}
+              <p className="inspect-why" role="status">
+                {right !== null &&
+                  (right ? `Right. ${k.why}${k.source ? ` (${k.source})` : ""}` : "Not quite. Think again.")}
+              </p>
             </li>
           );
         })}

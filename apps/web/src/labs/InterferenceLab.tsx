@@ -196,11 +196,9 @@ export function InterferenceLab({ config, mode, onState }: LabBodyProps) {
             </button>
           ))}
         </div>
-        {diagnosis && (
-          <p className={v.diagnosed ? "lab-success" : "lab-hint"} role="status">
-            {v.diagnosed ? "That fits the evidence." : "That doesn't fit all the evidence. Look again."}
-          </p>
-        )}
+        <p className={v.diagnosed ? "lab-success" : "lab-hint"} role="status">
+          {diagnosis && (v.diagnosed ? "That fits the evidence." : "That doesn't fit all the evidence. Look again.")}
+        </p>
       </div>
       {v.diagnosed && (
         <div className="control">
@@ -221,11 +219,9 @@ export function InterferenceLab({ config, mode, onState }: LabBodyProps) {
               </button>
             ))}
           </div>
-          {cure && (
-            <p className={v.cured ? "lab-success" : "lab-hint"} role="status">
-              {v.cured ? "Case closed." : "That won't cure this cause. Try another."}
-            </p>
-          )}
+          <p className={v.cured ? "lab-success" : "lab-hint"} role="status">
+            {cure && (v.cured ? "Case closed." : "That won't cure this cause. Try another.")}
+          </p>
         </div>
       )}
     </div>

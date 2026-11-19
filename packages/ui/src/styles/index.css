@@ -73,6 +73,26 @@
   color: var(--color-ink);
   font-weight: 700;
 }
+/* Phones: the nav takes its own row so every link stays on screen (WCAG 1.4.10 reflow). */
+@media (max-width: 40rem) {
+  .topbar-inner {
+    flex-wrap: wrap;
+    row-gap: 0;
+    padding-block: var(--space-2xs);
+  }
+  .topbar-nav {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0;
+  }
+  .topbar-nav .toplink {
+    padding-inline: var(--space-xs);
+  }
+  .topbar-nav .toplink:first-child {
+    margin-inline-start: calc(-1 * var(--space-xs));
+  }
+}
 
 .page {
   padding-block: var(--space-xl) var(--space-3xl);
@@ -400,18 +420,22 @@ a.lesson-tile[data-authored="true"] .lesson-tile-code {
 }
 .player-head-inner {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-xs);
   padding-block: var(--space-sm);
 }
 .player-title-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-2xs) var(--space-md);
 }
 .player-title {
   font-size: var(--text-md);
   font-weight: 700;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 .player-title-code {
   color: var(--color-accent);
@@ -487,10 +511,9 @@ a.lesson-tile[data-authored="true"] .lesson-tile-code {
   color: var(--color-ink);
   font-weight: 700;
 }
+/* Wraps rather than truncating: with enlarged text spacing nothing may be cut off (WCAG 1.4.12). */
 .phase-label {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
 .screen {
@@ -1018,7 +1041,8 @@ a.lesson-tile[data-authored="true"] .lesson-tile-code {
 .meters2 {
   display: grid;
   gap: var(--space-sm);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Two meters side by side, stacked on the narrowest phones. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
 }
 .readouts {
   display: grid;
@@ -1056,6 +1080,7 @@ a.lesson-tile[data-authored="true"] .lesson-tile-code {
 
 .meter {
   display: grid;
+  min-width: 0;
   gap: var(--space-xs);
   padding: var(--space-sm);
   border-radius: var(--radius-control);
@@ -1066,6 +1091,7 @@ a.lesson-tile[data-authored="true"] .lesson-tile-code {
   font-size: var(--text-sm);
   color: var(--shack-ink-2);
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: var(--space-xs);
 }
@@ -1106,7 +1132,7 @@ a.lesson-tile[data-authored="true"] .lesson-tile-code {
   fill: var(--shack-meter-ink);
 }
 .meter[data-off="true"] .meter-face {
-  fill: color-mix(in oklab, var(--shack-meter-face) 55%, var(--shack-panel));
+  fill: color-mix(in oklab, var(--shack-meter-face) 72%, var(--shack-panel));
 }
 
 .knob {
@@ -1160,6 +1186,35 @@ a.lesson-tile[data-authored="true"] .lesson-tile-code {
   font-family: var(--font-outlier);
   color: var(--shack-readout);
   font-variant-numeric: tabular-nums;
+}
+.knob-row {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+.knob-step {
+  display: grid;
+  place-items: center;
+  min-width: 28px;
+  min-height: 28px;
+  padding: 0;
+  border: 1px solid var(--shack-part);
+  border-radius: 50%;
+  background: var(--shack-panel-2);
+  color: var(--shack-ink);
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+.knob-step:hover:not(:disabled) {
+  border-color: var(--shack-lamp);
+}
+.knob-step:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.knob-step:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .seg {
@@ -1328,6 +1383,14 @@ a.lesson-tile[data-authored="true"] .lesson-tile-code {
   color: var(--shack-ok);
   border-color: var(--shack-ok);
 }
+/* Shown for the moment a lab's code is loading; holds space so the page doesn't jump. */
+.lab-loading {
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+  color: var(--shack-ink-2);
+  font-size: var(--text-sm);
+}
 .lab-foot {
   display: flex;
   flex-wrap: wrap;
@@ -1337,6 +1400,10 @@ a.lesson-tile[data-authored="true"] .lesson-tile-code {
 }
 .lab-hint {
   color: var(--shack-ink-2);
+}
+/* Live regions stay mounted so screen readers announce changes; while empty they take no space. */
+[role="status"]:empty {
+  position: absolute;
 }
 .lab-success {
   color: var(--shack-ok);
@@ -1354,6 +1421,17 @@ a.lesson-tile[data-authored="true"] .lesson-tile-code {
 
 .board {
   position: relative;
+}
+.board-stack {
+  position: relative;
+}
+.board .flow-layer {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  max-height: none;
+  pointer-events: none;
+  will-change: transform;
 }
 .board svg {
   width: 100%;
@@ -1859,6 +1937,11 @@ a.lesson-tile[data-done="true"] {
   border-collapse: collapse;
   font-size: var(--text-sm);
 }
+/* Wide tables scroll inside their own box on phones instead of widening the page (WCAG 1.4.10). */
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
 .table th,
 .table td {
   text-align: left;
@@ -1949,6 +2032,21 @@ a.lesson-tile[data-done="true"] {
 }
 .plot-line-c {
   stroke: var(--shack-needle);
+}
+.plot-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-md);
+  margin: var(--space-2xs) 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--shack-ink-2);
+  font-size: var(--text-sm);
+}
+.plot-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
 }
 .plot-marker {
   stroke: var(--shack-ink-2);
@@ -2087,11 +2185,17 @@ a.lesson-tile[data-done="true"] {
 }
 .seg-choice {
   display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  max-width: 100%;
   border-radius: var(--radius-control);
   border: 1px solid var(--shack-rule);
+  /* The 1px gaps show this colour: dividers between options, also across wrapped rows. */
+  background: var(--shack-rule);
   overflow: hidden;
 }
 .seg-choice button {
+  flex: 1 1 auto;
   min-height: var(--control-h);
   padding: 0 var(--space-md);
   background: var(--shack-panel-2);
@@ -2279,6 +2383,15 @@ a.lesson-tile[data-done="true"] {
   align-items: center;
   gap: 6px;
   min-height: 56px;
+}
+.morse-sent {
+  margin: 0;
+  color: var(--color-ink-2);
+}
+.morse-sent code {
+  font-family: var(--font-outlier);
+  letter-spacing: 0.1em;
+  overflow-wrap: anywhere;
 }
 .morse-bar {
   display: inline-block;

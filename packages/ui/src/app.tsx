@@ -149,6 +149,7 @@ export function ThemeToggle() {
     return t === "light" || t === "dark" ? t : "system";
   });
   const next: Record<ThemePref, ThemePref> = { system: "light", light: "dark", dark: "system" };
+  const shown: Record<ThemePref, string> = { system: "Auto", light: "Light", dark: "Dark" };
   const choose = () => {
     const p = next[pref];
     setPref(p);
@@ -166,10 +167,11 @@ export function ThemeToggle() {
       type="button"
       className="toplink"
       onClick={choose}
-      aria-label={`Theme: ${pref}. Switch to ${next[pref]}`}
+      // Starts with the visible word so voice control ("click Auto") works (WCAG 2.5.3).
+      aria-label={`${shown[pref]} theme, switch to ${shown[next[pref]]}`}
       suppressHydrationWarning
     >
-      {pref === "system" ? "Auto" : pref === "light" ? "Light" : "Dark"}
+      {shown[pref]}
     </button>
   );
 }

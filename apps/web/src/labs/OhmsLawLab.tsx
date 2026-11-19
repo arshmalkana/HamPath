@@ -286,31 +286,37 @@ function SingleCircuitLab({ config, mode, onState }: LabBodyProps) {
       )}
 
       <div className="board shack-well">
-        <svg viewBox="0 0 640 300" role="group" aria-label={cfg.build ? "Breadboard" : "Circuit"}>
-          <title>{`Circuit: battery ${fmt(E, "V")}, resistor ${fmt(R, "Ω")}, switch ${closed ? "closed" : "open"}`}</title>
-          <g aria-hidden="true">
-            <path className="wire" data-live={live} d="M110,95 V50 H245" />
-            <path className="wire" data-live={live} d="M355,50 H470 V95" />
-            <path className="wire" data-live={live} d="M470,205 V250 H330" />
-            <path className="wire" data-live={live} d="M270,250 H110 V205" />
-            <path className={across === "ammeter" ? "wire" : "lead"} d="M470,80 H590 V95" />
-            <path className={across === "ammeter" ? "wire" : "lead"} d="M470,220 H590 V205" />
-            <circle className="part" cx="270" cy="250" r="5" />
-            <circle className="part" cx="330" cy="250" r="5" />
-            <line className="part-line" x1="270" y1="250" x2="330" y2={closed ? 250 : 222} strokeWidth={4} />
-            <text className="socket-text" x="300" y="285" textAnchor="middle">
-              {closed ? "switch closed" : "switch open"}
-            </text>
-            {live && (
+        <div className="board-stack">
+          <svg viewBox="0 0 640 300" role="group" aria-label={cfg.build ? "Breadboard" : "Circuit"}>
+            <title>{`Circuit: battery ${fmt(E, "V")}, resistor ${fmt(R, "Ω")}, switch ${closed ? "closed" : "open"}`}</title>
+            <g aria-hidden="true">
+              <path className="wire" data-live={live} d="M110,95 V50 H245" />
+              <path className="wire" data-live={live} d="M355,50 H470 V95" />
+              <path className="wire" data-live={live} d="M470,205 V250 H330" />
+              <path className="wire" data-live={live} d="M270,250 H110 V205" />
+              <path className={across === "ammeter" ? "wire" : "lead"} d="M470,80 H590 V95" />
+              <path className={across === "ammeter" ? "wire" : "lead"} d="M470,220 H590 V205" />
+              <circle className="part" cx="270" cy="250" r="5" />
+              <circle className="part" cx="330" cy="250" r="5" />
+              <line className="part-line" x1="270" y1="250" x2="330" y2={closed ? 250 : 222} strokeWidth={4} />
+              <text className="socket-text" x="300" y="285" textAnchor="middle">
+                {closed ? "switch closed" : "switch open"}
+              </text>
+            </g>
+            {(["source", "series", "load", "across"] as Socket[]).map(socketEl)}
+          </svg>
+          {/* Moving current on its own compositor layer: the animation repaints only this overlay, not
+            the whole breadboard, which keeps knob turns at 60 fps on slower phones. */}
+          {live && (
+            <svg className="flow-layer" viewBox="0 0 640 300" aria-hidden="true">
               <path
                 className="flow"
-                d="M110,95 V50 H470 V250 H110 Z"
+                d="M110,95 V50 H245 M355,50 H470 V95 M470,205 V250 H330 M270,250 H110 V205"
                 style={{ ["--flow-dur" as string]: `${flowDur}s` }}
               />
-            )}
-          </g>
-          {(["source", "series", "load", "across"] as Socket[]).map(socketEl)}
-        </svg>
+            </svg>
+          )}
+        </div>
         {dnd.ghost && (
           <div
             className="drag-ghost chip"
@@ -328,11 +334,9 @@ function SingleCircuitLab({ config, mode, onState }: LabBodyProps) {
         </p>
       )}
       {reading.fault === "gap" && <p className="lab-hint">{FAULT_TEXT.gap}</p>}
-      {message && (
-        <p className="lab-hint" role="status">
-          {message}
-        </p>
-      )}
+      <p className="lab-hint" role="status">
+        {message}
+      </p>
 
       <div className="meters2">
         <AnalogMeter

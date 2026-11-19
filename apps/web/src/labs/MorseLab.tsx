@@ -107,13 +107,17 @@ function KeyerBody({ config, mode, onState }: LabBodyProps) {
           .join(" ")}
         )
       </p>
-      <div
-        className="shack-well morse-tape"
-        aria-label={`Sent so far: ${sent || "nothing"}${decoded ? `, reads ${decoded}` : ""}`}
-        role="img"
-      >
+      <div className="shack-well morse-tape" aria-hidden="true">
         {bars.length ? bars : <span className="shack-label">Nothing sent yet</span>}
       </div>
+      <p className="morse-sent">
+        Sent: <code>{sent.trim() || "nothing yet"}</code>
+        {decoded && (
+          <>
+            , which reads <strong>{decoded}</strong>
+          </>
+        )}
+      </p>
       <div className="knobs">
         {cfg.controls.keyer && (
           <SegChoice

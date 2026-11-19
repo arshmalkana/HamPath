@@ -49,7 +49,8 @@ export interface QuizInProgress {
   title?: string;
   passPercent: number;
   honoursPercent?: number;
-  timeLimitS?: number;
-  remainingS?: number;
+  /** Null when the learner chose an untimed mock. */
+  timeLimitS?: number | null;
+  remainingS?: number | null;
   questions: QuizQuestion[];
 }

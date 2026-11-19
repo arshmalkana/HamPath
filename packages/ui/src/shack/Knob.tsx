@@ -18,7 +18,8 @@ const SWEEP = 270; // degrees from min to max
 
 /**
  * Front-panel rotary knob. A WAI-ARIA slider: arrows step, Page Up/Down step ×10, Home/End jump,
- * vertical drag turns it. The value is announced through aria-valuetext.
+ * vertical drag turns it, and the − / + buttons step it for pointers that can't drag (WCAG 2.5.7).
+ * The value is announced through aria-valuetext.
  */
 export function Knob({ label, value, min, max, step, onChange, format = String, disabled, size = 88 }: KnobProps) {
   const drag = useRef<{ y: number; v: number } | null>(null);
@@ -96,8 +97,26 @@ export function Knob({ label, value, min, max, step, onChange, format = String, 
       <span className="knob-label" aria-hidden="true">
         {label}
       </span>
-      <span className="knob-value" aria-hidden="true">
-        {format(value)}
+      <span className="knob-row" aria-hidden="true">
+        <button
+          type="button"
+          className="knob-step"
+          tabIndex={-1}
+          disabled={disabled || value <= min}
+          onClick={() => set(value - step)}
+        >
+          −
+        </button>
+        <span className="knob-value">{format(value)}</span>
+        <button
+          type="button"
+          className="knob-step"
+          tabIndex={-1}
+          disabled={disabled || value >= max}
+          onClick={() => set(value + step)}
+        >
+          +
+        </button>
       </span>
     </div>
   );

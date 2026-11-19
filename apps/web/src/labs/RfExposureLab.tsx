@@ -135,7 +135,7 @@ function DistanceBody({ config, mode, onState }: LabBodyProps) {
         <Plot
           label={`Power density against distance from ${cfg.source}. At ${fmt(distance, "m")} it is ${wm2(v.S as number)}; the limit is ${wm2(cfg.limit)}.`}
           series={[
-            { points: curve, tone: "b" },
+            { points: curve, tone: "b", label: "Power density" },
             {
               points: [
                 [min, cfg.limit],
@@ -143,7 +143,7 @@ function DistanceBody({ config, mode, onState }: LabBodyProps) {
               ],
               tone: "c",
               dashed: true,
-              label: "limit",
+              label: "Safety Code 6 limit",
             },
           ]}
           xDomain={[min, max]}

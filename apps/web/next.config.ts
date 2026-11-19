@@ -3,6 +3,8 @@ import type { NextConfig } from "next";
 const API_ORIGIN = process.env.API_ORIGIN ?? "http://127.0.0.1:4000";
 
 const config: NextConfig = {
+  // Lets a production build (e.g. for Lighthouse) sit beside a running `next dev`.
+  distDir: process.env.NEXT_DIST_DIR ?? ".next",
   transpilePackages: ["@hampath/ham-sim"],
   // The browser talks to /api/v1 on the same origin so the session cookie is first-party.
   // The service worker must never be served stale.

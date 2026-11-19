@@ -282,6 +282,20 @@ describe("mock exams (LAB-35)", () => {
     const answers = m.questions.map((q: any) => ({ question_id: q.id, option_id: right.get(q.id) }));
     expect((await call("POST", `/mocks/${m.id}/submit`, { answers })).json).toMatchObject({ score: 0, passed: false });
   });
+
+  it("an untimed mock has no countdown and accepts answers at any time", async () => {
+    const { call } = await guest();
+    const { right } = await answerKey();
+    const m = (await call("POST", "/mocks", { timed: false })).json;
+    expect(m.timeLimitS).toBeNull();
+    await pool.query("UPDATE mock_exam SET started_at = now() - interval '4 hours' WHERE id = $1", [m.id]);
+    expect((await call("GET", `/mocks/${m.id}`)).json).toMatchObject({ timeLimitS: null, remainingS: null });
+    const answers = m.questions.map((q: any) => ({ question_id: q.id, option_id: right.get(q.id) }));
+    expect((await call("POST", `/mocks/${m.id}/submit`, { answers })).json).toMatchObject({ score: 100, passed: true });
+    const list = (await call("GET", "/mocks")).json;
+    expect(list.mocks[0]).toMatchObject({ id: m.id, timed: false });
+    expect((await call("POST", "/mocks", { timed: "no" })).status).toBe(400);
+  });
 });
 
 describe("dashboard", () => {

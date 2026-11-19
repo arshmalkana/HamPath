@@ -40,34 +40,38 @@ export default async function MocksPage() {
         {mocks.length === 0 ? (
           <p className="field-help">None yet. Your readiness score appears after three.</p>
         ) : (
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">Started</th>
-                <th scope="col" className="num">
-                  Score
-                </th>
-                <th scope="col">Result</th>
-                <th scope="col">
-                  <span className="visually-hidden">Open</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {mocks.map((m) => (
-                <tr key={m.id}>
-                  <td>{new Date(m.startedAt).toLocaleString("en-CA", { dateStyle: "medium", timeStyle: "short" })}</td>
-                  <td className="num">{m.score === null ? "—" : `${m.score}%`}</td>
-                  <td>{!m.finishedAt ? "In progress" : m.honours ? "Honours" : m.passed ? "Pass" : "Below pass"}</td>
-                  <td>
-                    <Link className="btn-link" href={`/mocks/${m.id}`}>
-                      {m.finishedAt ? "Results" : "Continue"}
-                    </Link>
-                  </td>
+          <div className="table-scroll" tabIndex={0} role="region" aria-labelledby="past">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col">Started</th>
+                  <th scope="col" className="num">
+                    Score
+                  </th>
+                  <th scope="col">Result</th>
+                  <th scope="col">
+                    <span className="visually-hidden">Open</span>
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {mocks.map((m) => (
+                  <tr key={m.id}>
+                    <td>
+                      {new Date(m.startedAt).toLocaleString("en-CA", { dateStyle: "medium", timeStyle: "short" })}
+                    </td>
+                    <td className="num">{m.score === null ? "—" : `${m.score}%`}</td>
+                    <td>{!m.finishedAt ? "In progress" : m.honours ? "Honours" : m.passed ? "Pass" : "Below pass"}</td>
+                    <td>
+                      <Link className="btn-link" href={`/mocks/${m.id}`}>
+                        {m.finishedAt ? "Results" : "Continue"}
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </section>
       {bp && (

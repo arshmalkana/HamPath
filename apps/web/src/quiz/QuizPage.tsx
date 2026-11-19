@@ -46,7 +46,7 @@ export function QuizPage({ kind, id }: { kind: "checkpoint" | "mock"; id: string
       storageKey={`hp-${kind}-${id}`}
       title={kind === "mock" ? "Mock exam" : `Checkpoint${data.title ? `: ${data.title}` : ""}`}
       questions={data.questions}
-      remainingS={kind === "mock" ? data.remainingS : undefined}
+      remainingS={kind === "mock" ? (data.remainingS ?? undefined) : undefined}
       submitLabel={kind === "mock" ? "Submit the exam" : "Submit the checkpoint"}
       onSubmit={async (answers) => {
         setData(await api<QuizResults>("POST", `${base}/${id}/submit`, { answers }));

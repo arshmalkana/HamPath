@@ -1,0 +1,1 @@
+ALTER TABLE "mock_exam" ALTER COLUMN "time_limit_s" DROP NOT NULL;

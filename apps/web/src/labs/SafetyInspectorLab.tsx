@@ -45,12 +45,9 @@ export function SafetyInspectorLab({ config, mode, onState }: LabBodyProps) {
                   </button>
                 ))}
               </div>
-              {right !== null && (
-                <p className="inspect-why" role="status">
-                  {right ? "Right. " : "Look again. "}
-                  {right ? it.why : ""}
-                </p>
-              )}
+              <p className="inspect-why" role="status">
+                {right !== null && (right ? `Right. ${it.why}` : "Look again.")}
+              </p>
             </li>
           );
         })}

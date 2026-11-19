@@ -28,6 +28,8 @@ const AttemptBody = z.strictObject({
   ms_taken: z.number().int().min(0).max(3_600_000).optional(),
 });
 
+const StartMockBody = z.strictObject({ timed: z.boolean().default(true) }).default({ timed: true });
+
 const SubmitBody = z.strictObject({
   answers: z.array(z.strictObject({ question_id: z.string(), option_id: z.uuid() })).max(400),
 });
@@ -354,7 +356,8 @@ export function practiceRoutes(app: FastifyInstance, pool: Pool) {
   app.get("/mocks", async (req) => {
     const user = await requireUser(pool, req);
     const { rows } = await pool.query(
-      `SELECT id, score, passed, honours, correct, total, started_at AS "startedAt", finished_at AS "finishedAt"
+      `SELECT id, score, passed, honours, correct, total, started_at AS "startedAt", finished_at AS "finishedAt",
+              time_limit_s IS NOT NULL AS timed
          FROM mock_exam WHERE user_id = $1 ORDER BY started_at DESC LIMIT 20`,
       [user.id],
     );
@@ -374,17 +377,19 @@ export function practiceRoutes(app: FastifyInstance, pool: Pool) {
   /** Generate a mock exam from the blueprint (content/exam-blueprint.yaml). */
   app.post("/mocks", async (req) => {
     const user = await requireUser(pool, req);
+    const { timed } = StartMockBody.parse(req.body ?? undefined);
     const bp = blueprint();
+    const limit = timed ? bp.time_limit_minutes * 60 : null;
     const ids = drawMockExam(bp, await questionsByTopic());
     const { rows } = await pool.query<{ id: string; started_at: Date }>(
       `INSERT INTO mock_exam (user_id, question_ids, time_limit_s, blueprint_version) VALUES ($1,$2,$3,$4) RETURNING id, started_at`,
-      [user.id, ids, bp.time_limit_minutes * 60, bp.version],
+      [user.id, ids, limit, bp.version],
     );
     return {
       id: rows[0]!.id,
       finished: false,
       startedAt: rows[0]!.started_at,
-      timeLimitS: bp.time_limit_minutes * 60,
+      timeLimitS: limit,
       passPercent: bp.pass_percent,
       honoursPercent: bp.honours_percent,
       questions: await publicQuestions(pool, ids),
@@ -398,7 +403,7 @@ export function practiceRoutes(app: FastifyInstance, pool: Pool) {
       question_ids: string[];
       started_at: Date;
       finished_at: Date | null;
-      time_limit_s: number;
+      time_limit_s: number | null;
       score: number | null;
       correct: number | null;
       total: number | null;
@@ -456,7 +461,10 @@ export function practiceRoutes(app: FastifyInstance, pool: Pool) {
       finished: false,
       startedAt: m.started_at,
       timeLimitS: m.time_limit_s,
-      remainingS: Math.max(0, Math.round(m.time_limit_s - (Date.now() - m.started_at.getTime()) / 1000)),
+      remainingS:
+        m.time_limit_s === null
+          ? null
+          : Math.max(0, Math.round(m.time_limit_s - (Date.now() - m.started_at.getTime()) / 1000)),
       passPercent: bp.pass_percent,
       honoursPercent: bp.honours_percent,
       questions: await publicQuestions(pool, m.question_ids),
@@ -469,7 +477,7 @@ export function practiceRoutes(app: FastifyInstance, pool: Pool) {
     const m = await loadMock(user.id, req.params.id);
     if (m.finished_at) throw new HttpError(409, "This mock exam was already submitted");
     const elapsedS = (Date.now() - m.started_at.getTime()) / 1000;
-    if (elapsedS > m.time_limit_s + MOCK_GRACE_SECONDS) {
+    if (m.time_limit_s !== null && elapsedS > m.time_limit_s + MOCK_GRACE_SECONDS) {
       // Out of time: like the real exam, answers after the limit don't count.
       body.answers = [];
     }

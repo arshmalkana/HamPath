@@ -104,18 +104,16 @@ export function DrillBody({ config, mode, onState }: LabBodyProps) {
           </button>
         ))}
       </div>
-      {given !== undefined && (
-        <div className="lab-foot">
-          <p className={given === item.answer ? "lab-success" : "lab-hint"} role="status">
-            {given === item.answer ? "Right." : `Not quite: ${item.prompt} is “${item.answer}”.`}
-          </p>
-          {!v.done && (
-            <button type="button" className="btn btn-primary" onClick={next} disabled={demo}>
-              Next question
-            </button>
-          )}
-        </div>
-      )}
+      <div className="lab-foot">
+        <p className={given === item.answer ? "lab-success" : "lab-hint"} role="status">
+          {given !== undefined && (given === item.answer ? "Right." : `Not quite: ${item.prompt} is “${item.answer}”.`)}
+        </p>
+        {given !== undefined && !v.done && (
+          <button type="button" className="btn btn-primary" onClick={next} disabled={demo}>
+            Next question
+          </button>
+        )}
+      </div>
       <Readouts items={[["Right", `${v.correct} of ${cfg.target} needed`]]} />
     </div>
   );

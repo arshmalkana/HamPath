@@ -10,6 +10,8 @@ body {
 html {
   scrollbar-color: var(--color-muted) var(--color-paper);
   scroll-padding-top: var(--space-3xl);
+  /* Keeps focused controls clear of the sticky lesson footer (WCAG 2.4.11). */
+  scroll-padding-bottom: var(--space-3xl);
   color-scheme: light dark;
 }
 body {

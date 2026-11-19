@@ -57,11 +57,9 @@ function ScenarioBody({ config, mode, onState, logLabel }: LabBodyProps & { logL
               </button>
             ))}
           </div>
-          {chosen && !chosen.correct && (
-            <p className="lab-hint" role="status">
-              {chosen.feedback}
-            </p>
-          )}
+          <p className="lab-hint" role="status">
+            {chosen && !chosen.correct && chosen.feedback}
+          </p>
         </div>
       ) : (
         <p className="lab-success" role="status">

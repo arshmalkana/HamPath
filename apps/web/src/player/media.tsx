@@ -24,11 +24,9 @@ export function RelayHook({ guess, onGuess }: { guess: string | null; onGuess: (
           ))}
         </div>
       </fieldset>
-      {guess && (
-        <p className="lab-hint" role="status">
-          Locked in: {guess}. You’ll find out on the relay card.
-        </p>
-      )}
+      <p className="lab-hint" role="status">
+        {guess && `Locked in: ${guess}. You’ll find out on the relay card.`}
+      </p>
     </div>
   );
 }

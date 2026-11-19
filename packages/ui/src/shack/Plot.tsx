@@ -68,7 +68,9 @@ export function Plot({
   // Keep end labels inside the screen instead of clipping them at the edges.
   const anchorAt = (x: number) => (x < PAD.l + 24 ? "start" : x > W - PAD.r - 24 ? "end" : "middle");
 
-  return (
+  const legend = series.filter((s) => s.label);
+
+  const plot = (
     <svg className="plot" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={label}>
       <rect className="plot-screen" x={PAD.l} y={PAD.t} width={W - PAD.l - PAD.r} height={H - PAD.t - PAD.b} rx="4" />
       {xTicks.map((t) => (
@@ -127,6 +129,27 @@ export function Plot({
         </text>
       )}
     </svg>
+  );
+  if (!legend.length) return plot;
+  // Traces are told apart by a written label and a dash pattern, never by colour alone.
+  return (
+    <>
+      {plot}
+      <ul className="plot-legend">
+        {legend.map((s) => (
+          <li key={s.label}>
+            <svg viewBox="0 0 28 8" width="28" height="8" aria-hidden="true">
+              <path
+                d="M1,4 H27"
+                className={`plot-line plot-line-${s.tone ?? "a"}`}
+                strokeDasharray={s.dashed ? "6 5" : undefined}
+              />
+            </svg>
+            {s.label}
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
 

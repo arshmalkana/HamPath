@@ -39,6 +39,8 @@ export function Lab({ id, config, mode, onEvent, onGoalMet, onHintsExhausted }: 
   const entry = findLab(id);
   const [met, setMet] = useState(!config.goal);
   const [hintsShown, setHintsShown] = useState(0);
+  // True once the lab body has hydrated and reported its first state (its code may load lazily).
+  const [ready, setReady] = useState(false);
   const latest = useRef<{ vars: Vars; state: Record<string, unknown> } | null>(null);
   const metRef = useRef(!config.goal);
   const changeTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -54,6 +56,7 @@ export function Lab({ id, config, mode, onEvent, onGoalMet, onHintsExhausted }: 
   const onState = useCallback(
     (vars: Vars, state: Record<string, unknown>) => {
       latest.current = { vars, state };
+      setReady(true);
       clearTimeout(changeTimer.current);
       changeTimer.current = setTimeout(() => onEvent?.("value_changed", { state }), 1500);
       if (mode === "demo" || metRef.current || !config.goal) return;
@@ -82,7 +85,7 @@ export function Lab({ id, config, mode, onEvent, onGoalMet, onHintsExhausted }: 
 
   const Body = entry?.component;
   return (
-    <section className="shack shack-panel lab" aria-label={`${entry?.name ?? id} (${id})`}>
+    <section className="shack shack-panel lab" aria-label={`${entry?.name ?? id} (${id})`} data-ready={ready}>
       {(config.prompt || config.goalText) && (
         <div className="lab-task">
           {config.prompt && <p className="lab-prompt">{config.prompt}</p>}

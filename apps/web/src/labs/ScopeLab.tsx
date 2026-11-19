@@ -51,8 +51,17 @@ export function ScopeLab({ config, mode, onState }: LabBodyProps) {
         <Plot
           label={`Oscilloscope: ${fmt(f, "Hz")} sine wave, period ${fmt(T, "s")}.${harmonic ? ` Second harmonic at ${fmt(2 * f, "Hz")} shown.` : phase ? ` Second trace ${phase}° behind.` : ""}`}
           series={[
-            { points: wave, tone: "b" },
-            ...(second ? [{ points: second, tone: "a" as const, dashed: true }] : []),
+            { points: wave, tone: "b", label: second ? (harmonic ? "Fundamental" : "First trace") : undefined },
+            ...(second
+              ? [
+                  {
+                    points: second,
+                    tone: "a" as const,
+                    dashed: true,
+                    label: harmonic ? "Second harmonic" : `Second trace, ${phase}° behind`,
+                  },
+                ]
+              : []),
           ]}
           xDomain={[0, 2 * T]}
           yDomain={[-1.2, 1.2]}

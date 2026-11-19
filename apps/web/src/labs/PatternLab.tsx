@@ -83,6 +83,8 @@ export function PatternLab({ config, mode, onState }: LabBodyProps) {
         const w = el.clientWidth || 320;
         const h = Math.round(Math.min(360, w * 0.75));
         renderer.setSize(w, h);
+        // The host div is the named image; the bare canvas inside it is decoration.
+        renderer.domElement.setAttribute("aria-hidden", "true");
         el.appendChild(renderer.domElement);
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(40, w / h, 0.1, 50);
@@ -186,20 +188,24 @@ export function PatternLab({ config, mode, onState }: LabBodyProps) {
     t.render();
   }, [s, webgl]);
 
-  const onKey = (e: KeyboardEvent) => {
+  /** Turn the 3D view one step; returns false for keys it doesn't handle. */
+  const turn = (key: string): boolean => {
     const t = three.current;
-    if (!t) return;
+    if (!t) return false;
     const step = Math.PI / 12;
     const sph = new t.THREE.Spherical().setFromVector3(t.camera.position.clone().sub(t.controls.target));
-    if (e.key === "ArrowLeft") sph.theta -= step;
-    else if (e.key === "ArrowRight") sph.theta += step;
-    else if (e.key === "ArrowUp") sph.phi = Math.max(0.15, sph.phi - step);
-    else if (e.key === "ArrowDown") sph.phi = Math.min(Math.PI - 0.15, sph.phi + step);
-    else return;
-    e.preventDefault();
+    if (key === "ArrowLeft") sph.theta -= step;
+    else if (key === "ArrowRight") sph.theta += step;
+    else if (key === "ArrowUp") sph.phi = Math.max(0.15, sph.phi - step);
+    else if (key === "ArrowDown") sph.phi = Math.min(Math.PI - 0.15, sph.phi + step);
+    else return false;
     t.camera.position.setFromSpherical(sph).add(t.controls.target);
     t.controls.update();
     t.render();
+    return true;
+  };
+  const onKey = (e: KeyboardEvent) => {
+    if (turn(e.key)) e.preventDefault();
   };
 
   const shape =
@@ -221,10 +227,26 @@ export function PatternLab({ config, mode, onState }: LabBodyProps) {
             aria-label={`3D radiation pattern of a ${NAMES[s.antenna].toLowerCase()}${s.antenna === "isotropic" ? "" : `, ${s.orientation}`}: ${shape}. Drag or use the arrow keys to turn it.`}
             onKeyDown={onKey}
           />
+          {webgl === "ok" && (
+            <div className="chip-row pattern-turn" role="group" aria-label="Turn the 3D view">
+              {(
+                [
+                  ["ArrowLeft", "Turn left"],
+                  ["ArrowRight", "Turn right"],
+                  ["ArrowUp", "Tilt up"],
+                  ["ArrowDown", "Tilt down"],
+                ] as const
+              ).map(([k, name]) => (
+                <button key={k} type="button" className="chip" onClick={() => turn(k)}>
+                  {name}
+                </button>
+              ))}
+            </div>
+          )}
           <p className="shack-label">
             {webgl === "none"
               ? "3D view unavailable on this device: the cuts show the same pattern."
-              : "Drag, or focus and use the arrow keys, to turn it."}
+              : "Drag, use the buttons, or focus and use the arrow keys, to turn it."}
           </p>
         </div>
         <div className="shack-well pattern-cuts">
