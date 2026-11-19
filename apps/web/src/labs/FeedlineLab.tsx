@@ -80,12 +80,15 @@ export function FeedlineLab({ config, mode, onState }: LabBodyProps) {
     );
   } else if (cfg.mode === "open-geometry") {
     const S = s.S ?? 50;
-    const half = Math.min(100, S * 0.7);
-    const rr = Math.max(2, (s.d ?? 2) * 2);
+    // A schematic scale: 5 mm to 150 mm spans most of the drawing, so every setting is visible
+    // (the label gives the real spacing).
+    const half = 14 + ((Math.min(150, Math.max(5, S)) - 5) / 145) * 86;
+    const rr = Math.max(3, (s.d ?? 2) * 2.5);
     picture = (
       <svg
         viewBox="0 0 240 120"
-        width="240"
+        width="100%"
+        style={{ maxWidth: 420 }}
         role="img"
         aria-label={`Two-wire line: wires ${s.d} mm thick, ${S} mm apart.`}
       >

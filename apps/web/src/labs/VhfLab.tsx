@@ -55,6 +55,13 @@ export function VhfLab({ config, mode, onState }: LabBodyProps) {
                 ? "Meteor scatter works best on 6 m."
                 : "Line of sight, stretched a little by normal tropospheric bending: the radio horizon. Even on the best days, normal tropospheric propagation tops out around 800 km; going beyond that takes ducting.";
 
+  // Distances along the ground on a log scale (0 to 2000 km), so a 20 km horizon and a 1500 km duct both fit.
+  const gx = (km: number) => 40 + 440 * Math.min(1, Math.log10(1 + km) / Math.log10(2001));
+  const gy = (x: number) => 150 - 30 * (x / 520) * (1 - x / 520);
+  const tipY = 150 - Math.min(80, s.height * 1.5);
+  const hx = gx(v.horizon as number);
+  const rx = gx(v.reach as number);
+
   return (
     <div className="lab">
       <div className="shack-well">
@@ -75,6 +82,20 @@ export function VhfLab({ config, mode, onState }: LabBodyProps) {
           <text className="part-value" x="40" y="166" textAnchor="middle">
             you
           </text>
+          {/* Line of sight to the radio horizon, and how far the signal reaches now. */}
+          <path className="iono-ray" d={`M40,${tipY} L${hx},${gy(hx)}`} strokeDasharray="6 5" />
+          <circle className="feed-point" cx={hx} cy={gy(hx)} r="3" />
+          <text className="socket-text" x={hx} y={gy(hx) + 18} textAnchor="middle">
+            horizon {km(v.horizon as number)}
+          </text>
+          {rx - hx > 60 && (
+            <>
+              <path className="part-line" d={`M${rx},${gy(rx) - 18} V${gy(rx)}`} />
+              <text className="socket-text" x={Math.min(rx, 470)} y={gy(rx) - 24} textAnchor="middle">
+                reach {km(v.reach as number)}
+              </text>
+            </>
+          )}
         </svg>
       </div>
       <div className="knobs">

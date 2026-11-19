@@ -88,7 +88,7 @@ function YagiBody({ cfg, demo, onState }: Body<YagiConfig>) {
               className="part-line yagi-boom"
               d={`M${xs.reflector - 20},100 H${Math.min(395, (extra.at(-1) ?? xs.director) + 20)}`}
             />
-            {POS.map((p) => {
+            {POS.map((p, i) => {
               const half = 70 * s[p.key];
               const x = Math.min(390, xs[p.key]);
               return (
@@ -97,7 +97,13 @@ function YagiBody({ cfg, demo, onState }: Body<YagiConfig>) {
                     className={`part-line yagi-element${s.feed === p.key ? " yagi-fed" : ""}`}
                     d={`M${x},${100 - half} V${100 + half}`}
                   />
-                  <text className="part-value" x={x} y="194" textAnchor="middle">
+                  {/* Close spacing: the middle label moves above its element so the three don't run together. */}
+                  <text
+                    className="part-value part-value-sm"
+                    x={x}
+                    y={gap < 70 && i === 1 ? 18 : 194}
+                    textAnchor="middle"
+                  >
                     {p.place}
                   </text>
                   {s.feed === p.key && <path className="part-line yagi-feed" d={`M${x},100 l-24,36`} />}
@@ -226,7 +232,7 @@ function DipoleBody({ cfg, demo, onState }: Body<DipoleConfig>) {
             <circle className="insulator" cx={ns ? 80 : 25} cy={ns ? 25 : 80} r="4" />
             <circle className="insulator" cx={ns ? 80 : 135} cy={ns ? 135 : 80} r="4" />
             {["N", "E", "S", "W"].map((d, i) => (
-              <text key={d} className="part-value" x={[80, 152, 80, 8][i]} y={[12, 84, 156, 84][i]} textAnchor="middle">
+              <text key={d} className="part-value" x={[80, 152, 80, 8][i]} y={[16, 84, 156, 84][i]} textAnchor="middle">
                 {d}
               </text>
             ))}

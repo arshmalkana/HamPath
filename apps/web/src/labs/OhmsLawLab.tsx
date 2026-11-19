@@ -242,7 +242,14 @@ function SingleCircuitLab({ config, mode, onState }: LabBodyProps) {
         <rect className="socket-hole" data-over={t["data-over"]} x={b.x} y={b.y} width={b.w} height={b.h} rx={10} />
         {icon ?? (
           <text className="socket-text" x={cx} y={cy + 4} textAnchor="middle">
-            {SOCKET_NAMES[s]}
+            {/* "Across the load" is wider than its socket: one word per line, centred. */}
+            {SOCKET_NAMES[s].length > 12
+              ? [SOCKET_NAMES[s].split(" ")[0], SOCKET_NAMES[s].split(" ").slice(1).join(" ")].map((w, i) => (
+                  <tspan key={i} x={cx} dy={i ? 20 : -6}>
+                    {w}
+                  </tspan>
+                ))
+              : SOCKET_NAMES[s]}
           </text>
         )}
       </g>

@@ -39,35 +39,37 @@ export function RepeaterLab({ config, mode, onState }: LabBodyProps) {
   return (
     <div className="lab">
       <div className="shack-well">
-        <svg viewBox="0 0 520 130" role="img" aria-label={status}>
-          <rect className="part" x="10" y="55" width="90" height="44" rx="6" />
-          <text className="part-value" x="55" y="82" textAnchor="middle">
+        <svg viewBox="0 0 640 140" role="img" aria-label={status}>
+          <rect className="part" x="10" y="60" width="100" height="44" rx="6" />
+          <text className="part-value" x="60" y="87" textAnchor="middle">
             you
           </text>
-          <rect className="part" x="215" y="20" width="90" height="70" rx="6" />
-          <text className="part-value" x="260" y="50" textAnchor="middle">
+          <rect className="part" x="255" y="34" width="130" height="70" rx="6" />
+          <text className="part-value" x="320" y="63" textAnchor="middle">
             repeater
           </text>
-          <text className="part-value" x="260" y="70" textAnchor="middle">
+          <text className="socket-text" x="320" y="87" textAnchor="middle">
             {v.accessed ? "on air" : "idle"}
           </text>
-          <rect className="part" x="420" y="55" width="90" height="44" rx="6" />
-          <text className="part-value" x="465" y="82" textAnchor="middle">
+          <rect className="part" x="480" y="60" width="150" height="44" rx="6" />
+          <text className="part-value" x="555" y="87" textAnchor="middle">
             other station
           </text>
-          <path className={v.onInput && !s.reverse ? "iono-ray" : "iono-ray iono-ray-dead"} d="M100,70 L215,50" />
-          <text className="part-value" x="150" y="45" textAnchor="middle">
+          <path className={v.onInput && !s.reverse ? "iono-ray" : "iono-ray iono-ray-dead"} d="M110,82 L255,62" />
+          <text className="socket-text" x="180" y="26" textAnchor="middle">
             in {mhz(v.inputFreq as number)}
           </text>
           <path
             className={v.accessed ? "iono-ray" : "iono-ray iono-ray-dead"}
-            d="M305,50 L420,70"
+            d="M385,62 L480,82"
             strokeDasharray={v.accessed ? undefined : "4 4"}
           />
-          <text className="part-value" x="370" y="45" textAnchor="middle">
+          <text className="socket-text" x="440" y="26" textAnchor="middle">
             out {mhz(cfg.output)}
           </text>
-          {s.reverse && cfg.hearsDirect && <path className="iono-ray" d="M100,90 L420,90" strokeDasharray="6 5" />}
+          {s.reverse && cfg.hearsDirect && (
+            <path className="iono-ray" d="M60,104 V128 H555 V104" fill="none" strokeDasharray="6 5" />
+          )}
         </svg>
       </div>
       <div className="knobs">

@@ -78,8 +78,8 @@ function Symbol({ device }: { device: Device }) {
         <g>
           <path className="part-line" d="M20,70 H85 M85,45 L125,70 L85,95 Z M125,45 V95 M125,70 H200" />
           {device === "zener" && <path className="part-line" d="M125,45 L115,38 M125,95 L135,102" />}
-          {t(50, 60, "anode")}
-          {t(165, 60, "cathode")}
+          {t(48, 58, "anode")}
+          {t(172, 58, "cathode")}
         </g>
       )}
       {device === "bjt" && (
@@ -89,7 +89,7 @@ function Symbol({ device }: { device: Device }) {
             className="part-line"
             d="M30,70 H105 M105,45 V95 M105,58 L140,32 V10 M105,82 L140,108 V130 M130,100 L140,108 L128,110"
           />
-          {t(55, 62, "base")}
+          {t(55, 58, "base")}
           {t(150, 18, "collector", "start")}
           {t(150, 132, "emitter", "start")}
         </g>
@@ -108,7 +108,7 @@ function Symbol({ device }: { device: Device }) {
           <path className="part-line" d="M85,35 H135 M110,35 V8 M80,70 H140 M80,70 H40" strokeDasharray="0" />
           <path className="part-line" d="M85,105 Q110,95 135,105 M110,100 V132" />
           {t(150, 22, "plate", "start")}
-          {t(30, 62, "grid", "start")}
+          {t(4, 60, "grid", "start")}
           {t(150, 128, "cathode", "start")}
         </g>
       )}

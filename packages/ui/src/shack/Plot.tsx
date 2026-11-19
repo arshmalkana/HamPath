@@ -30,7 +30,7 @@ export interface PlotProps {
 }
 
 const W = 520;
-const PAD = { l: 52, r: 14, t: 12, b: 36 };
+const BASE_PAD = { l: 52, r: 14, t: 12, b: 36 };
 
 /** Instrument-style line plot (oscilloscope / analyser screen) for the shack labs. */
 export function Plot({
@@ -50,6 +50,9 @@ export function Plot({
   height = 220,
 }: PlotProps) {
   const H = height;
+  // The left margin grows with the longest y label ("10 W/m²", "100 mΩ") so it isn't clipped.
+  const longestY = Math.max(0, ...yTicks.map((t) => formatY(t).length));
+  const PAD = { ...BASE_PAD, l: Math.max(BASE_PAD.l, longestY * 6.9 + 14) };
   const tx = (v: number) => (xLog ? Math.log10(v) : v);
   const ty = (v: number) => (yLog ? Math.log10(Math.max(v, 1e-30)) : v);
   const [x0, x1] = [tx(xDomain[0]), tx(xDomain[1])];
@@ -97,16 +100,11 @@ export function Plot({
           strokeDasharray={s.dashed ? "6 5" : undefined}
         />
       ))}
-      {markers.map((m) => (
+      {placeMarkerLabels(markers, sx, W - PAD.r).map(({ m, x, row, anchor }) => (
         <g key={`m${m.x}${m.label}`}>
           <line className="plot-marker" x1={sx(m.x)} x2={sx(m.x)} y1={PAD.t} y2={H - PAD.b} />
           {m.label && (
-            <text
-              className="plot-marker-label"
-              x={sx(m.x) > W - PAD.r - 60 ? sx(m.x) - 4 : sx(m.x) + 4}
-              y={PAD.t + 12}
-              textAnchor={sx(m.x) > W - PAD.r - 60 ? "end" : "start"}
-            >
+            <text className="plot-marker-label" x={x} y={PAD.t + 12 + row * 13} textAnchor={anchor}>
               {m.label}
             </text>
           )}
@@ -151,6 +149,29 @@ export function Plot({
       </ul>
     </>
   );
+}
+
+/** Approximate width (viewBox units) of a marker label in the 11px monospace face. */
+const labelWidth = (label: string) => label.length * 6.8 + 6;
+
+/**
+ * Marker labels that don't collide: each goes right of its line (left, near the right edge) in the
+ * first row where it clears every label already placed there.
+ */
+function placeMarkerLabels(markers: PlotMarker[], sx: (x: number) => number, right: number) {
+  const rows: { from: number; to: number }[][] = [];
+  return [...markers]
+    .sort((p, q) => sx(p.x) - sx(q.x))
+    .map((m) => {
+      const lx = sx(m.x);
+      const w = m.label ? labelWidth(m.label) : 0;
+      const flip = lx + 4 + w > right;
+      const span = flip ? { from: lx - 4 - w, to: lx - 4 } : { from: lx + 4, to: lx + 4 + w };
+      let row = rows.findIndex((r) => r.every((o) => span.to < o.from || span.from > o.to));
+      if (row === -1) row = rows.push([]) - 1;
+      rows[row]!.push(span);
+      return { m, row, x: flip ? lx - 4 : lx + 4, anchor: (flip ? "end" : "start") as "end" | "start" };
+    });
 }
 
 /** Evenly spaced samples of f over [a, b] (log-spaced when log is true). */

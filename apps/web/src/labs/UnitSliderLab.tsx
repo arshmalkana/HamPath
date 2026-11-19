@@ -92,10 +92,10 @@ export function UnitSliderLab({ config, mode, onState }: LabBodyProps) {
         items={[
           ["Same amount in base units", `${plain(base)} ${cfg.unit}`],
           ["Prefix", prefix.name ? `${prefix.name} = 10^${exp}` : "none (10^0)"],
-          ["One step", "×1000 or ÷1000: move the decimal point 3 places"],
           ["In words", `${plain(mantissa)} ${prefix.name}${UNIT_WORD[cfg.unit] ?? cfg.unit}`],
         ]}
       />
+      <p className="lab-state">Each step is ×1000 or ÷1000: the decimal point moves 3 places.</p>
     </div>
   );
 }

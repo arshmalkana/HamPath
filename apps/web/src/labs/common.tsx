@@ -5,6 +5,9 @@ import { Knob } from "@hampath/ui";
 
 export const fmt = (v: number, u: Unit | "", sig = 3) => formatQuantity(v, u as Unit, sig);
 
+/** A value with a real word in it ("uncontrolled", "about 20 dB weaker") rather than a number and unit. */
+const isWords = (v: ReactNode) => typeof v === "string" && (/[A-Za-z]{5,}/.test(v) || v.length > 14);
+
 /** Labelled instrument readouts; also the screen-reader text equivalent of every meter. */
 export function Readouts({ items, label = "Readouts" }: { items: [string, ReactNode][]; label?: string }) {
   return (
@@ -12,7 +15,10 @@ export function Readouts({ items, label = "Readouts" }: { items: [string, ReactN
       {items.map(([k, v]) => (
         <div key={k} className="readout-cell">
           <dt>{k}</dt>
-          <dd className="readout">{v}</dd>
+          {/* Words get a smaller face that wraps; digits keep the big seven-segment look. */}
+          <dd className="readout" data-kind={isWords(v) ? "text" : undefined}>
+            {v}
+          </dd>
         </div>
       ))}
     </dl>

@@ -95,15 +95,20 @@ export function PowerBenchLab({ config, mode, onState }: LabBodyProps) {
             ))
           ) : (
             <g>
-              <rect className="part" x="20" y="50" width="120" height="70" rx="6" />
-              <text className="part-value" x="80" y="90" textAnchor="middle">
-                {SUPPLY_LABEL[s.supply]}
+              <rect className="part" x="12" y="48" width="132" height="74" rx="6" />
+              {/* Two lines ("Switching" / "supply") so the longest name fits its box. */}
+              <text className="part-value part-value-sm" x="78" y="80" textAnchor="middle">
+                {SUPPLY_LABEL[s.supply].split(" ").map((w, i) => (
+                  <tspan key={i} x="78" dy={i ? 20 : 0}>
+                    {w}
+                  </tspan>
+                ))}
               </text>
             </g>
           )}
           <path
             className="wire"
-            d={`M${usingBattery ? (s.wiring === "series" ? 10 + n * 62 : 72) : 140},85 H440`}
+            d={`M${usingBattery ? (s.wiring === "series" ? 10 + n * 62 : 72) : 144},85 H440`}
             strokeWidth={s.gauge === 8 ? 7 : s.gauge === 10 ? 5.5 : s.gauge === 12 ? 4 : 2.5}
           />
           {s.fuse !== "none" && (
@@ -117,7 +122,7 @@ export function PowerBenchLab({ config, mode, onState }: LabBodyProps) {
           <text className="part-value" x="320" y="112" textAnchor="middle">
             #{s.gauge} wire, {s.length} m
           </text>
-          <rect className="part" x="445" y="55" width="65" height="60" rx="6" />
+          <rect className="part" x="440" y="55" width="74" height="60" rx="6" />
           <text className="part-value" x="477" y="90" textAnchor="middle">
             radio
           </text>

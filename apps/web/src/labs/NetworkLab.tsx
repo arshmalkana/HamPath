@@ -87,7 +87,7 @@ export function NetworkLab({ config, mode, onState }: LabBodyProps) {
           <line className="part-line" x1="66" y1="100" x2="114" y2="100" strokeWidth={3} />
           <line className="part-line" x1="78" y1="116" x2="102" y2="116" strokeWidth={6} />
           <path className="part-line" d="M90,116 V150" />
-          <text className="part-value" x="40" y="112" textAnchor="end">
+          <text className="part-value" x="124" y="112" textAnchor="start">
             {fmt(E, "V")}
           </text>
           {/* switch */}
