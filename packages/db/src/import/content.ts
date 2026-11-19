@@ -40,8 +40,8 @@ export async function loadContent(pool: Pool, tree: ContentTree = readContentTre
     for (const l of tree.lessons) {
       const y = l.yaml;
       await c.query(
-        `UPDATE lesson SET title=$2, title_fr=$3, est_minutes=$4, lab_id=$5, authored=true,
-                needs_card_review=false WHERE id=$1`,
+        // needs_card_review is left alone: a bank import sets it and only an admin's review clears it.
+        `UPDATE lesson SET title=$2, title_fr=$3, est_minutes=$4, lab_id=$5, authored=true WHERE id=$1`,
         [l.id, y.title, y.title_fr ?? null, y.est_minutes, primaryLabFor(y.code, tree.labs, y.lab_id ?? l.lab?.lab)],
       );
 

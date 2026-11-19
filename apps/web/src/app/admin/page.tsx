@@ -76,7 +76,9 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
   return (
     <main className="container page" id="main">
       <div className="page-head">
-        <p className="screen-kicker">Admin</p>
+        <p className="screen-kicker">
+          Admin: <Link href="/admin/bank">question bank updates</Link>
+        </p>
         <h1 className="page-title">Course analytics</h1>
         <nav className="chip-row" aria-label="Time window">
           <Link className="chip" href="/admin" aria-current={window ? undefined : "page"}>

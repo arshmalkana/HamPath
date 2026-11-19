@@ -2070,6 +2070,41 @@ button.live-option:disabled {
   margin-inline-end: var(--space-xs);
 }
 
+/* Bank update diff (Step 33). */
+.bank-diff {
+  display: grid;
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+.bank-counts {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 7rem), 1fr));
+}
+.bank-count {
+  display: grid;
+  gap: var(--space-3xs);
+  padding: var(--space-xs) var(--space-sm);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-control);
+}
+.bank-count dt {
+  color: var(--color-ink-2);
+  font-size: var(--text-sm);
+}
+.bank-count dd {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.bank-diff del {
+  color: var(--color-ink-2);
+}
+.bank-diff ins {
+  text-decoration: none;
+  font-weight: 700;
+}
+
 /* Admin analytics (Step 30). */
 .admin-qid {
   display: block;

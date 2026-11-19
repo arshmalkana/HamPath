@@ -12,6 +12,10 @@ export interface ImportDiff {
   unchanged: number;
   /** Lessons flagged needs_card_review because a question was added or changed. */
   lessonsNeedingReview: string[];
+  /** Before and after text of every changed field, for the reviewer. */
+  changes: { id: string; field: string; before: string; after: string }[];
+  /** Learners whose mastery of a question was reset because its stem or correct answer changed. */
+  masteryReset: number;
 }
 
 export class BankParseError extends Error {
@@ -97,6 +101,8 @@ export async function importBank(
       retired: [],
       unchanged: 0,
       lessonsNeedingReview: [],
+      changes: [],
+      masteryReset: 0,
     };
 
     const {
@@ -110,6 +116,14 @@ export async function importBank(
     await assertLessonsSeeded(c, bank.questions);
 
     const review = new Set<string>();
+    /** lesson → the questions that put it up for review, and why. */
+    const reasons = new Map<string, { id: string; fields: string[] }[]>();
+    const flag = (lessonId: string, id: string, fields: string[]) => {
+      review.add(lessonId);
+      reasons.set(lessonId, [...(reasons.get(lessonId) ?? []), { id, fields }]);
+    };
+    /** Questions whose meaning changed: whoever mastered the old version reviews the new one. */
+    const meaningChanged: string[] = [];
     for (const q of bank.questions) {
       const old = existing.get(q.id);
       if (!old) {
@@ -122,7 +136,7 @@ export async function importBank(
         ]);
         for (let s = 0; s < 4; s++) await insertOption(c, q.id, s, q.optionsEn[s]!, q.optionsFr[s]!, version);
         diff.added.push(q.id);
-        review.add(q.lessonId);
+        flag(q.lessonId, q.id, ["added"]);
         continue;
       }
 
@@ -130,6 +144,7 @@ export async function importBank(
       if (old.retired_in !== null) fields.push("restored");
       if (old.stem_en !== q.stemEn || old.stem_fr !== q.stemFr) {
         fields.push("stem");
+        diff.changes.push({ id: q.id, field: "stem", before: old.stem_en, after: q.stemEn });
         await c.query(
           `INSERT INTO question_history (question_id, bank_version, stem_en, stem_fr) VALUES ($1,$2,$3,$4)`,
           [q.id, old.bank_version, old.stem_en, old.stem_fr],
@@ -140,7 +155,9 @@ export async function importBank(
         if (o && o.text_en === q.optionsEn[s] && o.text_fr === q.optionsFr[s]) continue;
         if (o) await c.query("UPDATE option SET retired_in = $1 WHERE id = $2", [version, o.id]);
         await insertOption(c, q.id, s, q.optionsEn[s]!, q.optionsFr[s]!, version);
-        fields.push(s === 0 ? "correct_answer" : `distractor_${s}`);
+        const field = s === 0 ? "correct_answer" : `distractor_${s}`;
+        fields.push(field);
+        diff.changes.push({ id: q.id, field, before: o?.text_en ?? "", after: q.optionsEn[s]! });
       }
       if (fields.length) {
         await c.query(`UPDATE question SET stem_en=$2, stem_fr=$3, bank_version=$4, retired_in=NULL WHERE id=$1`, [
@@ -150,7 +167,8 @@ export async function importBank(
           version,
         ]);
         diff.changed.push({ id: q.id, fields });
-        review.add(q.lessonId);
+        flag(q.lessonId, q.id, fields);
+        if (fields.includes("stem") || fields.includes("correct_answer")) meaningChanged.push(q.id);
       } else diff.unchanged++;
     }
 
@@ -171,6 +189,22 @@ export async function importBank(
       [[...review]],
     );
     diff.lessonsNeedingReview = flagged.map((r) => r.id).sort();
+    for (const lessonId of diff.lessonsNeedingReview) {
+      await c.query("INSERT INTO card_review (lesson_id, bank_version, questions) VALUES ($1,$2,$3)", [
+        lessonId,
+        version,
+        JSON.stringify(reasons.get(lessonId) ?? []),
+      ]);
+    }
+    if (meaningChanged.length) {
+      // Keep the memory state (it's the same topic) but bring it due now and clear mastery.
+      const reset = await c.query(
+        `UPDATE question_state SET mastered = false, streak = 0, due_at = least(coalesce(due_at, now()), now()), updated_at = now()
+          WHERE question_id = ANY($1) AND (mastered OR due_at > now())`,
+        [meaningChanged],
+      );
+      diff.masteryReset = reset.rowCount ?? 0;
+    }
     await c.query("UPDATE bank_version SET added=$2, changed=$3, retired=$4 WHERE id=$1", [
       version,
       diff.added.length,

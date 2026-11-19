@@ -57,6 +57,13 @@
       "when": 1795094047573,
       "tag": "0007_classes_live_quiz",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1795094975016,
+      "tag": "0008_card_review",
+      "breakpoints": true
     }
   ]
 }

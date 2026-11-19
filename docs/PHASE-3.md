@@ -68,3 +68,43 @@ Migration `0007_classes_live_quiz` adds `class_assignment`, `live_quiz` and `liv
 - the full live cycle, including option order and that no attempts are written.
 
 A browser run with an instructor laptop and two phones passes, and axe is clean on the class, phone and projector screens.
+
+## Step 33: bank update workflow
+
+`/admin/bank` (admins only; linked from `/admin`):
+
+1. **Upload and preview.** Choose the new ISED file. The page sends it to `POST /admin/import-bank?dry_run=true`, which runs the whole import in a transaction and rolls it back. The preview shows:
+   - counts of added, changed, removed and unchanged questions;
+   - the added and removed IDs;
+   - for every changed field, the text before and after;
+   - the lessons that will need review;
+   - how many learners' mastery will be reset.
+2. **Apply.** The same call without `dry_run`.
+3. **Review.** Each affected lesson gets a `card_review` row (migration `0008_card_review`) listing which questions changed and how. Reviews stay open until an admin marks them reviewed; `lesson.needs_card_review` clears when none is left. Content reloads no longer clear the flag; before this change, every `pnpm dev` start erased it.
+4. **History.** `GET /admin/bank-versions` lists every version and how many answers were given against its options.
+
+How past attempts stay tied to their version. Options are never edited: a changed option is retired (`retired_in`) and a new row inserted with the new `bank_version`. A changed stem is copied to `question_history`. An attempt keeps its `option_id`, so it always resolves to the exact wording, and the version, the learner saw; results pages show that wording. Answering a question with a retired option, from a page loaded before the import, returns 409 and asks for a reload. It is never graded against new text.
+
+When a question's **stem or correct answer** changes, learners who had mastered it lose the mastered status and it comes due now, with the FSRS memory state kept. That way they see the new version in Daily Review. A changed distractor alone doesn't reset anything.
+
+CI still guards the content: after an import that changes an answer or option text, `pnpm check:coverage` fails until the lesson's Why not? notes and calculations match the new bank. That failure is the prompt for the review.
+
+Tested by `bank-update.test.ts`, which restores the real bank afterwards:
+
+- preview without writes, then apply;
+- the review flag survives `loadContent` and is cleared on resolve;
+- mastery reset;
+- the old attempt still resolves to the retired option from the old version;
+- 409 for a stale option;
+- access control.
+
+A browser run at 390 px uploads an edited bank, previews, applies and reviews it, then restores the original; axe is clean.
+
+## Still open after Phase 3
+
+- Licensed-amateur review of all content (`PHASE-2.md`).
+- Product-owner confirmation:
+  - test-out open to every section (Step 29);
+  - live answers kept out of mastery (Step 31).
+- French (Step 32) is skipped.
+- Screen-reader sessions with NVDA, JAWS, VoiceOver and TalkBack (`ACCESSIBILITY.md`).

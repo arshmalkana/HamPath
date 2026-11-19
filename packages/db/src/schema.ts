@@ -115,6 +115,33 @@ export const question = pgTable(
 );
 
 /** Previous stems, kept when an import changes a question's wording. */
+/**
+ * A lesson whose questions a bank import added or changed: its cards and Why not? notes need a
+ * look. Open until an admin marks it reviewed (lesson.needs_card_review is the summary flag).
+ */
+export const cardReview = pgTable(
+  "card_review",
+  {
+    id: serial().primaryKey(),
+    lessonId: text("lesson_id")
+      .notNull()
+      .references(() => lesson.id),
+    bankVersion: integer("bank_version")
+      .notNull()
+      .references(() => bankVersion.id),
+    /** [{ id, fields }] for each added or changed question of the lesson. */
+    questions: jsonb().notNull(),
+    createdAt: ts("created_at").notNull().defaultNow(),
+    resolvedAt: ts("resolved_at"),
+    resolvedBy: uuid("resolved_by").references(() => user.id),
+  },
+  (t) => [
+    index("card_review_open_idx")
+      .on(t.lessonId)
+      .where(sql`${t.resolvedAt} IS NULL`),
+  ],
+);
+
 export const questionHistory = pgTable("question_history", {
   id: bigserial({ mode: "number" }).primaryKey(),
   questionId: text("question_id")
