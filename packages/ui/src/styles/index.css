@@ -472,6 +472,10 @@ a.lesson-tile[data-authored="true"] .lesson-tile-code {
   flex: 1;
   text-align: right;
 }
+/* Sits beside Continue; on phones, where the status text is hidden, the auto margin keeps it there. */
+.player-skip {
+  margin-inline-start: auto;
+}
 @media (max-width: 40rem) {
   .player-foot-status {
     display: none;

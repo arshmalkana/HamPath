@@ -4,7 +4,8 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Button, PhaseProgress, type Phase } from "@hampath/ui";
 import { cacheForOffline } from "@/components/OfflineSupport";
 import { preloadLabs } from "@/labs/registry";
-import { api, ensureSession } from "@/lib/api";
+import { api, ensureSession, track } from "@/lib/api";
+import { newId } from "@/lib/id";
 import { enqueue, isOffline } from "@/lib/outbox";
 import type { Card, Lesson, Question } from "@/lib/types";
 import { QuestionScreen, emptyQuestionState, type QuestionState } from "./QuestionScreen";
@@ -98,10 +99,19 @@ export function LessonPlayer({ lesson, initialCardId }: { lesson: Lesson; initia
   }).filter((p) => screens.some((s) => s.phase === p.label));
 
   const canContinue = done.has(index) || screen.kind === "recap";
+  // Labs are optional: an unfinished lab can be skipped (recorded, so hard labs show up in analytics).
+  const skippableLab = screen.kind === "card" && screen.card.type === "lab" && !canContinue ? screen.card : null;
+  const skipLab = () => {
+    if (!skippableLab) return;
+    if (skippableLab.labStep)
+      track("/lab-events", { lab_step_id: skippableLab.labStep.id, event: "skipped", payload: {}, client_id: newId() });
+    markDone(index);
+    go(index + 1);
+  };
   const status =
     screen.kind === "card" && !canContinue
       ? screen.card.type === "lab"
-        ? "Reach the goal (or use the hints) to continue"
+        ? "Reach the goal to continue, or skip the lab"
         : "Answer to continue"
       : screen.kind === "question" && !canContinue
         ? "Answer to continue"
@@ -191,13 +201,20 @@ export function LessonPlayer({ lesson, initialCardId }: { lesson: Lesson; initia
               Back to question
             </Button>
           ) : screen.kind !== "recap" ? (
-            <Button onClick={() => go(index + 1)} disabled={!canContinue}>
-              {index + 1 === firstCheck
-                ? "Start the Check"
-                : screens[index + 1]?.kind === "recap"
-                  ? "Finish"
-                  : "Continue"}
-            </Button>
+            <>
+              {skippableLab && (
+                <Button variant="quiet" className="player-skip" onClick={skipLab}>
+                  Skip this lab
+                </Button>
+              )}
+              <Button onClick={() => go(index + 1)} disabled={!canContinue}>
+                {index + 1 === firstCheck
+                  ? "Start the Check"
+                  : screens[index + 1]?.kind === "recap"
+                    ? "Finish"
+                    : "Continue"}
+              </Button>
+            </>
           ) : null}
         </div>
       </footer>

@@ -1,5 +1,6 @@
 "use client";
 import { useRef, type KeyboardEvent, type PointerEvent } from "react";
+import { SWEEP, moveDrag, startDrag, type KnobDrag } from "./knobDrag";
 
 export interface KnobProps {
   label: string;
@@ -14,15 +15,14 @@ export interface KnobProps {
   size?: number;
 }
 
-const SWEEP = 270; // degrees from min to max
-
 /**
- * Front-panel rotary knob. A WAI-ARIA slider: arrows step, Page Up/Down step ×10, Home/End jump,
- * vertical drag turns it, and the − / + buttons step it for pointers that can't drag (WCAG 2.5.7).
+ * Front-panel rotary knob. A WAI-ARIA slider: arrows step, Page Up/Down step ×10, Home/End jump.
+ * With a pointer, turn it around its centre like a dial, or drag up/right from the middle like a
+ * slider (see knobDrag.ts); the − / + buttons step it for pointers that can't drag (WCAG 2.5.7).
  * The value is announced through aria-valuetext.
  */
 export function Knob({ label, value, min, max, step, onChange, format = String, disabled, size = 88 }: KnobProps) {
-  const drag = useRef<{ y: number; v: number } | null>(null);
+  const drag = useRef<KnobDrag | null>(null);
   const clamp = (v: number) => Math.min(max, Math.max(min, Math.round(v / step) * step));
   const set = (v: number) => {
     const c = Number(clamp(v).toFixed(10));
@@ -52,12 +52,11 @@ export function Knob({ label, value, min, max, step, onChange, format = String, 
   const onDown = (e: PointerEvent<SVGSVGElement>) => {
     if (disabled) return;
     e.currentTarget.setPointerCapture(e.pointerId);
-    drag.current = { y: e.clientY, v: value };
+    drag.current = startDrag(e.currentTarget.getBoundingClientRect(), e.clientX, e.clientY, value);
   };
   const onMove = (e: PointerEvent) => {
     if (!drag.current) return;
-    // 200 px of travel covers the whole range.
-    set(drag.current.v + ((drag.current.y - e.clientY) / 200) * (max - min));
+    set(moveDrag(drag.current, e.clientX, e.clientY, { min, max, step }));
   };
   const onUp = () => {
     drag.current = null;

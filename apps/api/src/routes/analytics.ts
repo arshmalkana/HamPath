@@ -76,12 +76,14 @@ async function labStats(pool: Pool, from: Date) {
     completed: number;
     hinted: number;
     hints: number;
+    skipped: number;
   }>(
     `SELECT ls.lab_id, lab.name, ls.id AS step_id, ls.title,
             count(DISTINCT e.user_id) FILTER (WHERE e.event = 'started')::int AS started,
             count(DISTINCT e.user_id) FILTER (WHERE e.event = 'goal_met' AND (e.payload->>'verified')::boolean)::int AS completed,
             count(DISTINCT e.user_id) FILTER (WHERE e.event = 'hint_used')::int AS hinted,
-            count(*) FILTER (WHERE e.event = 'hint_used')::int AS hints
+            count(*) FILTER (WHERE e.event = 'hint_used')::int AS hints,
+            count(DISTINCT e.user_id) FILTER (WHERE e.event = 'skipped')::int AS skipped
        FROM lab_step ls JOIN lab ON lab.id = ls.lab_id
        LEFT JOIN lab_event e ON e.lab_step_id = ls.id AND e.created_at >= $1
       GROUP BY ls.lab_id, lab.name, ls.id, ls.title
@@ -100,6 +102,7 @@ async function labStats(pool: Pool, from: Date) {
     const completed = l.steps.reduce((n, s) => n + s.completed, 0);
     const hinted = l.steps.reduce((n, s) => n + s.hinted, 0);
     const hints = l.steps.reduce((n, s) => n + s.hints, 0);
+    const skipped = l.steps.reduce((n, s) => n + s.skipped, 0);
     return {
       labId: l.labId,
       name: l.name,
@@ -107,6 +110,7 @@ async function labStats(pool: Pool, from: Date) {
       completionRate: rate(completed, started),
       hintRate: rate(hinted, started),
       hintsPerStart: rate(hints, started),
+      skipRate: rate(skipped, started),
       steps: l.steps.map((s) => ({
         stepId: s.step_id,
         title: s.title,
@@ -114,6 +118,8 @@ async function labStats(pool: Pool, from: Date) {
         completed: s.completed,
         completionRate: rate(s.completed, s.started),
         hintRate: rate(s.hinted, s.started),
+        skipped: s.skipped,
+        skipRate: rate(s.skipped, s.started),
       })),
     };
   });

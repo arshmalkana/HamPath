@@ -36,8 +36,8 @@
           "choice": false
         }
       },
-      "goal": "excluded && height >= 14.5",
-      "goal_text": "Tallest excluded height",
+      "goal": "excluded && height >= 14",
+      "goal_text": "Just under 15 m, still excluded",
       "hints": [
         "ISED excludes amateur antenna structures under 15 m."
       ],

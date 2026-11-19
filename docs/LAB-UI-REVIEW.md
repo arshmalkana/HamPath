@@ -38,3 +38,23 @@ Every lab-step card (188 of them, covering every mode of all 35 labs) was opened
 - All 365 unit and API tests pass.
 
 The review scripts (`labui.mjs` for screenshots and geometry, `sheet.mjs` for contact sheets) are Playwright drivers run against a production build. Re-run them after any large lab change.
+
+## Can every lab be finished?
+
+A second pass checked that every goal can actually be reached by hand, not just by a script pressing an arrow key an exact number of times. The lab frame now exposes `data-goal-now` (whether the goal holds for the current settings; the visible "Done" latches). An audit swept every dial and stepper through every position, for every combination of switches and radio choices, and counted the positions that pass.
+
+| Lab step                     | Problem                                                                                                           | Fix                                                                                       |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| 5.06 Push them to the limit  | Only 44.0 and 44.5 V (2 of 121 dial positions) met "1.9 to 2 W". By dragging, the goal was practically never met. | Goal is 1.8 to 2 W (42.5 to 44.5 V).                                                      |
+| 5.04 Change the resistance   | Only 48 Ω of 100 positions.                                                                                       | ±3% (47 to 49 Ω); the goal reads "about 0.25 A".                                          |
+| 5.07 Up to 20 kHz            | 2 of 125 log-scale positions.                                                                                     | ±25%.                                                                                     |
+| 6.10 Loading coil            | 2 of 101 positions.                                                                                               | The coil resonates within 4% of the whip's reactance (ham-sim `COIL_RESONANT_WITHIN`).    |
+| 1.17 Legal power limits (×3) | Exact limit on a dial of 101 to 251 positions.                                                                    | Coarser steps that still land on each limit (50 W, or a 500 W scale), 31 to 51 positions. |
+| 1.23 Tallest excluded tower  | Only 14.5 m.                                                                                                      | 14 or 14.5 m.                                                                             |
+| 7.03 Shorten the skip        | The goal was already met at the starting angle.                                                                   | Starts at 1° (a 1918 km hop).                                                             |
+
+The dial itself was hard to turn precisely: dragging only worked vertically, at 200 px for the whole range. It now turns like a real dial when you move around its centre (clockwise is up), still works as a slider when dragged up from the middle, and every step needs at least 6° of turn (or 3 px of travel), so a 120-step range takes about two turns, like a tuning encoder. See `packages/ui/src/shack/knobDrag.ts`.
+
+Rule for new lab steps: a goal in the middle of a dial's range should pass at 3 or more positions, unless the dial has about 50 steps or fewer and the exact value is the point (a time, a turns ratio, a legal limit).
+
+Labs are also optional now: an unfinished lab shows **Skip this lab** beside Continue. Skips are recorded as a `skipped` lab event and shown in `/admin` as each lab's skip rate, so hard labs show up.

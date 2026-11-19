@@ -1,0 +1,2 @@
+ALTER TABLE "lab_event" DROP CONSTRAINT "lab_event_kind";--> statement-breakpoint
+ALTER TABLE "lab_event" ADD CONSTRAINT "lab_event_kind" CHECK ("lab_event"."event" IN ('started', 'goal_met', 'hint_used', 'value_changed', 'skipped'));

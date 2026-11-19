@@ -4,7 +4,7 @@ import { evaluateGoal, type Vars } from "@hampath/ham-sim";
 import { Button } from "@hampath/ui";
 import { findLab, type LabMode } from "./registry";
 
-export type LabEventName = "started" | "goal_met" | "hint_used" | "value_changed";
+export type LabEventName = "started" | "goal_met" | "hint_used" | "value_changed" | "skipped";
 
 export interface LabConfig {
   /** The lesson's lab-step id (e.g. "5.04/explore-current"); events are recorded against it. */
@@ -41,6 +41,7 @@ export function Lab({ id, config, mode, onEvent, onGoalMet, onHintsExhausted }: 
   const [hintsShown, setHintsShown] = useState(0);
   // True once the lab body has hydrated and reported its first state (its code may load lazily).
   const [ready, setReady] = useState(false);
+  const [goalNow, setGoalNow] = useState(false);
   const latest = useRef<{ vars: Vars; state: Record<string, unknown> } | null>(null);
   const metRef = useRef(!config.goal);
   const changeTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -59,13 +60,16 @@ export function Lab({ id, config, mode, onEvent, onGoalMet, onHintsExhausted }: 
       setReady(true);
       clearTimeout(changeTimer.current);
       changeTimer.current = setTimeout(() => onEvent?.("value_changed", { state }), 1500);
-      if (mode === "demo" || metRef.current || !config.goal) return;
+      if (!config.goal) return;
       let ok = false;
       try {
         ok = evaluateGoal(config.goal, vars);
       } catch {
         ok = false;
       }
+      // Whether the goal holds for the current settings (the "met" flag latches; this doesn't).
+      setGoalNow(ok);
+      if (mode === "demo" || metRef.current) return;
       if (ok) {
         metRef.current = true;
         setMet(true);
@@ -85,7 +89,12 @@ export function Lab({ id, config, mode, onEvent, onGoalMet, onHintsExhausted }: 
 
   const Body = entry?.component;
   return (
-    <section className="shack shack-panel lab" aria-label={`${entry?.name ?? id} (${id})`} data-ready={ready}>
+    <section
+      className="shack shack-panel lab"
+      aria-label={`${entry?.name ?? id} (${id})`}
+      data-ready={ready}
+      data-goal-now={goalNow}
+    >
       {(config.prompt || config.goalText) && (
         <div className="lab-task">
           {config.prompt && <p className="lab-prompt">{config.prompt}</p>}

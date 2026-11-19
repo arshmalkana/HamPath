@@ -13,6 +13,8 @@ export const QUARTER_K = 71.3;
 export const LOOP_K = 306;
 /** Within this fraction of the operating frequency counts as resonant. */
 export const RESONANT_WITHIN = 0.01;
+/** A loading coil within this fraction of the whip's capacitive reactance resonates it (about ±2 µH at 64 µH). */
+export const COIL_RESONANT_WITHIN = 0.04;
 
 // ---- Yagi ------------------------------------------------------------------------------------
 
@@ -137,7 +139,7 @@ export function verticalVariables(s: VerticalState, c: VerticalConfig = {}): Var
   let coilReactance = 0;
   if (c.whipReactance) {
     coilReactance = 2 * Math.PI * s.f * 1e6 * (s.coil ?? 0) * 1e-6;
-    resonant = Math.abs(coilReactance - c.whipReactance) / c.whipReactance <= 0.02;
+    resonant = Math.abs(coilReactance - c.whipReactance) / c.whipReactance <= COIL_RESONANT_WITHIN;
     f0 = resonant ? s.f : f0;
   }
   return {

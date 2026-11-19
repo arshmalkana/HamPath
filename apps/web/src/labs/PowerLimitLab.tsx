@@ -30,7 +30,7 @@ const PROCESS = [0, 0.45, 0.75];
 const QUAL_NAMES = { basic: "Basic", honours: "Basic with Honours", advanced: "Advanced" } as const;
 
 function LimitsBody({ config, mode, onState }: LabBodyProps) {
-  const cfg = config as unknown as PowerLimitConfig & { power: number; max: number };
+  const cfg = config as unknown as PowerLimitConfig & { power: number; max: number; step?: number };
   const demo = mode === "demo";
   const [power, setPower] = useState(cfg.power);
   const v = powerLimitVariables({ power }, cfg)!;
@@ -59,7 +59,7 @@ function LimitsBody({ config, mode, onState }: LabBodyProps) {
           value={power}
           min={0}
           max={cfg.max}
-          step={10}
+          step={cfg.step ?? 10}
           onChange={setPower}
           format={(x) => `${x} W`}
           disabled={demo}

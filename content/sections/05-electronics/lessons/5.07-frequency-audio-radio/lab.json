@@ -13,7 +13,7 @@
           "f": true
         }
       },
-      "goal": "approx(f, 20000, 0.1)",
+      "goal": "approx(f, 20000, 0.25)",
       "goal_text": "About 20 kHz",
       "hints": [
         "Turn right. Each click is a small step on a log scale.",

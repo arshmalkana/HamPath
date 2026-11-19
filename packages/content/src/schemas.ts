@@ -650,6 +650,8 @@ export const LAB_SCHEMAS: Record<string, { config: z.ZodType; variables: string[
         measure: z.enum(["dcInput", "ssbPep", "carrier", "sixtyErp"]),
         power: z.number().min(0),
         max: z.number().positive(),
+        /** Knob step, W (default 10). Pick one that lands on the limit and keeps the knob under ~60 positions. */
+        step: z.number().positive().optional(),
       }),
     ]),
     variables: LAB_GOAL_VARIABLES["LAB-04"]!,

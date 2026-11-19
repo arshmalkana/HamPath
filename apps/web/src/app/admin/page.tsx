@@ -23,6 +23,7 @@ interface Analytics {
     completionRate: number | null;
     hintRate: number | null;
     hintsPerStart: number | null;
+    skipRate: number | null;
     steps: {
       stepId: string;
       title: string;
@@ -30,6 +31,7 @@ interface Analytics {
       completed: number;
       completionRate: number | null;
       hintRate: number | null;
+      skipRate: number | null;
     }[];
   }[];
   lessons: {
@@ -118,7 +120,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
 
       <section className="map-section" aria-labelledby="labs">
         <h2 className="section-title" id="labs">
-          Labs: completion and hints
+          Labs: completion, hints and skips
         </h2>
         <div className="table-scroll" tabIndex={0} role="region" aria-labelledby="labs">
           <table className="table">
@@ -137,6 +139,9 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
                 <th scope="col" className="num">
                   Hints per start
                 </th>
+                <th scope="col" className="num">
+                  Skipped
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -151,7 +156,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
                         {l.steps.map((s) => (
                           <li key={s.stepId}>
                             {s.title}: {s.started} started, {pct(s.completionRate)} completed, {pct(s.hintRate)} used a
-                            hint
+                            hint, {pct(s.skipRate)} skipped
                           </li>
                         ))}
                       </ul>
@@ -161,6 +166,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
                   <td className="num">{pct(l.completionRate)}</td>
                   <td className="num">{pct(l.hintRate)}</td>
                   <td className="num">{l.hintsPerStart === null ? "–" : l.hintsPerStart.toFixed(1)}</td>
+                  <td className="num">{pct(l.skipRate)}</td>
                 </tr>
               ))}
             </tbody>

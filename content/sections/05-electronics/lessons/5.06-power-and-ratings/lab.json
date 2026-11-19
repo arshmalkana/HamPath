@@ -23,7 +23,7 @@
           "switch": false
         }
       },
-      "goal": "P >= 1.9 && P <= 2",
+      "goal": "P >= 1.8 && P <= 2",
       "goal_text": "About 2 W in total",
       "hints": [
         "Each resistor gets half the power.",

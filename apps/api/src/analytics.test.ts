@@ -80,6 +80,8 @@ describe("GET /admin/analytics (Step 30)", () => {
           payload: { state: { topology: "single", E: 6, resistors: [30], closed: true, board } },
         });
       }
+      // One of those who didn't finish skips the lab (labs are optional).
+      if (i === 5) await call("POST", "/lab-events", { lab_step_id: step, event: "skipped" });
       // Lessons: 6.02 started by all, finished by two; the rest stopped on its second screen.
       await call("PUT", "/lessons/6.02/progress", { step: 1 });
       // (Finishing needs every Check answer; record the two finishes directly.)
@@ -108,6 +110,8 @@ describe("GET /admin/analytics (Step 30)", () => {
     expect(step.started).toBe(6);
     expect(step.completed).toBe(2);
     expect(step.hintRate).toBeGreaterThan(0);
+    expect(step.skipped).toBe(1);
+    expect(step.skipRate).toBeCloseTo(1 / 6, 2);
 
     const lesson = json.lessons.find((l: any) => l.code === "6.02");
     expect(lesson).toMatchObject({ started: 6, finished: 2, dropOff: 4 });

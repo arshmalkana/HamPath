@@ -9,7 +9,8 @@
         "qualification": "basic",
         "measure": "dcInput",
         "power": 500,
-        "max": 1500
+        "max": 1500,
+        "step": 50
       },
       "goal": "atLimit",
       "goal_text": "At the legal limit",
@@ -23,7 +24,8 @@
         "qualification": "advanced",
         "measure": "ssbPep",
         "power": 1000,
-        "max": 2500
+        "max": 2500,
+        "step": 50
       },
       "goal": "atLimit",
       "goal_text": "At the legal limit",
@@ -37,7 +39,7 @@
         "qualification": "basic",
         "measure": "carrier",
         "power": 400,
-        "max": 1000
+        "max": 500
       },
       "goal": "atLimit",
       "goal_text": "At the legal limit",

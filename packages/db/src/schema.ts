@@ -410,7 +410,7 @@ export const labEvent = pgTable(
   },
   (t) => [
     uniqueIndex("lab_event_user_client_idx").on(t.userId, t.clientId),
-    check("lab_event_kind", sql`${t.event} IN ('started', 'goal_met', 'hint_used', 'value_changed')`),
+    check("lab_event_kind", sql`${t.event} IN ('started', 'goal_met', 'hint_used', 'value_changed', 'skipped')`),
     index("lab_event_step_idx").on(t.labStepId, t.event),
   ],
 );

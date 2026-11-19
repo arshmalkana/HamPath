@@ -6,7 +6,7 @@
       "prompt": "On 14 MHz at midday, raise the radiation angle until the signal comes down within 1500 km.",
       "config": {
         "f": 14,
-        "angle": 5,
+        "angle": 1,
         "hour": 12,
         "controls": {
           "f": false,

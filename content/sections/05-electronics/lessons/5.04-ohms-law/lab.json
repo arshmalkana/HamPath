@@ -50,8 +50,8 @@
           "switch": false
         }
       },
-      "goal": "approx(I, 0.25)",
-      "goal_text": "Ammeter reads 0.25 A",
+      "goal": "approx(I, 0.25, 0.03)",
+      "goal_text": "Ammeter reads about 0.25 A",
       "hints": [
         "Right now the current is too small. Less resistance lets more current through.",
         "You need a resistor that lets exactly a quarter of an ampere through from 12 V.",
