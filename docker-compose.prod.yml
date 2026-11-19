@@ -1,0 +1,112 @@
+# HamPath production stack (see docs/DEPLOY.md). On the server:
+#   docker compose -f docker-compose.prod.yml --env-file .env.production up -d --build
+#
+# Only `web` publishes a port, for Nginx Proxy Manager. The API and Postgres are reachable only on
+# the stack's private network; the browser talks to the API through the web server's /api rewrite.
+# Not "hampath": that is the dev compose project (named after the folder), and --remove-orphans
+# would delete its containers.
+name: hampath-prod
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: hampath
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env.production}
+      POSTGRES_DB: hampath
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hampath -d hampath"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    networks: [internal]
+
+  # One-shot on every deploy: migrate, and seed + import the bank + load content (idempotent).
+  migrate:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    image: hampath-api:${APP_VERSION:-latest}
+    command: ["node_modules/.bin/tsx", "../../packages/db/src/cli/ensure.ts"]
+    environment:
+      DATABASE_URL: postgres://hampath:${POSTGRES_PASSWORD}@db:5432/hampath
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+    networks: [internal]
+
+  api:
+    image: hampath-api:${APP_VERSION:-latest}
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://hampath:${POSTGRES_PASSWORD}@db:5432/hampath
+      APP_ORIGIN: ${APP_ORIGIN:?set APP_ORIGIN, e.g. https://hampath.example.com}
+      ADMIN_TOKEN: ${ADMIN_TOKEN:?set ADMIN_TOKEN (32+ random characters)}
+      SMTP_URL: ${SMTP_URL:?set SMTP_URL for sign-in e-mails}
+      MAIL_FROM: ${MAIL_FROM:-HamPath <no-reply@example.com>}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+      # NPM (on the LAN) and the web container are the only proxies whose X-Forwarded-For is believed.
+      TRUST_PROXY: ${TRUST_PROXY:-loopback,linklocal,uniquelocal}
+      SENTRY_DSN: ${SENTRY_DSN:-}
+      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT:-production}
+      APP_VERSION: ${APP_VERSION:-}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    networks: [internal]
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        API_ORIGIN: http://api:4000
+        NEXT_PUBLIC_SENTRY_DSN: ${SENTRY_DSN_BROWSER:-}
+        NEXT_PUBLIC_SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT:-production}
+    image: hampath-web:${APP_VERSION:-latest}
+    restart: unless-stopped
+    environment:
+      API_ORIGIN: http://api:4000
+      SENTRY_DSN: ${SENTRY_DSN:-}
+      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT:-production}
+      APP_VERSION: ${APP_VERSION:-}
+      # The browser's error reports go to the monitoring host: allow it in the CSP.
+      CSP_CONNECT_EXTRA: ${CSP_CONNECT_EXTRA:-}
+    ports:
+      # Nginx Proxy Manager forwards https://<your domain> to http://<this VM>:${WEB_PORT}.
+      - "${WEB_BIND:-0.0.0.0}:${WEB_PORT:-8090}:3000"
+    depends_on:
+      api:
+        condition: service_healthy
+    networks: [internal]
+
+  # Nightly pg_dump, kept for BACKUP_KEEP_DAYS; pings an Uptime Kuma push monitor on success.
+  backup:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      PGHOST: db
+      PGUSER: hampath
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+      PGDATABASE: hampath
+      BACKUP_KEEP_DAYS: ${BACKUP_KEEP_DAYS:-14}
+      BACKUP_PUSH_URL: ${BACKUP_PUSH_URL:-}
+    volumes:
+      - ${BACKUP_DIR:-./backups}:/backups
+      - ./deploy/backup.sh:/backup.sh:ro
+    entrypoint: ["/bin/sh", "/backup.sh"]
+    depends_on:
+      db:
+        condition: service_healthy
+    networks: [internal]
+
+volumes:
+  pgdata:
+
+networks:
+  internal:

@@ -64,12 +64,18 @@ docs/coverage/    Generated: every question, its lesson, the cards that teach it
 
 `.github/workflows/ci.yml` runs on every push to `main` and every pull request:
 
-- **Content coverage:** `pnpm check:coverage` (the four SPEC §8 checks; the per-section table goes to the job summary) and
-  a check that `docs/coverage/` was regenerated. Lessons that aren't written yet are reported, not failed; errors in
-  written lessons, the bank, the titles or the exam blueprint fail the build.
-- **Quality:** lint, Prettier, type checks.
+- **Content coverage:** `pnpm check:coverage`, the strict launch gate. It runs the four SPEC §8 checks and requires all
+  984 questions, 100 complete lessons and 35 built labs; the per-section table goes to the job summary. A second check
+  confirms `docs/coverage/` was regenerated.
+- **Quality:** lint, Prettier, type checks and a dependency audit (fails on high or critical).
 - **Tests:** Vitest against a Postgres 16 service container.
 - **Build:** the production web build.
+- **Docker images:** both production images build.
+
+## Deploying
+
+Production runs in Docker on the homelab, behind Nginx Proxy Manager, and deploys itself from `main` once CI passes.
+See [docs/DEPLOY.md](docs/DEPLOY.md). The app's security model is in [docs/SECURITY.md](docs/SECURITY.md).
 
 ## Decisions worth knowing
 

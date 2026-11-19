@@ -8,3 +8,6 @@ coverage-report/
 test-results/
 playwright-report/
 .hallmark/
+.env.*
+!.env.production.example
+backups/

@@ -1,6 +1,9 @@
 import { createPool, type Pool } from "@hampath/db";
 import { buildApp } from "./app.ts";
 import { env } from "./env.ts";
+import { initMonitoring } from "./monitoring.ts";
+
+initMonitoring();
 
 const pool = createPool();
 const app = await buildApp(pool, { logger: true });

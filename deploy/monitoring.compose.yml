@@ -1,0 +1,74 @@
+# Optional monitoring for the homelab (skip whatever you already run). See docs/DEPLOY.md.
+#   docker compose -f deploy/monitoring.compose.yml --env-file /opt/hampath/monitoring.env up -d
+#
+# - Uptime Kuma: uptime checks and alerts (HTTP, keyword, TLS expiry, push monitors).
+# - GlitchTip: self-hosted error tracking that speaks Sentry's protocol; HamPath reports to it via SENTRY_DSN.
+# Put both behind Nginx Proxy Manager like HamPath (status.<domain>, errors.<domain>).
+name: monitoring
+
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    restart: unless-stopped
+    volumes:
+      - kuma:/app/data
+    ports:
+      - "${KUMA_BIND:-0.0.0.0}:${KUMA_PORT:-3001}:3001"
+
+  glitchtip-db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: glitchtip
+      POSTGRES_PASSWORD: ${GLITCHTIP_DB_PASSWORD:?set GLITCHTIP_DB_PASSWORD}
+      POSTGRES_DB: glitchtip
+    volumes:
+      - glitchtip-pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U glitchtip -d glitchtip"]
+      interval: 5s
+      retries: 30
+
+  glitchtip-valkey:
+    image: valkey/valkey:8-alpine
+    restart: unless-stopped
+
+  glitchtip-web:
+    image: glitchtip/glitchtip:v5
+    restart: unless-stopped
+    depends_on:
+      glitchtip-db:
+        condition: service_healthy
+    environment: &glitchtip-env
+      DATABASE_URL: postgres://glitchtip:${GLITCHTIP_DB_PASSWORD}@glitchtip-db:5432/glitchtip
+      REDIS_URL: redis://glitchtip-valkey:6379/0
+      SECRET_KEY: ${GLITCHTIP_SECRET_KEY:?set GLITCHTIP_SECRET_KEY}
+      GLITCHTIP_DOMAIN: ${GLITCHTIP_DOMAIN:?set GLITCHTIP_DOMAIN, e.g. https://errors.example.com}
+      DEFAULT_FROM_EMAIL: ${GLITCHTIP_FROM_EMAIL:-errors@example.com}
+      EMAIL_URL: ${GLITCHTIP_EMAIL_URL:-consolemail://}
+      ENABLE_USER_REGISTRATION: "false"
+      GLITCHTIP_MAX_EVENT_LIFE_DAYS: "90"
+    ports:
+      - "${GLITCHTIP_BIND:-0.0.0.0}:${GLITCHTIP_PORT:-8000}:8000"
+
+  glitchtip-worker:
+    image: glitchtip/glitchtip:v5
+    restart: unless-stopped
+    command: ./bin/run-celery-with-beat.sh
+    depends_on:
+      glitchtip-db:
+        condition: service_healthy
+    environment: *glitchtip-env
+
+  glitchtip-migrate:
+    image: glitchtip/glitchtip:v5
+    command: ./bin/run-migrate.sh
+    depends_on:
+      glitchtip-db:
+        condition: service_healthy
+    environment: *glitchtip-env
+    restart: "no"
+
+volumes:
+  kuma:
+  glitchtip-pg:

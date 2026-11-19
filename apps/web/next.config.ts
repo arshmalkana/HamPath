@@ -1,8 +1,13 @@
+import path from "node:path";
 import type { NextConfig } from "next";
 
 const API_ORIGIN = process.env.API_ORIGIN ?? "http://127.0.0.1:4000";
 
 const config: NextConfig = {
+  // A self-contained server for the Docker image (apps/web/Dockerfile); traces from the monorepo root.
+  output: "standalone",
+  // next build runs in apps/web (pnpm --filter, or the Dockerfile), so the repo root is two up.
+  outputFileTracingRoot: path.join(process.cwd(), "../.."),
   // Lets a production build (e.g. for Lighthouse) sit beside a running `next dev`.
   distDir: process.env.NEXT_DIST_DIR ?? ".next",
   transpilePackages: ["@hampath/ham-sim"],

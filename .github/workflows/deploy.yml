@@ -1,0 +1,76 @@
+name: Deploy
+
+# Deploys main to the homelab after CI passes on it (tests, content coverage, lint, build, images).
+# Runs on the self-hosted runner on the Docker VM, so nothing on the LAN is exposed to GitHub.
+# Run by hand (Actions → Deploy → Run workflow) to redeploy, or to roll back to an earlier commit.
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Commit SHA, tag or branch to deploy (default: main)"
+        required: false
+        default: main
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push')
+    runs-on: [self-hosted, vm104]
+    environment: production
+    env:
+      # Server-side files that persist across deploys (see docs/DEPLOY.md).
+      ENV_FILE: /opt/hampath/.env.production
+      COMPOSE: docker compose -f docker-compose.prod.yml --env-file /opt/hampath/.env.production
+    steps:
+      - name: Check out the tested commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || inputs.ref }}
+
+      - name: Settings present
+        run: |
+          test -r "$ENV_FILE" || { echo "::error::$ENV_FILE is missing. See docs/DEPLOY.md."; exit 1; }
+          echo "APP_VERSION=$(git rev-parse --short=12 HEAD)" >> "$GITHUB_ENV"
+          echo "WEB_PORT=$(grep -E '^WEB_PORT=' "$ENV_FILE" | cut -d= -f2 || true)" >> "$GITHUB_ENV"
+
+      - name: Back up the database before migrating
+        run: |
+          mkdir -p /opt/hampath/backups
+          if [ -n "$($COMPOSE ps -q db 2>/dev/null)" ]; then
+            $COMPOSE exec -T db pg_dump -U hampath --no-owner hampath \
+              | gzip > "/opt/hampath/backups/pre-deploy-$(date +%Y%m%d-%H%M%S)-$APP_VERSION.sql.gz"
+          else
+            echo "No running database yet (first deploy)."
+          fi
+
+      - name: Build and start
+        run: $COMPOSE up -d --build --remove-orphans
+
+      - name: Health check through the public port
+        run: |
+          port="${WEB_PORT:-8090}"
+          for i in $(seq 1 30); do
+            if curl -fsS "http://localhost:$port/api/v1/health" && curl -fsS -o /dev/null "http://localhost:$port/"; then
+              echo; echo "HamPath $APP_VERSION is up on :$port"; exit 0
+            fi
+            sleep 5
+          done
+          $COMPOSE ps
+          $COMPOSE logs --tail 120 migrate api web
+          exit 1
+
+      - name: Clean up old images
+        if: always()
+        run: docker image prune -f

@@ -13,6 +13,7 @@ import { learnRoutes } from "./routes/learn.ts";
 import { placementRoutes } from "./routes/placement.ts";
 import { practiceRoutes } from "./routes/practice.ts";
 import { registerSecurity } from "./security.ts";
+import { reportError } from "./monitoring.ts";
 import { env } from "./env.ts";
 
 export async function buildApp(
@@ -28,7 +29,7 @@ export async function buildApp(
   await app.register(cookie);
   await registerSecurity(app, { rateLimit: opts.rateLimit ?? env.rateLimits });
 
-  app.setErrorHandler((err, _req, reply) => {
+  app.setErrorHandler((err, req, reply) => {
     if (err instanceof ZodError) {
       return reply.status(400).send({ error: err.issues[0]?.message ?? "Invalid request", issues: err.issues });
     }
@@ -38,6 +39,7 @@ export async function buildApp(
     const status = (err as { statusCode?: number }).statusCode;
     if (status && status < 500) return reply.status(status).send({ error: (err as Error).message });
     app.log.error(err);
+    reportError(err, { method: req.method, route: req.routeOptions.url ?? req.url });
     return reply.status(500).send({ error: "Internal error" });
   });
 
