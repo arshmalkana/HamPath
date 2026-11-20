@@ -1,3 +1,7 @@
+# Every text file uses LF, in the repo and in working copies on every OS (Prettier, CI and the
+# Linux server all expect LF). Exceptions follow; later lines win.
+* text=auto eol=lf
+
 # Shell scripts run inside Linux containers: always LF.
 *.sh text eol=lf
 
