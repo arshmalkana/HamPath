@@ -296,6 +296,9 @@ describe("auth: magic link", () => {
     expect(mail.to).toBe("learner@example.com");
     // The token is in the URL fragment, which never reaches a server log.
     const token = /http:\/\/localhost:3000\/sign-in\/confirm#token=([\w-]+)/.exec(mail.text)![1]!;
+    // The HTML version carries the same link (button and fallback) and the real expiry.
+    expect(mail.html.split(`#token=${token}"`).length - 1).toBe(2);
+    expect(mail.html).toContain("15 minutes");
 
     // Fetching the link (a mail scanner, a prefetch) signs nobody in and doesn't use the token.
     const scanner = await browser()("GET", `/auth/magic-link/verify?token=${token}`);

@@ -93,7 +93,7 @@ export function authRoutes(app: FastifyInstance, pool: Pool) {
     // The token rides in the URL fragment, which browsers never send to a server, so it stays out
     // of proxy and access logs.
     const link = `${env.appOrigin}/sign-in/confirm#token=${token}`;
-    await sendMail(magicLinkMail(body.email, link));
+    await sendMail(magicLinkMail(body.email, link, MAGIC_LINK_MINUTES));
     return reply.status(202).send({ sent: true });
   });
 
