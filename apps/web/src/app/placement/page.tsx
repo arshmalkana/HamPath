@@ -3,7 +3,12 @@ import Link from "next/link";
 import { serverApi } from "@/lib/server";
 import { StartQuiz } from "@/quiz/StartQuiz";
 
-export const metadata: Metadata = { title: "Placement test" };
+export const metadata: Metadata = {
+  title: "Placement test: skip what you already know",
+  description:
+    "A 10-minute placement test for Canada's Basic amateur radio exam. Test out of the topics you know and study only the rest.",
+  alternates: { canonical: "/placement" },
+};
 
 interface Latest {
   latest: {

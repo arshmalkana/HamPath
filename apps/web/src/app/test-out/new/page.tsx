@@ -3,7 +3,7 @@ import { serverApi } from "@/lib/server";
 import type { Section } from "@/lib/types";
 import { StartQuiz } from "@/quiz/StartQuiz";
 
-export const metadata: Metadata = { title: "Test out" };
+export const metadata: Metadata = { title: "Test out", robots: { index: false, follow: true } };
 
 export default async function NewTestOutPage({ searchParams }: { searchParams: Promise<{ section?: string }> }) {
   const { section = "" } = await searchParams;

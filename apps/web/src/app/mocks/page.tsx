@@ -3,7 +3,12 @@ import Link from "next/link";
 import { serverApi } from "@/lib/server";
 import { Lab } from "@/labs/Lab";
 
-export const metadata: Metadata = { title: "Mock exams" };
+export const metadata: Metadata = {
+  title: "Free practice exams: Canadian amateur radio Basic",
+  description:
+    "Free mock exams for Canada's Basic amateur radio qualification, drawn from the full ISED question bank, with a review of every question you miss.",
+  alternates: { canonical: "/mocks" },
+};
 export const dynamic = "force-dynamic";
 
 interface MockList {

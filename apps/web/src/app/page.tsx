@@ -1,9 +1,74 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ShackScene } from "@hampath/ui";
 import { serverApi } from "@/lib/server";
 import type { Section } from "@/lib/types";
+import { JsonLd } from "@/components/JsonLd";
+import { COURSE_FACTS, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL, absoluteUrl } from "@/lib/site";
+
+/** Course, WebSite and Organization structured data, built from the real course (no invented ratings). */
+function courseJsonLd(sections: Section[]) {
+  const lessons = sections.flatMap((s) => s.lessons);
+  const minutes = lessons.reduce((n, l) => n + (l.estMinutes ?? 10), 0);
+  const org = { "@type": "Organization", "@id": `${SITE_URL}/#org`, name: SITE_NAME, url: absoluteUrl("/") };
+  return [
+    org,
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#site`,
+      name: SITE_NAME,
+      url: absoluteUrl("/"),
+      inLanguage: "en-CA",
+      publisher: { "@id": org["@id"] },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "@id": `${SITE_URL}/#course`,
+      name: "Canadian Amateur Radio Basic Qualification exam prep",
+      description: SITE_DESCRIPTION,
+      url: absoluteUrl("/"),
+      provider: { "@id": org["@id"] },
+      inLanguage: "en-CA",
+      isAccessibleForFree: true,
+      educationalLevel: "Beginner",
+      teaches: sections.map((s) => s.title),
+      educationalCredentialAwarded: COURSE_FACTS.credential,
+      offers: { "@type": "Offer", category: "Free", price: 0, priceCurrency: "CAD" },
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "Online",
+        courseWorkload: `PT${Math.round(minutes / 60)}H`,
+      },
+      syllabusSections: sections.map((s) => ({
+        "@type": "Syllabus",
+        name: `${s.number}. ${s.title}`,
+        description: s.lessons.map((l) => `${l.code} ${l.title}`).join("; "),
+      })),
+      hasPart: lessons.map((l) => ({
+        "@type": "LearningResource",
+        name: `${l.code} ${l.title}`,
+        url: absoluteUrl(`/lessons/${l.code}`),
+      })),
+    },
+  ];
+}
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: SITE_NAME,
+    locale: "en_CA",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: { card: "summary_large_image", title: SITE_TITLE, description: SITE_DESCRIPTION },
+};
 
 interface Dashboard {
   readiness: {
@@ -137,6 +202,7 @@ export default async function DashboardPage() {
 
   return (
     <main className="container page" id="main">
+      <JsonLd data={courseJsonLd(sections)} />
       <div className="dash-hero">
         <div className="shack shack-panel dash-scene">
           <ShackScene
@@ -148,7 +214,7 @@ export default async function DashboardPage() {
           />
         </div>
         <div className="dash-intro">
-          <h1 className="page-title">Basic Qualification, all 984 questions</h1>
+          <h1 className="page-title">Canada’s Basic amateur radio exam, all 984 questions</h1>
           <p className="page-lead">
             {r.mastered
               ? `${r.mastered} of ${r.totalQuestions} mastered (${r.masteryPercent}%).`

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { QuizPage } from "@/quiz/QuizPage";
 
-export const metadata: Metadata = { title: "Placement test" };
+export const metadata: Metadata = { title: "Placement test", robots: { index: false, follow: true } };
 
 export default async function PlacementRunPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

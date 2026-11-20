@@ -6,6 +6,7 @@ import { ThemeToggle } from "@hampath/ui";
 import { OfflineSupport } from "@/components/OfflineSupport";
 import { ThemeScript } from "@/components/ThemeScript";
 import { serverApi } from "@/lib/server";
+import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/site";
 import type { User } from "@/lib/types";
 import "./globals.css";
 
@@ -13,10 +14,30 @@ const body = Atkinson_Hyperlegible_Next({ subsets: ["latin"], variable: "--font-
 const mono = Azeret_Mono({ subsets: ["latin"], variable: "--font-azeret", display: "swap" });
 
 export const metadata: Metadata = {
-  title: { default: "HamPath", template: "%s · HamPath" },
-  description: "Learn every question of Canada's Basic amateur radio exam by doing: labs, short lessons and checks.",
+  metadataBase: new URL(SITE_URL),
+  title: { default: SITE_TITLE, template: "%s · HamPath" },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: SITE_KEYWORDS,
+  category: "education",
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    locale: "en_CA",
+  },
+  twitter: { card: "summary_large_image" },
+  robots: { index: true, follow: true, googleBot: { "max-image-preview": "large", "max-snippet": -1 } },
+  // Set GOOGLE_SITE_VERIFICATION to verify in Search Console with a meta tag (a DNS record works too).
+  verification: process.env.GOOGLE_SITE_VERIFICATION ? { google: process.env.GOOGLE_SITE_VERIFICATION } : undefined,
 };
-export const viewport: Viewport = { width: "device-width", initialScale: 1 };
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fcfaf7" },
+    { media: "(prefers-color-scheme: dark)", color: "#101419" },
+  ],
+};
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const me = await serverApi<{ user: User }>("/me");

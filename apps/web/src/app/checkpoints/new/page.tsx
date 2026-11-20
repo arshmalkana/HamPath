@@ -3,7 +3,7 @@ import { serverApi } from "@/lib/server";
 import type { Section } from "@/lib/types";
 import { StartCheckpoint } from "./StartCheckpoint";
 
-export const metadata: Metadata = { title: "Section Checkpoint" };
+export const metadata: Metadata = { title: "Section Checkpoint", robots: { index: false, follow: true } };
 
 export default async function NewCheckpointPage({ searchParams }: { searchParams: Promise<{ section?: string }> }) {
   const { section = "" } = await searchParams;

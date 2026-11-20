@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Offline" };
+export const metadata: Metadata = { title: "Offline", robots: { index: false, follow: true } };
 
 /** Served by the service worker when a page isn't saved on this device and there's no connection. */
 export default function OfflinePage() {

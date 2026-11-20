@@ -3,7 +3,7 @@ import Link from "next/link";
 import { serverApi } from "@/lib/server";
 import { CreateClass, JoinClass } from "./forms";
 
-export const metadata: Metadata = { title: "Classes" };
+export const metadata: Metadata = { title: "Classes", robots: { index: false, follow: true } };
 
 interface Classes {
   canTeach: boolean;

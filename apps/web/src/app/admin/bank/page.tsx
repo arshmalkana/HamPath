@@ -3,7 +3,7 @@ import Link from "next/link";
 import { serverApi } from "@/lib/server";
 import { BankUpload, ResolveReview } from "./BankUpload";
 
-export const metadata: Metadata = { title: "Question bank updates" };
+export const metadata: Metadata = { title: "Question bank updates", robots: { index: false, follow: true } };
 
 interface Versions {
   versions: {

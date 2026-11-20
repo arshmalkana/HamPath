@@ -4,7 +4,7 @@ import { serverApi } from "@/lib/server";
 import type { Section } from "@/lib/types";
 import { AssignSection, RemoveAssignment, StartLive } from "./controls";
 
-export const metadata: Metadata = { title: "Class" };
+export const metadata: Metadata = { title: "Class", robots: { index: false, follow: true } };
 
 interface Assignment {
   sectionId: string;

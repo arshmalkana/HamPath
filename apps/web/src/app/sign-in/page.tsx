@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { serverApi } from "@/lib/server";
 import { SignInForm } from "./SignInForm";
 
-export const metadata: Metadata = { title: "Sign in" };
+export const metadata: Metadata = { title: "Sign in", robots: { index: false, follow: true } };
 
 const ERRORS: Record<string, string> = {
   expired: "That sign-in link has expired or was already used. Ask for a new one.",

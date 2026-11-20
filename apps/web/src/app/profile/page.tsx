@@ -4,7 +4,7 @@ import { serverApi } from "@/lib/server";
 import type { User } from "@/lib/types";
 import { ProfileForm } from "./ProfileForm";
 
-export const metadata: Metadata = { title: "Profile" };
+export const metadata: Metadata = { title: "Profile", robots: { index: false, follow: true } };
 export const dynamic = "force-dynamic";
 
 interface Readiness {

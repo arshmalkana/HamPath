@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { serverApi } from "@/lib/server";
 
-export const metadata: Metadata = { title: "Course analytics" };
+export const metadata: Metadata = { title: "Course analytics", robots: { index: false, follow: true } };
 
 interface Analytics {
   flagBelow: number;

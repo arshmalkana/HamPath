@@ -72,6 +72,9 @@ services:
     restart: unless-stopped
     environment:
       API_ORIGIN: http://api:4000
+      # Canonical URLs, the sitemap and share cards use the public address.
+      APP_ORIGIN: ${APP_ORIGIN}
+      GOOGLE_SITE_VERIFICATION: ${GOOGLE_SITE_VERIFICATION:-}
       SENTRY_DSN: ${SENTRY_DSN:-}
       SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT:-production}
       APP_VERSION: ${APP_VERSION:-}
