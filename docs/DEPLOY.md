@@ -1,6 +1,6 @@
 # Deploying HamPath
 
-HamPath runs as Docker containers on the homelab Docker VM (**vm104** on the Proxmox host, the same VM and runner pattern as AHDP), behind **Nginx Proxy Manager** (NPM). GitHub Actions tests every push. A merge to `main` that passes CI deploys itself through a self-hosted runner on the VM, so nothing on the LAN is exposed to GitHub.
+HamPath runs as Docker containers on a self-hosted Docker VM (called **vm104** here; the runner label uses that name), behind **Nginx Proxy Manager** (NPM). GitHub Actions tests every push. A merge to `main` that passes CI deploys itself through a self-hosted runner on the VM, so nothing on the LAN is exposed to GitHub.
 
 ```
                  Internet
@@ -37,7 +37,7 @@ HamPath runs as Docker containers on the homelab Docker VM (**vm104** on the Pro
 
 ## One-time setup on vm104
 
-Docker and the Compose plugin are already there for AHDP.
+Install Docker and the Compose plugin if the VM doesn't have them.
 
 1. **Directories and settings.**
 
@@ -51,11 +51,11 @@ Docker and the Compose plugin are already there for AHDP.
    - `APP_ORIGIN`: the public address, such as `https://hampath.example.com`.
    - `POSTGRES_PASSWORD` and `ADMIN_TOKEN`: generate each with `openssl rand -base64 36`.
    - `SMTP_URL` and `MAIL_FROM`: magic-link sign-in needs working e-mail. Any SMTP relay works, for example your provider's, or Brevo or Mailgun.
-   - `WEB_PORT=8090`: AHDP already uses 8082, 5050 and 5432. Set `WEB_BIND=0.0.0.0` if NPM runs in another VM or LXC, or `127.0.0.1` if it runs on vm104.
+   - `WEB_PORT=8090`, or any free port on the VM. Set `WEB_BIND=0.0.0.0` if NPM runs in another VM or LXC, or `127.0.0.1` if it runs on vm104.
    - `BACKUP_DIR=/opt/hampath/backups`.
    - Optional: Google sign-in, error monitoring and the backup push monitor (below).
 
-2. **The runner.** The deploy job runs on `[self-hosted, vm104]`. If AHDP's runner is registered to the AHDP repo only, add a second runner for HamPath under GitHub → HamPath → Settings → Actions → Runners → New self-hosted runner (Linux):
+2. **The runner.** The deploy job runs on `[self-hosted, vm104]`. Register a runner for HamPath under GitHub → HamPath → Settings → Actions → Runners → New self-hosted runner (Linux):
    - install it in `/opt/hampath/actions-runner`;
    - give it the label `vm104`;
    - start it with `sudo ./svc.sh install && sudo ./svc.sh start`.
