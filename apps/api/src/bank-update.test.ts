@@ -42,15 +42,17 @@ function learner() {
 
 /** The bank with one question's correct answer reworded (field 3 is always the correct answer). */
 function withNewAnswer(qid: string, answer: string) {
+  // ISED ships CRLF (and .gitattributes keeps it), but don't depend on the checkout's line endings.
+  const eol = original.includes("\r\n") ? "\r\n" : "\n";
   return original
-    .split("\r\n")
+    .split(eol)
     .map((line) => {
       if (!line.startsWith(`${qid};`)) return line;
       const f = line.split(";");
       f[2] = answer;
       return f.join(";");
     })
-    .join("\r\n");
+    .join(eol);
 }
 
 describe("bank update workflow (Step 33)", () => {

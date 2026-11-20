@@ -1,2 +1,5 @@
 # Shell scripts run inside Linux containers: always LF.
 *.sh text eol=lf
+
+# ISED's question bank is kept byte for byte as published (CRLF): never convert its line endings.
+content/bank/*.txt -text
