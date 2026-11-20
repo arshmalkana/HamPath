@@ -1965,6 +1965,13 @@ a.lesson-tile[data-done="true"] {
   border-collapse: collapse;
   font-size: var(--text-sm);
 }
+.table caption {
+  caption-side: top;
+  text-align: start;
+  padding-block: var(--space-sm) var(--space-2xs);
+  font-weight: 600;
+  color: var(--color-ink);
+}
 /* Classes and the live quiz (Step 31). */
 .join-code {
   font-family: var(--font-outlier);

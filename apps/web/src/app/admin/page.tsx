@@ -7,6 +7,19 @@ export const metadata: Metadata = { title: "Course analytics", robots: { index: 
 interface Analytics {
   flagBelow: number;
   minAnswers: number;
+  users: {
+    signedUp: number;
+    guests: number;
+    total: number;
+    admins: number;
+    instructors: number;
+    activeLearners: number;
+    answers: number;
+    activeToday: number;
+    activeThisWeek: number;
+    perDay: { day: string; signedUp: number; newAccounts: number; activeLearners: number; answers: number }[];
+    recentSignUps: { email: string; callSign: string | null; role: string; signedUpAt: string; answers: number }[];
+  };
   questions: {
     questionId: string;
     lessonCode: string;
@@ -69,6 +82,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
     );
   }
   const a = res.data;
+  const u = a.users;
   const flagged = a.questions.filter((q) => q.flagged);
   const answered = a.questions.filter((q) => q.learners >= a.minAnswers);
   const lowest = answered.filter((q) => !q.flagged).slice(0, 15);
@@ -97,6 +111,93 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
             : `None falls below ${pct(a.flagBelow)} first-try success.`}
         </p>
       </div>
+
+      <section className="map-section" aria-labelledby="learners">
+        <h2 className="section-title" id="learners">
+          Learners
+        </h2>
+        <div className="stats">
+          <div className="stat">
+            <h3 className="stat-title">Signed up</h3>
+            <p className="stat-num">{u.signedUp}</p>
+            <p className="stat-text">Added an e-mail or Google{window ? " in this window" : ""}.</p>
+          </div>
+          <div className="stat">
+            <h3 className="stat-title">Guests</h3>
+            <p className="stat-num">{u.guests}</p>
+            <p className="stat-text">Visitors who opened a lesson but haven’t signed up.</p>
+          </div>
+          <div className="stat">
+            <h3 className="stat-title">Answering questions</h3>
+            <p className="stat-num">{u.activeLearners}</p>
+            <p className="stat-text">
+              {u.answers} answers. {u.activeToday} today, {u.activeThisWeek} in the last 7 days.
+            </p>
+          </div>
+        </div>
+        <div className="table-scroll" tabIndex={0} role="region" aria-labelledby="per-day">
+          <table className="table">
+            <caption id="per-day">Last 14 days (UTC dates)</caption>
+            <thead>
+              <tr>
+                <th scope="col">Day</th>
+                <th scope="col" className="num">
+                  Signed up
+                </th>
+                <th scope="col" className="num">
+                  New visitors
+                </th>
+                <th scope="col" className="num">
+                  Learners active
+                </th>
+                <th scope="col" className="num">
+                  Answers
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {u.perDay.map((d) => (
+                <tr key={d.day}>
+                  <th scope="row">{d.day}</th>
+                  <td className="num">{d.signedUp}</td>
+                  <td className="num">{d.newAccounts}</td>
+                  <td className="num">{d.activeLearners}</td>
+                  <td className="num">{d.answers}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {u.recentSignUps.length > 0 && (
+          <div className="table-scroll" tabIndex={0} role="region" aria-labelledby="recent-signups">
+            <table className="table">
+              <caption id="recent-signups">Latest sign-ups</caption>
+              <thead>
+                <tr>
+                  <th scope="col">E-mail</th>
+                  <th scope="col">Call sign</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Signed up</th>
+                  <th scope="col" className="num">
+                    Answers
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {u.recentSignUps.map((r) => (
+                  <tr key={r.email}>
+                    <th scope="row">{r.email}</th>
+                    <td>{r.callSign ?? "–"}</td>
+                    <td>{r.role}</td>
+                    <td>{r.signedUpAt.slice(0, 10)}</td>
+                    <td className="num">{r.answers}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </section>
 
       <section className="map-section" aria-labelledby="flagged">
         <h2 className="section-title" id="flagged">

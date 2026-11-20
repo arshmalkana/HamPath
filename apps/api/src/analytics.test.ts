@@ -62,6 +62,12 @@ describe("GET /admin/analytics (Step 30)", () => {
     for (let i = 0; i < 6; i++) {
       const call = browser();
       const userId = (await call("POST", "/auth/guest")).json.user.id as string;
+      // Users: the first learner signs up (as a magic link or Google sign-in would record it).
+      if (i === 0)
+        await pool.query(`UPDATE "user" SET email = $2, is_guest = false, email_verified_at = now() WHERE id = $1`, [
+          userId,
+          `signup-${userId}@example.com`,
+        ]);
       // Hard: 2 of 6 right first time, and later answers don't change the first try.
       await call("POST", "/attempts", { question_id: hard, option_id: i < 2 ? h.right : h.wrong, context: "review" });
       await call("POST", "/attempts", { question_id: hard, option_id: h.right, context: "review" });
@@ -111,6 +117,14 @@ describe("GET /admin/analytics (Step 30)", () => {
     expect(step.completed).toBe(2);
     expect(step.hintRate).toBeGreaterThan(0);
     expect(step.skipped).toBe(1);
+
+    expect(json.users).toMatchObject({ signedUp: 1, activeLearners: 6 });
+    expect(json.users.guests).toBeGreaterThanOrEqual(5); // the window also catches the previous test's guest
+    expect(json.users.answers).toBeGreaterThanOrEqual(6 * 2);
+    expect(json.users.recentSignUps).toHaveLength(1);
+    expect(json.users.recentSignUps[0].email).toMatch(/^signup-.*@example.com$/);
+    expect(json.users.perDay).toHaveLength(14);
+    expect(json.users.perDay[0].signedUp).toBeGreaterThanOrEqual(1);
     expect(step.skipRate).toBeCloseTo(1 / 6, 2);
 
     const lesson = json.lessons.find((l: any) => l.code === "6.02");

@@ -6,6 +6,8 @@
  *   with enough answers is flagged, with a link to the card that teaches it.
  * - Labs: per lab and per step, learners who started, reached the goal (server-verified) and used hints.
  * - Lessons: started, finished and where unfinished learners stopped.
+ * - Users: sign-ups (guests who added an e-mail or Google), guests, active learners and answers,
+ *   per day, plus the latest sign-ups. This is the one part that names people (admins only).
  */
 import type { FastifyInstance } from "fastify";
 import { z } from "zod";
@@ -24,12 +26,13 @@ export function analyticsRoutes(app: FastifyInstance, pool: Pool) {
     await requireAdmin(pool, req);
     const since = z.iso.datetime({ offset: true }).optional().parse(req.query.since);
     const from = since ? new Date(since) : new Date(0);
-    const [questions, labs, lessons] = await Promise.all([
+    const [users, questions, labs, lessons] = await Promise.all([
+      userStats(pool, from),
       questionStats(pool, from),
       labStats(pool, from),
       lessonStats(pool, from),
     ]);
-    return { since: since ?? null, flagBelow: FLAG_BELOW, minAnswers: MIN_ANSWERS, questions, labs, lessons };
+    return { since: since ?? null, flagBelow: FLAG_BELOW, minAnswers: MIN_ANSWERS, users, questions, labs, lessons };
   });
 }
 
@@ -173,4 +176,79 @@ async function lessonStats(pool: Pool, from: Date) {
       mostCommonStop: top ? { step: top.step, screen: screenName(r.id, top.step), learners: top.n } : null,
     };
   });
+}
+
+/** Days shown in the per-day table. */
+const USER_DAYS = 14;
+
+async function userStats(pool: Pool, from: Date) {
+  // A sign-up is a guest who verified an e-mail or signed in with Google (email_verified_at is set then).
+  const [totals, active, perDay, recent] = await Promise.all([
+    pool.query<{ signed_up: number; guests: number; total: number; admins: number; instructors: number }>(
+      `SELECT count(*) FILTER (WHERE NOT is_guest AND email IS NOT NULL
+                                AND coalesce(email_verified_at, created_at) >= $1)::int AS signed_up,
+              count(*) FILTER (WHERE is_guest AND created_at >= $1)::int AS guests,
+              count(*) FILTER (WHERE created_at >= $1 OR coalesce(email_verified_at, created_at) >= $1)::int AS total,
+              count(*) FILTER (WHERE role = 'admin')::int AS admins,
+              count(*) FILTER (WHERE role = 'instructor')::int AS instructors
+         FROM "user"`,
+      [from],
+    ),
+    pool.query<{ learners: number; answers: number; today: number; week: number }>(
+      `SELECT count(DISTINCT user_id)::int AS learners,
+              count(*)::int AS answers,
+              count(DISTINCT user_id) FILTER (WHERE created_at >= date_trunc('day', now()))::int AS today,
+              count(DISTINCT user_id) FILTER (WHERE created_at >= now() - interval '7 days')::int AS week
+         FROM attempt WHERE created_at >= $1`,
+      [from],
+    ),
+    pool.query<{ day: string; signed_up: number; guests: number; learners: number; answers: number }>(
+      `WITH days AS (
+         SELECT generate_series(date_trunc('day', now()) - ($1 - 1) * interval '1 day', date_trunc('day', now()), interval '1 day')::date AS day
+       )
+       SELECT to_char(d.day, 'YYYY-MM-DD') AS day,
+              (SELECT count(*) FROM "user" u WHERE NOT u.is_guest AND u.email IS NOT NULL
+                 AND coalesce(u.email_verified_at, u.created_at)::date = d.day)::int AS signed_up,
+              (SELECT count(*) FROM "user" u WHERE u.created_at::date = d.day)::int AS guests,
+              (SELECT count(DISTINCT a.user_id) FROM attempt a WHERE a.created_at::date = d.day)::int AS learners,
+              (SELECT count(*) FROM attempt a WHERE a.created_at::date = d.day)::int AS answers
+         FROM days d ORDER BY d.day DESC`,
+      [USER_DAYS],
+    ),
+    pool.query<{ email: string; call_sign: string | null; role: string; signed_up_at: Date; answers: number }>(
+      `SELECT u.email, u.call_sign, u.role, coalesce(u.email_verified_at, u.created_at) AS signed_up_at,
+              (SELECT count(*) FROM attempt a WHERE a.user_id = u.id)::int AS answers
+         FROM "user" u
+        WHERE NOT u.is_guest AND u.email IS NOT NULL AND coalesce(u.email_verified_at, u.created_at) >= $1
+        ORDER BY signed_up_at DESC LIMIT 25`,
+      [from],
+    ),
+  ]);
+  const t = totals.rows[0]!;
+  const a = active.rows[0]!;
+  return {
+    signedUp: t.signed_up,
+    guests: t.guests,
+    total: t.total,
+    admins: t.admins,
+    instructors: t.instructors,
+    activeLearners: a.learners,
+    answers: a.answers,
+    activeToday: a.today,
+    activeThisWeek: a.week,
+    perDay: perDay.rows.map((r) => ({
+      day: r.day,
+      signedUp: r.signed_up,
+      newAccounts: r.guests,
+      activeLearners: r.learners,
+      answers: r.answers,
+    })),
+    recentSignUps: recent.rows.map((r) => ({
+      email: r.email,
+      callSign: r.call_sign,
+      role: r.role,
+      signedUpAt: r.signed_up_at.toISOString(),
+      answers: r.answers,
+    })),
+  };
 }
