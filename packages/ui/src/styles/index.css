@@ -664,6 +664,13 @@ a.lesson-tile[data-authored="true"] .lesson-tile-code {
   display: grid;
   gap: var(--space-2xs);
 }
+/* Tables in lesson cards: the body text size, and a header row only when it has something in it. */
+.prose-table .table {
+  font-size: var(--text-md);
+}
+.prose-table thead:not(:has(th:not(:empty))) {
+  display: none;
+}
 .exam-fact {
   display: grid;
   gap: var(--space-2xs);
