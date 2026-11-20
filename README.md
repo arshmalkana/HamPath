@@ -110,3 +110,9 @@ Each lesson is a folder such as `content/sections/05-electronics/lessons/5.04-oh
 ## CI and deployment
 
 GitHub Actions runs the content checks, lint, formatting, types, a dependency audit, the tests against Postgres, the production build and both Docker images on every push and pull request. When CI passes on `main`, a self-hosted runner deploys the Docker stack. See [docs/DEPLOY.md](docs/DEPLOY.md) for running your own copy, and [docs/SECURITY.md](docs/SECURITY.md) for the security model.
+
+## License
+
+HamPath's code and course content are released under the [MIT License](LICENSE).
+
+The question bank in `content/bank/` is published by Innovation, Science and Economic Development Canada and is not covered by that license; it is included unchanged so the course can teach its exact wording.

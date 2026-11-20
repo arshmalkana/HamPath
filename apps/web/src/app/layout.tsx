@@ -87,8 +87,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                   Sign in
                 </Link>
               )}
-              <ThemeToggle />
             </nav>
+            <ThemeToggle />
           </div>
         </header>
         <OfflineSupport />

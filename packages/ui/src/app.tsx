@@ -1,5 +1,5 @@
 "use client";
-import { useState, type ButtonHTMLAttributes, type ReactNode } from "react";
+import { useSyncExternalStore, type ButtonHTMLAttributes, type ReactNode } from "react";
 
 export function cx(...xs: (string | false | null | undefined)[]) {
   return xs.filter(Boolean).join(" ");
@@ -135,43 +135,70 @@ export function MasteryRing({
   );
 }
 
-type ThemePref = "system" | "light" | "dark";
 const THEME_KEY = "hp-theme";
 
 /** Inline script for <head>: applies the saved theme before first paint (no flash). */
 export const themeInitScript = `try{var t=localStorage.getItem("${THEME_KEY}");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
 
+const THEME_EVENT = "hp-theme-change";
+
+/** Re-read the theme when the device setting changes or the switch is used. */
+function subscribeTheme(onChange: () => void) {
+  const mq = window.matchMedia("(prefers-color-scheme: dark)");
+  mq.addEventListener("change", onChange);
+  window.addEventListener(THEME_EVENT, onChange);
+  return () => {
+    mq.removeEventListener("change", onChange);
+    window.removeEventListener(THEME_EVENT, onChange);
+  };
+}
+
+/** The theme in effect: the saved choice, or the device's setting when nothing is saved. */
+function effectiveDark(): boolean {
+  const t = document.documentElement.dataset.theme;
+  if (t === "dark") return true;
+  if (t === "light") return false;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+
+/**
+ * Light/dark switch: a sun and a moon with a highlight under the active one. Until the learner
+ * picks, it follows the device. The highlight's position comes from CSS (html[data-theme] and
+ * prefers-color-scheme), so it's right from first paint; aria-checked is synced once mounted.
+ */
 export function ThemeToggle() {
-  // The init script has already applied any saved choice to <html data-theme>; read it back.
-  const [pref, setPref] = useState<ThemePref>(() => {
-    if (typeof document === "undefined") return "system";
-    const t = document.documentElement.dataset.theme;
-    return t === "light" || t === "dark" ? t : "system";
-  });
-  const next: Record<ThemePref, ThemePref> = { system: "light", light: "dark", dark: "system" };
-  const shown: Record<ThemePref, string> = { system: "Auto", light: "Light", dark: "Dark" };
-  const choose = () => {
-    const p = next[pref];
-    setPref(p);
-    if (p === "system") delete document.documentElement.dataset.theme;
-    else document.documentElement.dataset.theme = p;
+  // null on the server (it can't know); the device setting and the saved choice in the browser.
+  const dark = useSyncExternalStore(subscribeTheme, effectiveDark, () => null);
+  const toggle = () => {
+    const next = !effectiveDark();
+    const value = next ? "dark" : "light";
+    document.documentElement.dataset.theme = value;
     try {
-      if (p === "system") localStorage.removeItem(THEME_KEY);
-      else localStorage.setItem(THEME_KEY, p);
+      localStorage.setItem(THEME_KEY, value);
     } catch {
       /* ignore */
     }
+    window.dispatchEvent(new Event(THEME_EVENT));
   };
   return (
     <button
       type="button"
-      className="toplink"
-      onClick={choose}
-      // Starts with the visible word so voice control ("click Auto") works (WCAG 2.5.3).
-      aria-label={`${shown[pref]} theme, switch to ${shown[next[pref]]}`}
+      role="switch"
+      className="theme-switch"
+      aria-checked={dark ?? undefined}
+      aria-label="Dark theme"
+      title={dark ? "Switch to light theme" : "Switch to dark theme"}
+      onClick={toggle}
       suppressHydrationWarning
     >
-      {shown[pref]}
+      <span className="theme-switch-knob" aria-hidden="true" />
+      <svg className="theme-switch-icon theme-switch-sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2" />
+        <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7" />
+      </svg>
+      <svg className="theme-switch-icon theme-switch-moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 14.6A8.4 8.4 0 0 1 9.4 4a8.4 8.4 0 1 0 10.6 10.6Z" />
+      </svg>
     </button>
   );
 }

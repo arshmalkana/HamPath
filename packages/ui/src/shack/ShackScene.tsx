@@ -63,6 +63,41 @@ function Digits({ text, x, y, scale }: { text: string; x: number; y: number; sca
   );
 }
 
+/** Tower geometry: centre x, base and top of the lattice, half-widths there, and the mast. */
+const TOWER = { x: 858, base: 216, top: 92, baseHalf: 15, topHalf: 4, bays: 6, mastTop: 64, boomY: 68, dipoleY: 104 };
+
+/**
+ * A tapering lattice tower: two legs, a level girt at every bay and an X brace in each bay, then a
+ * mast carrying a three-element Yagi seen side-on (reflector longest, director shortest).
+ */
+function Tower() {
+  const t = TOWER;
+  const half = (y: number) => t.topHalf + ((y - t.top) / (t.base - t.top)) * (t.baseHalf - t.topHalf);
+  const levels = Array.from({ length: t.bays + 1 }, (_, i) => t.base - (i * (t.base - t.top)) / t.bays);
+  const bracing = levels.slice(0, -1).map((y0, i) => {
+    const y1 = levels[i + 1]!;
+    const [a, b] = [half(y0), half(y1)];
+    return `M${t.x - a} ${y0} L${t.x + b} ${y1} M${t.x + a} ${y0} L${t.x - b} ${y1} M${t.x - b} ${y1} H${t.x + b}`;
+  });
+  const elements = [
+    [-26, 15],
+    [0, 12],
+    [26, 9],
+  ] as const;
+  return (
+    <g className="scene-silhouette-line">
+      <path
+        d={`M${t.x - t.baseHalf} ${t.base} L${t.x - t.topHalf} ${t.top} M${t.x + t.baseHalf} ${t.base} L${t.x + t.topHalf} ${t.top}`}
+        strokeWidth="2.6"
+      />
+      <path d={bracing.join(" ")} strokeWidth="1.2" />
+      <path d={`M${t.x} ${t.top} V${t.mastTop}`} strokeWidth="2.4" />
+      <path d={`M${t.x - 30} ${t.boomY} H${t.x + 30}`} strokeWidth="2.6" />
+      <path d={elements.map(([dx, h]) => `M${t.x + dx} ${t.boomY - h} V${t.boomY + h}`).join(" ")} strokeWidth="1.8" />
+    </g>
+  );
+}
+
 /**
  * The virtual shack (SPEC §1): a station desk with a transceiver, power supply, microphone and
  * Morse key, a wall map with today's grey line, a "band conditions" board, and the antenna farm
@@ -111,27 +146,16 @@ export function ShackScene({ now, readiness, bands }: ShackSceneProps) {
         <rect x="672" y="34" width="248" height="186" fill="url(#scene-sky)" />
         <circle cx="712" cy="196" r="20" className="scene-sun" />
         <path d="M672 200 Q720 178 770 192 T870 186 T920 196 V220 H672 Z" className="scene-hill" />
-        {/* Lattice tower with a three-element Yagi */}
-        <g className="scene-silhouette-line">
-          <path d="M812 214 L826 82 L840 214" />
-          {[200, 182, 164, 146, 128, 110, 94].map((y, i) => {
-            const half = 14 - ((214 - y) / 132) * 7;
-            return (
-              <path
-                key={y}
-                d={`M${826 - half} ${y} L${826 + half} ${y - 14} ${i % 2 ? `M${826 + half} ${y} L${826 - half} ${y - 14}` : ""}`}
-              />
-            );
-          })}
-          <path d="M826 82 V64" />
-          <path d="M790 66 H862" strokeWidth="3" />
-          <path d="M796 56 V76 M826 54 V78 M856 58 V74" />
-        </g>
+        {/* Lattice tower with a three-element Yagi, centred in the right-hand pane */}
+        <Tower />
         {/* Wire dipole off the tower */}
-        <path d="M826 96 Q870 120 916 104" className="scene-wire" />
-        <path d="M826 96 Q780 124 690 112" className="scene-wire" />
+        <path
+          d={`M${TOWER.x} ${TOWER.dipoleY} Q${TOWER.x + 30} ${TOWER.dipoleY + 18} 914 108`}
+          className="scene-wire"
+        />
+        <path d={`M${TOWER.x} ${TOWER.dipoleY} Q770 128 690 112`} className="scene-wire" />
         <circle cx="690" cy="112" r="2.5" className="scene-insulator" />
-        <circle cx="916" cy="104" r="2.5" className="scene-insulator" />
+        <circle cx="914" cy="108" r="2.5" className="scene-insulator" />
       </g>
       <path d="M796 24 V230 M662 128 H930" className="scene-mullion" />
 

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ShackScene } from "@hampath/ui";
 import { serverApi } from "@/lib/server";
 import type { Section } from "@/lib/types";
 import { JsonLd } from "@/components/JsonLd";
+import { LiveShackScene } from "@/components/LiveShackScene";
 import { COURSE_FACTS, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL, absoluteUrl } from "@/lib/site";
 
 /** Course, WebSite and Organization structured data, built from the real course (no invented ratings). */
@@ -205,8 +205,8 @@ export default async function DashboardPage() {
       <JsonLd data={courseJsonLd(sections)} />
       <div className="dash-hero">
         <div className="shack shack-panel dash-scene">
-          <ShackScene
-            now={new Date()}
+          <LiveShackScene
+            serverNow={new Date().toISOString()}
             readiness={r.readiness}
             bands={[...sections]
               .sort((a, b) => a.number - b.number)
