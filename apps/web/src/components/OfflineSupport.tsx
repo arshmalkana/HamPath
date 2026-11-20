@@ -20,6 +20,18 @@ export function OfflineSupport() {
     }
     if (wantSw && "serviceWorker" in navigator) {
       navigator.serviceWorker.register("/sw.js").catch(() => undefined);
+    } else if ("serviceWorker" in navigator) {
+      // A worker left on this origin (a production build once served here, or hp-sw=1 earlier)
+      // would keep serving cached /_next/static chunks; in dev those change under the same name,
+      // which breaks the page ("module factory is not available"). Remove it and its caches.
+      void navigator.serviceWorker.getRegistrations().then(async (regs) => {
+        if (!regs.length) return;
+        await Promise.all(regs.map((r) => r.unregister()));
+        const keys = await caches.keys().catch(() => [] as string[]);
+        await Promise.all(keys.filter((k) => k.startsWith("hampath-")).map((k) => caches.delete(k)));
+        // The page that just loaded may already hold stale chunks: load it once more from the server.
+        window.location.reload();
+      });
     }
     const sync = () => {
       setOnline(navigator.onLine);
