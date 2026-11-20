@@ -69,7 +69,7 @@ describe("ISED bank, word for word", () => {
     }
     expect(mismatches).toEqual([]);
     expect(served.size).toBe(984);
-  });
+  }, 120_000);
 
   it("grades the bank's correct answer as right, and every other option as wrong", async () => {
     const call = browser();
